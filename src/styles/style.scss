@@ -1,0 +1,74 @@
+@import './variables',
+'./components/index',
+'./pages/index';
+
+@import url('https://fonts.googleapis.com/css2?family=Inria+Sans&display=swap');
+
+html,
+body {
+    background-color: $grey-1;
+    font-family: 'Inria Sans', sans-serif;
+}
+
+* {
+    box-sizing: border-box
+}
+
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
+}
+
+#root {
+    @extend .flexd-row-center;
+    padding: 10px;
+}
+
+.card {
+    @extend .flexd-row-center;
+    background-color: $grey-2;
+    border-radius: 10px;
+    height: 100px;
+    min-width: 200px;
+    margin: 20px 5px;
+    font-size: 25px;
+    color: $white-1;
+}
+
+.hash-wrapper {
+    font-size: 25px;
+    margin: 2rem 0;
+    color: $white-1;
+
+    .title-container {
+        font-size: 30px;
+        color: $orange-1;
+        text-align: center;
+    }
+
+    .contents {
+        color: $white-1;
+    }
+}
+
+.link {
+    color: $white-1;
+    text-decoration: none;
+    outline: none;
+
+    &.underline{
+        text-decoration: underline;
+    }
+
+    &:hover,
+    &:focus {
+        color: $orange-1;
+    }
+}

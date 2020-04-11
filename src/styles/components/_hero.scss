@@ -1,0 +1,19 @@
+.hero {
+    display: flex;
+    place-content: center;
+    place-items: center;
+
+    .logo {
+        height: 200px;
+    }
+
+    .title-container {
+        display: flex;
+        flex-direction: column;
+
+        .title,
+        .sub-title {
+            color: $orange-1;
+        }
+    }
+}

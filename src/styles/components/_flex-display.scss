@@ -1,0 +1,28 @@
+.flexd {
+    display: flex;
+
+    &.row {
+        flex-direction: column;
+    }
+
+    &.center {
+        place-content: center;
+        place-items: center;
+    }
+}
+
+.flexd-row {
+    @extend .flexd;
+    @extend .flexd.row;
+}
+
+.flexd-center {
+    @extend .flexd;
+    @extend .flexd.center;
+}
+
+.flexd-row-center {
+    @extend .flexd;
+    @extend .flexd.row;
+    @extend .flexd.center;
+}
