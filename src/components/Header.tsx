@@ -2,17 +2,26 @@ import React from 'react';
 import { Logo } from './Logo';
 import { Link } from "@reach/router";
 
-export interface HeaderProps { }
+export interface HeaderProps {
+    showLogo?: boolean;
+    showLinkDevice?: boolean;
+}
 
-const Header: React.SFC<HeaderProps> = () => {
+const Header: React.SFC<HeaderProps> = ({ showLogo, showLinkDevice }) => {
     return (
         <header>
-            <div className="logo-container">
-                {/* <Logo /> */}
-            </div>
+            <span>
+                {
+                    showLogo && (
+                        <Link to="/" className="logo-container link">
+                            <Logo />
+                            OrangeFox Recovery
+                        </Link>)
+                }
+            </span>
             <ul className="routes">
                 <li>
-                    <Link to="/devices">/devices</Link>{" "}
+                    {showLinkDevice && <Link to="/device">/devices</Link>}{" "}
                 </li>
                 <li>
                     <Link to="/wiki">/wiki</Link>{" "}

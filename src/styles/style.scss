@@ -8,6 +8,7 @@ html,
 body {
     background-color: $grey-1;
     font-family: 'Inria Sans', sans-serif;
+    font-size: calc(0.75em + 1vmin);
 }
 
 * {
@@ -21,13 +22,14 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+p {
     margin: 0;
     padding: 0;
 }
 
 #root {
-    @extend .flexd-row-center;
+    @extend .flexd-row;
     min-height: 100vh;
 }
 
@@ -37,14 +39,14 @@ h6 {
     border-radius: 10px;
     height: 100px;
     min-width: 200px;
-    margin: 20px 5px;
+    margin: 15px 5px;
     font-size: 25px;
     color: $white-1;
 }
 
 .hash-wrapper {
     font-size: 25px;
-    margin: 2rem 0;
+    margin: 1rem 0;
     color: $white-1;
 
     .title-container {
@@ -70,5 +72,16 @@ h6 {
     &:hover,
     &:focus {
         color: $orange-1;
+    }
+}
+
+ul.no-list-style {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+        padding: 0;
+        margin: 0;
     }
 }

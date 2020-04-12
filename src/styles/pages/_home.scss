@@ -1,31 +1,14 @@
 .home {
     @extend .flexd-center;
-    padding: 10px;
     background: $grey-1;
     font-size: 30px;
-    height: 100vh;
     flex-direction: column;
 
     .center-stage {
         margin: 2rem 0;
-        box-sizing: content-box;
 
         .metrics {
             @extend .flexd-center;
-        }
-    }
-
-    #latestRelease {
-        .contents {
-            @extend .flexd-center;
-            max-width: 90vw;
-            flex-wrap: wrap;
-        }
-    }
-
-    #social {
-        .contents {
-            @extend .flexd-row;
         }
     }
 }

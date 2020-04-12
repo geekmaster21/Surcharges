@@ -4,7 +4,7 @@ import { Link } from "@reach/router";
 const Metrics: React.SFC = () => {
     return (
         <div className="metrics">
-            <Link to="/devices" className="link">
+            <Link to="/device" className="link">
                 <div className="card">
                     <span className="name">
                         Devices

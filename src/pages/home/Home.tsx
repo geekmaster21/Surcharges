@@ -1,17 +1,14 @@
-import React from 'react';
 import { RouteComponentProps } from '@reach/router';
-import { Header } from '../../components';
-import { Help } from './Help';
+import React from 'react';
+import { Header, Help, LatestRelease, Social } from '../../components';
 import { Hero } from './Hero';
-import { LatestRelease } from './Latest-Release';
 import { Metrics } from './Metrics';
-import { Social } from './Social';
 
 export interface HomeProps extends RouteComponentProps { }
 
 const Home: React.SFC<HomeProps> = () => {
     return (<>
-        <Header />
+        <Header showLinkDevice />
         <div className="home">
             <div className="center-stage">
                 <Hero />

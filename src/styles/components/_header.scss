@@ -1,13 +1,22 @@
 header {
     @extend .flexd;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
     z-index: 1;
-    height: 100px;
+    height: $header-ht;
+    padding: 0 10px;
+    font-size: 25px;
 
     .logo-container {
+        max-height: 50px;
+        @extend .flexd;
+        align-items: center;
+        color: $orange-1;
+
         .logo {
-            height: 70px;
+            height: 45px;
+            margin-right: 5px;
         }
     }
 
@@ -17,7 +26,6 @@ header {
         padding: 0;
         display: inline-flex;
         font-size: 20px;
-        margin: 10px;
 
         li {
             margin: 0 5px;
