@@ -1,6 +1,6 @@
 {
   "name": "orangefox",
-  "version": "20.4.11",
+  "version": "20.4.12",
   "private": true,
   "dependencies": {
     "@reach/router": "^1.3.3",

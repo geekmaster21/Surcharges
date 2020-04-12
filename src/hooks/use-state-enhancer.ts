@@ -1,6 +1,6 @@
 import { useState, useEffect, useLayoutEffect } from 'react';
 
-const useStateWithCallback = <T = any>(initialState: T, callback: (state: T) => void) => {
+const useStateWithCallback = <T = any>(initialState: T, callback: (state: T) => void): [T, React.Dispatch<React.SetStateAction<T>>] => {
     const [state, setState] = useState(initialState);
 
     useEffect(() => callback(state), [state, callback]);
@@ -8,7 +8,7 @@ const useStateWithCallback = <T = any>(initialState: T, callback: (state: T) => 
     return [state, setState];
 };
 
-const useStateWithCallbackInstant = <T = any>(initialState: T, callback: (state: T) => void) => {
+const useStateWithCallbackInstant = <T = any>(initialState: T, callback: (state: T) => void): [T, React.Dispatch<React.SetStateAction<T>>] => {
     const [state, setState] = useState(initialState);
 
     useLayoutEffect(() => callback(state), [state, callback]);
