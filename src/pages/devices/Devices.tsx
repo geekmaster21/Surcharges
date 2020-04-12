@@ -1,7 +1,7 @@
-import { RouteComponentProps } from '@reach/router';
 import React, { useEffect, useState } from 'react';
+import { RouteComponentProps } from '@reach/router';
 import { getAllDeviceList } from '../../apis';
-import { Header, Help, Social } from '../../components';
+import { Help, Social } from '../../components';
 import { IDevice } from '../../models';
 import { List } from './List';
 
@@ -26,8 +26,12 @@ const Devices: React.SFC<DevicesProps> = ({ children }) => {
                 {children}
             </div>
             <div className="right">
-                <Help />
-                <Social />
+                <div className="card">
+                    <Help />
+                </div>
+                <div className="card">
+                    <Social />
+                </div>
             </div>
         </div>
     </>);

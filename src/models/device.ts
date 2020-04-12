@@ -3,8 +3,9 @@ export interface IDevice {
     modelname: string;
     fullname: string;
     oem?: string;
+    maintained?: number;
+    maintainer?: { name: string }
 }
-
 
 export interface IDeviceGroup {
     oem: string;

@@ -71,10 +71,16 @@
             .card {
                 @extend .flexd-center;
                 width: 50%;
+                min-width: 180px;
                 height: 125px;
                 margin: 5px;
-
             }
+        }
+    }
+
+    .right {
+        .card {
+            margin: 5px;
         }
     }
 }
