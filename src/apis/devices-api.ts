@@ -4,9 +4,9 @@ import { CONFIG } from "./config";
 
 export function getAllDeviceList(): Promise<IDevice[]> {
     return (
-        //   http.get(`${CONFIG.apiUrl}/device`);
-        http.get<{ key: string }>('json/devices.json')
-    ).then(data => Object.entries(data).map(m => ({ code: m[0], name: m[1] })));
+        http.get(`${CONFIG.apiUrl}/device`)
+        //  http.get<IDevice[]>('json/devices.json')
+    );
 }
 
 export const getDeviceByCode = (code: string) => {

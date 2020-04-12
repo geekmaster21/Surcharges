@@ -1,4 +1,12 @@
 export interface IDevice {
-    code: string;
-    name: string;
+    codename: string;
+    modelname: string;
+    fullname: string;
+    oem?: string;
+}
+
+
+export interface IDeviceGroup {
+    oem: string;
+    devices: IDevice[];
 }

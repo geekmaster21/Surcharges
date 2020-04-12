@@ -2,6 +2,7 @@
     display: grid;
     grid-template-columns: 300px 1fr 300px;
     gap: 10px;
+    min-height: calc(100vh - #{$header-ht});
 
     #help,
     #social,
@@ -19,24 +20,60 @@
 
         .list-container {
 
+            display: grid;
+            grid-template-rows: 60px 1fr;
+            gap: 5px;
+
             .search {
+                width: 100%;
                 position: sticky;
                 top: 0;
-                width: 100%;
-                height: 40px;
-                border-radius: 5px;
-                text-align: center;
-                font-size: 18px;
-                outline: none;
-                border: none;
-                margin-bottom: 5px;
-                background-color: $grey-2;
                 color: $white-1;
+                z-index: 1;
+                background-color: $grey-2;
+
+                input {
+                    color: $white-1;
+                    caret-color: $orange-1;
+                    padding: 5px;
+                }
+
+                span {
+                    color: $white-1;
+                    padding: 5px;
+
+                    &::after {
+                        background-color: $orange-1;
+                    }
+                }
+            }
+
+            ul li.card {
+                margin-bottom: 5px !important;
+
+                .code {
+                    font-size: 16px;
+                }
             }
 
             .not-found {
                 color: $white-1;
                 text-align: center;
+                margin: 10px 0;
+            }
+        }
+    }
+
+    .center {
+        .metrics {
+            @extend .flexd-center;
+
+            .card {
+                @extend .flexd-center;
+                width: 50%;
+                height: 125px;
+                margin: 5px;
+
             }
         }
     }

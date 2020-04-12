@@ -6,13 +6,15 @@
 
 html,
 body {
-    background-color: $grey-1;
+    background-color: $grey-2;
     font-family: 'Inria Sans', sans-serif;
     font-size: calc(0.75em + 1vmin);
+    overflow: hidden;
 }
 
 * {
-    box-sizing: border-box
+    box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 html,
@@ -29,19 +31,25 @@ p {
 }
 
 #root {
-    @extend .flexd-row;
     min-height: 100vh;
+    display: grid;
+    grid-template-rows: 60px 1fr;
+    gap: 2px;
 }
 
 .card {
-    @extend .flexd-row-center;
-    background-color: $grey-2;
-    border-radius: 10px;
-    height: 100px;
-    min-width: 200px;
-    margin: 15px 5px;
-    font-size: 25px;
+    @extend .flexd-row;
+    background-color: $grey-3;
+    border-radius: 4px;
     color: $white-1;
+    padding: 10px !important;
+    box-shadow: 0px 2px 1px -1px #00000033, 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px #00000033;
+    transition: background-color 0.2s ease-in-out;
+
+    &.hover:hover {
+        transition: background-color 0.2s ease-in-out;
+        background-color: $grey-4;
+    }
 }
 
 .hash-wrapper {

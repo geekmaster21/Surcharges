@@ -1,25 +1,41 @@
 import React, { useState } from 'react';
 import { Link } from '@reach/router';
-import { IDevice } from '../../models';
+import { groupBy } from 'lodash';
+import { Accordion } from '../../components';
+import { IDevice, IDeviceGroup } from '../../models';
 
 const List: React.SFC<{ data: IDevice[] }> = ({ data }) => {
 
-    const [list, setList] = useState<IDevice[]>(data),
+    const GroupList = (_data: IDevice[]) => {
+        const arr: IDeviceGroup[] = [],
+            obj = groupBy(_data, d => d.oem || 'Others');
+        Object.keys(obj).forEach(key => {
+            arr.push({
+                oem: key,
+                devices: obj[key]
+            });
+        });
+        return arr;
+    }
+
+    const [list, setList] = useState<IDeviceGroup[]>(GroupList(data)),
         [filter, setFilter] = useState<string>(''),
         deviceLink = (code: string) => `/device/${code}`;
 
     const onSearch = ({ target: { value } }: any) => {
         const _filter = (value || '').trim().toLowerCase();
         setFilter(_filter);
-        setList(doFilter(_filter));
+        const _list = doFilter(_filter);
+        setList(_list);
     }
 
-    const doFilter = (filter: string) => {
-        const list = filter.trim() ? data.filter(f => {
-            const items = [f.name.toLowerCase(), f.code.toLowerCase()];
-            return items.some(i => i.includes(filter));
+    const doFilter = (_filter: string) => {
+        const filteredData = _filter.trim() ? data.filter(f => {
+            const items = [f.fullname.toLowerCase(), f.codename.toLowerCase()];
+            return items.some(i => i.includes(_filter));
         }) : data;
-        return [...list];
+
+        return GroupList(filteredData);
     }
 
     if (data.length && !filter && !list.length)
@@ -27,20 +43,36 @@ const List: React.SFC<{ data: IDevice[] }> = ({ data }) => {
 
     const hasList = Boolean(list.length);
 
-    return (<>
+    return (
         <div className="list-container">
-            <input type="text" className="search" placeholder="Search Device" onInput={onSearch} />
+
+            <label className="matter-textfield-standard search">
+                <input placeholder=" " onInput={onSearch} />
+                <span>Search Device</span>
+            </label>
 
             {/* List */}
             {
                 hasList && (
-                    <ul className="list no-list-style">
-                        {list.map(item => (
-                            <Link key={item.code} className="link" to={deviceLink(item.code)}>
-                                <li>{item.name}</li>
-                            </Link>
-                        ))}
-                    </ul>
+                    <Accordion
+                        multiple
+                        data={list}
+                        keyParent="oem"
+                        Parent={parent => parent.oem}
+                        Child={(child: IDeviceGroup) =>
+                            (
+                                <ul className="list no-list-style">
+                                    {child.devices.map((m: IDevice) => (
+                                        <Link key={m.codename} className="link" to={deviceLink(m.codename)}>
+                                            <li className="card hover">
+                                                <span className="name" >{m.modelname}</span>
+                                                <span className="code">[ {m.codename} ]</span>
+                                            </li>
+                                        </Link>
+                                    ))}
+                                </ul>
+                            )
+                        } />
                 )
             }
 
@@ -54,7 +86,7 @@ const List: React.SFC<{ data: IDevice[] }> = ({ data }) => {
             }
 
         </div>
-    </>);
+    );
 }
 
 export { List };

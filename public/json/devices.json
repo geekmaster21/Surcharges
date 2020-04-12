@@ -1,73 +1,428 @@
-{
-    "beryllium": "Xiaomi Poco F1",
-    "c5lte": "Samsung Galaxy C5",
-    "cepheus": "Xiaomi Mi 9",
-    "cereus": "Xiaomi Redmi 6",
-    "chiron": "Xiaomi Mi Mix 2",
-    "clover": "Xiaomi Mi Pad 4/4 Plus",
-    "crackling": "Wileyfox Swift",
-    "daisy": "Xiaomi Mi A2 Lite",
-    "davinci": "Xiaomi Mi 9T",
-    "dipper": "Xiaomi Mi 8",
-    "ginkgo": "Xiaomi Redmi Note 8",
-    "gm8_d_sprout": "General Mobile GM 8 (Dual SIM)",
-    "gm8_sprout": "General Mobile GM 8 (Single SIM)",
-    "h870": "LG G6 (H870)",
-    "h872": "LG G6 (H872)",
-    "harpia": "Motorola Moto G4 Play",
-    "hermes": "Xiaomi Redmi Note 2",
-    "ido": "Xiaomi Redmi 3/3pro",
-    "j4corelte": "Samsung Galaxy J4 Core",
-    "j4primelte": "Samsung Galaxy J4+",
-    "j53gxx": "Samsung Galaxy J5(2015) 3G",
-    "j5lte": "Samsung Galaxy J5(2015) LTE",
-    "j5ltechn": "Samsung Galaxy J5(2015) LTE China",
-    "j5nlte": "Samsung Galaxy J5(2015) NFC LTE",
-    "j5xnlte": "Samsung Galaxy J5(2016)",
-    "j6primelte": "Samsung Galaxy J6+",
-    "jasmine_sprout": "Xiaomi Mi A2",
-    "karate": "Lenovo K6 Power",
-    "kenzo": "Xiaomi Redmi Note 3",
-    "laurel_sprout": "Xiaomi Mi A3",
-    "lavender": "Xiaomi Redmi Note 7",
-    "libra": "Xiaomi Mi 4C",
-    "markw": "Xiaomi Redmi 4 Prime",
-    "mblu2": "Meizu M2",
-    "mido": "Xiaomi Redmi Note 4",
-    "nitrogen": "Xiaomi Mi Max 3",
-    "olive": "Xiaomi Redmi 8",
-    "olivelite": "Xiaomi Redmi 8a",
-    "onclite": "Xiaomi Redmi 7",
-    "oxygen": "Xiaomi Mi Max 2",
-    "platina": "Xiaomi Mi 8 Lite",
-    "polaris": "Xiaomi Mi Mix 2S",
-    "raphael": "Xiaomi Redmi K20 Pro",
-    "riva": "Xiaomi Redmi 5A",
-    "rmx1811": "Realme RMX1811",
-    "rmx1821": "Realme 3",
-    "rmx1851": "Realme 3 Pro",
-    "rmx1901": "Realme X",
-    "rmx1921": "Realme XT",
-    "rmx1971": "Realme 5 Pro",
-    "rmx1992": "Realme X2",
-    "rosy": "Xiaomi Redmi 5",
-    "sagit": "Xiaomi Mi 6",
-    "sanders": "Moto G5s Plus",
-    "santoni": "Xiaomi Redmi 4X",
-    "seed": "General Mobile 4G",
-    "shamrock": "General Mobile 5 Plus",
-    "test_device": "123 Testing device",
-    "tulip": "Xiaomi Redmi Note 6 Pro",
-    "ugglite": "Xiaomi Redmi Note 5A/Y1 Lite",
-    "us997": "LG G6 (US997)",
-    "vince": "Xiaomi Redmi 5 Plus",
-    "violet": "Xiaomi Redmi Note 7 Pro",
-    "wayne": "Xiaomi Mi 6X",
-    "whyred": "Xiaomi Redmi Note 5",
-    "x00t": "Asus ZenFone Max Pro M1",
-    "x01ad": "Asus Zenfone Max M2",
-    "x01bd": "Asus Zenfone Max Pro M2",
-    "ysl": "Xiaomi Redmi S2",
-    "z00ed": "Asus Zenfone 2 Laser ZE500KL",
-    "zenfone3": "Asus Zenfone 3"
-}
+[
+    {
+        "codename": "test_device",
+        "fullname": "123 Testing device",
+        "modelname": "Testing device",
+        "oem": "123"
+    },
+    {
+        "codename": "x00t",
+        "fullname": "Asus ZenFone Max Pro M1",
+        "modelname": "ZenFone Max Pro M1",
+        "oem": "Asus"
+    },
+    {
+        "codename": "z00ed",
+        "fullname": "Asus Zenfone 2 Laser ZE500KL",
+        "modelname": "Zenfone 2 Laser ZE500KL",
+        "oem": "Asus"
+    },
+    {
+        "codename": "zenfone3",
+        "fullname": "Asus Zenfone 3",
+        "modelname": "Zenfone 3",
+        "oem": "Asus"
+    },
+    {
+        "codename": "x01ad",
+        "fullname": "Asus Zenfone Max M2",
+        "modelname": "Zenfone Max M2",
+        "oem": "Asus"
+    },
+    {
+        "codename": "x01bd",
+        "fullname": "Asus Zenfone Max Pro M2",
+        "modelname": "Zenfone Max Pro M2",
+        "oem": "Asus"
+    },
+    {
+        "codename": "seed",
+        "fullname": "General Mobile 4G",
+        "modelname": "Mobile 4G",
+        "oem": "General"
+    },
+    {
+        "codename": "shamrock",
+        "fullname": "General Mobile 5 Plus",
+        "modelname": "Mobile 5 Plus",
+        "oem": "General"
+    },
+    {
+        "codename": "gm8_d_sprout",
+        "fullname": "General Mobile GM 8 (Dual SIM)",
+        "modelname": "Mobile GM 8 (Dual SIM)",
+        "oem": "General"
+    },
+    {
+        "codename": "gm8_sprout",
+        "fullname": "General Mobile GM 8 (Single SIM)",
+        "modelname": "Mobile GM 8 (Single SIM)",
+        "oem": "General"
+    },
+    {
+        "codename": "h870",
+        "fullname": "LG G6 (H870)",
+        "modelname": "G6 (H870)",
+        "oem": "LG"
+    },
+    {
+        "codename": "h872",
+        "fullname": "LG G6 (H872)",
+        "modelname": "G6 (H872)",
+        "oem": "LG"
+    },
+    {
+        "codename": "us997",
+        "fullname": "LG G6 (US997)",
+        "modelname": "G6 (US997)",
+        "oem": "LG"
+    },
+    {
+        "codename": "karate",
+        "fullname": "Lenovo K6 Power",
+        "modelname": "K6 Power",
+        "oem": "Lenovo"
+    },
+    {
+        "codename": "mblu2",
+        "fullname": "Meizu M2",
+        "modelname": "M2",
+        "oem": "Meizu"
+    },
+    {
+        "codename": "sanders",
+        "fullname": "Moto G5s Plus",
+        "modelname": "G5s Plus",
+        "oem": "Moto"
+    },
+    {
+        "codename": "harpia",
+        "fullname": "Motorola Moto G4 Play",
+        "modelname": "Moto G4 Play",
+        "oem": "Motorola"
+    },
+    {
+        "codename": "rmx1821",
+        "fullname": "Realme 3",
+        "modelname": "3",
+        "oem": "Realme"
+    },
+    {
+        "codename": "rmx1851",
+        "fullname": "Realme 3 Pro",
+        "modelname": "3 Pro",
+        "oem": "Realme"
+    },
+    {
+        "codename": "rmx1971",
+        "fullname": "Realme 5 Pro",
+        "modelname": "5 Pro",
+        "oem": "Realme"
+    },
+    {
+        "codename": "rmx1811",
+        "fullname": "Realme RMX1811",
+        "modelname": "RMX1811",
+        "oem": "Realme"
+    },
+    {
+        "codename": "rmx1901",
+        "fullname": "Realme X",
+        "modelname": "X",
+        "oem": "Realme"
+    },
+    {
+        "codename": "rmx1992",
+        "fullname": "Realme X2",
+        "modelname": "X2",
+        "oem": "Realme"
+    },
+    {
+        "codename": "rmx1921",
+        "fullname": "Realme XT",
+        "modelname": "XT",
+        "oem": "Realme"
+    },
+    {
+        "codename": "c5lte",
+        "fullname": "Samsung Galaxy C5",
+        "modelname": "Galaxy C5",
+        "oem": "Samsung"
+    },
+    {
+        "codename": "j4corelte",
+        "fullname": "Samsung Galaxy J4 Core",
+        "modelname": "Galaxy J4 Core",
+        "oem": "Samsung"
+    },
+    {
+        "codename": "j4primelte",
+        "fullname": "Samsung Galaxy J4+",
+        "modelname": "Galaxy J4+",
+        "oem": "Samsung"
+    },
+    {
+        "codename": "j53gxx",
+        "fullname": "Samsung Galaxy J5(2015) 3G",
+        "modelname": "Galaxy J5(2015) 3G",
+        "oem": "Samsung"
+    },
+    {
+        "codename": "j5lte",
+        "fullname": "Samsung Galaxy J5(2015) LTE",
+        "modelname": "Galaxy J5(2015) LTE",
+        "oem": "Samsung"
+    },
+    {
+        "codename": "j5ltechn",
+        "fullname": "Samsung Galaxy J5(2015) LTE China",
+        "modelname": "Galaxy J5(2015) LTE China",
+        "oem": "Samsung"
+    },
+    {
+        "codename": "j5nlte",
+        "fullname": "Samsung Galaxy J5(2015) NFC LTE",
+        "modelname": "Galaxy J5(2015) NFC LTE",
+        "oem": "Samsung"
+    },
+    {
+        "codename": "j5xnlte",
+        "fullname": "Samsung Galaxy J5(2016)",
+        "modelname": "Galaxy J5(2016)",
+        "oem": "Samsung"
+    },
+    {
+        "codename": "j6primelte",
+        "fullname": "Samsung Galaxy J6+",
+        "modelname": "Galaxy J6+",
+        "oem": "Samsung"
+    },
+    {
+        "codename": "crackling",
+        "fullname": "Wileyfox Swift",
+        "modelname": "Swift",
+        "oem": "Wileyfox"
+    },
+    {
+        "codename": "libra",
+        "fullname": "Xiaomi Mi 4C",
+        "modelname": "Mi 4C",
+        "oem": "Xiaomi"
+    },
+    {
+        "codename": "sagit",
+        "fullname": "Xiaomi Mi 6",
+        "modelname": "Mi 6",
+        "oem": "Xiaomi"
+    },
+    {
+        "codename": "wayne",
+        "fullname": "Xiaomi Mi 6X",
+        "modelname": "Mi 6X",
+        "oem": "Xiaomi"
+    },
+    {
+        "codename": "dipper",
+        "fullname": "Xiaomi Mi 8",
+        "modelname": "Mi 8",
+        "oem": "Xiaomi"
+    },
+    {
+        "codename": "platina",
+        "fullname": "Xiaomi Mi 8 Lite",
+        "modelname": "Mi 8 Lite",
+        "oem": "Xiaomi"
+    },
+    {
+        "codename": "cepheus",
+        "fullname": "Xiaomi Mi 9",
+        "modelname": "Mi 9",
+        "oem": "Xiaomi"
+    },
+    {
+        "codename": "davinci",
+        "fullname": "Xiaomi Mi 9T",
+        "modelname": "Mi 9T",
+        "oem": "Xiaomi"
+    },
+    {
+        "codename": "jasmine_sprout",
+        "fullname": "Xiaomi Mi A2",
+        "modelname": "Mi A2",
+        "oem": "Xiaomi"
+    },
+    {
+        "codename": "daisy",
+        "fullname": "Xiaomi Mi A2 Lite",
+        "modelname": "Mi A2 Lite",
+        "oem": "Xiaomi"
+    },
+    {
+        "codename": "laurel_sprout",
+        "fullname": "Xiaomi Mi A3",
+        "modelname": "Mi A3",
+        "oem": "Xiaomi"
+    },
+    {
+        "codename": "oxygen",
+        "fullname": "Xiaomi Mi Max 2",
+        "modelname": "Mi Max 2",
+        "oem": "Xiaomi"
+    },
+    {
+        "codename": "nitrogen",
+        "fullname": "Xiaomi Mi Max 3",
+        "modelname": "Mi Max 3",
+        "oem": "Xiaomi"
+    },
+    {
+        "codename": "chiron",
+        "fullname": "Xiaomi Mi Mix 2",
+        "modelname": "Mi Mix 2",
+        "oem": "Xiaomi"
+    },
+    {
+        "codename": "polaris",
+        "fullname": "Xiaomi Mi Mix 2S",
+        "modelname": "Mi Mix 2S",
+        "oem": "Xiaomi"
+    },
+    {
+        "codename": "clover",
+        "fullname": "Xiaomi Mi Pad 4/4 Plus",
+        "modelname": "Mi Pad 4/4 Plus",
+        "oem": "Xiaomi"
+    },
+    {
+        "codename": "beryllium",
+        "fullname": "Xiaomi Poco F1",
+        "modelname": "Poco F1",
+        "oem": "Xiaomi"
+    },
+    {
+        "codename": "ido",
+        "fullname": "Xiaomi Redmi 3/3pro",
+        "modelname": "Redmi 3/3pro",
+        "oem": "Xiaomi"
+    },
+    {
+        "codename": "markw",
+        "fullname": "Xiaomi Redmi 4 Prime",
+        "modelname": "Redmi 4 Prime",
+        "oem": "Xiaomi"
+    },
+    {
+        "codename": "santoni",
+        "fullname": "Xiaomi Redmi 4X",
+        "modelname": "Redmi 4X",
+        "oem": "Xiaomi"
+    },
+    {
+        "codename": "rosy",
+        "fullname": "Xiaomi Redmi 5",
+        "modelname": "Redmi 5",
+        "oem": "Xiaomi"
+    },
+    {
+        "codename": "vince",
+        "fullname": "Xiaomi Redmi 5 Plus",
+        "modelname": "Redmi 5 Plus",
+        "oem": "Xiaomi"
+    },
+    {
+        "codename": "riva",
+        "fullname": "Xiaomi Redmi 5A",
+        "modelname": "Redmi 5A",
+        "oem": "Xiaomi"
+    },
+    {
+        "codename": "cereus",
+        "fullname": "Xiaomi Redmi 6",
+        "modelname": "Redmi 6",
+        "oem": "Xiaomi"
+    },
+    {
+        "codename": "onclite",
+        "fullname": "Xiaomi Redmi 7",
+        "modelname": "Redmi 7",
+        "oem": "Xiaomi"
+    },
+    {
+        "codename": "olive",
+        "fullname": "Xiaomi Redmi 8",
+        "modelname": "Redmi 8",
+        "oem": "Xiaomi"
+    },
+    {
+        "codename": "olivelite",
+        "fullname": "Xiaomi Redmi 8a",
+        "modelname": "Redmi 8a",
+        "oem": "Xiaomi"
+    },
+    {
+        "codename": "raphael",
+        "fullname": "Xiaomi Redmi K20 Pro",
+        "modelname": "Redmi K20 Pro",
+        "oem": "Xiaomi"
+    },
+    {
+        "codename": "hermes",
+        "fullname": "Xiaomi Redmi Note 2",
+        "modelname": "Redmi Note 2",
+        "oem": "Xiaomi"
+    },
+    {
+        "codename": "kenzo",
+        "fullname": "Xiaomi Redmi Note 3",
+        "modelname": "Redmi Note 3",
+        "oem": "Xiaomi"
+    },
+    {
+        "codename": "mido",
+        "fullname": "Xiaomi Redmi Note 4",
+        "modelname": "Redmi Note 4",
+        "oem": "Xiaomi"
+    },
+    {
+        "codename": "whyred",
+        "fullname": "Xiaomi Redmi Note 5",
+        "modelname": "Redmi Note 5",
+        "oem": "Xiaomi"
+    },
+    {
+        "codename": "ugglite",
+        "fullname": "Xiaomi Redmi Note 5A/Y1 Lite",
+        "modelname": "Redmi Note 5A/Y1 Lite",
+        "oem": "Xiaomi"
+    },
+    {
+        "codename": "tulip",
+        "fullname": "Xiaomi Redmi Note 6 Pro",
+        "modelname": "Redmi Note 6 Pro",
+        "oem": "Xiaomi"
+    },
+    {
+        "codename": "lavender",
+        "fullname": "Xiaomi Redmi Note 7",
+        "modelname": "Redmi Note 7",
+        "oem": "Xiaomi"
+    },
+    {
+        "codename": "violet",
+        "fullname": "Xiaomi Redmi Note 7 Pro",
+        "modelname": "Redmi Note 7 Pro",
+        "oem": "Xiaomi"
+    },
+    {
+        "codename": "ginkgo",
+        "fullname": "Xiaomi Redmi Note 8",
+        "modelname": "Redmi Note 8",
+        "oem": "Xiaomi"
+    },
+    {
+        "codename": "ysl",
+        "fullname": "Xiaomi Redmi S2",
+        "modelname": "Redmi S2",
+        "oem": "Xiaomi"
+    }
+]

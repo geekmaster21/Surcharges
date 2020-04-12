@@ -1,19 +1,18 @@
 import React from 'react';
 import { Router } from "@reach/router";
-import { LatestRelease } from "./components";
-import { Devices, Home, Wiki } from './pages';
+import { Header, Splash } from "./components";
+import { Devices } from './pages';
 import './styles/style.scss';
 
 function App() {
-  return (
+  return (<>
+    <Header showLogo />
     <Router>
-      <Home path="/" />
-      <Devices path="/device" >
-        <LatestRelease path="/" dummyCount={6} />
+      <Devices path="/" >
+        <Splash path="/" />
       </Devices>
-      <Wiki path="/wiki" />
     </Router>
-  );
+  </>);
 }
 
 export default App;

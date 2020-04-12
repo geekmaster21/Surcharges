@@ -1,13 +1,13 @@
+import { Link } from "@reach/router";
 import React from 'react';
 import { Logo } from './Logo';
-import { Link } from "@reach/router";
+import { WikiLink } from './Wiki-Link';
 
 export interface HeaderProps {
     showLogo?: boolean;
-    showLinkDevice?: boolean;
 }
 
-const Header: React.SFC<HeaderProps> = ({ showLogo, showLinkDevice }) => {
+const Header: React.SFC<HeaderProps> = ({ showLogo }) => {
     return (
         <header>
             <span>
@@ -21,10 +21,7 @@ const Header: React.SFC<HeaderProps> = ({ showLogo, showLinkDevice }) => {
             </span>
             <ul className="routes">
                 <li>
-                    {showLinkDevice && <Link to="/device">/devices</Link>}{" "}
-                </li>
-                <li>
-                    <Link to="/wiki">/wiki</Link>{" "}
+                    <WikiLink label="/wiki" className="link" />
                 </li>
             </ul>
         </header>

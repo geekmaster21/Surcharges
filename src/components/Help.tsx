@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from "@reach/router";
+import { WikiLink } from './Wiki-Link';
 
 const Help: React.SFC = () => {
     return (
@@ -9,7 +9,7 @@ const Help: React.SFC = () => {
                 <span className="title">need_help_?</span>
             </div>
             <div className="contents" style={{ padding: '5px' }} >
-                Please read our <Link to="/wiki" className="link underline" >wiki</Link> page to get help on various topics.
+                Please read our <WikiLink label="wiki" className="link underline" /> page to get help on various topics.
             </div>
         </div>
     );
