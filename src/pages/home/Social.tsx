@@ -1,10 +1,9 @@
 import React from 'react';
 
-
 const Social: React.SFC = () => {
-    function ExternalLink(link: string) {
+    function ExternalLink(label: string, link: string) {
         const safeLink = 'https://' + link;
-        return <a href={safeLink} className="link" target="_blank">{link}</a>
+        return <a className="link underline" href={safeLink} target="_blank" rel="noopener noreferrer">{`${label} - ${link}`}</a>
     };
 
     return (
@@ -15,8 +14,8 @@ const Social: React.SFC = () => {
             </div>
             <div className="contents" >
                 We are on Telegram. Connect with us:
-                <span>News | {ExternalLink('t.me/OrangeFoxNEWS')}</span>
-                <span>Chat | {ExternalLink('t.me/OrangeFoxChat')}</span>
+                <span><i className="fa fa-telegram"></i> {ExternalLink('News', 't.me/OrangeFoxNEWS')}</span>
+                <span><i className="fa fa-telegram"></i> {ExternalLink('Chat', 't.me/OrangeFoxChat')}</span>
             </div>
         </div>
     );

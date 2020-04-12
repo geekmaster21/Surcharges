@@ -28,7 +28,7 @@ h6 {
 
 #root {
     @extend .flexd-row-center;
-    padding: 10px;
+    min-height: 100vh;
 }
 
 .card {
@@ -63,7 +63,7 @@ h6 {
     text-decoration: none;
     outline: none;
 
-    &.underline{
+    &.underline {
         text-decoration: underline;
     }
 
