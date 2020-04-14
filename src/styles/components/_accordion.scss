@@ -6,7 +6,6 @@
         z-index: -1;
     }
 
-    // Layout
     .row {
         display: flex;
 
@@ -19,9 +18,8 @@
         }
     }
 
-    /* Accordion styles */
     .tabs {
-        border-radius: 8px;
+        border-radius: 4px;
         overflow: hidden;
         box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.5);
     }

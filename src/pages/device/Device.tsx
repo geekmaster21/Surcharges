@@ -3,11 +3,11 @@ import { RouteComponentProps } from '@reach/router';
 import { getDeviceByCode } from '../../apis';
 import { IDevice } from '../../models';
 
-export interface DeviceDetailProps extends RouteComponentProps {
+interface DeviceProps extends RouteComponentProps {
     code?: string;
 }
 
-const DeviceDetail: React.SFC<DeviceDetailProps> = ({ code }) => {
+const Device: React.SFC<DeviceProps> = ({ code }) => {
     const [device, setDeviceDetail] = useState<IDevice>({} as IDevice),
         isDifferentDevice = code && device.codename !== code;
 
@@ -20,11 +20,8 @@ const DeviceDetail: React.SFC<DeviceDetailProps> = ({ code }) => {
         }
     }, [code, isDifferentDevice]);
 
-    console.log(isDifferentDevice);
-
-
     return (
-        <div className="device-detail">
+        <div className="device">
             <div className="card">
                 {
                     <table>
@@ -62,4 +59,4 @@ const DeviceDetail: React.SFC<DeviceDetailProps> = ({ code }) => {
     );
 }
 
-export { DeviceDetail };
+export { Device };

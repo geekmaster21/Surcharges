@@ -2,13 +2,12 @@
 './components/index',
 './pages/index';
 
-@import url('https://fonts.googleapis.com/css2?family=Inria+Sans&display=swap');
 
 html,
 body {
     background-color: $grey-2;
-    font-family: 'Inria Sans', sans-serif;
-    font-size: calc(0.75em + 1vmin);
+    font-family: 'Roboto', sans-serif;
+    font-size: calc(0.70em + 1vmin);
     overflow: hidden;
 }
 
@@ -43,7 +42,7 @@ p {
     border-radius: 4px;
     color: $white-1;
     padding: 10px !important;
-    box-shadow: 0px 2px 1px -1px #00000033, 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px #00000033;
+    box-shadow: 0 2px 1px -1px #00000033, 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px #00000033;
     transition: background-color 0.2s ease-in-out;
 
     &.hover:hover {
@@ -54,13 +53,12 @@ p {
 
 .hash-wrapper {
     font-size: 25px;
-    margin: 1rem 0;
     color: $white-1;
 
     .title-container {
         font-size: 30px;
+        margin-bottom: 10px;
         color: $orange-1;
-        text-align: center;
     }
 
     .contents {

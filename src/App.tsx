@@ -1,14 +1,18 @@
 import React from 'react';
 import { Router } from "@reach/router";
 import { Header, Splash } from "./components";
-import { DeviceDetail, Devices } from './pages';
+import { Device, DeviceDetail, Devices, Home } from './pages';
 import './styles/style.scss';
 
 function App() {
   return (<>
     <Header showLogo />
     <Router>
-      <Devices path="/" >
+      <Home path="/" >
+        <Splash path="/" />
+        <Device path="/d/:code" />
+      </Home>
+      <Devices path="/old" >
         <Splash path="/" />
         <DeviceDetail path="/device/:code" />
       </Devices>

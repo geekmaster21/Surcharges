@@ -1,14 +1,17 @@
-import 'font-awesome/css/font-awesome.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { DarkTheme } from './themes';
+
+const theme = createMuiTheme(DarkTheme);
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  // <React.StrictMode>
+  <ThemeProvider theme={theme}><App /></ThemeProvider>
+  // </React.StrictMode>
+  , document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change
