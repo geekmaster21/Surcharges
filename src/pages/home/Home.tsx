@@ -12,6 +12,7 @@ import { getAllDeviceList } from '../../apis';
 import { MenuIcon } from '../../components/Icons';
 import { IDevice } from '../../models';
 import { DeviceList } from './Device-List';
+import { WikiLink } from '../../components';
 
 export interface HomeProps extends RouteComponentProps { }
 
@@ -28,16 +29,23 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     appBar: {
+        backgroundColor: '#ed7002',
         [theme.breakpoints.up('sm')]: {
             width: `calc(100% - ${drawerWidth}px)`,
             marginLeft: drawerWidth,
         },
+        alignItems: 'baseline'
     },
     menuButton: {
         marginRight: theme.spacing(2),
         [theme.breakpoints.up('sm')]: {
             display: 'none',
         },
+    },
+    header: {
+        width: '100%',
+        display: 'flex',
+        justifyContent: 'space-between',
     },
     // necessary for content to be below app bar
     toolbar: theme.mixins.toolbar,
@@ -62,9 +70,7 @@ const Home: React.SFC<HomeProps> = ({ children }) => {
 
     useEffect(() => {
         getAllDeviceList()
-            .then(data => {
-                setDeviceList(data);
-            });
+            .then(data => setDeviceList(data));
     }, []);
 
     const drawer = (
@@ -78,7 +84,7 @@ const Home: React.SFC<HomeProps> = ({ children }) => {
         <div className={classes.root}>
             <CssBaseline />
             <AppBar position="fixed" className={classes.appBar}>
-                <Toolbar>
+                <Toolbar style={{ width: '100%' }}>
                     <IconButton
                         color="inherit"
                         aria-label="open drawer"
@@ -88,8 +94,9 @@ const Home: React.SFC<HomeProps> = ({ children }) => {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="h6" noWrap>
+                    <Typography className={classes.header}>
                         OrangeFox Recovery
+                        <WikiLink label="Wiki" className="link no-hover" />
                     </Typography>
                 </Toolbar>
             </AppBar>

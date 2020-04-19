@@ -75,8 +75,8 @@ p {
         text-decoration: underline;
     }
 
-    &:hover,
-    &:focus {
+    &:hover:not(.no-hover),
+    &:focus:not(.no-hover) {
         color: $orange-1;
     }
 }

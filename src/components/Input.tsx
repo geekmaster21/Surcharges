@@ -1,17 +1,16 @@
 import React from 'react';
-import { createStyles, InputAdornment, makeStyles, TextField, Theme } from '@material-ui/core';
+import { createStyles, InputAdornment, makeStyles, StandardTextFieldProps, TextField, Theme } from '@material-ui/core';
 
-export interface InputProps {
+export interface InputProps extends StandardTextFieldProps {
     id?: string;
     label: string;
     startIcon?: JSX.Element;
     endIcon?: JSX.Element;
-    [p: string]: any;
 }
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
-        margin: {
+        root: {
             margin: theme.spacing(2),
         },
     }),
@@ -23,7 +22,7 @@ const Input: React.SFC<InputProps> = ({ id, label, startIcon, endIcon, ...rest }
         <TextField
             label={label}
             id={id || label}
-            className={classes.margin}
+            className={classes.root}
             {...rest}
             InputProps={{
                 startAdornment: startIcon && (

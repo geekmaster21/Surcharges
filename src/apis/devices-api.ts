@@ -5,7 +5,7 @@ import { CONFIG } from "./config";
 export function getAllDeviceList(): Promise<IDevice[]> {
     return (
         http.get(`${CONFIG.apiUrl}/device`)
-        //  http.get<IDevice[]>('json/devices.json')
+        // http.get<IDevice[]>('json/devices.json')
     );
 }
 

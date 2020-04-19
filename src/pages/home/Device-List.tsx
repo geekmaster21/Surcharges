@@ -61,7 +61,7 @@ const DeviceList: React.SFC<{ data: IDevice[] }> = ({ data }) => {
                         ContentParent={p => <ListItemText primary={p.oem} />}
                         ContentChild={c => (<>
                             <ListItemIcon>
-                                <PhoneAndroidIcon />
+                                <PhoneAndroidIcon style={{ color: '#ddd' }} />
                             </ListItemIcon>
                             <ListItemText
                                 primary={c.modelname}
