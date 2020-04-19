@@ -1,7 +1,7 @@
 import React from 'react';
-import { createStyles, InputAdornment, makeStyles, StandardTextFieldProps, TextField, Theme } from '@material-ui/core';
+import { createStyles, InputAdornment, makeStyles, StandardTextFieldProps, TextField, Theme, TextFieldProps } from '@material-ui/core';
 
-export interface InputProps extends StandardTextFieldProps {
+export interface InputProps {
     id?: string;
     label: string;
     startIcon?: JSX.Element;
@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-const Input: React.SFC<InputProps> = ({ id, label, startIcon, endIcon, ...rest }) => {
+const Input: React.SFC<TextFieldProps & InputProps> = ({ id, label, startIcon, endIcon, ...rest }) => {
     const classes = useStyles();
     return (
         <TextField
@@ -36,7 +36,6 @@ const Input: React.SFC<InputProps> = ({ id, label, startIcon, endIcon, ...rest }
                     </InputAdornment>
                 ),
             }}
-            variant="standard"
         />
     );
 }

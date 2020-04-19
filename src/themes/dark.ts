@@ -196,7 +196,7 @@ export const DarkTheme: ThemeOptions = {
         subtitle1: {
             fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
             fontWeight: 400,
-            fontSize: '1rem',
+            fontSize: '0.875rem',
             lineHeight: 1.75,
             letterSpacing: '0.00938em'
         },
@@ -210,7 +210,7 @@ export const DarkTheme: ThemeOptions = {
         body1: {
             fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
             fontWeight: 400,
-            fontSize: '1rem',
+            fontSize: '0.875rem',
             lineHeight: 1.5,
             letterSpacing: '0.00938em'
         },

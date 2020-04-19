@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { navigate } from '@reach/router';
 import { groupBy } from 'lodash';
 import { Input, List, ListItemIcon, ListItemText } from '../../components';
-import { FilterListIcon, PhoneAndroidIcon } from '../../components/Icons';
+import { FilterListIcon, PhoneAndroidIcon, SearchIcon } from '../../components/Icons';
 import { IDevice, IDeviceGroup } from '../../models';
 
 const DeviceList: React.SFC<{ data: IDevice[] }> = ({ data }) => {
@@ -48,7 +48,10 @@ const DeviceList: React.SFC<{ data: IDevice[] }> = ({ data }) => {
 
     return (
         <div>
-            <Input label="Search Device" endIcon={<FilterListIcon />} onInput={onSearch} />
+            <Input
+                label="Search Device"
+                variant="outlined"
+                endIcon={<SearchIcon />} onInput={onSearch} />
 
             {
                 // Device List
