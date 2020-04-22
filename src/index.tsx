@@ -1,14 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import App from './App';
+import { createMuiTheme, CssBaseline, ThemeProvider } from './components';
 import { DarkTheme } from './themes';
 
 const theme = createMuiTheme(DarkTheme);
 
 ReactDOM.render(
   // <React.StrictMode>
-  <ThemeProvider theme={theme}><App /></ThemeProvider>
+  <ThemeProvider theme={theme}>
+    <CssBaseline />
+    <App />
+  </ThemeProvider>
   // </React.StrictMode>
   , document.getElementById('root')
 );

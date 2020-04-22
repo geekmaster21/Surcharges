@@ -20,7 +20,8 @@ interface ListProps<T = any> {
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         nested: {
-            paddingLeft: theme.spacing(2),
+            padding: `${theme.spacing(0.5)}px ${theme.spacing(1.6)}px`,
+            fontSize: theme.typography.caption.fontSize
         },
     }),
 );

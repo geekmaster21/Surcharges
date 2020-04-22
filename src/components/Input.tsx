@@ -1,5 +1,5 @@
 import React from 'react';
-import { createStyles, InputAdornment, makeStyles, StandardTextFieldProps, TextField, Theme, TextFieldProps } from '@material-ui/core';
+import { createStyles, InputAdornment, makeStyles, TextField, Theme, TextFieldProps } from '@material-ui/core';
 
 export interface InputProps {
     id?: string;

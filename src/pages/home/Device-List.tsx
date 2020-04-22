@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { navigate } from '@reach/router';
 import { groupBy } from 'lodash';
 import { Input, List, ListItemIcon, ListItemText } from '../../components';
-import { FilterListIcon, PhoneAndroidIcon, SearchIcon } from '../../components/Icons';
+import { PhoneAndroidIcon, SearchIcon } from '../../components/Icons';
 import { IDevice, IDeviceGroup } from '../../models';
 
 const DeviceList: React.SFC<{ data: IDevice[] }> = ({ data }) => {
@@ -51,8 +51,14 @@ const DeviceList: React.SFC<{ data: IDevice[] }> = ({ data }) => {
             <Input
                 label="Search Device"
                 variant="outlined"
-                endIcon={<SearchIcon />} onInput={onSearch} />
-
+                size="small"
+                style={{
+                    width: 'calc(100% - 35px)',
+                }}
+                color="secondary"
+                endIcon={<SearchIcon />}
+                onInput={onSearch}
+            />
             {
                 // Device List
                 hasList && (
@@ -78,7 +84,7 @@ const DeviceList: React.SFC<{ data: IDevice[] }> = ({ data }) => {
             {
                 // No results found
                 !hasList && filter && (
-                    <div className="not-found">
+                    <div style={{ textAlign: 'center' }}>
                         Device not found!
                     </div>
                 )

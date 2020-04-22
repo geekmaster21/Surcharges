@@ -1,7 +1,7 @@
 import React from 'react';
 import { Router } from "@reach/router";
 import { Header, Splash } from "./components";
-import { Device, DeviceDetail, Devices, Home } from './pages';
+import { Device, Home } from './pages';
 import './styles/style.scss';
 
 function App() {
@@ -12,10 +12,6 @@ function App() {
         <Splash path="/" />
         <Device path="/d/:code" />
       </Home>
-      <Devices path="/old" >
-        <Splash path="/" />
-        <DeviceDetail path="/device/:code" />
-      </Devices>
     </Router>
   </>);
 }

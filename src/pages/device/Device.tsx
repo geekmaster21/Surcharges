@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { RouteComponentProps } from '@reach/router';
 import { getDeviceByCode } from '../../apis';
+import { Card, CardContent } from '../../components';
 import { IDevice } from '../../models';
 
 interface DeviceProps extends RouteComponentProps {
@@ -21,8 +22,8 @@ const Device: React.SFC<DeviceProps> = ({ code }) => {
     }, [code, isDifferentDevice]);
 
     return (
-        <div className="device">
-            <div className="card">
+        <Card elevation={3}  >
+            <CardContent>
                 {
                     <table>
                         <tbody>
@@ -54,8 +55,8 @@ const Device: React.SFC<DeviceProps> = ({ code }) => {
 
                     </table>
                 }
-            </div>
-        </div>
+            </CardContent>
+        </Card>
     );
 }
 

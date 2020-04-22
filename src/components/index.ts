@@ -4,6 +4,7 @@ export * from './Help';
 export * from './Input';
 export * from './list';
 export * from './Logo';
+export * from './React-Material';
 export * from './Social';
 export * from './Splash';
 export * from './Wiki-Link';

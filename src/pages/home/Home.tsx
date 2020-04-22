@@ -1,18 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import AppBar from '@material-ui/core/AppBar';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Drawer from '@material-ui/core/Drawer';
-import Hidden from '@material-ui/core/Hidden';
-import IconButton from '@material-ui/core/IconButton';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import { RouteComponentProps } from '@reach/router';
 import { getAllDeviceList } from '../../apis';
+import { AppBar, Drawer, Hidden, IconButton, makeStyles, Toolbar, Typography, useTheme, WikiLink } from '../../components';
 import { MenuIcon } from '../../components/Icons';
 import { IDevice } from '../../models';
 import { DeviceList } from './Device-List';
-import { WikiLink } from '../../components';
 
 export interface HomeProps extends RouteComponentProps { }
 
@@ -44,11 +36,16 @@ const useStyles = makeStyles((theme) => ({
     },
     header: {
         width: '100%',
+        minHeight: '100%',
+    },
+    headerContent: {
+        width: '100%',
         display: 'flex',
         justifyContent: 'space-between',
     },
-    // necessary for content to be below app bar
-    toolbar: theme.mixins.toolbar,
+    brand: {
+        fontFamily: 'Euclid'
+    },
     drawerPaper: {
         width: drawerWidth,
     },
@@ -73,18 +70,10 @@ const Home: React.SFC<HomeProps> = ({ children }) => {
             .then(data => setDeviceList(data));
     }, []);
 
-    const drawer = (
-        <div>
-            <div className={classes.toolbar} />
-            <DeviceList data={list} />
-        </div>
-    );
-
     return (
         <div className={classes.root}>
-            <CssBaseline />
             <AppBar position="fixed" className={classes.appBar}>
-                <Toolbar style={{ width: '100%' }}>
+                <Toolbar className={classes.header}>
                     <IconButton
                         color="inherit"
                         aria-label="open drawer"
@@ -94,8 +83,10 @@ const Home: React.SFC<HomeProps> = ({ children }) => {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography className={classes.header}>
-                        OrangeFox Recovery
+                    <Typography className={classes.headerContent}>
+                        <span className={classes.brand} >
+                            OrangeFox Recovery
+                        </span>
                         <WikiLink label="Wiki" className="link no-hover" />
                     </Typography>
                 </Toolbar>
@@ -115,7 +106,7 @@ const Home: React.SFC<HomeProps> = ({ children }) => {
                             keepMounted: true, // Better open performance on mobile.
                         }}
                     >
-                        {drawer}
+                        <DeviceList data={list} />
                     </Drawer>
                 </Hidden>
                 <Hidden xsDown implementation="css">
@@ -126,7 +117,7 @@ const Home: React.SFC<HomeProps> = ({ children }) => {
                         variant="permanent"
                         open
                     >
-                        {drawer}
+                        <DeviceList data={list} />
                     </Drawer>
                 </Hidden>
             </nav>
