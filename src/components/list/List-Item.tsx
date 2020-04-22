@@ -51,10 +51,14 @@ export const ListItem: React.SFC<ListProps> = ({
             onClick={handleClick}
             className={className || classes.nested}>
             {ContentParent(data)}
-            {open ? <ExpandLess /> : <ExpandMore />}
+            {open ? <ExpandLess fontSize="small" /> : <ExpandMore fontSize="small" />}
         </MatListItem>
 
-        <Collapse in={open} timeout="auto" unmountOnExit>
+        <Collapse
+            in={open}
+            timeout="auto"
+            unmountOnExit
+        >
             {
                 children.map(child => (
                     (child[fieldChildren || 'children']) ?

@@ -41,13 +41,16 @@ const useStyles = makeStyles((theme) => ({
     headerContent: {
         width: '100%',
         display: 'flex',
+        alignItems: 'center',
         justifyContent: 'space-between',
     },
     brand: {
-        fontFamily: 'Euclid'
+        fontFamily: 'Euclid',
+        fontSize: '20px',
     },
     drawerPaper: {
         width: drawerWidth,
+        boxShadow: '0 0 5px black'
     },
     content: {
         flexGrow: 1,

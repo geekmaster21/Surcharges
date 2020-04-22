@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { navigate } from '@reach/router';
 import { groupBy } from 'lodash';
 import { Input, List, ListItemIcon, ListItemText } from '../../components';
-import { PhoneAndroidIcon, SearchIcon } from '../../components/Icons';
+import { SearchIcon, SmartphoneOutlinedIcon } from '../../components/Icons';
 import { IDevice, IDeviceGroup } from '../../models';
 
 const DeviceList: React.SFC<{ data: IDevice[] }> = ({ data }) => {
@@ -56,7 +56,7 @@ const DeviceList: React.SFC<{ data: IDevice[] }> = ({ data }) => {
                     width: 'calc(100% - 35px)',
                 }}
                 color="secondary"
-                endIcon={<SearchIcon />}
+                endIcon={<SearchIcon fontSize="small" />}
                 onInput={onSearch}
             />
             {
@@ -70,7 +70,7 @@ const DeviceList: React.SFC<{ data: IDevice[] }> = ({ data }) => {
                         ContentParent={p => <ListItemText primary={p.oem} />}
                         ContentChild={c => (<>
                             <ListItemIcon>
-                                <PhoneAndroidIcon style={{ color: '#ddd' }} />
+                                <SmartphoneOutlinedIcon style={{ color: '#ddd' }} />
                             </ListItemIcon>
                             <ListItemText
                                 primary={c.modelname}
