@@ -5,7 +5,7 @@ import {
 } from '@material-ui/core';
 import { RouteComponentProps } from '@reach/router';
 import { getDeviceByCode } from '../../apis';
-import { DeveloperModeOutlinedIcon, ExpandMore, PermDeviceInformationOutlinedIcon, PermIdentityOutlinedIcon } from '../../components/Icons';
+import { ExpandMore, PermDeviceInformationOutlinedIcon, PermIdentityOutlinedIcon } from '../../components/Icons';
 import { IDevice } from '../../models';
 import { useStylesExpansion } from './constants';
 
@@ -21,12 +21,22 @@ const useStyles = makeStyles((theme: Theme) =>
         iconM5: {
             marginRight: '5px'
         },
+        details: {
+            padding: '5px 10px 10px',
+        },
+        list: {
+            display: 'flex',
+            width: '100%',
+            [theme.breakpoints.down('sm')]: {
+                flexDirection: 'column'
+            },
+        }
     }),
 );
 
 const DeviceInfo: React.SFC<DeviceInfoProps> = ({ code }) => {
     const classes = useStylesExpansion();
-    const classesIcons = useStyles();
+    const classes2 = useStyles();
 
     const [device, setDeviceDetail] = useState<IDevice>({} as IDevice),
         isDifferentDevice = code && device.codename !== code;
@@ -68,22 +78,27 @@ const DeviceInfo: React.SFC<DeviceInfoProps> = ({ code }) => {
 
             <ExpansionPanelSummary
                 id="device-info"
-                expandIcon={<ExpandMore className={classesIcons.icon} />}
+                expandIcon={<ExpandMore className={classes2.icon} />}
                 aria-controls="device-info-content"
             >
-                <Typography className={classes.heading}>{device.fullname} {!!device.fullname && ' (Device Info)'}</Typography>
+                <Typography  >
+                    {device.fullname} {!!device.fullname && ' (Device Info)'}
+                </Typography>
             </ExpansionPanelSummary>
-            <ExpansionPanelDetails>
-                <List component="ul" style={{ display: 'flex', width: '100%' }} >
+            <ExpansionPanelDetails className={classes.details} >
+                <List
+                    component="ul"
+                    className={classes2.list}
+                >
                     <ListItem >
                         <ListItemIcon>
-                            <PermDeviceInformationOutlinedIcon className={classesIcons.icon} />
+                            <PermDeviceInformationOutlinedIcon className={classes2.icon} />
                         </ListItemIcon>
                         <ListItemText primary={device.oem} secondary={device.codename} />
                     </ListItem>
                     <ListItem >
                         <ListItemIcon>
-                            <PermIdentityOutlinedIcon className={classesIcons.icon} />
+                            <PermIdentityOutlinedIcon className={classes2.icon} />
                         </ListItemIcon>
                         <ListItemText primary={maintainPrimaryText} secondary={maintainSecondaryText} />
                     </ListItem>

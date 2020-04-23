@@ -7,7 +7,7 @@ import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import FilterListIcon from '@material-ui/icons/FilterList';
 import GetAppIconOutlined from '@material-ui/icons/GetAppOutlined';
-import LabelImportantIcon from '@material-ui/icons/LabelImportant';
+import LabelImportantOutlinedIcon from '@material-ui/icons/LabelImportantOutlined';
 import MenuIcon from '@material-ui/icons/Menu';
 import PermDeviceInformationOutlinedIcon from '@material-ui/icons/PermDeviceInformationOutlined';
 import PermIdentityOutlinedIcon from '@material-ui/icons/PermIdentityOutlined';
@@ -19,4 +19,4 @@ import SmartphoneOutlinedIcon from '@material-ui/icons/SmartphoneOutlined';
 import SpeakerNotesOutlined from '@material-ui/icons/SpeakerNotesOutlined';
 import VerifiedUserOutlined from '@material-ui/icons/VerifiedUserOutlined';
 
-export { ExpandLess, ExpandMore, PhoneAndroidIcon, BookOutlinedIcon, MenuIcon, SpeakerNotesOutlined, PermDeviceInformationOutlinedIcon, DeveloperModeOutlinedIcon, SearchIcon, SmartphoneOutlinedIcon, FilterListIcon, LabelImportantIcon, ArchiveOutlined, SdCardOutlinedIcon, VerifiedUserOutlined, GetAppIconOutlined, DescriptionOutlined, BugReportIcon, ReportProblemOutlinedIcon, PermIdentityOutlinedIcon };
+export { ExpandLess, ExpandMore, PhoneAndroidIcon, BookOutlinedIcon, MenuIcon, SpeakerNotesOutlined, PermDeviceInformationOutlinedIcon, DeveloperModeOutlinedIcon, SearchIcon, SmartphoneOutlinedIcon, FilterListIcon, LabelImportantOutlinedIcon, ArchiveOutlined, SdCardOutlinedIcon, VerifiedUserOutlined, GetAppIconOutlined, DescriptionOutlined, BugReportIcon, ReportProblemOutlinedIcon, PermIdentityOutlinedIcon };

@@ -50,7 +50,10 @@ const DeviceReleases: React.SFC<DeviceReleasesProps> = ({ code }) => {
         {
             !hasReleases && (
                 <Card elevation={3} style={{ marginTop: '10px' }} >
-                    <CardContent>
+                    <CardContent style={{
+                        padding: '20px',
+                        textAlign: 'center'
+                    }}>
                         There are no releases for this device yet.
                     </CardContent>
                 </Card>

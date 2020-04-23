@@ -28,7 +28,7 @@ const ReleaseType: React.SFC<ReleaseTypeProps> = ({ code, expanded, data, type }
                 expandIcon={<ExpandMore style={{ color: '#ddd' }} />}
                 aria-controls={`release-${type}-content`}
             >
-                <Typography className={classes.heading} >
+                <Typography  >
                     {type.slice(0, 1).toUpperCase() + type.slice(1)} Releases
                 </Typography>
             </ExpansionPanelSummary>

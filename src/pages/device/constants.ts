@@ -7,12 +7,9 @@ export const useStylesExpansion = makeStyles((theme: Theme) =>
             width: '100%',
             backgroundColor: '#2a2a2a',
         },
-        heading: {
-            fontSize: theme.typography.pxToRem(15),
-            fontWeight: theme.typography.fontWeightRegular,
-        },
         details: {
             display: 'flex',
+            padding: '5px 10px 10px',
             flexDirection: 'column'
         }
     }),

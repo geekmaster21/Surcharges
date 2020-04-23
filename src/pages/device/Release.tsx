@@ -5,7 +5,7 @@ import { getRelease } from '../../apis';
 import { createStyles, ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary, makeStyles, Modal, Typography } from '../../components';
 import {
     ArchiveOutlined, BugReportIcon, DescriptionOutlined, VerifiedUserOutlined, ExpandMore,
-    GetAppIconOutlined, LabelImportantIcon, SdCardOutlinedIcon, SpeakerNotesOutlined
+    GetAppIconOutlined, LabelImportantOutlinedIcon, SdCardOutlinedIcon, SpeakerNotesOutlined
 } from '../../components/Icons';
 import { IRelease } from '../../models';
 
@@ -35,17 +35,23 @@ const useStyles = makeStyles((theme: Theme) =>
             display: 'flex',
             alignItems: 'center'
         },
+        details: {
+            padding: '5px 10px 10px'
+        },
         nestedList: {
             display: 'flex',
-            // [theme.breakpoints.up('sm')]: {
-            //     flexDirection: 'column'
-            // },
+            [theme.breakpoints.down('sm')]: {
+                flexWrap: 'wrap'
+            },
         },
         modal: {
             backgroundColor: theme.palette.background.paper,
             border: '2px solid #000',
             boxShadow: theme.shadows[5],
             padding: theme.spacing(2, 4, 3),
+        },
+        bug: {
+            color: '#ff5e5e'
         }
     }),
 );
@@ -53,10 +59,12 @@ const useStyles = makeStyles((theme: Theme) =>
 const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type }) => {
     const classes = useStyles();
     const [release, setReleaseDetail] = useState<IRelease>({} as IRelease);
+    const [showModalDL, toggleModalDL] = React.useState(false);
     const [showModalLog, toggleModalLog] = React.useState(false);
     const [showModalBug, toggleModalBug] = React.useState(false);
     const [showModalNote, toggleModalNote] = React.useState(false);
 
+    const handleModalDL = () => toggleModalDL(!showModalDL);
     const handleModalLog = () => toggleModalLog(!showModalLog);
     const handleModalBug = () => toggleModalBug(!showModalBug);
     const handleModalNote = () => toggleModalNote(!showModalNote);
@@ -81,16 +89,16 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type }) => 
                 aria-controls={`${_version} [ ${release.date} ]`}
             >
                 <Typography className={classes.version} >
-                    <LabelImportantIcon className={classes.icon + ' ' + classes.iconM5} />
+                    <LabelImportantOutlinedIcon className={classes.icon + ' ' + classes.iconM5} />
                     {_version}
                 </Typography>
             </ExpansionPanelSummary>
 
-            <ExpansionPanelDetails>
+            <ExpansionPanelDetails className={classes.details} >
                 <List component="nav" className={classes.list} >
                     <ListItem button>
                         <ListItemIcon>
-                            <ArchiveOutlined className={classes.icon} />
+                            <ArchiveOutlined fontSize="small" className={classes.icon} />
                         </ListItemIcon>
                         <ListItemText
                             primary={release.file_name}
@@ -114,7 +122,7 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type }) => 
 
                     <ListItem button>
                         <ListItemIcon>
-                            <VerifiedUserOutlined className={classes.icon} />
+                            <VerifiedUserOutlined fontSize="small" className={classes.icon} />
                         </ListItemIcon>
                         <ListItemText
                             primary="MD5"
@@ -136,7 +144,7 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type }) => 
                             rel="noopener noreferrer"
                         >
                             <ListItemIcon>
-                                <GetAppIconOutlined className={classes.icon} />
+                                <GetAppIconOutlined fontSize="small" className={classes.icon} />
                             </ListItemIcon>
                             <ListItemText primary="Download" />
                         </ListItem>
@@ -145,7 +153,7 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type }) => 
                             release?.changelog && (
                                 <ListItem button onClick={handleModalLog}>
                                     <ListItemIcon>
-                                        <DescriptionOutlined className={classes.icon} />
+                                        <DescriptionOutlined fontSize="small" className={classes.icon} />
                                     </ListItemIcon>
                                     <ListItemText primary="Change Logs" />
                                 </ListItem>
@@ -156,7 +164,7 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type }) => 
                             release?.notes && (
                                 <ListItem button onClick={handleModalNote}>
                                     <ListItemIcon>
-                                        <SpeakerNotesOutlined className={classes.icon} />
+                                        <SpeakerNotesOutlined fontSize="small" className={classes.icon} />
                                     </ListItemIcon>
                                     <ListItemText primary="Build Notes" />
                                 </ListItem>
@@ -165,9 +173,9 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type }) => 
 
                         {
                             release?.bugs && (
-                                <ListItem button onClick={handleModalBug} style={{ color: 'red' }} >
-                                    <ListItemIcon style={{ color: 'red' }}>
-                                        <BugReportIcon className={classes.icon} style={{ color: 'red' }} />
+                                <ListItem button onClick={handleModalBug} className={classes.bug} >
+                                    <ListItemIcon className={classes.bug}>
+                                        <BugReportIcon className={classes.icon + ' ' + classes.bug} />
                                     </ListItemIcon>
                                     <ListItemText primary="Bugs" />
                                 </ListItem>

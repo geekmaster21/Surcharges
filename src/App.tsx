@@ -1,18 +1,19 @@
 import React from 'react';
 import { Router } from "@reach/router";
-import { Header, Splash } from "./components";
+import { Footer, Header, Splash } from "./components";
 import { Device, Home } from './pages';
 import './styles/style.scss';
 
 function App() {
   return (<>
     <Header showLogo />
-    <Router>
-      <Home path="/" >
+    <Router style={{ height: '100%' }}>
+      <Home path="/">
         <Splash path="/" />
         <Device path="/d/:code" />
       </Home>
     </Router>
+    <Footer />
   </>);
 }
 
