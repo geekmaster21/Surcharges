@@ -6,7 +6,7 @@ import { MenuIcon } from '../../components/Icons';
 import { IDevice } from '../../models';
 import { DeviceList } from './Device-List';
 
-export interface HomeProps extends RouteComponentProps { }
+interface HomeProps extends RouteComponentProps { }
 
 const drawerWidth = 300;
 

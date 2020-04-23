@@ -65,8 +65,8 @@ const DeviceInfo: React.SFC<DeviceInfoProps> = ({ code }) => {
             break;
         case 3:
         default:
-            maintainPrimaryText = <>&#9888; {`Not Maintained!`}</>
-            maintainSecondaryText = <>{`Previous Maintainer: ${maintainer || 'Nobody'}`}</>
+            maintainPrimaryText = <span style={{ color: '#dfdf01' }} >&#9888; {`Not Maintained!`}</span>
+            maintainSecondaryText = <>{`Previous Maintainer: ${maintainer || 'None'}`}</>
             break;
     }
 

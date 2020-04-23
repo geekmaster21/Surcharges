@@ -1,5 +1,6 @@
 import React from 'react';
 import { createStyles, makeStyles, Paper, Theme } from '@material-ui/core';
+import { PoweredBy } from './Powered-By';
 
 export interface FooterProps {
 }
@@ -18,11 +19,7 @@ const Footer: React.SFC<FooterProps> = () => {
     return (
         <footer >
             <Paper elevation={3} className={classes.root} >
-                Powered by <a href='https://www.ua-hosting.company'
-                    className="link"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >UA-Hosting Company</a>
+                <PoweredBy />
             </Paper>
         </footer>
     );

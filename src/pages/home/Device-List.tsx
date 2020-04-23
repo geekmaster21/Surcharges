@@ -29,7 +29,7 @@ const DeviceList: React.SFC<DeviceListProps> = ({ data, handleDeviceClick }) => 
     const [list, setList] = useState<IDeviceGroup[]>(GroupList(data)),
         [filter, setFilter] = useState<string>(''),
         onDeviceClick = (dev: IDevice) => {
-            const url = `/d/${dev.codename}`;
+            const url = `/device/${dev.codename}`;
             navigate(url);
             handleDeviceClick && handleDeviceClick(dev);
         };

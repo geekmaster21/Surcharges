@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { Divider, List, ListItem, ListItemIcon, ListItemText, Theme } from '@material-ui/core';
+import { Divider, List, ListItem, ListItemIcon, ListItemText, Theme, CircularProgress, Button } from '@material-ui/core';
 import { RouteComponentProps } from '@reach/router';
 import { getRelease } from '../../apis';
-import { createStyles, ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary, makeStyles, Modal, Typography } from '../../components';
+import {
+    createStyles, ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary,
+    makeStyles, Modal, Typography, PoweredBy
+} from '../../components';
 import {
     ArchiveOutlined, BugReportIcon, DescriptionOutlined, VerifiedUserOutlined, ExpandMore,
     GetAppIconOutlined, LabelImportantOutlinedIcon, SdCardOutlinedIcon, SpeakerNotesOutlined
 } from '../../components/Icons';
 import { IRelease } from '../../models';
+
 
 interface ReleaseProps extends RouteComponentProps {
     code?: string;
@@ -57,17 +61,27 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type }) => {
+    let tmoDownload: NodeJS.Timeout;
     const classes = useStyles();
     const [release, setReleaseDetail] = useState<IRelease>({} as IRelease);
+    const [tmoDL, toggleTmoDL] = React.useState(false);
     const [showModalDL, toggleModalDL] = React.useState(false);
     const [showModalLog, toggleModalLog] = React.useState(false);
     const [showModalBug, toggleModalBug] = React.useState(false);
     const [showModalNote, toggleModalNote] = React.useState(false);
 
-    const handleModalDL = () => toggleModalDL(!showModalDL);
+    const handleModalDL = () => {
+        clearTimeout(tmoDownload);
+        toggleTmoDL(false)
+        toggleModalDL(!showModalDL);
+    };
     const handleModalLog = () => toggleModalLog(!showModalLog);
     const handleModalBug = () => toggleModalBug(!showModalBug);
     const handleModalNote = () => toggleModalNote(!showModalNote);
+
+    if (showModalDL) {
+        tmoDownload = setTimeout(() => toggleTmoDL(true), 5000);
+    }
 
     useEffect(() => {
         if (code) {
@@ -138,10 +152,7 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type }) => 
 
                         <ListItem
                             button
-                            component="a"
-                            href={release.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            onClick={handleModalDL}
                         >
                             <ListItemIcon>
                                 <GetAppIconOutlined fontSize="small" className={classes.icon} />
@@ -185,6 +196,57 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type }) => 
                 </List>
             </ExpansionPanelDetails>
         </ExpansionPanel>
+
+        <Modal
+            showModal={showModalDL}
+            toggleModal={handleModalDL}
+        >
+            <div className={classes.modal} >
+                DOWNLOADS:
+                <br />
+                <br />
+                {
+                    !tmoDL && (<div style={{ display: 'flex', alignItems: 'center' }} >
+                        Fetching Links &nbsp;
+                        <CircularProgress color="secondary" size="20px" />
+                    </div>)
+                }
+                {
+                    tmoDL && (<>
+                        <Button variant="contained" color="secondary">
+                            <a
+                                href={release.url}
+                                className="link no-hover"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Main Link
+                            </a>
+                        </Button>
+
+                        {
+                            release?.sf?.url && (<>
+                                &nbsp;
+                                &nbsp;
+                                <Button variant="contained" color="primary">
+                                    <a
+                                        href={release?.sf?.url}
+                                        className="link no-hover"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        Mirror Link
+                                </a>
+                                </Button>
+                            </>)
+                        }
+                        <br />
+                    </>)
+                }
+                <br />
+                <PoweredBy />
+            </div>
+        </Modal>
 
         <Modal
             showModal={showModalLog}
