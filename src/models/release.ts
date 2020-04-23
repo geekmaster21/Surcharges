@@ -2,6 +2,7 @@ export interface IRelease {
     build_type: string;
     changelog: string;
     bugs: string;
+    notes: string;
     codename: string;
     date: string;
     file_name: string;

@@ -2,8 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { Divider, List, ListItem, ListItemIcon, ListItemText, Theme } from '@material-ui/core';
 import { RouteComponentProps } from '@reach/router';
 import { getRelease } from '../../apis';
-import { createStyles, ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary, Modal, makeStyles, Typography } from '../../components';
-import { AllInboxIcon, AssignmentIcon, BugReportIcon, ExpandMore, GetAppIcon, SdCardIcon, VerifiedUserIcon, LabelImportantIcon } from '../../components/Icons';
+import { createStyles, ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary, makeStyles, Modal, Typography } from '../../components';
+import {
+    ArchiveOutlined, BugReportIcon, DescriptionOutlined, VerifiedUserOutlined, ExpandMore,
+    GetAppIconOutlined, LabelImportantIcon, SdCardOutlinedIcon, SpeakerNotesOutlined
+} from '../../components/Icons';
 import { IRelease } from '../../models';
 
 interface ReleaseProps extends RouteComponentProps {
@@ -52,9 +55,11 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type }) => 
     const [release, setReleaseDetail] = useState<IRelease>({} as IRelease);
     const [showModalLog, toggleModalLog] = React.useState(false);
     const [showModalBug, toggleModalBug] = React.useState(false);
+    const [showModalNote, toggleModalNote] = React.useState(false);
 
     const handleModalLog = () => toggleModalLog(!showModalLog);
     const handleModalBug = () => toggleModalBug(!showModalBug);
+    const handleModalNote = () => toggleModalNote(!showModalNote);
 
     useEffect(() => {
         if (code) {
@@ -85,7 +90,7 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type }) => 
                 <List component="nav" className={classes.list} >
                     <ListItem button>
                         <ListItemIcon>
-                            <AllInboxIcon className={classes.icon} />
+                            <ArchiveOutlined className={classes.icon} />
                         </ListItemIcon>
                         <ListItemText
                             primary={release.file_name}
@@ -97,7 +102,7 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type }) => 
 
                     <ListItem button>
                         <ListItemIcon>
-                            <SdCardIcon className={classes.icon} />
+                            <SdCardOutlinedIcon className={classes.icon} />
                         </ListItemIcon>
                         <ListItemText
                             primary="File Size"
@@ -109,7 +114,7 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type }) => 
 
                     <ListItem button>
                         <ListItemIcon>
-                            <VerifiedUserIcon className={classes.icon} />
+                            <VerifiedUserOutlined className={classes.icon} />
                         </ListItemIcon>
                         <ListItemText
                             primary="MD5"
@@ -119,16 +124,19 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type }) => 
 
                     <Divider />
 
-                    <List component="div" className={classes.nestedList} >
+                    <List
+                        component="div"
+                        className={classes.nestedList} >
 
-                        <ListItem button
+                        <ListItem
+                            button
                             component="a"
                             href={release.url}
                             target="_blank"
                             rel="noopener noreferrer"
                         >
                             <ListItemIcon>
-                                <GetAppIcon className={classes.icon} />
+                                <GetAppIconOutlined className={classes.icon} />
                             </ListItemIcon>
                             <ListItemText primary="Download" />
                         </ListItem>
@@ -137,18 +145,29 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type }) => 
                             release?.changelog && (
                                 <ListItem button onClick={handleModalLog}>
                                     <ListItemIcon>
-                                        <AssignmentIcon className={classes.icon} />
+                                        <DescriptionOutlined className={classes.icon} />
                                     </ListItemIcon>
-                                    <ListItemText primary="Changelog" />
+                                    <ListItemText primary="Change Logs" />
+                                </ListItem>
+                            )
+                        }
+
+                        {
+                            release?.notes && (
+                                <ListItem button onClick={handleModalNote}>
+                                    <ListItemIcon>
+                                        <SpeakerNotesOutlined className={classes.icon} />
+                                    </ListItemIcon>
+                                    <ListItemText primary="Build Notes" />
                                 </ListItem>
                             )
                         }
 
                         {
                             release?.bugs && (
-                                <ListItem button onClick={handleModalBug}>
-                                    <ListItemIcon>
-                                        <BugReportIcon className={classes.icon} />
+                                <ListItem button onClick={handleModalBug} style={{ color: 'red' }} >
+                                    <ListItemIcon style={{ color: 'red' }}>
+                                        <BugReportIcon className={classes.icon} style={{ color: 'red' }} />
                                     </ListItemIcon>
                                     <ListItemText primary="Bugs" />
                                 </ListItem>
@@ -183,6 +202,20 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type }) => 
                 <br />
                 {
                     release?.bugs?.split('\n').map((m, i) => <p key={i}>{m}</p>)
+                }
+            </div>
+        </Modal>
+
+        <Modal
+            showModal={showModalNote}
+            toggleModal={handleModalNote}
+        >
+            <div className={classes.modal} >
+                BUILD NOTES:
+                <br />
+                <br />
+                {
+                    release?.notes?.split('\n').map((m, i) => <p key={i}>{m}</p>)
                 }
             </div>
         </Modal>

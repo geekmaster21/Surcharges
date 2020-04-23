@@ -1,21 +1,22 @@
-import AllInboxIcon from '@material-ui/icons/AllInbox';
-import AssignmentIcon from '@material-ui/icons/Assignment';
+import ArchiveOutlined from '@material-ui/icons/ArchiveOutlined';
 import BookOutlinedIcon from '@material-ui/icons/BookOutlined';
-import BugReportIcon from '@material-ui/icons/BugReport';
+import BugReportIcon from '@material-ui/icons/BugReportOutlined';
+import DescriptionOutlined from '@material-ui/icons/DescriptionOutlined';
+import DeveloperModeOutlinedIcon from '@material-ui/icons/DeveloperModeOutlined';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import FilterListIcon from '@material-ui/icons/FilterList';
-import GetAppIcon from '@material-ui/icons/GetApp';
+import GetAppIconOutlined from '@material-ui/icons/GetAppOutlined';
 import LabelImportantIcon from '@material-ui/icons/LabelImportant';
 import MenuIcon from '@material-ui/icons/Menu';
+import PermDeviceInformationOutlinedIcon from '@material-ui/icons/PermDeviceInformationOutlined';
+import PermIdentityOutlinedIcon from '@material-ui/icons/PermIdentityOutlined';
 import PhoneAndroidIcon from '@material-ui/icons/PhoneAndroid';
-import SdCardIcon from '@material-ui/icons/SdCard';
+import ReportProblemOutlinedIcon from '@material-ui/icons/ReportProblemOutlined';
+import SdCardOutlinedIcon from '@material-ui/icons/SdCardOutlined';
 import SearchIcon from '@material-ui/icons/Search';
 import SmartphoneOutlinedIcon from '@material-ui/icons/SmartphoneOutlined';
-import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
+import SpeakerNotesOutlined from '@material-ui/icons/SpeakerNotesOutlined';
+import VerifiedUserOutlined from '@material-ui/icons/VerifiedUserOutlined';
 
-export {
-    ExpandLess, ExpandMore, PhoneAndroidIcon, BookOutlinedIcon, MenuIcon,
-    SearchIcon, SmartphoneOutlinedIcon, FilterListIcon, LabelImportantIcon, AllInboxIcon,
-    SdCardIcon, VerifiedUserIcon, GetAppIcon, AssignmentIcon, BugReportIcon
-};
+export { ExpandLess, ExpandMore, PhoneAndroidIcon, BookOutlinedIcon, MenuIcon, SpeakerNotesOutlined, PermDeviceInformationOutlinedIcon, DeveloperModeOutlinedIcon, SearchIcon, SmartphoneOutlinedIcon, FilterListIcon, LabelImportantIcon, ArchiveOutlined, SdCardOutlinedIcon, VerifiedUserOutlined, GetAppIconOutlined, DescriptionOutlined, BugReportIcon, ReportProblemOutlinedIcon, PermIdentityOutlinedIcon };
