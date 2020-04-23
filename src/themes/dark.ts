@@ -154,42 +154,42 @@ export const DarkTheme: ThemeOptions = {
         h1: {
             fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
             fontWeight: 300,
-            fontSize: '5rem',
+            fontSize: '4rem',
             lineHeight: 1.167,
             letterSpacing: '-0.01562em'
         },
         h2: {
             fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
             fontWeight: 300,
-            fontSize: '2.75rem',
+            fontSize: '3.5rem',
             lineHeight: 1.2,
             letterSpacing: '-0.00833em'
         },
         h3: {
             fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
             fontWeight: 400,
-            fontSize: '2rem',
+            fontSize: '3rem',
             lineHeight: 1.167,
             letterSpacing: '0em'
         },
         h4: {
             fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
             fontWeight: 400,
-            fontSize: '1.125rem',
+            fontSize: '2rem',
             lineHeight: 1.235,
             letterSpacing: '0.00735em'
         },
         h5: {
             fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
             fontWeight: 400,
-            fontSize: '1.25rem',
+            fontSize: '1.1rem',
             lineHeight: 1.334,
             letterSpacing: '0em'
         },
         h6: {
             fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
             fontWeight: 500,
-            fontSize: '1rem',
+            fontSize: '0.99rem',
             lineHeight: 1.6,
             letterSpacing: '0.0075em'
         },

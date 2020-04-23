@@ -1,1 +1,1 @@
-export * from './devices-api';
+export * from './device-api';

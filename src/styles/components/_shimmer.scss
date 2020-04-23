@@ -1,0 +1,27 @@
+.shimmer-wrapper {
+    width: 0px;
+    animation: full-view 0.5s forwards cubic-bezier(0.250, 0.460, 0.450, 0.940);
+}
+
+@keyframes full-view {
+    100% {
+        width: 100%;
+    }
+}
+
+.shimmer {
+    animation: animate 5s infinite linear;
+    background-size: 1000px 100%;
+    background: linear-gradient(to right, #ed7002 4%, #ed7002 25%, #383838 36%);
+    border-radius: 4px;
+}
+
+@keyframes animate {
+    0% {
+        background-position: -1000px 0;
+    }
+
+    100% {
+        background-position: 1000px 0;
+    }
+}

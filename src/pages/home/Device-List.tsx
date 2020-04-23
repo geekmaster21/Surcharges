@@ -5,24 +5,33 @@ import { Input, List, ListItemIcon, ListItemText } from '../../components';
 import { SearchIcon, SmartphoneOutlinedIcon } from '../../components/Icons';
 import { IDevice, IDeviceGroup } from '../../models';
 
-const DeviceList: React.SFC<{ data: IDevice[] }> = ({ data }) => {
-    const GroupList = (_data: IDevice[]) => {
-        const arr: IDeviceGroup[] = [],
-            obj = groupBy(_data, d => d.oem || 'Others');
-        Object.keys(obj).forEach(key => {
-            arr.push({
-                oem: key,
-                devices: obj[key]
-            });
+interface DeviceListProps {
+    data: IDevice[];
+    handleDeviceClick?: (d: IDevice) => void
+}
+
+const placeholders = [...Array(10).keys()];
+
+const GroupList = (_data: IDevice[]) => {
+    const arr: IDeviceGroup[] = [],
+        obj = groupBy(_data, d => d.oem || 'Others');
+    Object.keys(obj).forEach(key => {
+        arr.push({
+            oem: key,
+            devices: obj[key]
         });
-        return arr;
-    }
+    });
+    return arr;
+}
+
+const DeviceList: React.SFC<DeviceListProps> = ({ data, handleDeviceClick }) => {
 
     const [list, setList] = useState<IDeviceGroup[]>(GroupList(data)),
         [filter, setFilter] = useState<string>(''),
-        onDeviceClick = ({ codename }: IDevice) => {
-            const url = `/d/${codename}`;
+        onDeviceClick = (dev: IDevice) => {
+            const url = `/d/${dev.codename}`;
             navigate(url);
+            handleDeviceClick && handleDeviceClick(dev);
         };
 
     const onSearch = ({ target: { value } }: any) => {
@@ -59,6 +68,7 @@ const DeviceList: React.SFC<{ data: IDevice[] }> = ({ data }) => {
                 endIcon={<SearchIcon fontSize="small" />}
                 onInput={onSearch}
             />
+
             {
                 // Device List
                 hasList && (
@@ -78,6 +88,15 @@ const DeviceList: React.SFC<{ data: IDevice[] }> = ({ data }) => {
                         </>)}
                         onClickChild={c => onDeviceClick(c)}
                     />
+                )
+            }
+
+            {
+                // Loading Placeholder
+                !hasList && !filter && (
+                    <ul className="device-list-loading" >
+                        {placeholders.map(m => <li key={m} ></li>)}
+                    </ul>
                 )
             }
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { RouteComponentProps } from '@reach/router';
+import { RouteComponentProps, Link } from '@reach/router';
 import { getAllDeviceList } from '../../apis';
 import { AppBar, Drawer, Hidden, IconButton, makeStyles, Toolbar, Typography, useTheme, WikiLink } from '../../components';
 import { MenuIcon } from '../../components/Icons';
@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'baseline'
     },
     menuButton: {
-        marginRight: theme.spacing(2),
+        marginRight: theme.spacing(0.5),
         [theme.breakpoints.up('sm')]: {
             display: 'none',
         },
@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
     },
     brand: {
         fontFamily: 'Euclid',
-        fontSize: '20px',
+        fontSize: theme.typography.h5.fontSize
     },
     drawerPaper: {
         width: drawerWidth,
@@ -87,14 +87,19 @@ const Home: React.SFC<HomeProps> = ({ children }) => {
                         <MenuIcon />
                     </IconButton>
                     <Typography className={classes.headerContent}>
-                        <span className={classes.brand} >
+                        <Link className={'link no-hover ' + classes.brand}
+                            to="/">
                             OrangeFox Recovery
-                        </span>
-                        <WikiLink label="Wiki" className="link no-hover" />
+                        </Link>
+                        <WikiLink
+                            label="Wiki"
+                            className="link no-hover"
+                        />
                     </Typography>
                 </Toolbar>
             </AppBar>
-            <nav className={classes.drawer} aria-label="mailbox folders">
+
+            <nav className={classes.drawer} >
                 {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
                 <Hidden smUp implementation="css">
                     <Drawer
@@ -109,7 +114,10 @@ const Home: React.SFC<HomeProps> = ({ children }) => {
                             keepMounted: true, // Better open performance on mobile.
                         }}
                     >
-                        <DeviceList data={list} />
+                        <DeviceList
+                            data={list}
+                            handleDeviceClick={handleDrawerToggle}
+                        />
                     </Drawer>
                 </Hidden>
                 <Hidden xsDown implementation="css">
