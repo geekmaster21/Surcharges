@@ -1,7 +1,7 @@
 import React from 'react';
 import { RouteComponentProps } from '@reach/router';
+import { DeviceInfo } from '../../components';
 import { EReleaseType } from '../../models';
-import { DeviceInfo } from './Device-Info';
 import { DeviceReleases } from './Device-Releases';
 
 interface DeviceProps extends RouteComponentProps {

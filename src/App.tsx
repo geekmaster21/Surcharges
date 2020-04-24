@@ -1,7 +1,7 @@
 import React from 'react';
 import { Router } from "@reach/router";
 import { Footer, Header, Splash } from "./components";
-import { Device, Home, NotFound } from './pages';
+import { Device, Home, NotFound, DirectBuild } from './pages';
 import './styles/style.scss';
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
       <Home path="/">
         <Splash path="/" />
         <Device path="/device/:code" />
-        <Device path="/device/:code/:type/:version" />
+        <DirectBuild path="/build/:code/:type/:version" />
         <NotFound default />
       </Home>
       <NotFound default />

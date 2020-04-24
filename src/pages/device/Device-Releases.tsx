@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getAllReleases } from '../../apis';
+import { apiGetAllReleases } from '../../apis';
 import { Card, CardContent } from '../../components';
 import { EReleaseType, IAllReleases } from '../../models';
 import { ReleaseType } from './Release-Type';
@@ -15,7 +15,7 @@ const DeviceReleases: React.SFC<DeviceReleasesProps> = ({ code, type, version })
 
     useEffect(() => {
         if (code) {
-            getAllReleases(code)
+            apiGetAllReleases(code)
                 .then(data => setReleases(data))
                 .catch(() => setReleases(undefined as any));
         }

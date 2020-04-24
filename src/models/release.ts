@@ -15,6 +15,7 @@ export interface IRelease {
     }
     size_bytes: number;
     size_human: string;
+    direct_url: string;
     url: string;
     version: string;
 }

@@ -1,12 +1,14 @@
+import React from 'react';
+import { Theme } from '@material-ui/core';
 import { RouteComponentProps } from '@reach/router';
 import { isEqual, sortBy } from 'lodash';
-import React from 'react';
-import { ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary, Typography } from '../../components';
+import {
+    createStyles, ExpansionPanel, ExpansionPanelDetails,
+    ExpansionPanelSummary, makeStyles, Release, Typography
+} from '../../components';
 import { ExpandMore, StarBorderOutlinedIcon } from '../../components/Icons';
 import { usePreviousProps } from '../../hooks';
 import { EReleaseType, IRelease } from '../../models';
-import { useStylesExpansion } from './constants';
-import { Release } from './Release';
 
 interface ReleaseTypeProps extends RouteComponentProps {
     code: string;
@@ -16,9 +18,34 @@ interface ReleaseTypeProps extends RouteComponentProps {
     expanded?: boolean;
 }
 
+const useStyles = makeStyles((theme: Theme) =>
+    createStyles({
+        root: {
+            width: '100%',
+            backgroundColor: '#2a2a2a',
+        },
+        icon: {
+            color: '#ddd',
+        },
+        iconM5: {
+            color: '#ddd',
+            marginRight: '5px'
+        },
+        flexText: {
+            display: 'flex',
+            alignItems: 'center'
+        },
+        details: {
+            display: 'flex',
+            padding: '5px 10px 10px',
+            flexDirection: 'column'
+        }
+    }),
+);
+
 const ReleaseType: React.SFC<ReleaseTypeProps> = (props) => {
     const { code, expanded, data, type, version } = props;
-    const classes = useStylesExpansion();
+    const classes = useStyles();
     const sortedData = sortBy(data, d => d.actualDate).reverse();
     const [expandPanel, setExpanded] = React.useState<number>(0);
 

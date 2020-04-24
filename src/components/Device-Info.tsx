@@ -4,10 +4,9 @@ import {
     ListItem, ListItemIcon, ListItemText, Typography, makeStyles, Theme, createStyles
 } from '@material-ui/core';
 import { RouteComponentProps } from '@reach/router';
-import { getDeviceByCode } from '../../apis';
-import { ExpandMore, PermDeviceInformationOutlinedIcon, PermIdentityOutlinedIcon } from '../../components/Icons';
-import { IDevice } from '../../models';
-import { useStylesExpansion } from './constants';
+import { apiGetDeviceByCode } from '../apis';
+import { ExpandMore, PermDeviceInformationOutlinedIcon, PermIdentityOutlinedIcon } from './Icons';
+import { IDevice } from '../models';
 
 interface DeviceInfoProps extends RouteComponentProps {
     code?: string;
@@ -15,12 +14,6 @@ interface DeviceInfoProps extends RouteComponentProps {
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
-        icon: {
-            color: '#ddd'
-        },
-        iconM5: {
-            marginRight: '5px'
-        },
         details: {
             padding: '5px 10px 10px',
         },
@@ -30,20 +23,34 @@ const useStyles = makeStyles((theme: Theme) =>
             [theme.breakpoints.down('sm')]: {
                 flexDirection: 'column'
             },
+        },
+        root: {
+            width: '100%',
+            backgroundColor: '#2a2a2a',
+        },
+        icon: {
+            color: '#ddd',
+        },
+        iconM5: {
+            color: '#ddd',
+            marginRight: '5px'
+        },
+        flexText: {
+            display: 'flex',
+            alignItems: 'center'
         }
     }),
 );
 
 const DeviceInfo: React.SFC<DeviceInfoProps> = ({ code }) => {
-    const classes = useStylesExpansion();
-    const classes2 = useStyles();
+    const classes = useStyles();
 
     const [device, setDeviceDetail] = useState<IDevice>({} as IDevice),
         isDifferentDevice = code && device.codename !== code;
 
     useEffect(() => {
         if (code && isDifferentDevice) {
-            getDeviceByCode(code)
+            apiGetDeviceByCode(code)
                 .then(data => {
                     setDeviceDetail(data);
                 });
@@ -78,7 +85,7 @@ const DeviceInfo: React.SFC<DeviceInfoProps> = ({ code }) => {
 
             <ExpansionPanelSummary
                 id="device-info"
-                expandIcon={<ExpandMore className={classes2.icon} />}
+                expandIcon={<ExpandMore className={classes.icon} />}
                 aria-controls="device-info-content"
             >
                 <Typography  >
@@ -88,17 +95,17 @@ const DeviceInfo: React.SFC<DeviceInfoProps> = ({ code }) => {
             <ExpansionPanelDetails className={classes.details} >
                 <List
                     component="ul"
-                    className={classes2.list}
+                    className={classes.list}
                 >
                     <ListItem >
                         <ListItemIcon>
-                            <PermDeviceInformationOutlinedIcon className={classes2.icon} />
+                            <PermDeviceInformationOutlinedIcon className={classes.icon} />
                         </ListItemIcon>
                         <ListItemText primary={device.oem} secondary={device.codename} />
                     </ListItem>
                     <ListItem >
                         <ListItemIcon>
-                            <PermIdentityOutlinedIcon className={classes2.icon} />
+                            <PermIdentityOutlinedIcon className={classes.icon} />
                         </ListItemIcon>
                         <ListItemText primary={maintainPrimaryText} secondary={maintainSecondaryText} />
                     </ListItem>

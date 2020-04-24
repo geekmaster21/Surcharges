@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { RouteComponentProps, Link } from '@reach/router';
-import { getAllDeviceList } from '../../apis';
+import { apiGetAllDeviceList } from '../../apis';
 import { AppBar, Drawer, Hidden, IconButton, makeStyles, Toolbar, Typography, useTheme, WikiLink } from '../../components';
 import { MenuIcon } from '../../components/Icons';
 import { IDevice } from '../../models';
@@ -70,7 +70,7 @@ const Home: React.SFC<HomeProps> = ({ children }) => {
     const [list, setDeviceList] = useState<IDevice[]>([]);
 
     useEffect(() => {
-        getAllDeviceList()
+        apiGetAllDeviceList()
             .then(data => setDeviceList(data));
     }, []);
 

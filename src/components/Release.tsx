@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { Divider, List, ListItem, ListItemIcon, ListItemText, Theme, CircularProgress, Button } from '@material-ui/core';
-import { RouteComponentProps } from '@reach/router';
-import { getRelease } from '../../apis';
+import { RouteComponentProps, Link } from '@reach/router';
+import { apiGetRelease } from '../apis';
 import {
     createStyles, ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary,
     makeStyles, Modal, Typography, PoweredBy
-} from '../../components';
+} from '.';
 import {
     ArchiveOutlined, BugReportIcon, DescriptionOutlined, VerifiedUserOutlined, ExpandMore,
     GetAppIconOutlined, LabelImportantOutlinedIcon, SdCardOutlinedIcon, SpeakerNotesOutlined
-} from '../../components/Icons';
-import { IRelease, EReleaseType } from '../../models';
+} from './Icons';
+import { IRelease, EReleaseType } from '../models';
 
 
 interface ReleaseProps extends RouteComponentProps {
@@ -19,6 +19,8 @@ interface ReleaseProps extends RouteComponentProps {
     type: EReleaseType;
     expanded?: boolean;
     onClick?: () => void;
+    showAllBuild?: boolean;
+    defaultExpanded?: boolean;
 }
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -57,11 +59,18 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         bug: {
             color: '#ff5e5e'
+        },
+        summary: {
+            width: '100%',
+            display: 'flex',
+            placeContent: 'space-between'
         }
     }),
 );
 
-const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type, onClick }) => {
+const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type,
+    onClick, defaultExpanded, showAllBuild }) => {
+
     let tmoDownload: NodeJS.Timeout;
     const classes = useStyles();
     const [release, setReleaseDetail] = useState<IRelease>({} as IRelease);
@@ -86,7 +95,7 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type, onCli
 
     useEffect(() => {
         if (code) {
-            getRelease(code, type, version)
+            apiGetRelease(code, type, version)
                 .then(data => setReleaseDetail(data));
         }
     }, [code, type, version]);
@@ -97,6 +106,7 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type, onCli
         <ExpansionPanel
             className={classes.root}
             expanded={expanded}
+            defaultExpanded={defaultExpanded}
             onChange={() => onClick && onClick()}
         >
             <ExpansionPanelSummary
@@ -104,10 +114,26 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type, onCli
                 expandIcon={<ExpandMore className={classes.icon} />}
                 aria-controls={`${_version} [ ${release.date} ]`}
             >
-                <Typography className={classes.version} >
-                    <LabelImportantOutlinedIcon className={classes.icon + ' ' + classes.iconM5} fontSize="small" />
-                    {_version}
-                </Typography>
+                <div className={classes.summary}>
+                    <Typography className={classes.version} >
+                        <LabelImportantOutlinedIcon className={classes.icon + ' ' + classes.iconM5} fontSize="small" />
+                        {_version}
+                    </Typography>
+
+                    {
+                        showAllBuild && (
+                            <Link
+                                to={`/device/${code}`}
+                                className="link"
+                            >
+                                <Button color="secondary">
+                                    Show All Builds
+                            </Button>
+                            </Link>
+                        )
+                    }
+                </div>
+
             </ExpansionPanelSummary>
 
             <ExpansionPanelDetails className={classes.details} >
@@ -217,12 +243,12 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type, onCli
                     tmoDL && (<>
                         <Button variant="contained" color="secondary">
                             <a
-                                href={release.url}
+                                href={release.direct_url || release.url}
                                 className="link no-hover"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                Main Link
+                                Direct Link
                             </a>
                         </Button>
 
