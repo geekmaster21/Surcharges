@@ -1,6 +1,11 @@
 stages:
   - docker:deploy
 
+
+variables:
+  DOCKER_IMAGE: "registry.gitlab.com/orangefox/site/dsite:$CI_COMMIT_BRANCH"
+
+
 docker:deploy:
   image: docker:latest
   stage: docker:deploy
@@ -11,6 +16,6 @@ docker:deploy:
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" registry.gitlab.com
   script:
     - docker build --pull -t "$DOCKER_IMAGE" .
-    - docker push "registry.gitlab.com/orangefox/site/dsite:$CI_COMMIT_BRANCH"
+    - docker push "$DOCKER_IMAGE"
   only:
     - master
