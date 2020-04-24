@@ -1,10 +1,10 @@
 {
   "short_name": "OrangeFox",
-  "name": "OrangeFox Recovery",
+  "name": "OrangeFox",
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff",
+  "theme_color": "#E06902",
+  "background_color": "#ED7002",
   "icons": [
     {
       "src": "android-icon-36x36.png",
@@ -41,6 +41,26 @@
       "sizes": "192x192",
       "type": "image/png",
       "density": "4.0"
+    },
+    {
+      "src": "android-icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "density": "10.0"
+    },
+    {
+      "src": "masked-icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "density": "4.0",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "masked-icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "density": "10.0",
+      "purpose": "any maskable"
     }
   ]
 }
