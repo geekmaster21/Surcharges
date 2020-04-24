@@ -105,14 +105,14 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type, onCli
                 aria-controls={`${_version} [ ${release.date} ]`}
             >
                 <Typography className={classes.version} >
-                    <LabelImportantOutlinedIcon className={classes.icon + ' ' + classes.iconM5} />
+                    <LabelImportantOutlinedIcon className={classes.icon + ' ' + classes.iconM5} fontSize="small" />
                     {_version}
                 </Typography>
             </ExpansionPanelSummary>
 
             <ExpansionPanelDetails className={classes.details} >
                 <List component="nav" className={classes.list} >
-                    <ListItem button>
+                    <ListItem  >
                         <ListItemIcon>
                             <ArchiveOutlined fontSize="small" className={classes.icon} />
                         </ListItemIcon>
@@ -124,7 +124,7 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type, onCli
 
                     <Divider />
 
-                    <ListItem button>
+                    <ListItem  >
                         <ListItemIcon>
                             <SdCardOutlinedIcon className={classes.icon} />
                         </ListItemIcon>
@@ -136,7 +136,7 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type, onCli
 
                     <Divider />
 
-                    <ListItem button>
+                    <ListItem  >
                         <ListItemIcon>
                             <VerifiedUserOutlined fontSize="small" className={classes.icon} />
                         </ListItemIcon>

@@ -17,6 +17,7 @@ import SdCardOutlinedIcon from '@material-ui/icons/SdCardOutlined';
 import SearchIcon from '@material-ui/icons/Search';
 import SmartphoneOutlinedIcon from '@material-ui/icons/SmartphoneOutlined';
 import SpeakerNotesOutlined from '@material-ui/icons/SpeakerNotesOutlined';
+import StarBorderOutlinedIcon from '@material-ui/icons/StarBorderOutlined';
 import VerifiedUserOutlined from '@material-ui/icons/VerifiedUserOutlined';
 
-export { ExpandLess, ExpandMore, PhoneAndroidIcon, BookOutlinedIcon, MenuIcon, SpeakerNotesOutlined, PermDeviceInformationOutlinedIcon, DeveloperModeOutlinedIcon, SearchIcon, SmartphoneOutlinedIcon, FilterListIcon, LabelImportantOutlinedIcon, ArchiveOutlined, SdCardOutlinedIcon, VerifiedUserOutlined, GetAppIconOutlined, DescriptionOutlined, BugReportIcon, ReportProblemOutlinedIcon, PermIdentityOutlinedIcon };
+export { ExpandLess, ExpandMore, PhoneAndroidIcon, BookOutlinedIcon, MenuIcon, SpeakerNotesOutlined, PermDeviceInformationOutlinedIcon, DeveloperModeOutlinedIcon, SearchIcon, SmartphoneOutlinedIcon, FilterListIcon, LabelImportantOutlinedIcon, ArchiveOutlined, SdCardOutlinedIcon, VerifiedUserOutlined, GetAppIconOutlined, DescriptionOutlined, BugReportIcon, ReportProblemOutlinedIcon, PermIdentityOutlinedIcon, StarBorderOutlinedIcon };

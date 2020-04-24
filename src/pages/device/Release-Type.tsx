@@ -1,12 +1,12 @@
-import React from 'react';
 import { RouteComponentProps } from '@reach/router';
 import { isEqual, sortBy } from 'lodash';
+import React from 'react';
 import { ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary, Typography } from '../../components';
-import { ExpandMore } from '../../components/Icons';
-import { IRelease, EReleaseType } from '../../models';
+import { ExpandMore, StarBorderOutlinedIcon } from '../../components/Icons';
+import { usePreviousProps } from '../../hooks';
+import { EReleaseType, IRelease } from '../../models';
 import { useStylesExpansion } from './constants';
 import { Release } from './Release';
-import { usePreviousProps } from '../../hooks';
 
 interface ReleaseTypeProps extends RouteComponentProps {
     code: string;
@@ -45,10 +45,11 @@ const ReleaseType: React.SFC<ReleaseTypeProps> = (props) => {
         >
             <ExpansionPanelSummary
                 id={`release-${type}-header`}
-                expandIcon={<ExpandMore style={{ color: '#ddd' }} />}
+                expandIcon={<ExpandMore className={classes.icon} />}
                 aria-controls={`release-${type}-content`}
             >
-                <Typography>
+                <Typography className={classes.flexText} >
+                    <StarBorderOutlinedIcon className={classes.iconM5} fontSize="small" />
                     {type.slice(0, 1).toUpperCase() + type.slice(1)} Releases
                 </Typography>
             </ExpansionPanelSummary>
