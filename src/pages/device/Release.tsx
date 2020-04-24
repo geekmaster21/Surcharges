@@ -10,14 +10,15 @@ import {
     ArchiveOutlined, BugReportIcon, DescriptionOutlined, VerifiedUserOutlined, ExpandMore,
     GetAppIconOutlined, LabelImportantOutlinedIcon, SdCardOutlinedIcon, SpeakerNotesOutlined
 } from '../../components/Icons';
-import { IRelease } from '../../models';
+import { IRelease, EReleaseType } from '../../models';
 
 
 interface ReleaseProps extends RouteComponentProps {
     code?: string;
     version: string;
+    type: EReleaseType;
     expanded?: boolean;
-    type: 'stable' | 'beta';
+    onClick?: () => void;
 }
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -60,7 +61,7 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type }) => {
+const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type, onClick }) => {
     let tmoDownload: NodeJS.Timeout;
     const classes = useStyles();
     const [release, setReleaseDetail] = useState<IRelease>({} as IRelease);
@@ -95,7 +96,8 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type }) => 
     return (<>
         <ExpansionPanel
             className={classes.root}
-            defaultExpanded={expanded}
+            expanded={expanded}
+            onChange={() => onClick && onClick()}
         >
             <ExpansionPanelSummary
                 id={_version}

@@ -1,22 +1,42 @@
 import React from 'react';
 import { RouteComponentProps } from '@reach/router';
-import { sortBy } from 'lodash';
+import { isEqual, sortBy } from 'lodash';
 import { ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary, Typography } from '../../components';
 import { ExpandMore } from '../../components/Icons';
-import { IRelease } from '../../models';
+import { IRelease, EReleaseType } from '../../models';
 import { useStylesExpansion } from './constants';
 import { Release } from './Release';
+import { usePreviousProps } from '../../hooks';
 
 interface ReleaseTypeProps extends RouteComponentProps {
     code: string;
     data: IRelease[];
+    type: EReleaseType;
     expanded?: boolean;
-    type: 'stable' | 'beta';
 }
 
-const ReleaseType: React.SFC<ReleaseTypeProps> = ({ code, expanded, data, type }) => {
+const ReleaseType: React.SFC<ReleaseTypeProps> = (props) => {
+    const { code, expanded, data, type } = props;
     const classes = useStylesExpansion();
     const sortedData = sortBy(data, d => d.date).reverse();
+    const [expandPanel, setExpanded] = React.useState<number>(0);
+
+    const handleChange = (panel: number) => {
+        setExpanded(expandPanel === panel ? -1 : panel);
+    };
+
+    const prevProps = usePreviousProps(props);
+    if (prevProps && prevProps?.code && code
+        && !isEqual(
+            sortBy(prevProps?.data || [], p => p.date),
+            sortBy(data || [], p => p.date)
+        )
+    ) {
+        // hack to open first panel automatically
+        setTimeout(() => {
+            setExpanded(0);
+        }, 0);
+    }
 
     return (<>
         <ExpansionPanel
@@ -28,7 +48,7 @@ const ReleaseType: React.SFC<ReleaseTypeProps> = ({ code, expanded, data, type }
                 expandIcon={<ExpandMore style={{ color: '#ddd' }} />}
                 aria-controls={`release-${type}-content`}
             >
-                <Typography  >
+                <Typography>
                     {type.slice(0, 1).toUpperCase() + type.slice(1)} Releases
                 </Typography>
             </ExpansionPanelSummary>
@@ -40,7 +60,8 @@ const ReleaseType: React.SFC<ReleaseTypeProps> = ({ code, expanded, data, type }
                             version={m.version}
                             code={code}
                             type={type}
-                            expanded={i === 0}
+                            expanded={expandPanel === i}
+                            onClick={() => handleChange(i)}
                         />
                     ))
                 }

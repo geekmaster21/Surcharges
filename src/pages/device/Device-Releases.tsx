@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { RouteComponentProps } from '@reach/router';
 import { getAllReleases } from '../../apis';
 import { Card, CardContent } from '../../components';
-import { IAllReleases } from '../../models';
+import { IAllReleases, EReleaseType } from '../../models';
 import { ReleaseType } from './Release-Type';
 
 interface DeviceReleasesProps extends RouteComponentProps {
@@ -30,16 +30,16 @@ const DeviceReleases: React.SFC<DeviceReleasesProps> = ({ code }) => {
                     {!!releases.stable?.length && (
                         <ReleaseType
                             code={code}
-                            type="stable"
                             data={releases?.stable}
+                            type={EReleaseType.stable}
                             expanded={hasStableRelease}
                         />
                     )}
                     {!!releases.beta?.length && (
                         <ReleaseType
-                            type="beta"
                             code={code}
                             data={releases?.beta}
+                            type={EReleaseType.beta}
                             expanded={!hasStableRelease}
                         />
                     )}

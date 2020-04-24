@@ -1,11 +1,11 @@
 import { IRelease } from "./release";
 
-export enum ReleaseType {
+export enum EReleaseType {
     beta = 'beta',
     stable = 'stable',
 };
 
 export interface IAllReleases {
-    [ReleaseType.beta]: IRelease[];
-    [ReleaseType.stable]: IRelease[];
+    [EReleaseType.beta]: IRelease[];
+    [EReleaseType.stable]: IRelease[];
 }
