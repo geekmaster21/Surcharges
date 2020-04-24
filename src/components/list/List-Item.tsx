@@ -7,6 +7,7 @@ import { List } from './List';
 
 interface ListProps<T = any> {
     data: T;
+    expanded?: boolean;
     keyParent?: string;
     className?: string;
     keyChildren?: string;
@@ -29,10 +30,10 @@ const useStyles = makeStyles((theme: Theme) =>
 export const ListItem: React.SFC<ListProps> = ({
     data, className, ContentParent, keyParent,
     keyChildren, ContentChild, fieldChildren,
-    onClickChild, onClickParent }) => {
+    onClickChild, onClickParent, expanded, }) => {
 
     const classes = useStyles();
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = React.useState(expanded);
     const children = (data[fieldChildren || 'children'] as any[]) || [];
 
     if (!children.length) {
@@ -66,6 +67,7 @@ export const ListItem: React.SFC<ListProps> = ({
                             <List
                                 data={child}
                                 component="div"
+                                expanded={expanded}
                                 ContentParent={data}
                                 ContentChild={child}
                                 keyParent={keyParent}

@@ -73,10 +73,12 @@ const DeviceList: React.SFC<DeviceListProps> = ({ data, handleDeviceClick }) => 
                 // Device List
                 hasList && (
                     <List
+                        key={filter} // TODO: (remove this hack) if "filter" is persent, re-render list, with expanded groups
                         data={list}
                         keyParent="oem"
                         keyChildren="codename"
                         fieldChildren="devices"
+                        expanded={filter?.length > 1}
                         ContentParent={p => <ListItemText primary={p.oem} />}
                         ContentChild={c => (<>
                             <ListItemIcon>
