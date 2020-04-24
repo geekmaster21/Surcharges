@@ -108,3 +108,6 @@ package-lock.json
 yarn.lock
 build*
 dist*
+
+# Jetbrains editors
+.idea
