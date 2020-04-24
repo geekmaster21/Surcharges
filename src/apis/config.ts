@@ -1,4 +1,3 @@
 export const CONFIG = {
-    apiUrl: 'https://api-test.yacha.gq'
-    // apiUrl: 'https://api-v2.orangefox.download'
+    apiUrl: process.env.REACT_APP_API_URL
 }
