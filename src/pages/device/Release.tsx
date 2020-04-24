@@ -126,7 +126,7 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type, onCli
 
                     <ListItem  >
                         <ListItemIcon>
-                            <SdCardOutlinedIcon className={classes.icon} />
+                            <SdCardOutlinedIcon fontSize="small" className={classes.icon} />
                         </ListItemIcon>
                         <ListItemText
                             primary="File Size"
@@ -188,7 +188,7 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type, onCli
                             release?.bugs && (
                                 <ListItem button onClick={handleModalBug} className={classes.bug} >
                                     <ListItemIcon className={classes.bug}>
-                                        <BugReportIcon className={classes.icon + ' ' + classes.bug} />
+                                        <BugReportIcon fontSize="small" className={classes.icon + ' ' + classes.bug} />
                                     </ListItemIcon>
                                     <ListItemText primary="Bugs" />
                                 </ListItem>
