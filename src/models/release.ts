@@ -5,6 +5,7 @@ export interface IRelease {
     notes: string;
     codename: string;
     date: string;
+    actualDate: Date;
     file_name: string;
     file_path: string;
     md5: string;

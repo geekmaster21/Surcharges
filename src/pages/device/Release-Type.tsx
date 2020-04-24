@@ -18,7 +18,7 @@ interface ReleaseTypeProps extends RouteComponentProps {
 const ReleaseType: React.SFC<ReleaseTypeProps> = (props) => {
     const { code, expanded, data, type } = props;
     const classes = useStylesExpansion();
-    const sortedData = sortBy(data, d => d.date).reverse();
+    const sortedData = sortBy(data, d => d.actualDate).reverse();
     const [expandPanel, setExpanded] = React.useState<number>(0);
 
     const handleChange = (panel: number) => {
@@ -28,8 +28,8 @@ const ReleaseType: React.SFC<ReleaseTypeProps> = (props) => {
     const prevProps = usePreviousProps(props);
     if (prevProps && prevProps?.code && code
         && !isEqual(
-            sortBy(prevProps?.data || [], p => p.date),
-            sortBy(data || [], p => p.date)
+            sortBy(prevProps?.data || [], p => p.actualDate),
+            sortBy(data || [], p => p.actualDate)
         )
     ) {
         // hack to open first panel automatically

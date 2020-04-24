@@ -30,17 +30,17 @@ const DeviceReleases: React.SFC<DeviceReleasesProps> = ({ code }) => {
                     {!!releases.stable?.length && (
                         <ReleaseType
                             code={code}
-                            data={releases?.stable}
                             type={EReleaseType.stable}
                             expanded={hasStableRelease}
+                            data={releases?.stable.map(d => ({ ...d, actualDate: new Date(d.date) }))}
                         />
                     )}
                     {!!releases.beta?.length && (
                         <ReleaseType
                             code={code}
-                            data={releases?.beta}
                             type={EReleaseType.beta}
                             expanded={!hasStableRelease}
+                            data={releases?.beta.map(d => ({ ...d, actualDate: new Date(d.date) }))}
                         />
                     )}
                 </>
