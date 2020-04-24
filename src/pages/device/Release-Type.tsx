@@ -10,13 +10,14 @@ import { Release } from './Release';
 
 interface ReleaseTypeProps extends RouteComponentProps {
     code: string;
+    version?: string;
     data: IRelease[];
     type: EReleaseType;
     expanded?: boolean;
 }
 
 const ReleaseType: React.SFC<ReleaseTypeProps> = (props) => {
-    const { code, expanded, data, type } = props;
+    const { code, expanded, data, type, version } = props;
     const classes = useStylesExpansion();
     const sortedData = sortBy(data, d => d.actualDate).reverse();
     const [expandPanel, setExpanded] = React.useState<number>(0);
@@ -61,8 +62,8 @@ const ReleaseType: React.SFC<ReleaseTypeProps> = (props) => {
                             version={m.version}
                             code={code}
                             type={type}
-                            expanded={expandPanel === i}
                             onClick={() => handleChange(i)}
+                            expanded={version ? m.version === version : expandPanel === i}
                         />
                     ))
                 }

@@ -11,7 +11,7 @@ function App() {
       <Home path="/">
         <Splash path="/" />
         <Device path="/device/:code" />
-        {/* <Device path="/device/:code/:type/:version" /> */}
+        <Device path="/device/:code/:type/:version" />
         <NotFound default />
       </Home>
       <NotFound default />

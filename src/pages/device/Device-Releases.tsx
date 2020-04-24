@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { RouteComponentProps } from '@reach/router';
 import { getAllReleases } from '../../apis';
 import { Card, CardContent } from '../../components';
-import { IAllReleases, EReleaseType } from '../../models';
+import { EReleaseType, IAllReleases } from '../../models';
 import { ReleaseType } from './Release-Type';
 
-interface DeviceReleasesProps extends RouteComponentProps {
+interface DeviceReleasesProps {
     code: string;
+    version?: string;
+    type?: EReleaseType;
 }
 
-const DeviceReleases: React.SFC<DeviceReleasesProps> = ({ code }) => {
+const DeviceReleases: React.SFC<DeviceReleasesProps> = ({ code, type, version }) => {
     const [releases, setReleases] = useState<IAllReleases>({} as IAllReleases);
 
     useEffect(() => {
@@ -21,7 +22,7 @@ const DeviceReleases: React.SFC<DeviceReleasesProps> = ({ code }) => {
     }, [code]);
 
     const hasReleases = code && releases;
-    const hasStableRelease = !!releases?.stable?.length;
+    const hasStableRelease = type ? (type === EReleaseType.stable) : !!releases?.stable?.length;
 
     return (<>
         {
@@ -30,6 +31,7 @@ const DeviceReleases: React.SFC<DeviceReleasesProps> = ({ code }) => {
                     {!!releases.stable?.length && (
                         <ReleaseType
                             code={code}
+                            version={version}
                             type={EReleaseType.stable}
                             expanded={hasStableRelease}
                             data={releases?.stable.map(d => ({ ...d, actualDate: new Date(d.date) }))}
@@ -38,6 +40,7 @@ const DeviceReleases: React.SFC<DeviceReleasesProps> = ({ code }) => {
                     {!!releases.beta?.length && (
                         <ReleaseType
                             code={code}
+                            version={version}
                             type={EReleaseType.beta}
                             expanded={!hasStableRelease}
                             data={releases?.beta.map(d => ({ ...d, actualDate: new Date(d.date) }))}
