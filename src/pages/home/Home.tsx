@@ -47,6 +47,7 @@ const useStyles = makeStyles((theme) => ({
     },
     brand: {
         fontFamily: 'Euclid',
+        fontWeight: 500,
         fontSize: theme.typography.h5.fontSize
     },
     drawerPaper: {
