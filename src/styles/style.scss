@@ -8,6 +8,7 @@ body {
     font-family: 'Roboto', sans-serif;
     font-size: calc(0.70em + 1vmin);
     overflow: auto;
+    overscroll-behavior: none;
 }
 
 * {
