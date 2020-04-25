@@ -1,8 +1,6 @@
-export * from './Accordion';
 export * from './Device-Info';
 export * from './Footer';
 export * from './Header';
-export * from './Help';
 export * from './Input';
 export * from './list';
 export * from './Logo';
@@ -10,6 +8,5 @@ export * from './Modal';
 export * from './Powered-By';
 export * from './React-Material';
 export * from './Release';
-export * from './Social';
 export * from './Splash';
 export * from './Wiki-Link';

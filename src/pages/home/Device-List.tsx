@@ -37,8 +37,7 @@ const DeviceList: React.SFC<DeviceListProps> = ({ data, handleDeviceClick }) => 
     const onSearch = ({ target: { value } }: any) => {
         const _filter = (value || '').trim().toLowerCase();
         setFilter(_filter);
-        const _list = doFilter(_filter);
-        setList(_list);
+        setList(doFilter(_filter));
     }
 
     const doFilter = (_filter: string) => {
@@ -50,10 +49,12 @@ const DeviceList: React.SFC<DeviceListProps> = ({ data, handleDeviceClick }) => 
         return GroupList(filteredData);
     }
 
-    if (data.length && !filter && !list.length)
+    if (data?.length && !filter && !list.length)
         setList(doFilter(''));
 
-    const hasList = Boolean(list.length);
+    const hasList = !data ? // data will be undefined if api errors out, this will also stop loading placeholder
+        true :
+        Boolean(list.length);
 
     return (
         <div>

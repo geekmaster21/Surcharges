@@ -19,6 +19,19 @@ const Footer: React.SFC<FooterProps> = () => {
     return (
         <footer >
             <Paper elevation={3} className={classes.root} >
+                <a href="https://gitlab.com/OrangeFox/site/dsite"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="link"
+                    title="Please feel free to contribute!"
+                >
+                    Open-Source Project
+                </a>
+
+                &nbsp;
+                &#x25CF;
+                &nbsp;
+
                 <PoweredBy />
             </Paper>
         </footer>

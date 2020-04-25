@@ -62,8 +62,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Home: React.SFC<HomeProps> = ({ children }) => {
-    const classes = useStyles();
     const theme = useTheme();
+    const classes = useStyles();
     const [mobileOpen, setMobileOpen] = useState(false);
 
     const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
@@ -72,7 +72,8 @@ const Home: React.SFC<HomeProps> = ({ children }) => {
 
     useEffect(() => {
         apiGetAllDeviceList()
-            .then(data => setDeviceList(data));
+            .then(data => setDeviceList(data))
+            .catch(() => setDeviceList(undefined as any));
     }, []);
 
     return (
