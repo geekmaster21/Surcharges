@@ -48,7 +48,12 @@ const useStyles = makeStyles((theme) => ({
     brand: {
         fontFamily: 'Euclid',
         fontWeight: 500,
-        fontSize: theme.typography.h5.fontSize
+        fontSize: '15pt'
+    },
+    recoverySmall: {
+        fontFamily: 'Euclid',
+        fontWeight: 400,
+        fontSize: '10pt'
     },
     drawerPaper: {
         width: drawerWidth,
@@ -91,7 +96,7 @@ const Home: React.SFC<HomeProps> = ({ children }) => {
                     <Typography className={classes.headerContent}>
                         <Link className={'link no-hover ' + classes.brand}
                             to="/">
-                            OrangeFox Recovery
+                            OrangeFox <Link className={'link no-hover ' + classes.recoverySmall} to="/">Recovery</Link>
                         </Link>
                         <WikiLink
                             label="Wiki"
