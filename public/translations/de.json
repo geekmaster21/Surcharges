@@ -1,0 +1,42 @@
+{
+    "deviceList": {
+        "searchDevice": "Gerät suchen",
+        "notFound": "Gerät konnte nicht gefunden werden!"
+    },
+    "device": {
+        "info": "(Geräte-Info)"
+    },
+    "maintain": {
+        "status": {
+            "maintained": "Betreut",
+            "maintainedWithoutDevice": "Betreut ohne das Gerät zu besitzen",
+            "notMaintained": "Nicht betreut!"
+        },
+        "by": {
+            "current": "Betreuer: {maintainer}",
+            "previous": "Vorheriger Betreuer: {maintainer}"
+        }
+    },
+    "release": {
+        "type": {
+            "beta": "Beta-Versionen",
+            "stable": "Stabile-Versionen"
+        },
+        "fileSize": "Gesamtgröße",
+        "download": "Herunterladen",
+        "changeLogs": "Änderungsprotokolle",
+        "buildNotes": "Anmerkungen zu diesem Build",
+        "bugs": "Bugs",
+        "allBuild": "Alle Builds anzeigen"
+    },
+    "modal": {
+        "download": "Downloads",
+        "fetchLink": "Links werden abgerufen",
+        "directLink": "Direkter Link",
+        "mirrorLink": "Alternativer Link"
+    },
+    "footer": {
+        "poweredBy": "Unterstützt von",
+        "openSource": "Open-Source Projekt"
+    }
+}

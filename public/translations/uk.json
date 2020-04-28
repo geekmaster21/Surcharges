@@ -1,0 +1,42 @@
+{
+    "deviceList": {
+        "searchDevice": "Пошук пристрою",
+        "notFound": "Пристрій не знайдено!"
+    },
+    "device": {
+        "info": "(Інформація)"
+    },
+    "maintain": {
+        "status": {
+            "maintained": "Підтримується",
+            "maintainedWithoutDevice": "Підтримується, не маючи пристрою на руках",
+            "notMaintained": "Не підтримується!"
+        },
+        "by": {
+            "current": "Супроводжуючий: {maintainer}",
+            "previous": "Попередній супроводжуючий: {maintainer}"
+        }
+    },
+    "release": {
+        "type": {
+            "beta": "Бета релізи",
+            "stable": "Стабільні релізи"
+        },
+        "fileSize": "Розмір файла",
+        "download": "Завантажити",
+        "changeLogs": "Зміни",
+        "buildNotes": "Примітки",
+        "bugs": "Баги",
+        "allBuild": "Показати всі збірки"
+    },
+    "modal": {
+        "download": "Завантажити",
+        "fetchLink": "Отримання посилань",
+        "directLink": "Пряме посилання",
+        "mirrorLink": "Дзеркало"
+    },
+    "footer": {
+        "poweredBy": "Працює на",
+        "openSource": "Open-Source проект"
+    }
+}
