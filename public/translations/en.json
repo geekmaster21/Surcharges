@@ -1,15 +1,12 @@
 {
     "deviceList": {
-        "__DESC__": "Sidebar (Device Selection and Search)",
         "searchDevice": "Search Device",
         "notFound": "Device not found!"
     },
     "device": {
-        "__DESC__": "Device Details Card",
         "info": "(Device Info)"
     },
     "maintain": {
-        "__DESC__": "Build Maintenance",
         "status": {
             "maintained": "Maintained",
             "maintainedWithoutDevice": "Maintained without having device in hands",
@@ -21,7 +18,6 @@
         }
     },
     "release": {
-        "__DESC__": "Release Info",
         "type": {
             "beta": "Beta Releases",
             "stable": "Stable Releases"
@@ -34,14 +30,12 @@
         "allBuild": "Show All Builds"
     },
     "modal": {
-        "__DESC__": "Popup Windows",
         "download": "Downloads",
         "fetchLink": "Fetching Links",
         "directLink": "Direct Link",
         "mirrorLink": "Mirror Link"
     },
     "footer": {
-        "__DESC__": "Footer of Website",
         "poweredBy": "Powered By",
         "openSource": "Open-Source Project"
     }
