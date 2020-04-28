@@ -3,8 +3,8 @@ import { Link } from '@reach/router';
 import { apiGetAllDeviceList } from '../../apis';
 import { AppBar, Drawer as MatDrawer, Hidden, IconButton, Toolbar, Typography, useTheme, WikiLink } from '../../components';
 import { MenuIcon } from '../../components/Icons';
-import { GetCurrentLocale } from '../../i18n';
 import { IDevice } from '../../models';
+import { GetCurrentLocale } from '../../utils';
 import { useStyles } from './constants';
 import { DeviceList } from './Device-List';
 

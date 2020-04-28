@@ -4,8 +4,8 @@ import { groupBy } from 'lodash';
 import { FormattedMessage } from 'react-intl';
 import { Input, List, ListItemIcon, ListItemText } from '../../components';
 import { SearchIcon, SmartphoneOutlinedIcon } from '../../components/Icons';
-import { GetCurrentLocale } from '../../i18n';
 import { IDevice, IDeviceGroup } from '../../models';
+import { GetCurrentLocale } from '../../utils';
 
 interface DeviceListProps {
     data: IDevice[];
@@ -70,9 +70,11 @@ const DeviceList: React.SFC<DeviceListProps> = ({ data, handleDeviceClick }) => 
                 onInput={onSearch}
                 style={{ width: 'calc(100% - 35px)' }}
                 endIcon={<SearchIcon fontSize="small" />}
-                label={<FormattedMessage
-                    id="deviceList.searchDevice"
-                    defaultMessage="Search Device" />}
+                label={
+                    <FormattedMessage
+                        id="deviceList.searchDevice"
+                        defaultMessage="Search Device" />
+                }
             />
 
             {

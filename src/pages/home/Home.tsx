@@ -1,8 +1,9 @@
 import React from 'react';
 import { RouteComponentProps } from '@reach/router';
 import { IntlProvider } from 'react-intl';
+import { apiGetTranslation } from '../../apis';
 import { Footer } from '../../components';
-import { LoadTranslations, SetCurrentLocale } from '../../i18n';
+import { SetCurrentLocale } from '../../utils';
 import { useStyles } from './constants';
 import { Drawer } from './Drawer';
 
@@ -13,8 +14,16 @@ interface HomeProps extends RouteComponentProps {
 const Home: React.SFC<HomeProps> = ({ children, lang }) => {
     const locale = lang || 'en';
     const classes = useStyles();
-    const translations = LoadTranslations(locale);
+    const [translations, setTranslations] = React.useState();
+
     SetCurrentLocale(locale);
+
+    React.useEffect(() => {
+        apiGetTranslation(locale)
+            .then(data => {
+                setTranslations(data);
+            });
+    }, [locale])
 
     return (<>
         <IntlProvider locale={locale} messages={translations} >
