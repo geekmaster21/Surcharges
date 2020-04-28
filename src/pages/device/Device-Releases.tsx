@@ -36,9 +36,11 @@ const DeviceReleases: React.SFC<DeviceReleasesProps> = ({ code, type, version })
                             type={EReleaseType.stable}
                             expanded={isStableRelease}
                             data={releases?.stable.map(d => ({ ...d, actualDate: new Date(d.date) }))}
-                            releaseLabel={<FormattedMessage
-                                id="release.type.stable"
-                                defaultMessage="Stable Releases" />}
+                            releaseLabel={
+                                <FormattedMessage
+                                    id="release.type.stable"
+                                    defaultMessage="Stable Releases" />
+                            }
                         />
                     )}
                     {!!releases.beta?.length && (
@@ -48,9 +50,11 @@ const DeviceReleases: React.SFC<DeviceReleasesProps> = ({ code, type, version })
                             type={EReleaseType.beta}
                             expanded={!isStableRelease}
                             data={releases?.beta.map(d => ({ ...d, actualDate: new Date(d.date) }))}
-                            releaseLabel={<FormattedMessage
-                                id="release.type.beta"
-                                defaultMessage="Beta Releases" />}
+                            releaseLabel={
+                                <FormattedMessage
+                                    id="release.type.beta"
+                                    defaultMessage="Beta Releases" />
+                            }
                         />
                     )}
                 </>
@@ -64,7 +68,9 @@ const DeviceReleases: React.SFC<DeviceReleasesProps> = ({ code, type, version })
                         padding: '20px',
                         textAlign: 'center'
                     }}>
-                        There are no releases for this device yet.
+                        <FormattedMessage
+                            id="release.notFound"
+                            defaultMessage="There are no releases for this device yet!" />
                     </CardContent>
                 </Card>
             )

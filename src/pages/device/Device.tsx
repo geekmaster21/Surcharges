@@ -21,4 +21,4 @@ const Device: React.SFC<DeviceProps> = ({ code, type, version }) => {
     </>);
 }
 
-export { Device };
+export default Device;

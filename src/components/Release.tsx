@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Divider, List, ListItem, ListItemIcon, ListItemText, Theme, CircularProgress, Button } from '@material-ui/core';
-import { RouteComponentProps, Link } from '@reach/router';
+import { RouteComponentProps } from '@reach/router';
 import { apiGetRelease } from '../apis';
 import {
     createStyles, ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary,
-    makeStyles, Modal, Typography, PoweredBy
+    LinkLocale, makeStyles, Modal, Typography, PoweredBy,
 } from '.';
 import {
     ArchiveOutlined, BugReportIcon, DescriptionOutlined, VerifiedUserOutlined, ExpandMore,
@@ -122,7 +122,7 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type,
 
                     {
                         showAllBuild && (
-                            <Link
+                            <LinkLocale
                                 to={`/device/${code}`}
                                 className="link"
                             >
@@ -131,7 +131,7 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type,
                                         id="release.allBuild"
                                         defaultMessage="Show All Builds" />
                                 </Button>
-                            </Link>
+                            </LinkLocale>
                         )
                     }
                 </div>

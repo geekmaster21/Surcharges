@@ -22,6 +22,7 @@
             "beta": "Beta Releases",
             "stable": "Stable Releases"
         },
+        "notFound": "There are no releases for this device yet!",
         "fileSize": "File Size",
         "download": "Download",
         "changeLogs": "Change Logs",

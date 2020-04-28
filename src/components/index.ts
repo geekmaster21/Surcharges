@@ -1,6 +1,7 @@
 export * from './Device-Info';
 export * from './Footer';
 export * from './Input';
+export * from './Link-Locale';
 export * from './list';
 export * from './Logo';
 export * from './Modal';

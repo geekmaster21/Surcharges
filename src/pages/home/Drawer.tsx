@@ -1,17 +1,17 @@
 import React, { useEffect } from 'react';
-import { Link } from '@reach/router';
 import { apiGetAllDeviceList } from '../../apis';
-import { AppBar, Drawer as MatDrawer, Hidden, IconButton, Toolbar, Typography, useTheme, WikiLink } from '../../components';
+import {
+    AppBar, Drawer as MatDrawer, Hidden, IconButton,
+    LinkLocale, Toolbar, Typography, useTheme, WikiLink
+} from '../../components';
 import { MenuIcon } from '../../components/Icons';
 import { IDevice } from '../../models';
-import { GetCurrentLocale } from '../../utils';
 import { useStyles } from './constants';
 import { DeviceList } from './Device-List';
 
 const Drawer: React.SFC = () => {
     const theme = useTheme();
     const classes = useStyles();
-    const locale = GetCurrentLocale();
     const [mobileOpen, setMobileOpen] = React.useState(false);
     const [list, setDeviceList] = React.useState<IDevice[]>([]);
     const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
@@ -35,10 +35,13 @@ const Drawer: React.SFC = () => {
                     <MenuIcon />
                 </IconButton>
                 <Typography className={classes.headerContent}>
-                    <Link className={'link no-hover ' + classes.brand}
-                        to={"/" + locale}>
+
+                    <LinkLocale
+                        to="/"
+                        className={'link no-hover ' + classes.brand}>
                         OrangeFox Recovery
-                        </Link>
+                    </LinkLocale>
+
                     <WikiLink
                         label="Wiki"
                         className="link no-hover"

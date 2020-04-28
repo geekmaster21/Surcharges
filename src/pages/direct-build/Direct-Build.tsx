@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { RouteComponentProps } from '@reach/router';
 import { Card, CardContent, DeviceInfo, Release } from '../../components';
 import { EReleaseType } from '../../models';
@@ -24,4 +24,4 @@ const DirectBuild: React.SFC<DirectBuildProps> = ({ code, version, type }) => {
     </Card>);
 }
 
-export { DirectBuild };
+export default DirectBuild;

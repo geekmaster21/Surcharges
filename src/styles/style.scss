@@ -43,6 +43,10 @@ p {
     text-decoration: none;
     outline: none;
 
+    &.orange{
+        color: $orange-1;
+    }
+
     &.underline {
         text-decoration: underline;
     }

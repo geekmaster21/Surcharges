@@ -44,4 +44,4 @@ const Home: React.SFC<HomeProps> = ({ children, lang }) => {
     </>) : null;
 }
 
-export { Home };
+export default Home;

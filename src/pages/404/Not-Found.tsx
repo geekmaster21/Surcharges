@@ -1,14 +1,15 @@
-import * as React from 'react';
-import { Link, RouteComponentProps } from '@reach/router';
+import React from 'react';
+import { RouteComponentProps } from '@reach/router';
+import { LinkLocale } from '../../components';
 
 interface NotFoundProps extends RouteComponentProps { }
 
 const NotFound: React.SFC<NotFoundProps> = () => {
     return (<>
-        <Link to="/" className="link" >
-            This is the end. Nobody's here!
-        </Link>
+        <LinkLocale to={"/"} className="link underline" >
+            This is the end. Take me back Home!
+        </LinkLocale>
     </>);
 }
 
-export { NotFound };
+export default NotFound;
