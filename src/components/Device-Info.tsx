@@ -64,17 +64,58 @@ const DeviceInfo: React.SFC<DeviceInfoProps> = ({ code }) => {
 
     switch (device.maintained) {
         case 1:
-            maintainPrimaryText = <>Maintained</>
-            maintainSecondaryText = <>{`Maintainer: ${maintainer}`}</>
+            maintainPrimaryText = (
+                <FormattedMessage
+                    id="maintain"
+                    defaultMessage="Maintained"
+                />
+            );
+
+            maintainSecondaryText = (
+                <FormattedMessage
+                    id="maintain.by"
+                    defaultMessage="Maintainer: {maintainer}"
+                    values={{ maintainer }}
+                />
+            );
             break;
         case 2:
-            maintainPrimaryText = <>Maintained without having device in hands</>
-            maintainSecondaryText = <>{`Maintainer: ${maintainer}`}</>
+
+            maintainPrimaryText = (
+                <FormattedMessage
+                    id="maintain.withoutDevice"
+                    defaultMessage="Maintained without having device in hands"
+                />
+            );
+
+            maintainSecondaryText = (
+                <FormattedMessage
+                    id="maintain.by"
+                    defaultMessage="Maintainer: {maintainer}"
+                    values={{ maintainer }}
+                />
+            );
+
             break;
         case 3:
         default:
-            maintainPrimaryText = <span style={{ color: '#dfdf01' }} >&#9888; {`Not Maintained!`}</span>
-            maintainSecondaryText = <>{`Previous Maintainer: ${maintainer || 'None'}`}</>
+            maintainPrimaryText = (
+                <span style={{ color: '#dfdf01' }} >
+                    &#9888;
+                    <FormattedMessage
+                        id="maintain.notMaintained"
+                        defaultMessage="Not Maintained!"
+                    />
+                </span>
+            );
+
+            maintainSecondaryText = (
+                <FormattedMessage
+                    id="maintain.previouslyBy"
+                    defaultMessage="Previous Maintainer: {maintainer}"
+                    values={{ maintainer: maintainer || 'None' }}
+                />
+            );
             break;
     }
 
