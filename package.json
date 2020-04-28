@@ -1,6 +1,6 @@
 {
   "name": "orangefox_recovery",
-  "version": "20.4.27",
+  "version": "20.4.28",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.9.12",

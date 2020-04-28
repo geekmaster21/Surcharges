@@ -1,20 +1,23 @@
 import React from 'react';
 import { createStyles, makeStyles, Paper, Theme } from '@material-ui/core';
 import { PoweredBy } from './Powered-By';
-
-export interface FooterProps {
-}
+import { FormattedMessage } from 'react-intl';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
-            padding: theme.spacing(2),
-            textAlign: 'right'
+            height: '50px',
+            display: 'flex',
+            alignItems: 'center',
+            placeContent: 'flex-end',
+        },
+        mx: {
+            margin: '0 10px'
         },
     }),
 );
 
-const Footer: React.SFC<FooterProps> = () => {
+const Footer: React.SFC = () => {
     const classes = useStyles();
     return (
         <footer >
@@ -22,17 +25,16 @@ const Footer: React.SFC<FooterProps> = () => {
                 <a href="https://gitlab.com/OrangeFox/site/dsite"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="link"
-                    title="Please feel free to contribute!"
+                    className={"link " + classes.mx}
                 >
-                    Open-Source Project
+                    <FormattedMessage
+                        id="footer.openSource"
+                        defaultMessage="Open-Source Project" />
                 </a>
-
-                &nbsp;
                 &#x25CF;
-                &nbsp;
-
-                <PoweredBy />
+                <span className={classes.mx}>
+                    <PoweredBy />
+                </span>
             </Paper>
         </footer>
     );

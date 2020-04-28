@@ -1,163 +1,36 @@
-import React, { useEffect, useState } from 'react';
-import { Link, RouteComponentProps } from '@reach/router';
-import { apiGetAllDeviceList, apiGetAllTranslations } from '../../apis';
-import { AppBar, Drawer, Hidden, IconButton, makeStyles, Toolbar, Typography, useTheme, WikiLink } from '../../components';
-import { MenuIcon } from '../../components/Icons';
-import { IDevice, ILocationState } from '../../models';
-import { DeviceList } from './Device-List';
+import React from 'react';
+import { RouteComponentProps } from '@reach/router';
+import { IntlProvider } from 'react-intl';
+import { Footer } from '../../components';
+import { LoadTranslations, SetCurrentLocale } from '../../i18n';
+import { useStyles } from './constants';
+import { Drawer } from './Drawer';
 
 interface HomeProps extends RouteComponentProps {
     lang?: string;
 }
 
-const drawerWidth = 300;
-
-const useStyles = makeStyles((theme) => ({
-    root: {
-        display: 'flex',
-        height: '100%'
-    },
-    drawer: {
-        [theme.breakpoints.up('sm')]: {
-            width: drawerWidth,
-            flexShrink: 0,
-        },
-    },
-    appBar: {
-        backgroundColor: '#ed7002',
-        [theme.breakpoints.up('sm')]: {
-            width: `calc(100% - ${drawerWidth}px)`,
-            marginLeft: drawerWidth,
-        },
-        alignItems: 'baseline'
-    },
-    menuButton: {
-        marginRight: theme.spacing(0.5),
-        [theme.breakpoints.up('sm')]: {
-            display: 'none',
-        },
-    },
-    header: {
-        width: '100%',
-        minHeight: '100%',
-    },
-    headerContent: {
-        width: '100%',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-    },
-    brand: {
-        fontFamily: 'Euclid',
-        fontWeight: 500,
-        fontSize: theme.typography.h5.fontSize
-    },
-    drawerPaper: {
-        width: drawerWidth,
-        boxShadow: '0 0 5px black'
-    },
-    content: {
-        flexGrow: 1,
-        height: '100%',
-        padding: theme.spacing(3),
-    },
-}));
-
-const Home: React.SFC<HomeProps> = ({ children, location, lang }) => {
-
-    const theme = useTheme();
+const Home: React.SFC<HomeProps> = ({ children, lang }) => {
+    const locale = lang || 'en';
     const classes = useStyles();
-    const [mobileOpen, setMobileOpen] = useState(false);
+    const translations = LoadTranslations(locale);
+    SetCurrentLocale(locale);
 
-    const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
+    return (<>
+        <IntlProvider locale={locale} messages={translations} >
 
-    const [list, setDeviceList] = useState<IDevice[]>([]);
+            <div className={classes.root}>
+                <Drawer />
 
-    useEffect(() => {
-        const state = (location?.state ?? {}) as ILocationState;
-        const _lang = lang || 'en';
-        apiGetAllTranslations(_lang)
-            .then(data => {
-                const trans = state.translations;
-                location!.state = {
-                    ...state,
-                    currentLang: _lang,
-                    translations: { ...trans, [_lang]: data }
-                };
-            })
-            .catch(() => location!.state = { ...state });
-    }, [lang, location]);
+                <main className={classes.routeContent}>
+                    {children}
+                </main>
+            </div>
 
-    useEffect(() => {
-        apiGetAllDeviceList()
-            .then(data => setDeviceList(data))
-            .catch(() => setDeviceList(undefined as any));
-    }, []);
+            <Footer />
 
-    return (
-        <div className={classes.root}>
-            <AppBar position="fixed" className={classes.appBar}>
-                <Toolbar className={classes.header}>
-                    <IconButton
-                        color="inherit"
-                        aria-label="open drawer"
-                        edge="start"
-                        onClick={handleDrawerToggle}
-                        className={classes.menuButton}
-                    >
-                        <MenuIcon />
-                    </IconButton>
-                    <Typography className={classes.headerContent}>
-                        <Link className={'link no-hover ' + classes.brand}
-                            to="/">
-                            OrangeFox Recovery
-                        </Link>
-                        <WikiLink
-                            label="Wiki"
-                            className="link no-hover"
-                        />
-                    </Typography>
-                </Toolbar>
-            </AppBar>
-
-            <nav className={classes.drawer} >
-                {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-                <Hidden smUp implementation="css">
-                    <Drawer
-                        variant="temporary"
-                        anchor={theme.direction === 'rtl' ? 'right' : 'left'}
-                        open={mobileOpen}
-                        onClose={handleDrawerToggle}
-                        classes={{
-                            paper: classes.drawerPaper,
-                        }}
-                        ModalProps={{
-                            keepMounted: true, // Better open performance on mobile.
-                        }}
-                    >
-                        <DeviceList
-                            data={list}
-                            handleDeviceClick={handleDrawerToggle}
-                        />
-                    </Drawer>
-                </Hidden>
-                <Hidden xsDown implementation="css">
-                    <Drawer
-                        classes={{
-                            paper: classes.drawerPaper,
-                        }}
-                        variant="permanent"
-                        open
-                    >
-                        <DeviceList data={list} />
-                    </Drawer>
-                </Hidden>
-            </nav>
-            <main className={classes.content}>
-                {children}
-            </main>
-        </div>
-    );
+        </IntlProvider>
+    </>);
 }
 
 export { Home };

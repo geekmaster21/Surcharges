@@ -1,4 +1,4 @@
 export interface ILocationState {
-    currentLang: string,
+    currentLocale: string,
     translations: any
 }

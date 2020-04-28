@@ -1,6 +1,5 @@
 export * from './Device-Info';
 export * from './Footer';
-export * from './Header';
 export * from './Input';
 export * from './list';
 export * from './Logo';

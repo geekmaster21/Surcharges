@@ -1,8 +1,0 @@
-{
-    "deviceList": {
-        "searchDevice": "Поиск устройства",
-        "notFound": "Устройство не найдено!"
-    },
-    "deviceList.notFound": "Поиск устройства",
-    "deviceList.searchDevice": "Поиск устройства"
-}

@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { navigate, useLocation } from '@reach/router';
+import { navigate } from '@reach/router';
 import { groupBy } from 'lodash';
-import { FormattedMessage, IntlProvider } from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 import { Input, List, ListItemIcon, ListItemText } from '../../components';
 import { SearchIcon, SmartphoneOutlinedIcon } from '../../components/Icons';
-import { IDevice, IDeviceGroup, ILocationState } from '../../models';
+import { GetCurrentLocale } from '../../i18n';
+import { IDevice, IDeviceGroup } from '../../models';
 
 interface DeviceListProps {
     data: IDevice[];
@@ -26,16 +27,15 @@ const GroupList = (_data: IDevice[]) => {
 }
 
 const DeviceList: React.SFC<DeviceListProps> = ({ data, handleDeviceClick }) => {
+    const locale = GetCurrentLocale();
+    const [list, setList] = useState<IDeviceGroup[]>(GroupList(data));
+    const [filter, setFilter] = useState<string>('');
 
-    const { currentLang, translations } = (useLocation().state ?? {}) as ILocationState;
-
-    const [list, setList] = useState<IDeviceGroup[]>(GroupList(data)),
-        [filter, setFilter] = useState<string>(''),
-        onDeviceClick = (dev: IDevice) => {
-            const url = `/device/${dev.codename}`;
-            navigate(url);
-            handleDeviceClick && handleDeviceClick(dev);
-        };
+    const onDeviceClick = (dev: IDevice) => {
+        const url = `/${locale}/device/${dev.codename}`;
+        navigate(url);
+        handleDeviceClick && handleDeviceClick(dev);
+    };
 
     const onSearch = ({ target: { value } }: any) => {
         const _filter = (value || '').trim().toLocaleLowerCase();
@@ -60,24 +60,20 @@ const DeviceList: React.SFC<DeviceListProps> = ({ data, handleDeviceClick }) => 
         true :
         Boolean(list.length);
 
-    console.log(currentLang, translations);
-
     return (
         <div>
-            <IntlProvider locale={currentLang} messages={translations}>
-                <Input
-                    size="small"
-                    color="secondary"
-                    variant="outlined"
-                    disabled={!data}
-                    onInput={onSearch}
-                    style={{ width: 'calc(100% - 35px)' }}
-                    endIcon={<SearchIcon fontSize="small" />}
-                    label={<FormattedMessage
-                        id="deviceList.searchDevice"
-                        defaultMessage="Search Device" />}
-                />
-            </IntlProvider>
+            <Input
+                size="small"
+                color="secondary"
+                variant="outlined"
+                disabled={!data}
+                onInput={onSearch}
+                style={{ width: 'calc(100% - 35px)' }}
+                endIcon={<SearchIcon fontSize="small" />}
+                label={<FormattedMessage
+                    id="deviceList.searchDevice"
+                    defaultMessage="Search Device" />}
+            />
 
             {
                 // Device List

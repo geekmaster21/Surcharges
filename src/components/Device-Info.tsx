@@ -7,6 +7,7 @@ import { RouteComponentProps } from '@reach/router';
 import { apiGetDeviceByCode } from '../apis';
 import { ExpandMore, PermDeviceInformationOutlinedIcon, PermIdentityOutlinedIcon } from './Icons';
 import { IDevice } from '../models';
+import { FormattedMessage } from 'react-intl';
 
 interface DeviceInfoProps extends RouteComponentProps {
     code?: string;
@@ -89,7 +90,12 @@ const DeviceInfo: React.SFC<DeviceInfoProps> = ({ code }) => {
                 aria-controls="device-info-content"
             >
                 <Typography  >
-                    {device.fullname} {!!device.fullname && ' (Device Info)'}
+                    {device.fullname} {!!device.fullname && (<>
+                        &nbsp;
+                        <FormattedMessage
+                            id="deviceInfo"
+                            defaultMessage="(Device Info)" />
+                    </>)}
                 </Typography>
             </ExpansionPanelSummary>
             <ExpansionPanelDetails className={classes.details} >
