@@ -1,0 +1,42 @@
+{
+    "deviceList": {
+        "searchDevice": "Найти устройство",
+        "notFound": "Устройство не найдено!"
+    },
+    "device": {
+        "info": "(Информация)"
+    },
+    "maintain": {
+        "status": {
+            "maintained": "Поддерживается",
+            "maintainedWithoutDevice": "Поддерживается без наличия устройства на руках",
+            "notMaintained": "Не поддерживается!"
+        },
+        "by": {
+            "current": "Сопровождающий: {maintainer}",
+            "previous": "Предыдущий сопровождающий: {maintainer}"
+        }
+    },
+    "release": {
+        "type": {
+            "beta": "Бета релизы",
+            "stable": "Стабильные релизы"
+        },
+        "fileSize": "Размер файла",
+        "download": "Скачать",
+        "changeLogs": "Изменения",
+        "buildNotes": "Заметки",
+        "bugs": "Баги",
+        "allBuild": "Показать все сборки"
+    },
+    "modal": {
+        "download": "Загрузки",
+        "fetchLink": "Получение ссылок",
+        "directLink": "Прямая ссылка",
+        "mirrorLink": "Зеркало"
+    },
+    "footer": {
+        "poweredBy": "Работает на",
+        "openSource": "Open-Source проект"
+    }
+}
