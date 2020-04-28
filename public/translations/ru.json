@@ -1,24 +1,48 @@
 {
-    "deviceList.notFound": "Поиск устройства",
-    "deviceList.searchDevice": "Поиск устройства",
-    "deviceInfo": "(Информация об устройстве)",
-    "maintain": "Поддержка",
-    "maintain.withoutDevice": "Поддерживается без устройства в руках",
-    "maintain.notMaintained": "Не поддерживается!",
-    "maintain.by": "Сопровождающий: {maintainer}",
-    "maintain.previouslyBy": "Предыдущий сопровождающий: {maintainer}",
-    "release.beta": "Бета-релизы",
-    "release.stable": "Стабильные релизы",
-    "release.fileSize": "Размер файла",
-    "release.download": "Скачать",
-    "release.changeLogs": "Журналы изменений",
-    "release.buildNotes": "Заметки о сборке",
-    "release.bugs": "ошибки",
-    "release.allBuild": "Показать все сборки",
-    "modal.download": "Загрузки",
-    "modal.fetchLink": "Выборка ссылок",
-    "modal.directLink": "Прямая ссылка",
-    "modal.mirrorLink": "Зеркальная ссылка",
-    "footer.poweredBy": "Питаться от",
-    "footer.openSource": "Проект с открытым исходным кодом"
+    "deviceList": {
+        "__DESC__": "Sidebar (Device Selection and Search)",
+        "searchDevice": "Поиск устройства",
+        "notFound": "Поиск устройства"
+    },
+    "device": {
+        "__DESC__": "Device Details Card",
+        "info": "(Информация об устройстве)"
+    },
+    "maintain": {
+        "__DESC__": "Build Maintenance",
+        "status": {
+            "maintained": "Поддержка",
+            "maintainedWithoutDevice": "Поддерживается без устройства в руках",
+            "notMaintained": "Не поддерживается!"
+        },
+        "by": {
+            "current": "Сопровождающий: {maintainer}",
+            "previous": "Предыдущий сопровождающий: {maintainer}"
+        }
+    },
+    "release": {
+        "__DESC__": "Release Info",
+        "type": {
+            "beta": "Бета-релизы",
+            "stable": "Стабильные релизы"
+        },
+        "fileSize": "Размер файла",
+        "download": "Скачать",
+        "changeLogs": "Журналы изменений",
+        "buildNotes": "Заметки о сборке",
+        "bugs": "ошибки",
+        "allBuild": "Показать все сборки"
+    },
+    "modal": {
+        "__DESC__": "Popup Windows",
+        "download": "Загрузки",
+        "fetchLink": "Выборка ссылок",
+        "directLink": "Прямая ссылка",
+        "mirrorLink": "Зеркальная ссылка"
+    },
+    "footer": {
+        "__DESC__": "Footer of Website",
+        "poweredBy": "Питаться от",
+        "openSource": "Проект с открытым исходным кодом"
+    }
 }

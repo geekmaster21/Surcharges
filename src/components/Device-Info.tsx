@@ -66,14 +66,14 @@ const DeviceInfo: React.SFC<DeviceInfoProps> = ({ code }) => {
         case 1:
             maintainPrimaryText = (
                 <FormattedMessage
-                    id="maintain"
+                    id="maintain.status.maintained"
                     defaultMessage="Maintained"
                 />
             );
 
             maintainSecondaryText = (
                 <FormattedMessage
-                    id="maintain.by"
+                    id="maintain.by.current"
                     defaultMessage="Maintainer: {maintainer}"
                     values={{ maintainer }}
                 />
@@ -83,14 +83,14 @@ const DeviceInfo: React.SFC<DeviceInfoProps> = ({ code }) => {
 
             maintainPrimaryText = (
                 <FormattedMessage
-                    id="maintain.withoutDevice"
+                    id="maintain.status.maintainedWithoutDevice"
                     defaultMessage="Maintained without having device in hands"
                 />
             );
 
             maintainSecondaryText = (
                 <FormattedMessage
-                    id="maintain.by"
+                    id="maintain.by.current"
                     defaultMessage="Maintainer: {maintainer}"
                     values={{ maintainer }}
                 />
@@ -101,9 +101,9 @@ const DeviceInfo: React.SFC<DeviceInfoProps> = ({ code }) => {
         default:
             maintainPrimaryText = (
                 <span style={{ color: '#dfdf01' }} >
-                    &#9888;
+                    &#9888;&nbsp;
                     <FormattedMessage
-                        id="maintain.notMaintained"
+                        id="maintain.status.notMaintained"
                         defaultMessage="Not Maintained!"
                     />
                 </span>
@@ -111,7 +111,7 @@ const DeviceInfo: React.SFC<DeviceInfoProps> = ({ code }) => {
 
             maintainSecondaryText = (
                 <FormattedMessage
-                    id="maintain.previouslyBy"
+                    id="maintain.by.previous"
                     defaultMessage="Previous Maintainer: {maintainer}"
                     values={{ maintainer: maintainer || 'None' }}
                 />
@@ -134,7 +134,7 @@ const DeviceInfo: React.SFC<DeviceInfoProps> = ({ code }) => {
                     {device.fullname} {!!device.fullname && (<>
                         &nbsp;
                         <FormattedMessage
-                            id="deviceInfo"
+                            id="device.info"
                             defaultMessage="(Device Info)" />
                     </>)}
                 </Typography>

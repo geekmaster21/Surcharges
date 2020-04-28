@@ -3,7 +3,7 @@ import { RouteComponentProps } from '@reach/router';
 import { IntlProvider } from 'react-intl';
 import { apiGetTranslation } from '../../apis';
 import { Footer } from '../../components';
-import { SetCurrentLocale } from '../../utils';
+import { GetCurrentLocale, SetCurrentLocale } from '../../utils';
 import { useStyles } from './constants';
 import { Drawer } from './Drawer';
 
@@ -16,16 +16,18 @@ const Home: React.SFC<HomeProps> = ({ children, lang }) => {
     const classes = useStyles();
     const [translations, setTranslations] = React.useState();
 
-    SetCurrentLocale(locale);
-
-    React.useEffect(() => {
+    React.useLayoutEffect(() => {
         apiGetTranslation(locale)
-            .then(data => {
-                setTranslations(data);
-            });
+            .then(data => setTranslations(data))
+            .catch(() => setTranslations({} as any))
     }, [locale])
 
-    return (<>
+    const currentLocale = GetCurrentLocale();
+    if (locale !== currentLocale) {
+        SetCurrentLocale(locale);
+    }
+
+    return translations ? (<>
         <IntlProvider locale={locale} messages={translations} >
 
             <div className={classes.root}>
@@ -39,7 +41,7 @@ const Home: React.SFC<HomeProps> = ({ children, lang }) => {
             <Footer />
 
         </IntlProvider>
-    </>);
+    </>) : null;
 }
 
 export { Home };

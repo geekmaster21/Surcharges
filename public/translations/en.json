@@ -1,24 +1,48 @@
 {
-    "deviceList.searchDevice": "Search Device",
-    "deviceList.notFound": "Device not found!",
-    "deviceInfo": "(Device Info)",
-    "maintain": "Maintained",
-    "maintain.withoutDevice": "Maintained without having device in hands",
-    "maintain.notMaintained": "Not Maintained!",
-    "maintain.by": "Maintainer: {maintainer}",
-    "maintain.previouslyBy": "Previous Maintainer: {maintainer}",
-    "release.beta": "Beta Releases",
-    "release.stable": "Stable Releases",
-    "release.fileSize": "File Size",
-    "release.download": "Download",
-    "release.changeLogs": "Change Logs",
-    "release.buildNotes": "Build Notes",
-    "release.bugs": "Bugs",
-    "release.allBuild": "Show All Builds",
-    "modal.download": "Downloads",
-    "modal.fetchLink": "Fetching Links",
-    "modal.directLink": "Direct Link",
-    "modal.mirrorLink": "Mirror Link",
-    "footer.poweredBy": "Powered By",
-    "footer.openSource": "Open-Source Project"
+    "deviceList": {
+        "__DESC__": "Sidebar (Device Selection and Search)",
+        "searchDevice": "Search Device",
+        "notFound": "Device not found!"
+    },
+    "device": {
+        "__DESC__": "Device Details Card",
+        "info": "(Device Info)"
+    },
+    "maintain": {
+        "__DESC__": "Build Maintenance",
+        "status": {
+            "maintained": "Maintained",
+            "maintainedWithoutDevice": "Maintained without having device in hands",
+            "notMaintained": "Not Maintained!"
+        },
+        "by": {
+            "current": "Maintainer: {maintainer}",
+            "previous": "Previous Maintainer: {maintainer}"
+        }
+    },
+    "release": {
+        "__DESC__": "Release Info",
+        "type": {
+            "beta": "Beta Releases",
+            "stable": "Stable Releases"
+        },
+        "fileSize": "File Size",
+        "download": "Download",
+        "changeLogs": "Change Logs",
+        "buildNotes": "Build Notes",
+        "bugs": "Bugs",
+        "allBuild": "Show All Builds"
+    },
+    "modal": {
+        "__DESC__": "Popup Windows",
+        "download": "Downloads",
+        "fetchLink": "Fetching Links",
+        "directLink": "Direct Link",
+        "mirrorLink": "Mirror Link"
+    },
+    "footer": {
+        "__DESC__": "Footer of Website",
+        "poweredBy": "Powered By",
+        "openSource": "Open-Source Project"
+    }
 }

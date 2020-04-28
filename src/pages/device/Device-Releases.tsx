@@ -37,7 +37,7 @@ const DeviceReleases: React.SFC<DeviceReleasesProps> = ({ code, type, version })
                             expanded={isStableRelease}
                             data={releases?.stable.map(d => ({ ...d, actualDate: new Date(d.date) }))}
                             releaseLabel={<FormattedMessage
-                                id="release.stable"
+                                id="release.type.stable"
                                 defaultMessage="Stable Releases" />}
                         />
                     )}
@@ -49,7 +49,7 @@ const DeviceReleases: React.SFC<DeviceReleasesProps> = ({ code, type, version })
                             expanded={!isStableRelease}
                             data={releases?.beta.map(d => ({ ...d, actualDate: new Date(d.date) }))}
                             releaseLabel={<FormattedMessage
-                                id="release.beta"
+                                id="release.type.beta"
                                 defaultMessage="Beta Releases" />}
                         />
                     )}
