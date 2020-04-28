@@ -1,5 +1,5 @@
-import { Link } from "@reach/router";
 import React from 'react';
+import { Link } from "@reach/router";
 import { Logo } from './Logo';
 
 export interface HeaderProps {
@@ -15,7 +15,8 @@ const Header: React.SFC<HeaderProps> = ({ showLogo }) => {
                         <Link to="/" className="logo-container link">
                             <Logo />
                             OrangeFox Recovery
-                        </Link>)
+                        </Link>
+                    )
                 }
             </span>
             <ul className="routes">

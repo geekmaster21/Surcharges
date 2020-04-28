@@ -1,0 +1,8 @@
+{
+    "deviceList": {
+        "searchDevice": "Search Device",
+        "notFound": "Device not found!"
+    },
+    "deviceList.searchDevice": "Search Device",
+    "deviceList.notFound": "Device not found!"
+}

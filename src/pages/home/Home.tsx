@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { RouteComponentProps, Link } from '@reach/router';
-import { apiGetAllDeviceList } from '../../apis';
+import { Link, RouteComponentProps } from '@reach/router';
+import { apiGetAllDeviceList, apiGetAllTranslations } from '../../apis';
 import { AppBar, Drawer, Hidden, IconButton, makeStyles, Toolbar, Typography, useTheme, WikiLink } from '../../components';
 import { MenuIcon } from '../../components/Icons';
-import { IDevice } from '../../models';
+import { IDevice, ILocationState } from '../../models';
 import { DeviceList } from './Device-List';
 
-interface HomeProps extends RouteComponentProps { }
+interface HomeProps extends RouteComponentProps {
+    lang?: string;
+}
 
 const drawerWidth = 300;
 
@@ -61,7 +63,8 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const Home: React.SFC<HomeProps> = ({ children }) => {
+const Home: React.SFC<HomeProps> = ({ children, location, lang }) => {
+
     const theme = useTheme();
     const classes = useStyles();
     const [mobileOpen, setMobileOpen] = useState(false);
@@ -69,6 +72,21 @@ const Home: React.SFC<HomeProps> = ({ children }) => {
     const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
 
     const [list, setDeviceList] = useState<IDevice[]>([]);
+
+    useEffect(() => {
+        const state = (location?.state ?? {}) as ILocationState;
+        const _lang = lang || 'en';
+        apiGetAllTranslations(_lang)
+            .then(data => {
+                const trans = state.translations;
+                location!.state = {
+                    ...state,
+                    currentLang: _lang,
+                    translations: { ...trans, [_lang]: data }
+                };
+            })
+            .catch(() => location!.state = { ...state });
+    }, [lang, location]);
 
     useEffect(() => {
         apiGetAllDeviceList()
