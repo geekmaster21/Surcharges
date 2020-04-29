@@ -1,0 +1,43 @@
+{
+    "deviceList": {
+        "searchDevice": "Cihaz Ara",
+        "notFound": "Cihaz bulunamadı!"
+    },
+    "device": {
+        "info": "(Cihaz Bilgisi)"
+    },
+    "maintain": {
+        "status": {
+            "maintained": "Sorumlulukta",
+            "maintainedWithoutDevice": "Cihaz, elde olmadan sorumlulukta",
+            "notMaintained": "Sorumlulukta Değil!"
+        },
+        "by": {
+            "current": "Sorumlusu: {maintainer}",
+            "previous": "Önceki Sorumlu: {maintainer}"
+        }
+    },
+    "release": {
+        "type": {
+            "beta": "Deneysel Sürümler",
+            "stable": "Kararlı Sürümler"
+        },
+        "notFound": "Henüz bu cihaz için sürüm yok!",
+        "fileSize": "Dosya Boyutu",
+        "download": "İndir",
+        "changeLogs": "Yenilikler",
+        "buildNotes": "Derleme Notları",
+        "bugs": "Hatalar",
+        "allBuild": "Bütün Derlemeleri Göster"
+    },
+    "modal": {
+        "download": "İndirmeler",
+        "fetchLink": "Bağlantılar Getiriliyor",
+        "directLink": "Doğrudan Bağlantı",
+        "mirrorLink": "Yedek Bağlantılar"
+    },
+    "footer": {
+        "poweredBy": "İle Güçlendirilmiştir",
+        "openSource": "Açık Kaynak Projesi"
+    }
+}
