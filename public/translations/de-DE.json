@@ -1,4 +1,8 @@
 {
+    "languageInfo": {
+        "name": "German",
+        "emoji": "🇩🇪"
+    },
     "deviceList": {
         "searchDevice": "Gerät suchen",
         "notFound": "Gerät nicht gefunden!"
