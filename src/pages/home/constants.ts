@@ -47,7 +47,12 @@ export const useStyles = makeStyles((theme: Theme) => ({
     brand: {
         fontFamily: 'Euclid',
         fontWeight: 500,
-        fontSize: theme.typography.h5.fontSize
+        fontSize: '15pt'
+    },
+    recoverySmall: {
+        fontFamily: 'Euclid',
+        fontWeight: 400,
+        fontSize: '10pt'
     },
     drawerPaper: {
         width: drawerWidth,
@@ -57,7 +62,10 @@ export const useStyles = makeStyles((theme: Theme) => ({
         // marginTop: '50px', // should be same as 'header' ht
         flexGrow: 1,
         height: '100%',
-        padding: theme.spacing(3),
+        padding: theme.spacing(1),
+        [theme.breakpoints.up('sm')]: {
+            padding: theme.spacing(3),
+        },
         minHeight: 'calc(100vh - 112px)'
     },
 }));

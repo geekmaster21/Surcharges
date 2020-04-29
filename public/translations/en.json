@@ -3,6 +3,10 @@
         "name": "English",
         "emoji": "\uD83C\uDDFA\uD83C\uDDF8"
     },
+    "mainPage": {
+        "hintText": "Select device from the list or use search",
+        "notFound": "This is the end. Take me back Home!"
+    },
     "deviceList": {
         "searchDevice": "Search Device",
         "notFound": "Device not found!"
