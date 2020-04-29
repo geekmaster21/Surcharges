@@ -40,6 +40,10 @@ export const useStyles = makeStyles((theme: Theme) => ({
         alignItems: 'center',
         justifyContent: 'space-between',
     },
+    headerContentRight: {
+        display: 'flex',
+        alignItems: 'center'
+    },
     brand: {
         fontFamily: 'Euclid',
         fontWeight: 500,

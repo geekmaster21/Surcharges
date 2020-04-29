@@ -1,3 +1,3 @@
 export type TStorageLocation = 'local' | 'session' | 'cookie';
 
-export type TStorageKey = 'lang';
+export type TStorageKey = 'langof';

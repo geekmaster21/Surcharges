@@ -7,8 +7,8 @@ import './styles/style.scss';
 
 function App() {
   const { pathname } = window.location;
-  const locale = STORAGE.get<string>('lang') || 'en';
-  const langReg = /^(([a-z]{2})|([a-z]{2}-[A-Z]{2}))$/; // tests "/en" OR "en-US" lang format in url
+  const locale = STORAGE.get<string>('langof') || 'en';
+  const langReg = /^(([a-z]{2})|([a-z]{2}-[A-Z]{2}))$/; // tests "/en" OR "/en-US" lang format in url
   const pathLang = (pathname || '').split('/').filter(Boolean).shift() || '';
 
   if (!langReg.test(pathLang)) {

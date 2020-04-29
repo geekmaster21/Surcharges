@@ -8,6 +8,7 @@ import { MenuIcon } from '../../components/Icons';
 import { IDevice } from '../../models';
 import { useStyles } from './constants';
 import { DeviceList } from './Device-List';
+import { LanguageToggle } from './Language-Toggle';
 
 const Drawer: React.SFC = () => {
     const theme = useTheme();
@@ -34,18 +35,26 @@ const Drawer: React.SFC = () => {
                 >
                     <MenuIcon />
                 </IconButton>
-                <Typography className={classes.headerContent}>
 
+                <Typography
+                    component="div"
+                    className={classes.headerContent}
+                >
                     <LinkLocale
                         to="/"
                         className={'link no-hover ' + classes.brand}>
                         OrangeFox Recovery
                     </LinkLocale>
 
-                    <WikiLink
-                        label="Wiki"
-                        className="link no-hover"
-                    />
+                    <div className={classes.headerContentRight}>
+                        <WikiLink
+                            label="Wiki"
+                            className="link no-hover"
+                        />
+
+                        <LanguageToggle />
+                    </div>
+
                 </Typography>
             </Toolbar>
         </AppBar>

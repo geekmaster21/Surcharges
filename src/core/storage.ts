@@ -3,10 +3,10 @@ import { TStorageKey, TStorageLocation } from "../models";
 function getStorage(storage: TStorageLocation) {
     switch (storage) {
         case 'session':
-            return localStorage;
+            return sessionStorage;
         case 'local':
         default:
-            return sessionStorage;
+            return localStorage;
     }
 }
 
