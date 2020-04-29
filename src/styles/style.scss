@@ -3,6 +3,7 @@
 './flex-display',
 './scroll-bar',
 './shimmer',
+'./cards',
 './hero';
 
 html,
@@ -17,6 +18,11 @@ body {
 * {
     box-sizing: border-box;
     scroll-behavior: smooth;
+}
+
+header {
+    height: $header-ht;
+    padding: 0 4px;
 }
 
 html,
