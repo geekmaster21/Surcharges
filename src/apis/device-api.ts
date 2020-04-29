@@ -4,19 +4,19 @@ import { CONFIG } from "./config";
 
 const URL = `${CONFIG.apiUrl}/device`;
 
-export function apiGetAllDeviceList(): Promise<IDevice[]> {
+export async function apiGetAllDeviceList(): Promise<IDevice[]> {
     return HTTP.get(URL);
 }
 
-export const apiGetDeviceByCode = (code: string): Promise<IDevice> => {
+export async function apiGetDeviceByCode(code: string): Promise<IDevice> {
     return HTTP.get(`${URL}/${code}`);
 }
 
-export const apiGetAllReleases = (code: string): Promise<IAllReleases> => {
+export async function apiGetAllReleases(code: string): Promise<IAllReleases> {
     return HTTP.get(`${URL}/${code}/releases`);
 }
 
-export const apiGetRelease = (code: string, releaseType: EReleaseType, version?: string): Promise<IRelease> => {
+export async function apiGetRelease(code: string, releaseType: EReleaseType, version?: string): Promise<IRelease> {
     let url = `${URL}/${code}/releases/${releaseType}`;
     if (version)
         url = `${url}/${version === 'last' ? 'last' : version}`;

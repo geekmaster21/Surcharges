@@ -1,15 +1,15 @@
 import { HTTP } from "../core";
 import { Dotize } from "../utils";
 
-export function apiGetTranslation(language: string) {
+export async function apiGetTranslation(language: string) {
     return HTTP.get(`/translations/${language}.json`)
         .then(data => Dotize.convert(data));
 }
 
-export function apiGetAllLanguages(): Promise<{
+export async function apiGetAllLanguages(): Promise<{
     code: string,
     name: string,
     emoji: string
 }[]> {
-    return HTTP.get(`/translations/language.json`);
+    return HTTP.get(`/translations/translations.json`);
 }
