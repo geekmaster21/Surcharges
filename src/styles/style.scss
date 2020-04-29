@@ -10,7 +10,6 @@ body {
     background-color: $grey-2;
     font-family: 'Roboto', sans-serif;
     font-size: calc(0.70em + 1vmin);
-    overflow: auto;
     overscroll-behavior: none;
     -webkit-tap-highlight-color: transparent;
 }
@@ -38,6 +37,25 @@ p {
     display: grid;
     grid-template-rows: 60px 1fr;
     gap: 2px;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0000;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background: #fff4;
+}
+
+.MuiPaper-root, html {
+    overflow-y: overlay !important;
+    scrollbar-color: #fff4 #0000; /* thumb and track color */
+    scrollbar-width: thin;
 }
 
 .link {
