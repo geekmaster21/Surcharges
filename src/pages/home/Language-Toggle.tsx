@@ -4,8 +4,10 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import { useLocation } from '@reach/router';
+import { sortBy } from 'lodash';
 import { apiGetAllLanguages } from '../../apis';
 import { STORAGE } from '../../core';
+import { ILanguage } from '../../models';
 import { GetCurrentLocale } from '../../utils';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -18,19 +20,17 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-export interface LanguageToggleProps { }
-
-const LanguageToggle: React.SFC<LanguageToggleProps> = () => {
+const LanguageToggle: React.SFC = () => {
     const classes = useStyles();
     const { pathname } = useLocation();
     const currentLocale = GetCurrentLocale();
-    const [langs, setLang] = React.useState([] as any[]);
+    const [langs, setLang] = React.useState([] as ILanguage[]);
     const [locale, setLocale] = React.useState(currentLocale);
 
     React.useLayoutEffect(() => {
         apiGetAllLanguages()
             .then(data => {
-                setLang(data);
+                setLang(sortBy(data, d => d.name));
             });
     }, []);
 
@@ -43,6 +43,11 @@ const LanguageToggle: React.SFC<LanguageToggleProps> = () => {
         window.location.replace(url);
     };
 
+    function getEmoji() {
+        const lang = (langs || []).find(f => f.code === locale);
+        return lang ? lang.emoji : null;
+    }
+
     return langs?.length ? (
         <FormControl
             size="small"
@@ -53,6 +58,7 @@ const LanguageToggle: React.SFC<LanguageToggleProps> = () => {
                 displayEmpty
                 value={locale}
                 onChange={handleChange}
+                renderValue={() => getEmoji()}
             >
                 {
                     langs.map(m => (
@@ -60,7 +66,7 @@ const LanguageToggle: React.SFC<LanguageToggleProps> = () => {
                             key={m.code}
                             value={m.code}
                         >
-                            {m.emoji} - {m.name}
+                            {m.emoji} {m.name}
                         </MenuItem>
                     ))
                 }

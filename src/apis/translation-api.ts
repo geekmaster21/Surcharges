@@ -1,4 +1,5 @@
 import { HTTP } from "../core";
+import { ILanguage } from "../models";
 import { Dotize } from "../utils";
 
 export async function apiGetTranslation(language: string) {
@@ -6,10 +7,6 @@ export async function apiGetTranslation(language: string) {
         .then(data => Dotize.convert(data));
 }
 
-export async function apiGetAllLanguages(): Promise<{
-    code: string,
-    name: string,
-    emoji: string
-}[]> {
+export async function apiGetAllLanguages(): Promise<ILanguage[]> {
     return HTTP.get(`/translations/translations.json`);
 }
