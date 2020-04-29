@@ -37,7 +37,7 @@
         "mirrorLink": "Дзеркало"
     },
     "footer": {
-        "poweredBy": "Працює на",
+        "poweredBy": "Працює на {hostWebsite}",
         "openSource": "Open-Source проект"
     }
 }

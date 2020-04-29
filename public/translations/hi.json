@@ -13,8 +13,8 @@
             "notMaintained": "कायम नहीं है"
         },
         "by": {
-            "current": "मेंटेनर",
-            "previous": "पुराना मेंटेनर"
+            "current": "मेंटेनर: {maintainer}",
+            "previous": "पुराना मेंटेनर: {maintainer}"
         }
     },
     "release": {
@@ -37,7 +37,7 @@
         "mirrorLink": "मिरर लिंक"
     },
     "footer": {
-        "poweredBy": "द्वारा संचालित",
+        "poweredBy": "{hostWebsite} द्वारा संचालित",
         "openSource": "ओपन-सोर्स प्रोजेक्ट"
     }
 }

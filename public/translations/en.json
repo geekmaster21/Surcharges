@@ -37,7 +37,7 @@
         "mirrorLink": "Mirror Link"
     },
     "footer": {
-        "poweredBy": "Powered By",
+        "poweredBy": "Powered By {hostWebsite}",
         "openSource": "Open-Source Project"
     }
 }
