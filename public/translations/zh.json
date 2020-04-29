@@ -13,8 +13,8 @@
             "notMaintained": "未维护！"
         },
         "by": {
-            "current": "维护者：{maintainer}",
-            "previous": "先前的维护者：{maintainer}"
+            "current": "维护者： {maintainer}",
+            "previous": "先前的维护者： {maintainer}"
         }
     },
     "release": {
@@ -37,7 +37,7 @@
         "mirrorLink": "镜像链接"
     },
     "footer": {
-        "poweredBy": "提供支持 {hostWebsite}",
+        "poweredBy": "由 {hostWebsite} 提供支持",
         "openSource": "源代码"
     }
 }
