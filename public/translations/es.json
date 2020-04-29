@@ -37,7 +37,7 @@
         "mirrorLink": "Enlace Espejado"
     },
     "footer": {
-        "poweredBy": "Impulsado por {hostWebsite}",
+        "poweredBy": "Potenciado por {hostWebsite}",
         "openSource": "Proyecto de Código Abierto"
     }
 }
