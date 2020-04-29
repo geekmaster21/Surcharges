@@ -5,7 +5,7 @@ interface NotFoundProps extends RouteComponentProps { }
 
 const NotFound: React.SFC<NotFoundProps> = () => {
     return (<>
-        <div className="hero notfound">
+        <div className="hero big-image">
             <img src="/images/404.svg" alt="404" className="nf-img"/>
             <Link to="/" className="link" >
                 This is the end. Nobody's here!

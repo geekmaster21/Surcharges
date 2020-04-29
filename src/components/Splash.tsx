@@ -6,11 +6,17 @@ export interface SplashProps extends RouteComponentProps { }
 
 const Splash: React.SFC<SplashProps> = () => {
     return (
-        <div className="hero">
-            <Logo />
-            <div className="title-container">
-                <h1 className="title">OrangeFox</h1>
-                <h2 className="sub-title">Recovery</h2>
+        <div>
+            <div className="hero big-image">
+                <img src="/images/select_device.svg" alt="OrangeFox" className="select-dev-img"/>
+                <a className="select-dev">Select device from the list or use search</a>
+            </div>
+            <div className="bottom-logo ">
+                <Logo />
+                <div className="title-container">
+                    <h1 className="title">OrangeFox</h1>
+                    <h2 className="sub-title">Recovery</h2>
+                </div>
             </div>
         </div>
     );
