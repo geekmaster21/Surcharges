@@ -2,7 +2,7 @@ import React from 'react';
 
 const Logo: React.SFC = () => {
     return (
-        <img src="/images/logo.png" alt="OrangeFox" className="logo" />
+        <img src="/images/logo.svg" alt="OrangeFox" className="logo" />
     );
 }
 

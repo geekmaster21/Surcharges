@@ -5,7 +5,7 @@ import {
 } from '@material-ui/core';
 import { RouteComponentProps } from '@reach/router';
 import { apiGetDeviceByCode } from '../apis';
-import { ExpandMore, PermDeviceInformationOutlinedIcon, PermIdentityOutlinedIcon } from './Icons';
+import { ExpandMore, PermDeviceInformationOutlinedIcon, PermIdentityOutlinedIcon, ReportProblemOutlined } from './Icons';
 import { IDevice } from '../models';
 import { FormattedMessage } from 'react-intl';
 
@@ -31,6 +31,14 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         icon: {
             color: '#ddd',
+        },
+        notmaintained: {
+            color: '#ffc459',
+        },
+        notmaintainedIcon: {
+            fontSize: 'calc(1vh + 12px)',
+            marginBottom: 'calc((1vh + 14px) / -6)',
+            marginRight: '2px',
         },
         iconM5: {
             color: '#ddd',
@@ -100,8 +108,8 @@ const DeviceInfo: React.SFC<DeviceInfoProps> = ({ code }) => {
         case 3:
         default:
             maintainPrimaryText = (
-                <span style={{ color: '#dfdf01' }} >
-                    &#9888;&nbsp;
+                <span className={classes.notmaintained} >
+                    <ReportProblemOutlined className={classes.notmaintainedIcon} />&nbsp;
                     <FormattedMessage
                         id="maintain.status.notMaintained"
                         defaultMessage="Not Maintained!"
