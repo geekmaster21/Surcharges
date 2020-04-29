@@ -1,7 +1,7 @@
 @import './variables',
 './font-family',
 './flex-display',
-'./header',
+'./scroll-bar',
 './shimmer',
 './hero';
 
@@ -39,31 +39,12 @@ p {
     gap: 2px;
 }
 
-::-webkit-scrollbar {
-    width: 6px;
-}
-
-::-webkit-scrollbar-track {
-    background: #0000;
-}
-
-::-webkit-scrollbar-thumb {
-    border-radius: 8px;
-    background: #fff4;
-}
-
-.MuiPaper-root, html {
-    overflow-y: overlay !important;
-    scrollbar-color: #fff4 #0000; /* thumb and track color */
-    scrollbar-width: thin;
-}
-
 .link {
     color: $white-1;
     text-decoration: none;
     outline: none;
 
-    &.orange{
+    &.orange {
         color: $orange-1;
     }
 
