@@ -37,7 +37,7 @@
         "mirrorLink": "Причувна веза"
     },
     "footer": {
-        "poweredBy": "Покреће",
+        "poweredBy": "Покреће {hostWebsite}",
         "openSource": "Пројекат отвореног кода"
     }
 }

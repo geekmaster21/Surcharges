@@ -6,13 +6,19 @@ const PoweredBy: React.SFC = () => {
         <span style={{ marginRight: '5px' }}>
             <FormattedMessage
                 id="footer.poweredBy"
-                defaultMessage="Powered by" />
+                defaultMessage="Powered by {hostWebsite}"
+                values={{
+                    hostWebsite: (
+                        <a href='https://www.ua-hosting.company'
+                            className="link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >UA-Hosting Company</a>
+                    )
+                }}
+            />
         </span>
-        <a href='https://www.ua-hosting.company'
-            className="link"
-            target="_blank"
-            rel="noopener noreferrer"
-        >UA-Hosting Company</a>
+
     </>);
 }
 

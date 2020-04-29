@@ -37,7 +37,7 @@
         "mirrorLink": "Yedek Bağlantılar"
     },
     "footer": {
-        "poweredBy": "İle Güçlendirilmiştir",
+        "poweredBy": "İle Güçlendirilmiştir {hostWebsite}",
         "openSource": "Açık Kaynak Projesi"
     }
 }
