@@ -1,0 +1,43 @@
+{
+    "deviceList": {
+        "searchDevice": "Претражуј уређаје",
+        "notFound": "Уређај није пронађен!"
+    },
+    "device": {
+        "info": "(Информације о уређају)"
+    },
+    "maintain": {
+        "status": {
+            "maintained": "Одржан",
+            "maintainedWithoutDevice": "Одржан без уређаја у рукама",
+            "notMaintained": "Није одржан!"
+        },
+        "by": {
+            "current": "Одржаваоц: {maintainer}",
+            "previous": "Пријеђашњи одржаваоц: {maintainer}"
+        }
+    },
+    "release": {
+        "type": {
+            "beta": "Пробне верзије",
+            "stable": "Стабилне верзије"
+        },
+        "notFound": "Не постоје верзије за овај уређај!",
+        "fileSize": "Величина датотеке",
+        "download": "Преузимање",
+        "changeLogs": "Листа промјена",
+        "buildNotes": "Информације о верзији",
+        "bugs": "Грешке",
+        "allBuild": "Прикажи све верзије"
+    },
+    "modal": {
+        "download": "Број преузимања",
+        "fetchLink": "Скупљање веза",
+        "directLink": "Директна веза",
+        "mirrorLink": "Причувна веза"
+    },
+    "footer": {
+        "poweredBy": "Покреће",
+        "openSource": "Пројекат отвореног кода"
+    }
+}
