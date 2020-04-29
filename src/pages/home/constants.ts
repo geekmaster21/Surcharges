@@ -58,7 +58,10 @@ export const useStyles = makeStyles((theme: Theme) => ({
         // marginTop: '50px', // should be same as 'header' ht
         flexGrow: 1,
         height: '100%',
-        padding: theme.spacing(3),
+        padding: theme.spacing(1),
+        [theme.breakpoints.up('sm')]: {
+            padding: theme.spacing(3),
+        },
         minHeight: 'calc(100vh - 112px)'
     },
 }));
