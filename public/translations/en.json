@@ -1,4 +1,8 @@
 {
+    "languageInfo": {
+        "name": "English",
+        "emoji": "\uD83C\uDDFA\uD83C\uDDF8"
+    },
     "deviceList": {
         "searchDevice": "Search Device",
         "notFound": "Device not found!"
