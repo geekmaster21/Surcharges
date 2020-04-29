@@ -14,7 +14,7 @@
         },
         "by": {
             "current": "Sorumlusu: {maintainer}",
-            "previous": "Önceki Sorumlu: {maintainer}"
+            "previous": "Önceki Sorumlusu: {maintainer}"
         }
     },
     "release": {
@@ -37,7 +37,7 @@
         "mirrorLink": "Yedek Bağlantılar"
     },
     "footer": {
-        "poweredBy": "İle Güçlendirilmiştir {hostWebsite}",
-        "openSource": "Açık Kaynak Projesi"
+        "poweredBy": "{hostWebsite} ile Güçlendirilmiştir",
+        "openSource": "Açık-Kaynak Projesi"
     }
 }
