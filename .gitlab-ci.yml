@@ -1,21 +1,26 @@
 stages:
-  - docker:deploy
+  - docker:push
 
 
 variables:
   DOCKER_IMAGE: "registry.gitlab.com/orangefox/site/dsite:$CI_COMMIT_BRANCH"
 
 
-docker:deploy:
+docker:push:
   image: docker:latest
-  stage: docker:deploy
+  stage: docker:push
   allow_failure: false
   services:
     - docker:dind
   before_script:
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" registry.gitlab.com
   script:
+    - apk add  python3
+    - python3 languages.py
     - docker build --pull -t "$DOCKER_IMAGE" .
     - docker push "$DOCKER_IMAGE"
+  artifacts:
+    paths: [public/translations/translations.json]
   only:
     - master
+    - ci-test
