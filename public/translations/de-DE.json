@@ -3,6 +3,10 @@
         "name": "German",
         "emoji": "🇩🇪"
     },
+    "mainPage": {
+        "hintText": "Wählen Sie ein Gerät aus der Liste oder verwenden Sie die Suche",
+        "notFound": "Das wars. Bring mich nach Hause!"
+    },
     "deviceList": {
         "searchDevice": "Gerät suchen",
         "notFound": "Gerät nicht gefunden!"
