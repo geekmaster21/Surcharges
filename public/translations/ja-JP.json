@@ -1,0 +1,43 @@
+{
+    "deviceList": {
+        "searchDevice": "端末を探す",
+        "notFound": "端末が見つかりません！"
+    },
+    "device": {
+        "info": "(端末情報)"
+    },
+    "maintain": {
+        "status": {
+            "maintained": "メンテンスされています",
+            "maintainedWithoutDevice": "手元に端末がないままメンテンスされています",
+            "notMaintained": "メンテンスされていません！"
+        },
+        "by": {
+            "current": "メンテンススタッフ: {maintainer}",
+            "previous": "以前のメンテンススタッフ: {maintainer}"
+        }
+    },
+    "release": {
+        "type": {
+            "beta": "ベータ版",
+            "stable": "安定版"
+        },
+        "notFound": "この端末にはまだリリースがありません",
+        "fileSize": "ファイルサイズ",
+        "download": "ダウンロード",
+        "changeLogs": "更新履歴",
+        "buildNotes": "ビルドノート",
+        "bugs": "バグ",
+        "allBuild": "全てのビルドを表示する"
+    },
+    "modal": {
+        "download": "ダウンロード",
+        "fetchLink": "データを要求する",
+        "directLink": "ダイレクトリンク",
+        "mirrorLink": "ミラーリンク"
+    },
+    "footer": {
+        "poweredBy": "{hostWebsite} による運営",
+        "openSource": "オープンソースプロジェクト"
+    }
+}
