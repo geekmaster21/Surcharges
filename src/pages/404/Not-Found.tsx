@@ -12,7 +12,7 @@ const NotFound: React.SFC<NotFoundProps> = () => {
             <LinkLocale to={"/"} className="link underline">{
                 <FormattedMessage
                     id="mainPage.notFound"
-                    defaultMessage="This is the end. eTake me back Home!" />
+                    defaultMessage="This is the end. Take me back Home!" />
             }</LinkLocale>
         </div>
     </>);
