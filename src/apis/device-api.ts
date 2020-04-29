@@ -1,8 +1,8 @@
+import { APP_CONFIG } from "../app-config";
 import { HTTP } from "../core";
-import { IAllReleases, IDevice, IRelease, EReleaseType } from "../models";
-import { CONFIG } from "./config";
+import { EReleaseType, IAllReleases, IDevice, IRelease } from "../models";
 
-const URL = `${CONFIG.apiUrl}/device`;
+const URL = `${APP_CONFIG.apiUrl}/device`;
 
 export async function apiGetAllDeviceList(): Promise<IDevice[]> {
     return HTTP.get(URL);

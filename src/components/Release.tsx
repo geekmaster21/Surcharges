@@ -254,18 +254,22 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type,
             toggleModal={handleModalDL}
         >
             <div className={classes.modal} >
-                <FormattedMessage
-                    id="modal.download"
-                    defaultMessage="Downloads" />:
+                <b>
+                    <FormattedMessage
+                        id="modal.download"
+                        defaultMessage="Downloads" />
+                </b>
                 <br />
                 <br />
                 {
-                    !tmoDL && (<div style={{ display: 'flex', alignItems: 'center' }} >
-                        <FormattedMessage
-                            id="modal.fetchLink"
-                            defaultMessage="Fetching Links" />: &nbsp;
-                        <CircularProgress color="secondary" size="20px" />
-                    </div>)
+                    !tmoDL && (
+                        <div className="flexd v-center" >
+                            <FormattedMessage
+                                id="modal.fetchLink"
+                                defaultMessage="Fetching Links" />: &nbsp;
+                            <CircularProgress color="secondary" size="20px" />
+                        </div>
+                    )
                 }
                 {
                     tmoDL && (<>
@@ -313,9 +317,11 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type,
             toggleModal={handleModalLog}
         >
             <div className={classes.modal} >
-                <FormattedMessage
-                    id="release.changeLogs"
-                    defaultMessage="Change Logs" />:
+                <b>
+                    <FormattedMessage
+                        id="release.changeLogs"
+                        defaultMessage="Change Logs" />
+                </b>
                 <br />
                 <br />
                 {
@@ -329,9 +335,11 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type,
             toggleModal={handleModalBug}
         >
             <div className={classes.modal} >
-                <FormattedMessage
-                    id="release.bugs"
-                    defaultMessage="Bugs" />:
+                <b>
+                    <FormattedMessage
+                        id="release.bugs"
+                        defaultMessage="Bugs" />
+                </b>
                 <br />
                 <br />
                 {
@@ -345,9 +353,11 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type,
             toggleModal={handleModalNote}
         >
             <div className={classes.modal} >
-                <FormattedMessage
-                    id="release.buildNotes"
-                    defaultMessage="Build Notes" />:
+                <b>
+                    <FormattedMessage
+                        id="release.buildNotes"
+                        defaultMessage="Build Notes" />
+                </b>
                 <br />
                 <br />
                 {

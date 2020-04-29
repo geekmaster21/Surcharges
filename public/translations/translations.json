@@ -1,12 +1,27 @@
 [
   {
+    "code": "ru-RU",
+    "name": "Russian",
+    "emoji": "\ud83c\uddf7\ud83c\uddfa"
+  },
+  {
+    "code": "de-DE",
+    "name": "German",
+    "emoji": "\ud83c\udde9\ud83c\uddea"
+  },
+  {
+    "code": "uk-UA",
+    "name": "Ukrainian",
+    "emoji": "\ud83c\uddfa\ud83c\udde6"
+  },
+  {
+    "code": "zh-CN",
+    "name": "Chinese Simplified",
+    "emoji": "\ud83c\udde8\ud83c\uddf3"
+  },
+  {
     "code": "en",
     "name": "English",
     "emoji": "\ud83c\uddfa\ud83c\uddf8"
-  },
-  {
-    "code": "ru-RU",
-    "name": "\u0420\u0443\u0441\u0441\u043a\u0438\u0439",
-    "emoji": "\ud83c\uddf7\ud83c\uddfa"
   }
 ]

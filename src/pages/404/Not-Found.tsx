@@ -8,9 +8,10 @@ interface NotFoundProps extends RouteComponentProps { }
 const NotFound: React.SFC<NotFoundProps> = () => {
     return (<>
         <div className="hero big-image">
-            <img src="/images/404.svg"
+            <img
                 alt="404"
                 className="nf-img"
+                src="/images/404.svg"
             />
             <LinkLocale
                 to={"/"}

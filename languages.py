@@ -5,6 +5,7 @@ LANGUAGES = []
 
 langs = glob.glob("public/translations/*-*.json")
 langs.append("public/translations/en.json")
+
 for file in langs:
     language = json.load(open(file))
     if 'languageInfo' not in language:

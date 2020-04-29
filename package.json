@@ -1,6 +1,6 @@
 {
   "name": "orangefox_recovery",
-  "version": "20.4.29",
+  "version": "20.04.30",
   "private": true,
   "dependencies": {
     "@loadable/component": "^5.12.0",

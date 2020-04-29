@@ -32,10 +32,6 @@ const useStyles = makeStyles((theme: Theme) =>
             color: '#ddd',
             marginRight: '5px'
         },
-        flexText: {
-            display: 'flex',
-            alignItems: 'center'
-        },
         details: {
             display: 'flex',
             padding: '5px 10px 10px',
@@ -62,9 +58,7 @@ const ReleaseType: React.SFC<ReleaseTypeProps> = (props) => {
         )
     ) {
         // hack to open first panel automatically
-        setTimeout(() => {
-            setExpanded(0);
-        }, 0);
+        setTimeout(() => setExpanded(0), 0);
     }
 
     return (<>
@@ -77,7 +71,7 @@ const ReleaseType: React.SFC<ReleaseTypeProps> = (props) => {
                 expandIcon={<ExpandMore className={classes.icon} />}
                 aria-controls={`release-${type}-content`}
             >
-                <Typography className={classes.flexText} >
+                <Typography className="flexd v-center" >
                     <StarBorderOutlinedIcon className={classes.iconM5} fontSize="small" />
                     {releaseLabel}
                 </Typography>

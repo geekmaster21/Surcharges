@@ -1,11 +1,9 @@
 import React from 'react';
-import FormControl from '@material-ui/core/FormControl';
-import MenuItem from '@material-ui/core/MenuItem';
-import Select from '@material-ui/core/Select';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import { useLocation } from '@reach/router';
+import { navigate, useLocation } from '@reach/router';
 import { sortBy } from 'lodash';
 import { apiGetAllLanguages } from '../../apis';
+import { FormControl, MenuItem, Select } from '../../components';
 import { STORAGE } from '../../core';
 import { ILanguage } from '../../models';
 import { GetCurrentLocale } from '../../utils';
@@ -40,11 +38,11 @@ const LanguageToggle: React.SFC = () => {
         const path = (pathname || '').split('/')
             .filter(Boolean).slice(1).join('/');
         const url = `/${value}${path ? `/${path}` : ''}`;
-        window.location.replace(url);
+        navigate(url);
     };
 
     function getEmoji() {
-        const lang = (langs || []).find(f => f.code === locale);
+        const lang = langs?.find(f => f.code === locale);
         return lang ? lang.emoji : null;
     }
 
