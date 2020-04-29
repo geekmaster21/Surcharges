@@ -39,7 +39,7 @@ const Drawer: React.SFC = () => {
                     <LinkLocale
                         to="/"
                         className={'link no-hover ' + classes.brand}>
-                        OrangeFox <a className={'link no-hover ' + classes.recoverySmall}>Recovery</a>
+                        OrangeFox <span className={'link no-hover ' + classes.recoverySmall}>Recovery</span>
                     </LinkLocale>
 
                     <WikiLink

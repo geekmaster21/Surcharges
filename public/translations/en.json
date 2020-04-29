@@ -1,4 +1,8 @@
 {
+    "mainPage": {
+        "hintText": "Select device from the list or use search",
+        "notFound": "This is the end. Take me back Home!"
+    },
     "deviceList": {
         "searchDevice": "Search Device",
         "notFound": "Device not found!"
