@@ -1,7 +1,7 @@
 {
     "deviceList": {
         "searchDevice": "Gerät suchen",
-        "notFound": "Gerät konnte nicht gefunden werden!"
+        "notFound": "Gerät nicht gefunden!"
     },
     "device": {
         "info": "(Geräte-Info)"
@@ -22,6 +22,7 @@
             "beta": "Beta-Versionen",
             "stable": "Stabile-Versionen"
         },
+        "notFound": "Es wurden noch keine Versionen für dieses Gerät veröffentlicht!",
         "fileSize": "Gesamtgröße",
         "download": "Herunterladen",
         "changeLogs": "Änderungsprotokolle",
