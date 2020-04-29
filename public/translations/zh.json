@@ -1,0 +1,43 @@
+{
+    "deviceList": {
+        "searchDevice": "搜索",
+        "notFound": "未找到设备！"
+    },
+    "device": {
+        "info": "（设备信息）"
+    },
+    "maintain": {
+        "status": {
+            "maintained": "维护中",
+            "maintainedWithoutDevice": "维护者未拥有此设备",
+            "notMaintained": "未维护！"
+        },
+        "by": {
+            "current": "维护者： {maintainer}",
+            "previous": "先前的维护者： {maintainer}"
+        }
+    },
+    "release": {
+        "type": {
+            "beta": "测试版",
+            "stable": "稳定版"
+        },
+        "notFound": "未为此设备构建版本",
+        "fileSize": "文件大小",
+        "download": "下载",
+        "changeLogs": "更新日志",
+        "buildNotes": "注意事项",
+        "bugs": "Bugs",
+        "allBuild": "显示所有版本"
+    },
+    "modal": {
+        "download": "下载",
+        "fetchLink": "正在获取链接",
+        "directLink": "直接下载",
+        "mirrorLink": "镜像链接"
+    },
+    "footer": {
+        "poweredBy": "由 {hostWebsite} 提供支持",
+        "openSource": "源代码"
+    }
+}

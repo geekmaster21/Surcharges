@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { navigate } from '@reach/router';
 import { groupBy } from 'lodash';
+import { FormattedMessage } from 'react-intl';
 import { Input, List, ListItemIcon, ListItemText } from '../../components';
 import { SearchIcon, SmartphoneOutlinedIcon } from '../../components/Icons';
 import { IDevice, IDeviceGroup } from '../../models';
+import { GetCurrentLocale } from '../../utils';
 
 interface DeviceListProps {
     data: IDevice[];
@@ -25,48 +27,54 @@ const GroupList = (_data: IDevice[]) => {
 }
 
 const DeviceList: React.SFC<DeviceListProps> = ({ data, handleDeviceClick }) => {
+    const locale = GetCurrentLocale();
+    const [list, setList] = useState<IDeviceGroup[]>(GroupList(data));
+    const [filter, setFilter] = useState<string>('');
 
-    const [list, setList] = useState<IDeviceGroup[]>(GroupList(data)),
-        [filter, setFilter] = useState<string>(''),
-        onDeviceClick = (dev: IDevice) => {
-            const url = `/device/${dev.codename}`;
-            navigate(url);
-            handleDeviceClick && handleDeviceClick(dev);
-        };
+    const onDeviceClick = (dev: IDevice) => {
+        const url = `/${locale}/device/${dev.codename}`;
+        navigate(url);
+        handleDeviceClick && handleDeviceClick(dev);
+    };
 
     const onSearch = ({ target: { value } }: any) => {
-        const _filter = (value || '').trim().toLowerCase();
+        const _filter = (value || '').trim().toLocaleLowerCase();
         setFilter(_filter);
-        const _list = doFilter(_filter);
-        setList(_list);
+        setList(doFilter(_filter));
     }
 
     const doFilter = (_filter: string) => {
-        const filteredData = _filter.trim() ? data.filter(f => {
-            const items = [f.fullname.toLowerCase(), f.codename.toLowerCase()];
+        const _data = data || [];
+        const filteredData = _filter.trim() ? _data.filter(f => {
+            const items = [f.fullname.toLocaleLowerCase(), f.codename.toLocaleLowerCase()];
             return items.some(i => i.includes(_filter));
-        }) : data;
+        }) : _data;
 
         return GroupList(filteredData);
     }
 
-    if (data.length && !filter && !list.length)
+    if (data?.length && !filter && !list.length)
         setList(doFilter(''));
 
-    const hasList = Boolean(list.length);
+    const hasList = !data ? // data will be undefined if api errors out, this will also stop loading placeholder
+        true :
+        Boolean(list.length);
 
     return (
         <div>
             <Input
-                label="Search Device"
-                variant="outlined"
                 size="small"
-                style={{
-                    width: 'calc(100% - 35px)',
-                }}
                 color="secondary"
-                endIcon={<SearchIcon fontSize="small" />}
+                variant="outlined"
+                disabled={!data}
                 onInput={onSearch}
+                style={{ width: 'calc(100% - 35px)' }}
+                endIcon={<SearchIcon fontSize="small" />}
+                label={
+                    <FormattedMessage
+                        id="deviceList.searchDevice"
+                        defaultMessage="Search Device" />
+                }
             />
 
             {
@@ -106,7 +114,9 @@ const DeviceList: React.SFC<DeviceListProps> = ({ data, handleDeviceClick }) => 
                 // No results found
                 !hasList && filter && (
                     <div style={{ textAlign: 'center' }}>
-                        Device not found!
+                        <FormattedMessage
+                            id="deviceList.notFound"
+                            defaultMessage="Device not found!" />
                     </div>
                 )
             }

@@ -7,6 +7,7 @@ import { RouteComponentProps } from '@reach/router';
 import { apiGetDeviceByCode } from '../apis';
 import { ExpandMore, PermDeviceInformationOutlinedIcon, PermIdentityOutlinedIcon } from './Icons';
 import { IDevice } from '../models';
+import { FormattedMessage } from 'react-intl';
 
 interface DeviceInfoProps extends RouteComponentProps {
     code?: string;
@@ -63,17 +64,58 @@ const DeviceInfo: React.SFC<DeviceInfoProps> = ({ code }) => {
 
     switch (device.maintained) {
         case 1:
-            maintainPrimaryText = <>Maintained</>
-            maintainSecondaryText = <>{`Maintainer: ${maintainer}`}</>
+            maintainPrimaryText = (
+                <FormattedMessage
+                    id="maintain.status.maintained"
+                    defaultMessage="Maintained"
+                />
+            );
+
+            maintainSecondaryText = (
+                <FormattedMessage
+                    id="maintain.by.current"
+                    defaultMessage="Maintainer: {maintainer}"
+                    values={{ maintainer }}
+                />
+            );
             break;
         case 2:
-            maintainPrimaryText = <>Maintained without having device in hands</>
-            maintainSecondaryText = <>{`Maintainer: ${maintainer}`}</>
+
+            maintainPrimaryText = (
+                <FormattedMessage
+                    id="maintain.status.maintainedWithoutDevice"
+                    defaultMessage="Maintained without having device in hands"
+                />
+            );
+
+            maintainSecondaryText = (
+                <FormattedMessage
+                    id="maintain.by.current"
+                    defaultMessage="Maintainer: {maintainer}"
+                    values={{ maintainer }}
+                />
+            );
+
             break;
         case 3:
         default:
-            maintainPrimaryText = <span style={{ color: '#dfdf01' }} >&#9888; {`Not Maintained!`}</span>
-            maintainSecondaryText = <>{`Previous Maintainer: ${maintainer || 'None'}`}</>
+            maintainPrimaryText = (
+                <span style={{ color: '#dfdf01' }} >
+                    &#9888;&nbsp;
+                    <FormattedMessage
+                        id="maintain.status.notMaintained"
+                        defaultMessage="Not Maintained!"
+                    />
+                </span>
+            );
+
+            maintainSecondaryText = (
+                <FormattedMessage
+                    id="maintain.by.previous"
+                    defaultMessage="Previous Maintainer: {maintainer}"
+                    values={{ maintainer: maintainer || 'None' }}
+                />
+            );
             break;
     }
 
@@ -89,7 +131,12 @@ const DeviceInfo: React.SFC<DeviceInfoProps> = ({ code }) => {
                 aria-controls="device-info-content"
             >
                 <Typography  >
-                    {device.fullname} {!!device.fullname && ' (Device Info)'}
+                    {device.fullname} {!!device.fullname && (<>
+                        &nbsp;
+                        <FormattedMessage
+                            id="device.info"
+                            defaultMessage="(Device Info)" />
+                    </>)}
                 </Typography>
             </ExpansionPanelSummary>
             <ExpansionPanelDetails className={classes.details} >

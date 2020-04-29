@@ -16,6 +16,7 @@ interface ReleaseTypeProps extends RouteComponentProps {
     data: IRelease[];
     type: EReleaseType;
     expanded?: boolean;
+    releaseLabel: JSX.Element;
 }
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -44,7 +45,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 const ReleaseType: React.SFC<ReleaseTypeProps> = (props) => {
-    const { code, expanded, data, type, version } = props;
+    const { code, expanded, data, type, version, releaseLabel } = props;
     const classes = useStyles();
     const sortedData = sortBy(data, d => d.actualDate).reverse();
     const [expandPanel, setExpanded] = React.useState<number>(0);
@@ -78,7 +79,7 @@ const ReleaseType: React.SFC<ReleaseTypeProps> = (props) => {
             >
                 <Typography className={classes.flexText} >
                     <StarBorderOutlinedIcon className={classes.iconM5} fontSize="small" />
-                    {type.slice(0, 1).toUpperCase() + type.slice(1)} Releases
+                    {releaseLabel}
                 </Typography>
             </ExpansionPanelSummary>
             <ExpansionPanelDetails className={classes.details} >

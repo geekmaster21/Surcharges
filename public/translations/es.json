@@ -1,0 +1,43 @@
+{
+    "deviceList": {
+        "searchDevice": "Buscar Dispositivo",
+        "notFound": "¡Dispositivo no encontrado!"
+    },
+    "device": {
+        "info": "(Información del Dispositivo)"
+    },
+    "maintain": {
+        "status": {
+            "maintained": "Mantenido",
+            "maintainedWithoutDevice": "Mantenido sin tener el dispositivo en las manos",
+            "notMaintained": "¡No mantenido!"
+        },
+        "by": {
+            "current": "Mantenedor: {maintainer}",
+            "previous": "Mantenedor Anterior: {maintainer}"
+        }
+    },
+    "release": {
+        "type": {
+            "beta": "Lanzamientos Beta",
+            "stable": "Lanzamientos Estables"
+        },
+        "notFound": "¡Todavía no hay lanzamientos para este dispositivo!",
+        "fileSize": "Tamaño del Archivo",
+        "download": "Descargar",
+        "changeLogs": "Registro de Cambios",
+        "buildNotes": "Notas de Compilación",
+        "bugs": "Errores",
+        "allBuild": "Mostrar todas las compilaciones"
+    },
+    "modal": {
+        "download": "Descargas",
+        "fetchLink": "Obteniendo Enlaces",
+        "directLink": "Enlace Directo",
+        "mirrorLink": "Enlace Espejado"
+    },
+    "footer": {
+        "poweredBy": "Potenciado por {hostWebsite}",
+        "openSource": "Proyecto de Código Abierto"
+    }
+}

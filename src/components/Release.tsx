@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
+import { FormattedMessage } from 'react-intl';
 import { Divider, List, ListItem, ListItemIcon, ListItemText, Theme, CircularProgress, Button } from '@material-ui/core';
-import { RouteComponentProps, Link } from '@reach/router';
+import { RouteComponentProps } from '@reach/router';
 import { apiGetRelease } from '../apis';
 import {
     createStyles, ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary,
-    makeStyles, Modal, Typography, PoweredBy
+    LinkLocale, makeStyles, Modal, Typography, PoweredBy,
 } from '.';
 import {
     ArchiveOutlined, BugReportIcon, DescriptionOutlined, VerifiedUserOutlined, ExpandMore,
     GetAppIconOutlined, LabelImportantOutlinedIcon, SdCardOutlinedIcon, SpeakerNotesOutlined
 } from './Icons';
 import { IRelease, EReleaseType } from '../models';
-
 
 interface ReleaseProps extends RouteComponentProps {
     code?: string;
@@ -122,14 +122,16 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type,
 
                     {
                         showAllBuild && (
-                            <Link
+                            <LinkLocale
                                 to={`/device/${code}`}
                                 className="link"
                             >
                                 <Button color="secondary">
-                                    Show All Builds
-                            </Button>
-                            </Link>
+                                    <FormattedMessage
+                                        id="release.allBuild"
+                                        defaultMessage="Show All Builds" />
+                                </Button>
+                            </LinkLocale>
                         )
                     }
                 </div>
@@ -155,7 +157,11 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type,
                             <SdCardOutlinedIcon fontSize="small" className={classes.icon} />
                         </ListItemIcon>
                         <ListItemText
-                            primary="File Size"
+                            primary={
+                                <FormattedMessage
+                                    id="release.fileSize"
+                                    defaultMessage="File Size" />
+                            }
                             secondary={release.size_human}
                         />
                     </ListItem>
@@ -185,7 +191,11 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type,
                             <ListItemIcon>
                                 <GetAppIconOutlined fontSize="small" className={classes.icon} />
                             </ListItemIcon>
-                            <ListItemText primary="Download" />
+                            <ListItemText primary={
+                                <FormattedMessage
+                                    id="release.download"
+                                    defaultMessage="Download" />
+                            } />
                         </ListItem>
 
                         {
@@ -194,7 +204,11 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type,
                                     <ListItemIcon>
                                         <DescriptionOutlined fontSize="small" className={classes.icon} />
                                     </ListItemIcon>
-                                    <ListItemText primary="Change Logs" />
+                                    <ListItemText primary={
+                                        <FormattedMessage
+                                            id="release.changeLogs"
+                                            defaultMessage="Change Logs" />
+                                    } />
                                 </ListItem>
                             )
                         }
@@ -205,7 +219,11 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type,
                                     <ListItemIcon>
                                         <SpeakerNotesOutlined fontSize="small" className={classes.icon} />
                                     </ListItemIcon>
-                                    <ListItemText primary="Build Notes" />
+                                    <ListItemText primary={
+                                        <FormattedMessage
+                                            id="release.buildNotes"
+                                            defaultMessage="Build Notes" />
+                                    } />
                                 </ListItem>
                             )
                         }
@@ -216,7 +234,11 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type,
                                     <ListItemIcon className={classes.bug}>
                                         <BugReportIcon fontSize="small" className={classes.icon + ' ' + classes.bug} />
                                     </ListItemIcon>
-                                    <ListItemText primary="Bugs" />
+                                    <ListItemText primary={
+                                        <FormattedMessage
+                                            id="release.bugs"
+                                            defaultMessage="Bugs" />
+                                    } />
                                 </ListItem>
                             )
                         }
@@ -230,12 +252,16 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type,
             toggleModal={handleModalDL}
         >
             <div className={classes.modal} >
-                DOWNLOADS:
+                <FormattedMessage
+                    id="modal.download"
+                    defaultMessage="Downloads" />:
                 <br />
                 <br />
                 {
                     !tmoDL && (<div style={{ display: 'flex', alignItems: 'center' }} >
-                        Fetching Links &nbsp;
+                        <FormattedMessage
+                            id="modal.fetchLink"
+                            defaultMessage="Fetching Links" />: &nbsp;
                         <CircularProgress color="secondary" size="20px" />
                     </div>)
                 }
@@ -248,7 +274,9 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type,
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                Direct Link
+                                <FormattedMessage
+                                    id="modal.directLink"
+                                    defaultMessage="Direct Link" />
                             </a>
                         </Button>
 
@@ -263,8 +291,10 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type,
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
-                                        Mirror Link
-                                </a>
+                                        <FormattedMessage
+                                            id="modal.mirrorLink"
+                                            defaultMessage="Mirror Link" />
+                                    </a>
                                 </Button>
                             </>)
                         }
@@ -281,7 +311,9 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type,
             toggleModal={handleModalLog}
         >
             <div className={classes.modal} >
-                CHANGE LOGS:
+                <FormattedMessage
+                    id="release.changeLogs"
+                    defaultMessage="Change Logs" />:
                 <br />
                 <br />
                 {
@@ -295,7 +327,9 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type,
             toggleModal={handleModalBug}
         >
             <div className={classes.modal} >
-                BUGS:
+                <FormattedMessage
+                    id="release.bugs"
+                    defaultMessage="Bugs" />:
                 <br />
                 <br />
                 {
@@ -309,7 +343,9 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type,
             toggleModal={handleModalNote}
         >
             <div className={classes.modal} >
-                BUILD NOTES:
+                <FormattedMessage
+                    id="release.buildNotes"
+                    defaultMessage="Build Notes" />:
                 <br />
                 <br />
                 {

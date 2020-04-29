@@ -1,0 +1,43 @@
+{
+    "deviceList": {
+        "searchDevice": "डिवाइस खोजें",
+        "notFound": "डिवाइस नहीं मिला!"
+    },
+    "device": {
+        "info": "डिवाइस की जानकारी"
+    },
+    "maintain": {
+        "status": {
+            "maintained": "कायम रखा गया है",
+            "maintainedWithoutDevice": "मेंटेनर के पास डिवाइस नहीं है",
+            "notMaintained": "कायम नहीं है"
+        },
+        "by": {
+            "current": "मेंटेनर: {maintainer}",
+            "previous": "पुराना मेंटेनर: {maintainer}"
+        }
+    },
+    "release": {
+        "type": {
+            "beta": "बीटा रिलीज",
+            "stable": "स्थिर रिलीज़"
+        },
+        "notFound": "इस डिवाइस के लिए अभी तक कोई रिलीज़ नहीं है",
+        "fileSize": "फाइल का आकार",
+        "download": "डाउनलोड",
+        "changeLogs": "बदलें लॉग",
+        "buildNotes": "बिल्ड टिप्पणियाँ",
+        "bugs": "खराबियां",
+        "allBuild": "सारे बिल्ड दिखाओ"
+    },
+    "modal": {
+        "download": "डाउनलोड",
+        "fetchLink": "लिंक लाए जा रहे हैं",
+        "directLink": "सीधा लिंक",
+        "mirrorLink": "मिरर लिंक"
+    },
+    "footer": {
+        "poweredBy": "{hostWebsite} द्वारा संचालित",
+        "openSource": "ओपन-सोर्स प्रोजेक्ट"
+    }
+}

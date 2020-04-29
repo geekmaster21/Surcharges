@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { FormattedMessage } from 'react-intl';
 import { apiGetAllReleases } from '../../apis';
 import { Card, CardContent } from '../../components';
 import { EReleaseType, IAllReleases } from '../../models';
@@ -22,7 +23,7 @@ const DeviceReleases: React.SFC<DeviceReleasesProps> = ({ code, type, version })
     }, [code]);
 
     const hasReleases = code && releases;
-    const hasStableRelease = type ? (type === EReleaseType.stable) : !!releases?.stable?.length;
+    const isStableRelease = type ? (type === EReleaseType.stable) : !!releases?.stable?.length;
 
     return (<>
         {
@@ -33,8 +34,13 @@ const DeviceReleases: React.SFC<DeviceReleasesProps> = ({ code, type, version })
                             code={code}
                             version={version}
                             type={EReleaseType.stable}
-                            expanded={hasStableRelease}
+                            expanded={isStableRelease}
                             data={releases?.stable.map(d => ({ ...d, actualDate: new Date(d.date) }))}
+                            releaseLabel={
+                                <FormattedMessage
+                                    id="release.type.stable"
+                                    defaultMessage="Stable Releases" />
+                            }
                         />
                     )}
                     {!!releases.beta?.length && (
@@ -42,8 +48,13 @@ const DeviceReleases: React.SFC<DeviceReleasesProps> = ({ code, type, version })
                             code={code}
                             version={version}
                             type={EReleaseType.beta}
-                            expanded={!hasStableRelease}
+                            expanded={!isStableRelease}
                             data={releases?.beta.map(d => ({ ...d, actualDate: new Date(d.date) }))}
+                            releaseLabel={
+                                <FormattedMessage
+                                    id="release.type.beta"
+                                    defaultMessage="Beta Releases" />
+                            }
                         />
                     )}
                 </>
@@ -57,7 +68,9 @@ const DeviceReleases: React.SFC<DeviceReleasesProps> = ({ code, type, version })
                         padding: '20px',
                         textAlign: 'center'
                     }}>
-                        There are no releases for this device yet.
+                        <FormattedMessage
+                            id="release.notFound"
+                            defaultMessage="There are no releases for this device yet!" />
                     </CardContent>
                 </Card>
             )
