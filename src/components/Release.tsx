@@ -52,10 +52,12 @@ const useStyles = makeStyles((theme: Theme) =>
             },
         },
         modal: {
-            backgroundColor: theme.palette.background.paper,
-            border: '2px solid #000',
+            backgroundColor: theme.palette.primary.light,
             boxShadow: theme.shadows[5],
-            padding: theme.spacing(2, 4, 3),
+            padding: theme.spacing(3, 4),
+            border: 'none',
+            borderRadius: '8px',
+            outline: 'none !important',
         },
         bug: {
             color: '#ff5e5e'
