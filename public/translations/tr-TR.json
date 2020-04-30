@@ -16,13 +16,13 @@
     },
     "maintain": {
         "status": {
-            "maintained": "Sorumlulukta",
-            "maintainedWithoutDevice": "Cihaz, elde olmadan sorumlulukta",
-            "notMaintained": "Sorumlulukta Değil!"
+            "maintained": "Destekleniyor",
+            "maintainedWithoutDevice": "Destekleniyor. Fakat cihaz, cihaz sorumlusunun elinde değil",
+            "notMaintained": "Desteklenmiyor!"
         },
         "by": {
-            "current": "Sorumlusu: {maintainer}",
-            "previous": "Önceki Sorumlusu: {maintainer}"
+            "current": "Cihaz Sorumlusu: {maintainer}",
+            "previous": "Önceki Cihaz Sorumlusu: {maintainer}"
         }
     },
     "release": {
@@ -42,7 +42,7 @@
         "download": "İndirmeler",
         "fetchLink": "Bağlantılar Getiriliyor",
         "directLink": "Doğrudan Bağlantı",
-        "mirrorLink": "Yedek Bağlantılar"
+        "mirrorLink": "Yedek Bağlantı"
     },
     "footer": {
         "poweredBy": "{hostWebsite} ile Güçlendirilmiştir",
