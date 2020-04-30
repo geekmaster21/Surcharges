@@ -1,4 +1,12 @@
 {
+    "languageInfo": {
+        "name": "英語",
+        "emoji": "私たちについて"
+    },
+    "mainPage": {
+        "hintText": "リストから端末を選択もしくは検索",
+        "notFound": "これが最後。私をホームに連れて行って！"
+    },
     "deviceList": {
         "searchDevice": "端末を探す",
         "notFound": "端末が見つかりません！"
