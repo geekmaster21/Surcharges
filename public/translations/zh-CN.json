@@ -3,22 +3,26 @@
         "name": "Chinese Simplified",
         "emoji": "🇨🇳"
     },
+    "mainPage": {
+        "hintText": "从列表中选择您的设备或者搜索设备",
+        "notFound": "到底啦！回到首页！"
+    },
     "deviceList": {
         "searchDevice": "搜索设备",
         "notFound": "未找到设备！"
     },
     "device": {
-        "info": "（设备信息）"
+        "info": "(设备信息)"
     },
     "maintain": {
         "status": {
             "maintained": "维护中",
             "maintainedWithoutDevice": "维护者未拥有此设备",
-            "notMaintained": "未维护！"
+            "notMaintained": "无人维护"
         },
         "by": {
-            "current": "维护者： {maintainer}",
-            "previous": "先前的维护者： {maintainer}"
+            "current": "维护者: {maintainer}",
+            "previous": "先前的维护者: {maintainer}"
         }
     },
     "release": {
@@ -41,7 +45,7 @@
         "mirrorLink": "镜像链接"
     },
     "footer": {
-        "poweredBy": "由 {hostWebsite} 提供支持",
+        "poweredBy": "Powered By {hostWebsite}",
         "openSource": "源代码"
     }
 }
