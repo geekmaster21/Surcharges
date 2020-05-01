@@ -1,5 +1,15 @@
 [
   {
+    "code": "pa-IN",
+    "name": "Punjabi",
+    "emoji": "\ud83c\uddee\ud83c\uddf3"
+  },
+  {
+    "code": "it-IT",
+    "name": "Inglese",
+    "emoji": "\ud83c\uddee\ud83c\uddf9"
+  },
+  {
     "code": "ru-RU",
     "name": "Russian",
     "emoji": "\ud83c\uddf7\ud83c\uddfa"
@@ -30,6 +40,11 @@
     "emoji": "\ud83c\uddf7\ud83c\uddf8"
   },
   {
+    "code": "el-GR",
+    "name": "Greek",
+    "emoji": "\ud83c\uddec\ud83c\uddf7"
+  },
+  {
     "code": "zh-CN",
     "name": "Chinese Simplified",
     "emoji": "\ud83c\udde8\ud83c\uddf3"
@@ -37,7 +52,12 @@
   {
     "code": "cs-CZ",
     "name": "Anglicky",
-    "emoji": "\ud83c\uddfa\ud83c\uddf8"
+    "emoji": "\ud83c\udde8\ud83c\uddff"
+  },
+  {
+    "code": "ja-JP",
+    "name": "Japanese",
+    "emoji": "\ud83c\uddef\ud83c\uddf5"
   },
   {
     "code": "en",
