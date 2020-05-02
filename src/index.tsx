@@ -9,10 +9,10 @@ const theme = createMuiTheme(DarkTheme);
 
 function ConfigureGoogleAds() {
   if (APP_CONFIG.showAds) {
-    ((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({
-      google_ad_client: "ca-pub-5046421731649433",
-      enable_page_level_ads: true
-    });
+    // ((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({
+    //   google_ad_client: "ca-pub-5046421731649433",
+    //   enable_page_level_ads: true
+    // });
   } else {
     const adScript = document.getElementById('scr-google-ads');
     adScript &&
