@@ -16,7 +16,7 @@
   },
   {
     "code": "de-DE",
-    "name": "German",
+    "name": "Deutsch",
     "emoji": "\ud83c\udde9\ud83c\uddea"
   },
   {
@@ -43,6 +43,11 @@
     "code": "el-GR",
     "name": "Greek",
     "emoji": "\ud83c\uddec\ud83c\uddf7"
+  },
+  {
+    "code": "es-ES",
+    "name": "Spanish",
+    "emoji": "\ud83c\uddea\ud83c\uddf8"
   },
   {
     "code": "zh-CN",

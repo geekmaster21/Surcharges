@@ -1,4 +1,10 @@
+function pe(key: string, noPrefix = false) {
+    return process.env[noPrefix ? key : `REACT_APP_${key}`] || '';
+}
+
 export const APP_CONFIG = {
-    apiUrl: process.env.REACT_APP_API_URL,
-    defaultLang: process.env.REACT_APP_DEFAULT_LANG || 'en',
+    apiUrl: pe('API_URL'),
+    defaultLang: pe('DEFAULT_LANG'),
+    showAds: pe('SHOW_ADS') === 'true',
+    isDevEnv: pe('NODE_ENV', true) === 'DEVELOPMENT',
 }

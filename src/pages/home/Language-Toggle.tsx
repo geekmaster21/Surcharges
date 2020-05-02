@@ -15,6 +15,12 @@ const useStyles = makeStyles((theme: Theme) =>
             margin: theme.spacing(1),
             marginLeft: theme.spacing(2),
         },
+        listItem: {
+            borderLeft: '3px solid transparent'
+        },
+        listItemSelected: {
+            borderLeft: '3px solid var(--orange-1)'
+        }
     }),
 );
 
@@ -63,6 +69,8 @@ const LanguageToggle: React.SFC = () => {
                         <MenuItem
                             key={m.code}
                             value={m.code}
+                            className={classes.listItem}
+                            classes={{ selected: classes.listItemSelected }}
                         >
                             {m.emoji} {m.name}
                         </MenuItem>

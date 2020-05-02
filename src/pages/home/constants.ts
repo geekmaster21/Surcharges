@@ -16,7 +16,7 @@ export const useStyles = makeStyles((theme: Theme) => ({
         },
     },
     appBar: {
-        backgroundColor: '#ed7002',
+        backgroundColor: 'var(--orange-1)',
         [theme.breakpoints.up('sm')]: {
             width: `calc(100% - ${drawerWidth}px)`,
             marginLeft: drawerWidth,
