@@ -48,7 +48,8 @@ const useStyles = makeStyles((theme: Theme) =>
             alignItems: 'center'
         },
         details: {
-            padding: '5px 10px 10px'
+            padding: '5px 10px 10px',
+            userSelect: 'text'
         },
         nestedList: {
             display: 'flex',
@@ -63,6 +64,7 @@ const useStyles = makeStyles((theme: Theme) =>
             border: 'none',
             borderRadius: '8px',
             outline: 'none !important',
+            userSelect: 'text'
         },
         bug: {
             color: '#ff5e5e'
@@ -222,7 +224,7 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type,
                         </ListItemIcon>
                         {
                             !showLoader && (<>
-                                <ListItemText
+                                <ListItemText 
                                     primary="MD5"
                                     secondary={release.md5}
                                 />

@@ -1,12 +1,9 @@
 import React from 'react';
+import { ReactComponent as LogoSvg } from '../arts/logo.svg'
 
 const Logo: React.SFC = () => {
     return (
-        <img
-            alt="OrangeFox"
-            className="logo"
-            src="/images/logo.svg"
-        />
+        <LogoSvg className="logo" />
     );
 }
 

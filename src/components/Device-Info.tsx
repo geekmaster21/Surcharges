@@ -33,6 +33,7 @@ const useStyles = makeStyles((theme: Theme) =>
         root: {
             width: '100%',
             backgroundColor: '#2a2a2a',
+            userSelect: 'text'
         },
         icon: {
             color: '#ddd',
