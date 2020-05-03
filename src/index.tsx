@@ -7,13 +7,8 @@ import { DarkTheme } from './themes';
 
 const theme = createMuiTheme(DarkTheme);
 
-function ConfigureGoogleAds() {
-  if (APP_CONFIG.showAds) {
-    // ((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({
-    //   google_ad_client: "ca-pub-5046421731649433",
-    //   enable_page_level_ads: true
-    // });
-  } else {
+function toggleGoogleAds() {
+  if (!APP_CONFIG.showAds) {
     const adScript = document.getElementById('scr-google-ads');
     adScript &&
       document.head.removeChild(adScript);
@@ -21,7 +16,7 @@ function ConfigureGoogleAds() {
 }
 
 function RenderApp() {
-  ConfigureGoogleAds();
+  toggleGoogleAds();
   return (<>
     {/* <React.StrictMode> TODO: Remove this once Material React fixes "findDomNode" bug */}
     <ThemeProvider theme={theme}>

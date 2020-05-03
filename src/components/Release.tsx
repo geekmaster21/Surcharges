@@ -1,17 +1,22 @@
 import React, { useEffect, useState } from 'react';
+import {
+    Button, CircularProgress, Divider, List,
+    ListItem, ListItemIcon, ListItemText, Theme
+} from '@material-ui/core';
+import { navigate, RouteComponentProps } from '@reach/router';
 import { FormattedMessage } from 'react-intl';
-import { Divider, List, ListItem, ListItemIcon, ListItemText, Theme, CircularProgress, Button } from '@material-ui/core';
-import { RouteComponentProps } from '@reach/router';
-import { apiGetRelease } from '../apis';
 import {
-    createStyles, ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary,
-    LinkLocale, makeStyles, Modal, Typography, PoweredBy,
+    createStyles, ExpansionPanel, ExpansionPanelDetails,
+    ExpansionPanelSummary, LinkLocale, makeStyles, Modal, PoweredBy, Typography
 } from '.';
+import { apiGetRelease } from '../apis';
+import { EReleaseType, IRelease } from '../models';
+import { GetCurrentLocale } from '../utils';
 import {
-    ArchiveOutlined, BugReportIcon, DescriptionOutlined, VerifiedUserOutlined, ExpandMore,
-    GetAppIconOutlined, LabelImportantOutlinedIcon, SdCardOutlinedIcon, SpeakerNotesOutlined
+    ArchiveOutlined, BugReportIcon, DescriptionOutlined, ExpandMore, GetAppIconOutlined,
+    LabelImportantOutlinedIcon, SdCardOutlinedIcon, SpeakerNotesOutlined, VerifiedUserOutlined
 } from './Icons';
-import { IRelease, EReleaseType } from '../models';
+import { LoadShimmer } from './Load-Shimmer';
 
 interface ReleaseProps extends RouteComponentProps {
     code?: string;
@@ -75,12 +80,14 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type,
 
     let tmoDownload: NodeJS.Timeout;
     const classes = useStyles();
+    const locale = GetCurrentLocale();
     const [release, setReleaseDetail] = useState<IRelease>({} as IRelease);
-    const [tmoDL, toggleTmoDL] = React.useState(false);
-    const [showModalDL, toggleModalDL] = React.useState(false);
-    const [showModalLog, toggleModalLog] = React.useState(false);
-    const [showModalBug, toggleModalBug] = React.useState(false);
-    const [showModalNote, toggleModalNote] = React.useState(false);
+    const [tmoDL, toggleTmoDL] = useState(false);
+    const [showModalDL, toggleModalDL] = useState(false);
+    const [showModalLog, toggleModalLog] = useState(false);
+    const [showModalBug, toggleModalBug] = useState(false);
+    const [showModalNote, toggleModalNote] = useState(false);
+    const isDifferentDevice = code && release?.codename !== code;
 
     const handleModalDL = () => {
         clearTimeout(tmoDownload);
@@ -98,11 +105,15 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type,
     useEffect(() => {
         if (code) {
             apiGetRelease(code, type, version)
-                .then(data => setReleaseDetail(data));
+                .then(data => setReleaseDetail(data))
+                .catch(() => {
+                    showAllBuild && navigate(`/${locale}/404`);
+                });
         }
-    }, [code, type, version]);
+    }, [code, type, version, locale, showAllBuild]);
 
     const _version = release?.version || version;
+    const showLoader = !release?.codename || isDifferentDevice;
 
     return (<>
         <ExpansionPanel
@@ -119,7 +130,14 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type,
                 <div className={classes.summary}>
                     <Typography className={classes.version} >
                         <LabelImportantOutlinedIcon className={classes.icon + ' ' + classes.iconM5} fontSize="small" />
-                        {_version}
+                        {
+                            !showLoader && (_version)
+                        }
+
+                        {/* Loading Placeholder */}
+                        {
+                            showLoader && <LoadShimmer />
+                        }
                     </Typography>
 
                     {
@@ -146,10 +164,24 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type,
                         <ListItemIcon>
                             <ArchiveOutlined fontSize="small" className={classes.icon} />
                         </ListItemIcon>
-                        <ListItemText
-                            primary={release.file_name}
-                            secondary={release.date}
-                        />
+                        {
+                            !showLoader && (<>
+                                <ListItemText
+                                    primary={release.file_name}
+                                    secondary={release.date}
+                                />
+                            </>)
+                        }
+
+                        {/* Loading Placeholder */}
+                        {
+                            showLoader && (<>
+                                <ListItemText
+                                    primary={<LoadShimmer />}
+                                    secondary={<LoadShimmer />}
+                                />
+                            </>)
+                        }
                     </ListItem>
 
                     <Divider />
@@ -158,14 +190,28 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type,
                         <ListItemIcon>
                             <SdCardOutlinedIcon fontSize="small" className={classes.icon} />
                         </ListItemIcon>
-                        <ListItemText
-                            primary={
-                                <FormattedMessage
-                                    id="release.fileSize"
-                                    defaultMessage="File Size" />
-                            }
-                            secondary={release.size_human}
-                        />
+                        {
+                            !showLoader && (<>
+                                <ListItemText
+                                    primary={
+                                        <FormattedMessage
+                                            id="release.fileSize"
+                                            defaultMessage="File Size" />
+                                    }
+                                    secondary={release.size_human}
+                                />
+                            </>)
+                        }
+
+                        {/* Loading Placeholder */}
+                        {
+                            showLoader && (<>
+                                <ListItemText
+                                    primary={<LoadShimmer />}
+                                    secondary={<LoadShimmer />}
+                                />
+                            </>)
+                        }
                     </ListItem>
 
                     <Divider />
@@ -174,10 +220,24 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type,
                         <ListItemIcon>
                             <VerifiedUserOutlined fontSize="small" className={classes.icon} />
                         </ListItemIcon>
-                        <ListItemText
-                            primary="MD5"
-                            secondary={release.md5}
-                        />
+                        {
+                            !showLoader && (<>
+                                <ListItemText
+                                    primary="MD5"
+                                    secondary={release.md5}
+                                />
+                            </>)
+                        }
+
+                        {/* Loading Placeholder */}
+                        {
+                            showLoader && (<>
+                                <ListItemText
+                                    primary={<LoadShimmer />}
+                                    secondary={<LoadShimmer />}
+                                />
+                            </>)
+                        }
                     </ListItem>
 
                     <Divider />
@@ -193,11 +253,25 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type,
                             <ListItemIcon>
                                 <GetAppIconOutlined fontSize="small" className={classes.icon} />
                             </ListItemIcon>
-                            <ListItemText primary={
-                                <FormattedMessage
-                                    id="release.download"
-                                    defaultMessage="Download" />
-                            } />
+                            {
+                                !showLoader && (<>
+                                    <ListItemText primary={
+                                        <FormattedMessage
+                                            id="release.download"
+                                            defaultMessage="Download" />
+                                    } />
+                                </>)
+                            }
+
+                            {/* Loading Placeholder */}
+                            {
+                                showLoader && (<>
+                                    <ListItemText
+                                        primary={<LoadShimmer />}
+                                        secondary={<LoadShimmer />}
+                                    />
+                                </>)
+                            }
                         </ListItem>
 
                         {
@@ -206,11 +280,25 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type,
                                     <ListItemIcon>
                                         <DescriptionOutlined fontSize="small" className={classes.icon} />
                                     </ListItemIcon>
-                                    <ListItemText primary={
-                                        <FormattedMessage
-                                            id="release.changeLogs"
-                                            defaultMessage="Change Logs" />
-                                    } />
+                                    {
+                                        !showLoader && (<>
+                                            <ListItemText primary={
+                                                <FormattedMessage
+                                                    id="release.changeLogs"
+                                                    defaultMessage="Change Logs" />
+                                            } />
+                                        </>)
+                                    }
+
+                                    {/* Loading Placeholder */}
+                                    {
+                                        showLoader && (<>
+                                            <ListItemText
+                                                primary={<LoadShimmer />}
+                                                secondary={<LoadShimmer />}
+                                            />
+                                        </>)
+                                    }
                                 </ListItem>
                             )
                         }
@@ -221,11 +309,25 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type,
                                     <ListItemIcon>
                                         <SpeakerNotesOutlined fontSize="small" className={classes.icon} />
                                     </ListItemIcon>
-                                    <ListItemText primary={
-                                        <FormattedMessage
-                                            id="release.buildNotes"
-                                            defaultMessage="Build Notes" />
-                                    } />
+                                    {
+                                        !showLoader && (<>
+                                            <ListItemText primary={
+                                                <FormattedMessage
+                                                    id="release.buildNotes"
+                                                    defaultMessage="Build Notes" />
+                                            } />
+                                        </>)
+                                    }
+
+                                    {/* Loading Placeholder */}
+                                    {
+                                        showLoader && (<>
+                                            <ListItemText
+                                                primary={<LoadShimmer />}
+                                                secondary={<LoadShimmer />}
+                                            />
+                                        </>)
+                                    }
                                 </ListItem>
                             )
                         }
@@ -236,11 +338,25 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type,
                                     <ListItemIcon className={classes.bug}>
                                         <BugReportIcon fontSize="small" className={classes.icon + ' ' + classes.bug} />
                                     </ListItemIcon>
-                                    <ListItemText primary={
-                                        <FormattedMessage
-                                            id="release.bugs"
-                                            defaultMessage="Bugs" />
-                                    } />
+                                    {
+                                        !showLoader && (<>
+                                            <ListItemText primary={
+                                                <FormattedMessage
+                                                    id="release.bugs"
+                                                    defaultMessage="Bugs" />
+                                            } />
+                                        </>)
+                                    }
+
+                                    {/* Loading Placeholder */}
+                                    {
+                                        showLoader && (<>
+                                            <ListItemText
+                                                primary={<LoadShimmer />}
+                                                secondary={<LoadShimmer />}
+                                            />
+                                        </>)
+                                    }
                                 </ListItem>
                             )
                         }

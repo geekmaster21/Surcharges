@@ -3,6 +3,7 @@ export * from './Footer';
 export * from './Input';
 export * from './Link-Locale';
 export * from './list';
+export * from './Load-Shimmer';
 export * from './Logo';
 export * from './Modal';
 export * from './Powered-By';

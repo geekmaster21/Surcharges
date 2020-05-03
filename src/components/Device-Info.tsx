@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import {
-    ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary, List,
-    ListItem, ListItemIcon, ListItemText, Typography, makeStyles, Theme, createStyles
+    createStyles, ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary,
+    List, ListItem, ListItemIcon, ListItemText, makeStyles, Theme, Typography
 } from '@material-ui/core';
-import { RouteComponentProps } from '@reach/router';
-import { apiGetDeviceByCode } from '../apis';
-import { ExpandMore, PermDeviceInformationOutlinedIcon, PermIdentityOutlinedIcon, ReportProblemOutlined } from './Icons';
-import { IDevice } from '../models';
+import { navigate, RouteComponentProps } from '@reach/router';
 import { FormattedMessage } from 'react-intl';
+import { apiGetDeviceByCode } from '../apis';
+import { IDevice } from '../models';
+import { GetCurrentLocale } from '../utils';
+import {
+    ExpandMore, PermDeviceInformationOutlinedIcon,
+    PermIdentityOutlinedIcon, ReportProblemOutlined
+} from './Icons';
+import { LoadShimmer } from './Load-Shimmer';
 
 interface DeviceInfoProps extends RouteComponentProps {
     code?: string;
@@ -47,30 +52,34 @@ const useStyles = makeStyles((theme: Theme) =>
         flexText: {
             display: 'flex',
             alignItems: 'center'
-        }
+        },
     }),
 );
 
 const DeviceInfo: React.SFC<DeviceInfoProps> = ({ code }) => {
     const classes = useStyles();
-
-    const [device, setDeviceDetail] = useState<IDevice>({} as IDevice),
-        isDifferentDevice = code && device.codename !== code;
+    const locale = GetCurrentLocale();
+    const [device, setDeviceDetail] = useState<IDevice>({} as IDevice);
+    const isDifferentDevice = code && device.codename !== code;
 
     useEffect(() => {
         if (code && isDifferentDevice) {
             apiGetDeviceByCode(code)
                 .then(data => {
                     setDeviceDetail(data);
+                })
+                .catch(() => {
+                    navigate(`/${locale}/404`);
                 });
         }
-    }, [code, isDifferentDevice]);
+    }, [code, locale, isDifferentDevice]);
 
-    let maintainPrimaryText: JSX.Element;
-    let maintainSecondaryText: JSX.Element;
     const maintainer = device.maintainer?.name;
+    let maintainPrimaryText: JSX.Element | null = null;
+    let maintainSecondaryText: JSX.Element | null = null;
 
     switch (device.maintained) {
+
         case 1:
             maintainPrimaryText = (
                 <FormattedMessage
@@ -87,8 +96,8 @@ const DeviceInfo: React.SFC<DeviceInfoProps> = ({ code }) => {
                 />
             );
             break;
-        case 2:
 
+        case 2:
             maintainPrimaryText = (
                 <FormattedMessage
                     id="maintain.status.maintainedWithoutDevice"
@@ -105,8 +114,8 @@ const DeviceInfo: React.SFC<DeviceInfoProps> = ({ code }) => {
             );
 
             break;
+
         case 3:
-        default:
             maintainPrimaryText = (
                 <span className={classes.notmaintained} >
                     <ReportProblemOutlined className={classes.notmaintainedIcon} />&nbsp;
@@ -125,7 +134,11 @@ const DeviceInfo: React.SFC<DeviceInfoProps> = ({ code }) => {
                 />
             );
             break;
+
+        default: break;
     }
+
+    const showLoader = !device?.fullname || isDifferentDevice;
 
     return (
         <ExpansionPanel
@@ -138,13 +151,23 @@ const DeviceInfo: React.SFC<DeviceInfoProps> = ({ code }) => {
                 expandIcon={<ExpandMore className={classes.icon} />}
                 aria-controls="device-info-content"
             >
-                <Typography  >
-                    {device.fullname} {!!device.fullname && (<>
-                        &nbsp;
-                        <FormattedMessage
-                            id="device.info"
-                            defaultMessage="(Device Info)" />
-                    </>)}
+                <Typography
+                    component="div"
+                    className="shimmer-wrapper"
+                >
+                    {
+                        !showLoader && (<>
+                            {device.fullname + " "}
+                            <FormattedMessage
+                                id="device.info"
+                                defaultMessage="(Device Info)" />
+                        </>)
+                    }
+
+                    {/* Loading Placeholder */}
+                    {
+                        showLoader && <LoadShimmer />
+                    }
                 </Typography>
             </ExpansionPanelSummary>
             <ExpansionPanelDetails className={classes.details} >
@@ -156,13 +179,50 @@ const DeviceInfo: React.SFC<DeviceInfoProps> = ({ code }) => {
                         <ListItemIcon>
                             <PermDeviceInformationOutlinedIcon className={classes.icon} />
                         </ListItemIcon>
-                        <ListItemText primary={device.oem} secondary={device.codename} />
+
+                        {
+                            !showLoader && (<>
+                                <ListItemText
+                                    primary={device.oem}
+                                    secondary={device.codename}
+                                />
+                            </>)
+                        }
+
+                        {/* Loading Placeholder */}
+                        {
+                            showLoader && (<>
+                                <ListItemText
+                                    primary={<LoadShimmer />}
+                                    secondary={<LoadShimmer />}
+                                />
+                            </>)
+                        }
+
                     </ListItem>
                     <ListItem >
                         <ListItemIcon>
                             <PermIdentityOutlinedIcon className={classes.icon} />
                         </ListItemIcon>
-                        <ListItemText primary={maintainPrimaryText} secondary={maintainSecondaryText} />
+
+                        {
+                            !showLoader && (<>
+                                <ListItemText
+                                    primary={maintainPrimaryText}
+                                    secondary={maintainSecondaryText}
+                                />
+                            </>)
+                        }
+
+                        {/* Loading Placeholder */}
+                        {
+                            showLoader && (<>
+                                <ListItemText
+                                    primary={<LoadShimmer />}
+                                    secondary={<LoadShimmer />}
+                                />
+                            </>)
+                        }
                     </ListItem>
                 </List>
             </ExpansionPanelDetails>
