@@ -42,7 +42,7 @@
         "download": "İndirmeler",
         "fetchLink": "Bağlantılar Getiriliyor",
         "directLink": "Doğrudan Bağlantı",
-        "mirrorLink": "Yedek Bağlantılar"
+        "mirrorLink": "Yedek Bağlantı"
     },
     "footer": {
         "poweredBy": "{hostWebsite} ile Güçlendirilmiştir",
