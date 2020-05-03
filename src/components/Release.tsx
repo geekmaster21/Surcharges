@@ -17,6 +17,8 @@ import {
     LabelImportantOutlinedIcon, SdCardOutlinedIcon, SpeakerNotesOutlined, VerifiedUserOutlined
 } from './Icons';
 import { LoadShimmer } from './Load-Shimmer';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import DialogContent from '@material-ui/core/DialogContent';
 
 interface ReleaseProps extends RouteComponentProps {
     code?: string;
@@ -371,22 +373,21 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type,
             showModal={showModalDL}
             toggleModal={handleModalDL}
         >
-            <div className={classes.modal} >
-                <b>
-                    <FormattedMessage
+            <DialogTitle>
+                <FormattedMessage
                         id="modal.download"
                         defaultMessage="Downloads" />
-                </b>
-                <br />
-                <br />
+            </DialogTitle>
+            <DialogContent dividers>
                 {
                     !tmoDL && (
-                        <div className="flexd v-center" >
+                        <Button variant="outlined" color="secondary">
+                            <CircularProgress color="secondary" size="18px" />
+                            &nbsp;&nbsp;&nbsp;&nbsp;
                             <FormattedMessage
                                 id="modal.fetchLink"
-                                defaultMessage="Fetching Links" />: &nbsp;
-                            <CircularProgress color="secondary" size="20px" />
-                        </div>
+                                defaultMessage="Fetching Links" />
+                        </Button>
                     )
                 }
                 {
@@ -408,10 +409,10 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type,
                             release?.sf?.url && (<>
                                 &nbsp;
                                 &nbsp;
-                                <Button variant="contained" color="primary">
+                                <Button variant="outlined" color="secondary">
                                     <a
                                         href={release?.sf?.url}
-                                        className="link no-hover"
+                                        className="link orange no-hover"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
@@ -422,66 +423,54 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type,
                                 </Button>
                             </>)
                         }
-                        <br />
                     </>)
                 }
                 <br />
+                <br />
                 <PoweredBy />
-            </div>
+            </DialogContent>
         </Modal>
 
         <Modal
             showModal={showModalLog}
             toggleModal={handleModalLog}
         >
-            <div className={classes.modal} >
-                <b>
-                    <FormattedMessage
-                        id="release.changeLogs"
-                        defaultMessage="Change Logs" />
-                </b>
-                <br />
-                <br />
-                {
-                    release?.changelog?.split('\n').map((m, i) => <p key={i}>{m}</p>)
-                }
-            </div>
+            <DialogTitle>
+                <FormattedMessage
+                    id="release.changeLogs"
+                    defaultMessage="Change Logs" />
+            </DialogTitle>
+            <DialogContent dividers>
+                { release?.changelog?.split('\n').map((m, i) => <p key={i}>{m}</p>) }
+            </DialogContent>
         </Modal>
 
         <Modal
             showModal={showModalBug}
             toggleModal={handleModalBug}
         >
-            <div className={classes.modal} >
-                <b>
-                    <FormattedMessage
+            <DialogTitle>
+                <FormattedMessage
                         id="release.bugs"
                         defaultMessage="Bugs" />
-                </b>
-                <br />
-                <br />
-                {
-                    release?.bugs?.split('\n').map((m, i) => <p key={i}>{m}</p>)
-                }
-            </div>
+            </DialogTitle>
+            <DialogContent dividers>
+                { release?.bugs?.split('\n').map((m, i) => <p key={i}>{m}</p>) }
+            </DialogContent>
         </Modal>
 
         <Modal
             showModal={showModalNote}
             toggleModal={handleModalNote}
         >
-            <div className={classes.modal} >
-                <b>
-                    <FormattedMessage
+            <DialogTitle>
+                <FormattedMessage
                         id="release.buildNotes"
                         defaultMessage="Build Notes" />
-                </b>
-                <br />
-                <br />
-                {
-                    release?.notes?.split('\n').map((m, i) => <p key={i}>{m}</p>)
-                }
-            </div>
+            </DialogTitle>
+            <DialogContent dividers>
+                { release?.notes?.split('\n').map((m, i) => <p key={i}>{m}</p>) }
+            </DialogContent>
         </Modal>
     </>);
 }

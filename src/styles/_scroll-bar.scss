@@ -1,12 +1,19 @@
+/* There are lot of problems with scrollbars, they are moving content. That's not good so just remove them */
 .MuiDrawer-paper,
 html {
-    overflow-y: overlay !important;
-    scrollbar-color: #fff4 #0000;
-    scrollbar-width: thin;
+    /*overflow-y: scroll !important;
+    scrollbar-color: #fff4 #0000;*/
+    scrollbar-width: none;
 }
 
 ::-webkit-scrollbar {
-    width: 4px;
+    display:none
+}
+
+/*
+.MuiDrawer-paper {
+    overflow-y: scroll !important; 
+    overflow-y: overlay !important;
 }
 
 ::-webkit-scrollbar-track {
@@ -17,3 +24,4 @@ html {
     border-radius: 8px;
     background: #fff4;
 }
+*/

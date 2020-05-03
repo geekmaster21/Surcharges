@@ -96,7 +96,7 @@ export const DarkTheme: ThemeOptions = {
             disabled: 'rgba(0, 0, 0, 0.38)',
             hint: '#aaa'
         },
-        divider: 'rgba(0, 0, 0, 0.12)',
+        divider: 'rgba(127, 127, 127, 0.12)',
         background: {
             paper: '#171717',
             'default': '#212121'
