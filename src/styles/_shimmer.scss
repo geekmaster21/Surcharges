@@ -10,18 +10,16 @@
 }
 
 .shimmer {
-    animation: animate 5s infinite linear;
-    background-size: 1000px 100%;
-    background: linear-gradient(to right, var(--orange-1) 4%, var(--orange-1) 25%, #383838 36%);
+    animation: animate .6s infinite linear alternate;
     border-radius: 4px;
 }
 
 @keyframes animate {
     0% {
-        background-position: -1000px 0;
+        background: #fff1;
     }
 
     100% {
-        background-position: 1000px 0;
+        background: #fff4;
     }
 }
