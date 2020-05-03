@@ -1,4 +1,12 @@
 {
+    "languageInfo": {
+        "name": "Turkish",
+        "emoji": "🇹🇷"
+    },
+    "mainPage": {
+        "hintText": "Listeden bir cihaz seçin veya aramayı kullanın",
+        "notFound": "Bu son. Beni eve götür!"
+    },
     "deviceList": {
         "searchDevice": "Cihaz Ara",
         "notFound": "Cihaz bulunamadı!"

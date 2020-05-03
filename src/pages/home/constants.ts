@@ -16,7 +16,7 @@ export const useStyles = makeStyles((theme: Theme) => ({
         },
     },
     appBar: {
-        backgroundColor: '#ed7002',
+        backgroundColor: 'var(--orange-1)',
         [theme.breakpoints.up('sm')]: {
             width: `calc(100% - ${drawerWidth}px)`,
             marginLeft: drawerWidth,
@@ -31,8 +31,8 @@ export const useStyles = makeStyles((theme: Theme) => ({
     },
     header: {
         width: '100%',
-        // height: '60px', // should be same as 'routeContent' ht
-        minHeight: '100%',
+        minHeight: '50px',
+        height: '100%',
     },
     headerContent: {
         width: '100%',
@@ -59,7 +59,6 @@ export const useStyles = makeStyles((theme: Theme) => ({
         boxShadow: '0 0 5px black'
     },
     routeContent: {
-        // marginTop: '50px', // should be same as 'header' ht
         flexGrow: 1,
         height: '100%',
         padding: theme.spacing(1),

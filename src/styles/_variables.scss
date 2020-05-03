@@ -1,11 +1,18 @@
 // Colors
-$grey-1: #171717;
-$grey-2: #212121;
-$grey-3: #2b2b2b;
-$grey-4: #383838;
-$black-1: #252525;
-$orange-1:#ed7002;
-$white-1:#fff;
+:root {
+    --grey-1: #171717;
+    --grey-2: #212121;
+    --grey-3: #2b2b2b;
+    --grey-4: #383838;
+    --black-1: #252525;
+    --white-1: #fff;
+    --orange-1: #ed7002;
+}
 
-// Dimensions
-$header-ht: 60px;
+$grey-1: var(--grey-1);
+$grey-2: var(--grey-2);
+$grey-3: var(--grey-3);
+$grey-4: var(--grey-4);
+$black-1: var(--black-1);
+$white-1: var(--white-1);
+$orange-1: var(--orange-1);

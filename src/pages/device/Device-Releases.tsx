@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { apiGetAllReleases } from '../../apis';
 import { Card, CardContent } from '../../components';
-import { EReleaseType, IAllReleases } from '../../models';
+import { EReleaseType, IAllReleases, IRelease } from '../../models';
 import { ReleaseType } from './Release-Type';
 
 interface DeviceReleasesProps {
@@ -25,6 +25,10 @@ const DeviceReleases: React.SFC<DeviceReleasesProps> = ({ code, type, version })
     const hasReleases = code && releases;
     const isStableRelease = type ? (type === EReleaseType.stable) : !!releases?.stable?.length;
 
+    function withActualDateInRelease(rel: IRelease[]) {
+        return rel ? rel.map(d => ({ ...d, actualDate: new Date(d.date) })) : rel;
+    }
+
     return (<>
         {
             hasReleases && (
@@ -35,7 +39,7 @@ const DeviceReleases: React.SFC<DeviceReleasesProps> = ({ code, type, version })
                             version={version}
                             type={EReleaseType.stable}
                             expanded={isStableRelease}
-                            data={releases?.stable.map(d => ({ ...d, actualDate: new Date(d.date) }))}
+                            data={withActualDateInRelease(releases?.stable)}
                             releaseLabel={
                                 <FormattedMessage
                                     id="release.type.stable"
@@ -49,7 +53,7 @@ const DeviceReleases: React.SFC<DeviceReleasesProps> = ({ code, type, version })
                             version={version}
                             type={EReleaseType.beta}
                             expanded={!isStableRelease}
-                            data={releases?.beta.map(d => ({ ...d, actualDate: new Date(d.date) }))}
+                            data={withActualDateInRelease(releases?.beta)}
                             releaseLabel={
                                 <FormattedMessage
                                     id="release.type.beta"

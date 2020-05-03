@@ -1,26 +1,15 @@
 import React from 'react';
-import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
-import MatModal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
+import MatModal from '@material-ui/core/Modal';
 
 interface ModalProps {
-    showModal: boolean;
     children?: any;
+    showModal: boolean;
+    className?: string;
     toggleModal?: () => void;
 }
 
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        modal: {
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-        },
-    }),
-);
-
-const Modal: React.SFC<ModalProps> = ({ showModal, children, toggleModal }) => {
-    const classes = useStyles();
+const Modal: React.SFC<ModalProps> = ({ showModal, children, toggleModal, className }) => {
     const [open, setOpen] = React.useState(showModal);
 
     const handleClose = () => {
@@ -28,12 +17,14 @@ const Modal: React.SFC<ModalProps> = ({ showModal, children, toggleModal }) => {
         setOpen(false);
     };
 
+    const clsName = className ?? 'flexd center';
+
     return (
         <MatModal
-            className={classes.modal}
-            open={open || showModal}
-            onClose={handleClose}
+            className={clsName}
             closeAfterTransition
+            onClose={handleClose}
+            open={open || showModal}
             BackdropComponent={Backdrop}
             BackdropProps={{
                 timeout: 200,
@@ -44,4 +35,4 @@ const Modal: React.SFC<ModalProps> = ({ showModal, children, toggleModal }) => {
     );
 }
 
-export { Modal }
+export { Modal };

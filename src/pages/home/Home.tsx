@@ -2,6 +2,7 @@ import React from 'react';
 import { RouteComponentProps } from '@reach/router';
 import { IntlProvider } from 'react-intl';
 import { apiGetTranslation } from '../../apis';
+import { APP_CONFIG } from '../../app-config';
 import { Footer } from '../../components';
 import { GetCurrentLocale, SetCurrentLocale } from '../../utils';
 import { useStyles } from './constants';
@@ -12,7 +13,7 @@ interface HomeProps extends RouteComponentProps {
 }
 
 const Home: React.SFC<HomeProps> = ({ children, lang }) => {
-    const locale = lang || 'en';
+    const locale = lang || APP_CONFIG.defaultLang;
     const classes = useStyles();
     const [translations, setTranslations] = React.useState();
 

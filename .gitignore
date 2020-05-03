@@ -106,6 +106,7 @@ dist
 # custom
 build*
 dist*
+.vscode
 
 # Jetbrains editors
 .idea

@@ -41,9 +41,9 @@ const Drawer: React.SFC = () => {
                     component="div"
                     className={classes.headerContent}
                 >
-                    <LinkLocale
-                        to="/"
-                        className={'link no-hover ' + classes.brand}>
+                    <LinkLocale to="/"
+                        className={'link no-hover ' + classes.brand}
+                    >
                         OrangeFox <span className={classes.recoverySmall}>Recovery</span>
                     </LinkLocale>
 
@@ -84,11 +84,11 @@ const Drawer: React.SFC = () => {
             </Hidden>
             <Hidden xsDown implementation="css">
                 <MatDrawer
+                    open
                     classes={{
                         paper: classes.drawerPaper,
                     }}
                     variant="permanent"
-                    open
                 >
                     <DeviceList data={list} />
                 </MatDrawer>
