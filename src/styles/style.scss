@@ -10,10 +10,16 @@ html,
 body {
     background-color: $grey-2;
     font-family: 'Roboto', sans-serif;
-    font-size: calc(0.70em + 1vmin);
+    font-size: 1.05em;
     overscroll-behavior: none;
     -webkit-tap-highlight-color: transparent;
     user-select: none;
+}
+
+@media screen and (min-width: 600px) {
+    html {
+        font-size: 1.15em !important;
+    }
 }
 
 * {

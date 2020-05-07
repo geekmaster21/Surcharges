@@ -53,7 +53,7 @@ const Drawer: React.SFC = () => {
                             aria-label="open wiki"
                             edge="end"
                             onClick={openWiki} >
-                            <BookOutlinedIcon fontSize="small" />
+                            <BookOutlinedIcon />
                         </IconButton>
                         <LanguageToggle />
                     </div>

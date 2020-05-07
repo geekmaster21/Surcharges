@@ -166,7 +166,7 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type,
                 <List component="nav" className={classes.list} >
                     <ListItem  >
                         <ListItemIcon>
-                            <ArchiveOutlined fontSize="small" className={classes.icon} />
+                            <ArchiveOutlined className={classes.icon} />
                         </ListItemIcon>
                         {
                             !showLoader && (<>
@@ -192,7 +192,7 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type,
 
                     <ListItem  >
                         <ListItemIcon>
-                            <SdCardOutlinedIcon fontSize="small" className={classes.icon} />
+                            <SdCardOutlinedIcon className={classes.icon} />
                         </ListItemIcon>
                         {
                             !showLoader && (<>
@@ -222,7 +222,7 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type,
 
                     <ListItem  >
                         <ListItemIcon>
-                            <VerifiedUserOutlined fontSize="small" className={classes.icon} />
+                            <VerifiedUserOutlined className={classes.icon} />
                         </ListItemIcon>
                         {
                             !showLoader && (<>
