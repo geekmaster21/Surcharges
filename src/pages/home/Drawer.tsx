@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 import { apiGetAllDeviceList } from '../../apis';
 import {
     AppBar, Drawer as MatDrawer, Hidden, IconButton,
-    LinkLocale, Toolbar, Typography, useTheme, WikiLink
+    LinkLocale, Toolbar, Typography, useTheme
 } from '../../components';
-import { MenuIcon } from '../../components/Icons';
+import { MenuIcon, BookOutlinedIcon } from '../../components/Icons';
 import { IDevice } from '../../models';
 import { useStyles } from './constants';
 import { DeviceList } from './Device-List';
@@ -16,6 +16,7 @@ const Drawer: React.SFC = () => {
     const [mobileOpen, setMobileOpen] = React.useState(false);
     const [list, setDeviceList] = React.useState<IDevice[]>([]);
     const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
+    const openWiki = () => window.open("https://wiki.orangefox.tech");
 
     useEffect(() => {
         apiGetAllDeviceList()
@@ -47,14 +48,15 @@ const Drawer: React.SFC = () => {
                     </LinkLocale>
 
                     <div className={classes.headerContentRight}>
-                        <WikiLink
-                            label="Wiki"
-                            className="link no-hover"
-                        />
-
+                        <IconButton
+                            color="inherit"
+                            aria-label="open wiki"
+                            edge="end"
+                            onClick={openWiki} >
+                            <BookOutlinedIcon />
+                        </IconButton>
                         <LanguageToggle />
                     </div>
-
                 </Typography>
             </Toolbar>
         </AppBar>

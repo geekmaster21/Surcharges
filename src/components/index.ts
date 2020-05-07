@@ -10,4 +10,3 @@ export * from './Powered-By';
 export * from './React-Material';
 export * from './Release';
 export * from './Splash';
-export * from './Wiki-Link';

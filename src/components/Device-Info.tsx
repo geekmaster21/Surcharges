@@ -33,6 +33,7 @@ const useStyles = makeStyles((theme: Theme) =>
         root: {
             width: '100%',
             backgroundColor: '#2a2a2a',
+            userSelect: 'text'
         },
         icon: {
             color: '#ddd',
@@ -41,8 +42,8 @@ const useStyles = makeStyles((theme: Theme) =>
             color: '#ffc459',
         },
         notmaintainedIcon: {
-            fontSize: 'calc(1vh + 12px)',
-            marginBottom: 'calc((1vh + 14px) / -6)',
+            fontSize: '1rem',
+            marginBottom: '-0.2rem',
             marginRight: '2px',
         },
         iconM5: {

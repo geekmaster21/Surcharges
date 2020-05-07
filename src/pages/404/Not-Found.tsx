@@ -2,17 +2,14 @@ import React from 'react';
 import { RouteComponentProps } from '@reach/router';
 import { LinkLocale } from '../../components';
 import { FormattedMessage } from 'react-intl';
+import { ReactComponent as NFSvg } from '../../arts/404.svg'
 
 interface NotFoundProps extends RouteComponentProps { }
 
 const NotFound: React.SFC<NotFoundProps> = () => {
     return (<>
         <div className="hero big-image">
-            <img
-                alt="404"
-                className="nf-img"
-                src="/images/404.svg"
-            />
+            <NFSvg className="nf-img" />
             <LinkLocale
                 to={"/"}
                 className="link underline"

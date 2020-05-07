@@ -47,12 +47,13 @@ export const useStyles = makeStyles((theme: Theme) => ({
     brand: {
         fontFamily: 'Euclid',
         fontWeight: 500,
-        fontSize: '15pt'
+        fontSize: '1.1rem',
+        lineHeight: '1rem',
     },
     recoverySmall: {
         fontFamily: 'Euclid',
         fontWeight: 400,
-        fontSize: '10pt'
+        fontSize: '.8rem',
     },
     drawerPaper: {
         width: drawerWidth,

@@ -12,8 +12,9 @@ const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         formControl: {
             maxWidth: 80,
-            margin: theme.spacing(1),
-            marginLeft: theme.spacing(2),
+            marginRight: '-8px',
+            marginLeft: theme.spacing(3),
+            width: 64
         },
         listItem: {
             borderLeft: '3px solid transparent'
@@ -72,7 +73,7 @@ const LanguageToggle: React.SFC = () => {
                             className={classes.listItem}
                             classes={{ selected: classes.listItemSelected }}
                         >
-                            {m.emoji} {m.name}
+                            {m.emoji} &nbsp;&nbsp; {m.name}
                         </MenuItem>
                     ))
                 }
