@@ -42,7 +42,8 @@
         "download": "Downloads",
         "fetchLink": "Recupero dei collegamenti",
         "directLink": "Link Diretto",
-        "mirrorLink": "Link Mirror"
+        "mirrorLink": "Link Mirror",
+        "close": "Chiudi"
     },
     "footer": {
         "poweredBy": "Fornito da {hostWebsite}",
