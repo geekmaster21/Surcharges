@@ -5,6 +5,5 @@ function pe(key: string, noPrefix = false) {
 export const APP_CONFIG = {
     apiUrl: pe('API_URL'),
     defaultLang: pe('DEFAULT_LANG'),
-    showAds: pe('SHOW_ADS') === 'true',
     isDevEnv: pe('NODE_ENV', true) === 'DEVELOPMENT',
 }
