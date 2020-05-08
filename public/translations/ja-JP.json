@@ -42,7 +42,8 @@
         "download": "ダウンロード",
         "fetchLink": "データを要求する",
         "directLink": "ダイレクトリンク",
-        "mirrorLink": "ミラーリンク"
+        "mirrorLink": "ミラーリンク",
+        "close": "閉じる"
     },
     "footer": {
         "poweredBy": "{hostWebsite} による運営",

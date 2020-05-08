@@ -42,7 +42,8 @@
         "download": "下载",
         "fetchLink": "正在获取链接",
         "directLink": "直接下载",
-        "mirrorLink": "镜像链接"
+        "mirrorLink": "镜像链接",
+        "close": "关闭"
     },
     "footer": {
         "poweredBy": "由 {hostWebsite} 提供支持",
