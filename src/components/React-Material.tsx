@@ -4,6 +4,8 @@ import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogTitle from '@material-ui/core/DialogTitle';
 import Drawer from '@material-ui/core/Drawer';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
@@ -18,8 +20,10 @@ import { createMuiTheme, createStyles, makeStyles, ThemeProvider, useTheme } fro
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 
+
 export {
-    AppBar, Drawer, Button, Hidden, Toolbar, CssBaseline, Paper, Card, CardContent,
-    FormControl, MenuItem, Select, Typography, CircularProgress, ExpansionPanel, ExpansionPanelSummary,
-    ExpansionPanelDetails, IconButton, makeStyles, useTheme, ThemeProvider, createMuiTheme, createStyles,
+    AppBar, Drawer, Button, Hidden, Toolbar, CssBaseline, Paper, Card, CardContent, DialogTitle,
+    DialogContent, FormControl, MenuItem, Select, Typography, CircularProgress, ExpansionPanel,
+    ExpansionPanelSummary, ExpansionPanelDetails, IconButton, makeStyles, useTheme, ThemeProvider,
+    createMuiTheme, createStyles,
 };

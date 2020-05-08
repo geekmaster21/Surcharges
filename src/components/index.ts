@@ -8,5 +8,5 @@ export * from './Logo';
 export * from './Modal';
 export * from './Powered-By';
 export * from './React-Material';
-export * from './Release';
+export * from './release';
 export * from './Splash';

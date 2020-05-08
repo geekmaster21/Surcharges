@@ -42,7 +42,8 @@
         "download": "डाउनलोड",
         "fetchLink": "लिंक लाए जा रहे हैं",
         "directLink": "सीधा लिंक",
-        "mirrorLink": "मिरर लिंक"
+        "mirrorLink": "मिरर लिंक",
+        "close": "बंद करे"
     },
     "footer": {
         "poweredBy": "{hostWebsite} द्वारा संचालित",

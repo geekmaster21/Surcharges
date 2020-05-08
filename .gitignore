@@ -104,7 +104,7 @@ dist
 .tern-port
 
 # custom
-build*
+build/*
 dist*
 .vscode
 

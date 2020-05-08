@@ -42,7 +42,8 @@
         "download": "ਡਾ .ਨਲੋਡ",
         "fetchLink": "ਲਿੰਕ ਪ੍ਰਾਪਤ ਕੀਤੇ ਜਾ ਰਹੇ ਹਨ",
         "directLink": "ਸਿੱਧਾ ਲਿੰਕ",
-        "mirrorLink": "ਮਿਰਰਿ ਲਿੰਕ"
+        "mirrorLink": "ਮਿਰਰਿ ਲਿੰਕ",
+        "close": "ਬੰਦ ਕਰੋ"
     },
     "footer": {
         "poweredBy": "ਦੁਆਰਾ ਸੰਚਾਲਿਤ {hostWebsite}",

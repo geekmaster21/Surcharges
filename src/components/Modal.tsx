@@ -1,17 +1,15 @@
 import React from 'react';
-import Backdrop from '@material-ui/core/Backdrop';
-import Dialog, { DialogProps } from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import Button from '@material-ui/core/Button';
-import { makeStyles } from '@material-ui/core/styles';
 import { Theme } from '@material-ui/core';
-import { createStyles } from '.';
+import Backdrop from '@material-ui/core/Backdrop';
+import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import { createStyles, makeStyles } from '@material-ui/core/styles';
 import { FormattedMessage } from 'react-intl';
 
 interface ModalProps {
     children?: any;
     showModal: boolean;
-    className?: string;
     toggleModal?: () => void;
 }
 
@@ -24,7 +22,7 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-const Modal: React.SFC<ModalProps> = ({ showModal, children, toggleModal, className }) => {
+const Modal: React.SFC<ModalProps> = ({ showModal, children, toggleModal }) => {
     const [open, setOpen] = React.useState(showModal);
 
     function chromeColor(color: string) {
