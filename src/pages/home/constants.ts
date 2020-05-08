@@ -68,4 +68,8 @@ export const useStyles = makeStyles((theme: Theme) => ({
         },
         minHeight: 'calc(100vh - 112px)'
     },
+    headerControls: {
+        display: 'flex',
+        alignItems: 'center'
+    }
 }));

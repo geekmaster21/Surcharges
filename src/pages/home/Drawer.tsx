@@ -16,7 +16,6 @@ const Drawer: React.SFC = () => {
     const [mobileOpen, setMobileOpen] = React.useState(false);
     const [list, setDeviceList] = React.useState<IDevice[]>([]);
     const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
-    const openWiki = () => window.open("https://wiki.orangefox.tech");
 
     useEffect(() => {
         apiGetAllDeviceList()
@@ -47,16 +46,27 @@ const Drawer: React.SFC = () => {
                         OrangeFox <span className={classes.recoverySmall}>Recovery</span>
                     </LinkLocale>
 
-                    <div className={classes.headerContentRight}>
-                        <IconButton
-                            color="inherit"
-                            aria-label="open wiki"
-                            edge="end"
-                            onClick={openWiki} >
-                            <BookOutlinedIcon />
-                        </IconButton>
+                    <div className={classes.headerControls}>
+                        <a
+                            target="_blank"
+                            href="https://wiki.orangefox.tech"
+                            title="OrangeFox Wiki"
+                            rel="noopener noreferrer"
+                            className={'link no-hover ' + classes.headerContentRight}
+                        >
+                            <IconButton
+                                color="inherit"
+                                aria-label="Open Wiki link"
+                                edge="end"
+                            >
+                                <BookOutlinedIcon />
+                            </IconButton>
+                        </a>
+
                         <LanguageToggle />
+
                     </div>
+
                 </Typography>
             </Toolbar>
         </AppBar>
