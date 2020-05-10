@@ -1,19 +1,13 @@
-/* There are lot of problems with scrollbars, they are moving content. That's not good so just remove them */
-.MuiDrawer-paper,
+.MuiPaper-root,
 html {
-    /*overflow-y: scroll !important;
-    scrollbar-color: #fff4 #0000;*/
-    scrollbar-width: none;
+    overflow-y: overlay !important;
+    scrollbar-color: #fff4 #0000;
+    /* thumb and track color */
+    scrollbar-width: thin;
 }
 
 ::-webkit-scrollbar {
-    display:none
-}
-
-/*
-.MuiDrawer-paper {
-    overflow-y: scroll !important; 
-    overflow-y: overlay !important;
+    width: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -21,7 +15,6 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-    border-radius: 8px;
+    // border-radius: 8px; // Don't add radius. This way scrollbar will look same for webkit and firefox browsers
     background: #fff4;
 }
-*/

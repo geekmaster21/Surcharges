@@ -45,6 +45,11 @@
     "emoji": "\ud83c\uddec\ud83c\uddf7"
   },
   {
+    "code": "ml-IN",
+    "name": "Malayalam",
+    "emoji": "\ud83c\uddee\ud83c\uddf3"
+  },
+  {
     "code": "es-ES",
     "name": "Spanish",
     "emoji": "\ud83c\uddea\ud83c\uddf8"
@@ -56,7 +61,7 @@
   },
   {
     "code": "cs-CZ",
-    "name": "Anglicky",
+    "name": "Czech",
     "emoji": "\ud83c\udde8\ud83c\uddff"
   },
   {

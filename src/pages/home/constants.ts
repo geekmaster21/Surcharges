@@ -6,8 +6,10 @@ const drawerWidth = 300;
 export const useStyles = makeStyles((theme: Theme) => ({
     root: {
         display: 'flex',
-        // height: '100%',
-        // minHeight: 'calc(100vh - 50px)'
+    },
+    drawerContainer: {
+        // Stops device list from shifting when scrollbar is visible
+        marginRight: `calc(-1 * (${drawerWidth - 8}px - 100%))`
     },
     drawer: {
         [theme.breakpoints.up('sm')]: {
@@ -71,5 +73,17 @@ export const useStyles = makeStyles((theme: Theme) => ({
     headerControls: {
         display: 'flex',
         alignItems: 'center'
+    },
+    formControl: {
+        maxWidth: 80,
+        marginRight: '-8px',
+        marginLeft: theme.spacing(3),
+        width: 64
+    },
+    listItem: {
+        borderLeft: '3px solid transparent'
+    },
+    listItemSelected: {
+        borderLeft: '3px solid var(--orange-1)'
     }
 }));

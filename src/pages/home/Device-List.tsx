@@ -6,6 +6,7 @@ import { Input, List, ListItemIcon, ListItemText } from '../../components';
 import { SearchIcon, SmartphoneOutlinedIcon } from '../../components/Icons';
 import { IDevice, IDeviceGroup } from '../../models';
 import { GetCurrentLocale } from '../../utils';
+import { useStyles } from './constants';
 
 interface DeviceListProps {
     data: IDevice[];
@@ -27,6 +28,7 @@ const GroupList = (_data: IDevice[]) => {
 }
 
 const DeviceList: React.SFC<DeviceListProps> = ({ data, handleDeviceClick }) => {
+    const classes = useStyles();
     const locale = GetCurrentLocale();
     const [list, setList] = useState<IDeviceGroup[]>(GroupList(data));
     const [filter, setFilter] = useState<string>('');
@@ -61,7 +63,7 @@ const DeviceList: React.SFC<DeviceListProps> = ({ data, handleDeviceClick }) => 
         Boolean(list.length);
 
     return (
-        <div>
+        <div className={classes.drawerContainer} >
             <Input
                 size="small"
                 color="secondary"

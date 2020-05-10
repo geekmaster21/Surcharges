@@ -1,29 +1,12 @@
-import React from 'react';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import { navigate, useLocation } from '@reach/router';
 import { sortBy } from 'lodash';
+import React from 'react';
 import { apiGetAllLanguages } from '../../apis';
 import { FormControl, MenuItem, Select } from '../../components';
 import { STORAGE } from '../../core';
 import { ILanguage } from '../../models';
 import { GetCurrentLocale } from '../../utils';
-
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        formControl: {
-            maxWidth: 80,
-            marginRight: '-8px',
-            marginLeft: theme.spacing(3),
-            width: 64
-        },
-        listItem: {
-            borderLeft: '3px solid transparent'
-        },
-        listItemSelected: {
-            borderLeft: '3px solid var(--orange-1)'
-        }
-    }),
-);
+import { useStyles } from './constants';
 
 const LanguageToggle: React.SFC = () => {
     const classes = useStyles();
