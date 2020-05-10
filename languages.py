@@ -1,3 +1,5 @@
+from operator import itemgetter
+
 import json
 import glob
 
@@ -19,6 +21,7 @@ for file in langs:
     }
     LANGUAGES.append(data)
 
+LANGUAGES = sorted(LANGUAGES, key=itemgetter('name'))
 
 with open('public/translations/translations.json', 'w+') as f:
     dump = json.dumps(LANGUAGES, indent=2)
