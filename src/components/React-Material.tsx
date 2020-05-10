@@ -17,13 +17,13 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Paper from '@material-ui/core/Paper';
 import Select from '@material-ui/core/Select';
 import { createMuiTheme, createStyles, makeStyles, ThemeProvider, useTheme } from '@material-ui/core/styles';
+import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-
 
 export {
     AppBar, Drawer, Button, Hidden, Toolbar, CssBaseline, Paper, Card, CardContent, DialogTitle,
     DialogContent, FormControl, MenuItem, Select, Typography, CircularProgress, ExpansionPanel,
     ExpansionPanelSummary, ExpansionPanelDetails, IconButton, makeStyles, useTheme, ThemeProvider,
-    createMuiTheme, createStyles,
+    createMuiTheme, createStyles, SwipeableDrawer
 };

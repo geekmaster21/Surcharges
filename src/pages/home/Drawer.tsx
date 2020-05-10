@@ -1,21 +1,21 @@
 import React, { useEffect } from 'react';
 import { apiGetAllDeviceList } from '../../apis';
 import {
-    AppBar, Drawer as MatDrawer, Hidden, IconButton,
-    LinkLocale, Toolbar, Typography, useTheme
+    AppBar, Drawer as DrawerDesktop, Hidden,
+    IconButton, LinkLocale, Toolbar, Typography
 } from '../../components';
-import { MenuIcon, BookOutlinedIcon } from '../../components/Icons';
+import { BookOutlinedIcon, MenuIcon } from '../../components/Icons';
 import { IDevice } from '../../models';
 import { useStyles } from './constants';
 import { DeviceList } from './Device-List';
+import { DrawerMobile } from './Drawer-Mobile';
 import { LanguageToggle } from './Language-Toggle';
 
 const Drawer: React.SFC = () => {
-    const theme = useTheme();
     const classes = useStyles();
     const [mobileOpen, setMobileOpen] = React.useState(false);
     const [list, setDeviceList] = React.useState<IDevice[]>([]);
-    const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
+    const handleDrawerToggle = (toggle: boolean) => setMobileOpen(toggle);
 
     useEffect(() => {
         apiGetAllDeviceList()
@@ -30,8 +30,8 @@ const Drawer: React.SFC = () => {
                     color="inherit"
                     aria-label="open drawer"
                     edge="start"
-                    onClick={handleDrawerToggle}
                     className={classes.menuButton}
+                    onClick={() => handleDrawerToggle(true)}
                 >
                     <MenuIcon />
                 </IconButton>
@@ -72,36 +72,25 @@ const Drawer: React.SFC = () => {
         </AppBar>
 
         <nav className={classes.drawer} >
-            {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
             <Hidden smUp implementation="css">
-                <MatDrawer
-                    variant="temporary"
-                    anchor={theme.direction === 'rtl' ? 'right' : 'left'}
-                    open={mobileOpen}
-                    onClose={handleDrawerToggle}
-                    classes={{
-                        paper: classes.drawerPaper,
-                    }}
-                    ModalProps={{
-                        keepMounted: true, // Better open performance on mobile.
-                    }}
+                <DrawerMobile
+                    openDrawer={mobileOpen}
+                    onStateChange={handleDrawerToggle}
                 >
                     <DeviceList
                         data={list}
-                        handleDeviceClick={handleDrawerToggle}
+                        handleDeviceClick={() => handleDrawerToggle(false)}
                     />
-                </MatDrawer>
+                </DrawerMobile>
             </Hidden>
             <Hidden xsDown implementation="css">
-                <MatDrawer
+                <DrawerDesktop
                     open
-                    classes={{
-                        paper: classes.drawerPaper,
-                    }}
                     variant="permanent"
+                    classes={{ paper: classes.drawerPaper }}
                 >
                     <DeviceList data={list} />
-                </MatDrawer>
+                </DrawerDesktop>
             </Hidden>
         </nav>
     </>);

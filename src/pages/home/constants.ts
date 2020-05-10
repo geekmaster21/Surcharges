@@ -9,7 +9,21 @@ export const useStyles = makeStyles((theme: Theme) => ({
     },
     drawerContainer: {
         // Stops device list from shifting when scrollbar is visible
-        marginRight: `calc(-1 * (${drawerWidth - 8}px - 100%))`
+        marginRight: `calc(-1 * (${drawerWidth - 8}px - 100%))`,
+        [theme.breakpoints.up('xs')]: {
+            width: drawerWidth,
+            flexShrink: 0,
+        },
+    },
+    drawerStickySearch: {
+        background: 'var(--grey-1)',
+        top: 0,
+        position: 'sticky',
+        zIndex: 1,
+    },
+    clearSearch: {
+        marginRight: '5px',
+        cursor: 'pointer'
     },
     drawer: {
         [theme.breakpoints.up('sm')]: {
@@ -58,7 +72,6 @@ export const useStyles = makeStyles((theme: Theme) => ({
         fontSize: '.8rem',
     },
     drawerPaper: {
-        width: drawerWidth,
         boxShadow: '0 0 5px black'
     },
     routeContent: {

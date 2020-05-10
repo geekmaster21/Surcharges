@@ -3,7 +3,7 @@ import { navigate } from '@reach/router';
 import { groupBy } from 'lodash';
 import { FormattedMessage } from 'react-intl';
 import { Input, List, ListItemIcon, ListItemText } from '../../components';
-import { SearchIcon, SmartphoneOutlinedIcon } from '../../components/Icons';
+import { SearchIcon, SmartphoneOutlinedIcon, ClearOutlinedIcon } from '../../components/Icons';
 import { IDevice, IDeviceGroup } from '../../models';
 import { GetCurrentLocale } from '../../utils';
 import { useStyles } from './constants';
@@ -39,23 +39,25 @@ const DeviceList: React.SFC<DeviceListProps> = ({ data, handleDeviceClick }) => 
         handleDeviceClick && handleDeviceClick(dev);
     };
 
-    const onSearch = ({ target: { value } }: any) => {
-        const _filter = (value || '').trim().toLocaleLowerCase();
+    const onSearch = (value: any) => {
+        const _filter = (value || '').toLocaleLowerCase();
         setFilter(_filter);
-        setList(doFilter(_filter));
+        if (_filter.trim() !== filter.trim())
+            setList(doFilter(_filter));
     }
 
     const doFilter = (_filter: string) => {
+        const _f = _filter.trim();
         const _data = data || [];
-        const filteredData = _filter.trim() ? _data.filter(f => {
+        const filteredData = _f.trim() ? _data.filter(f => {
             const items = [f.fullname.toLocaleLowerCase(), f.codename.toLocaleLowerCase()];
-            return items.some(i => i.includes(_filter));
+            return items.some(i => i.includes(_f));
         }) : _data;
 
         return GroupList(filteredData);
     }
 
-    if (data?.length && !filter && !list.length)
+    if (data?.length && !filter?.trim() && !list.length)
         setList(doFilter(''));
 
     const hasList = !data ? // data will be undefined if api errors out, this will also stop loading placeholder
@@ -64,20 +66,34 @@ const DeviceList: React.SFC<DeviceListProps> = ({ data, handleDeviceClick }) => 
 
     return (
         <div className={classes.drawerContainer} >
-            <Input
-                size="small"
-                color="secondary"
-                variant="outlined"
-                disabled={!data}
-                onInput={onSearch}
-                style={{ width: 'calc(100% - 35px)' }}
-                endIcon={<SearchIcon fontSize="small" />}
-                label={
-                    <FormattedMessage
-                        id="deviceList.searchDevice"
-                        defaultMessage="Search Device" />
-                }
-            />
+            <div className={classes.drawerStickySearch}>
+                <Input
+                    size="small"
+                    color="secondary"
+                    variant="outlined"
+                    disabled={!data}
+                    value={filter}
+                    onInput={e => onSearch((e?.target as any)['value'])}
+                    style={{ width: 'calc(100% - 35px)' }}
+                    endIcon={<>
+                        {
+                            filter && (
+                                <ClearOutlinedIcon
+                                    fontSize="small"
+                                    className={classes.clearSearch}
+                                    onClick={() => onSearch(null)}
+                                />
+                            )
+                        }
+                        <SearchIcon fontSize="small" />
+                    </>}
+                    label={
+                        <FormattedMessage
+                            id="deviceList.searchDevice"
+                            defaultMessage="Search Device" />
+                    }
+                />
+            </div>
 
             {
                 // Device List
@@ -88,7 +104,7 @@ const DeviceList: React.SFC<DeviceListProps> = ({ data, handleDeviceClick }) => 
                         keyParent="oem"
                         keyChildren="codename"
                         fieldChildren="devices"
-                        expanded={filter?.length > 1}
+                        expanded={filter?.trim().length > 1}
                         ContentParent={p => <ListItemText primary={p.oem} />}
                         ContentChild={c => (<>
                             <ListItemIcon>

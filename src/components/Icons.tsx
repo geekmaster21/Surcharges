@@ -1,6 +1,7 @@
 import ArchiveOutlined from '@material-ui/icons/ArchiveOutlined';
 import BookOutlinedIcon from '@material-ui/icons/BookOutlined';
 import BugReportIcon from '@material-ui/icons/BugReportOutlined';
+import ClearOutlinedIcon from '@material-ui/icons/ClearOutlined';
 import DescriptionOutlined from '@material-ui/icons/DescriptionOutlined';
 import DeveloperModeOutlinedIcon from '@material-ui/icons/DeveloperModeOutlined';
 import ExpandLess from '@material-ui/icons/ExpandLess';
@@ -21,4 +22,4 @@ import StarBorderOutlinedIcon from '@material-ui/icons/StarBorderOutlined';
 import VerifiedUserOutlined from '@material-ui/icons/VerifiedUserOutlined';
 import ReportProblemOutlined from '@material-ui/icons/ReportProblemOutlined';
 
-export { ExpandLess, ExpandMore, PhoneAndroidIcon, BookOutlinedIcon, MenuIcon, SpeakerNotesOutlined, PermDeviceInformationOutlinedIcon, DeveloperModeOutlinedIcon, SearchIcon, SmartphoneOutlinedIcon, FilterListIcon, LabelImportantOutlinedIcon, ArchiveOutlined, SdCardOutlinedIcon, VerifiedUserOutlined, GetAppIconOutlined, DescriptionOutlined, BugReportIcon, ReportProblemOutlinedIcon, PermIdentityOutlinedIcon, StarBorderOutlinedIcon, ReportProblemOutlined };
+export { ExpandLess, ExpandMore, PhoneAndroidIcon, BookOutlinedIcon, MenuIcon, SpeakerNotesOutlined, PermDeviceInformationOutlinedIcon, DeveloperModeOutlinedIcon, SearchIcon, SmartphoneOutlinedIcon, FilterListIcon, LabelImportantOutlinedIcon, ArchiveOutlined, SdCardOutlinedIcon, VerifiedUserOutlined, GetAppIconOutlined, DescriptionOutlined, BugReportIcon, ReportProblemOutlinedIcon, PermIdentityOutlinedIcon, StarBorderOutlinedIcon, ReportProblemOutlined, ClearOutlinedIcon };
