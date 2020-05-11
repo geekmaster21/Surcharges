@@ -3,7 +3,7 @@ import { navigate } from '@reach/router';
 import { groupBy } from 'lodash';
 import { FormattedMessage } from 'react-intl';
 import { Input, List, ListItemIcon, ListItemText } from '../../components';
-import { SearchIcon, SmartphoneOutlinedIcon, ClearOutlinedIcon } from '../../components/Icons';
+import { SearchIcon, ClearOutlinedIcon } from '../../components/Icons';
 import { IDevice, IDeviceGroup } from '../../models';
 import { GetCurrentLocale } from '../../utils';
 import { useStyles } from './constants';
@@ -108,7 +108,12 @@ const DeviceList: React.SFC<DeviceListProps> = ({ data, handleDeviceClick }) => 
                         ContentParent={p => <ListItemText primary={p.oem} />}
                         ContentChild={c => (<>
                             <ListItemIcon>
-                                <SmartphoneOutlinedIcon style={{ color: '#ddd' }} />
+                                <img
+                                    alt="dev"
+                                    src="/images/device.svg"
+                                    className="device-list-item-icon"
+                                />
+                                {/* <SmartphoneOutlinedIcon style={{ color: '#ddd' }} /> */}
                             </ListItemIcon>
                             <ListItemText
                                 primary={c.modelname}

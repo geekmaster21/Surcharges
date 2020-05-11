@@ -3,23 +3,23 @@ import BookOutlinedIcon from '@material-ui/icons/BookOutlined';
 import BugReportIcon from '@material-ui/icons/BugReportOutlined';
 import ClearOutlinedIcon from '@material-ui/icons/ClearOutlined';
 import DescriptionOutlined from '@material-ui/icons/DescriptionOutlined';
-import DeveloperModeOutlinedIcon from '@material-ui/icons/DeveloperModeOutlined';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
-import FilterListIcon from '@material-ui/icons/FilterList';
 import GetAppIconOutlined from '@material-ui/icons/GetAppOutlined';
 import LabelImportantOutlinedIcon from '@material-ui/icons/LabelImportantOutlined';
 import MenuIcon from '@material-ui/icons/Menu';
 import PermDeviceInformationOutlinedIcon from '@material-ui/icons/PermDeviceInformationOutlined';
 import PermIdentityOutlinedIcon from '@material-ui/icons/PermIdentityOutlined';
-import PhoneAndroidIcon from '@material-ui/icons/PhoneAndroid';
-import ReportProblemOutlinedIcon from '@material-ui/icons/ReportProblemOutlined';
+import ReportProblemOutlined from '@material-ui/icons/ReportProblemOutlined';
 import SdCardOutlinedIcon from '@material-ui/icons/SdCardOutlined';
 import SearchIcon from '@material-ui/icons/Search';
-import SmartphoneOutlinedIcon from '@material-ui/icons/SmartphoneOutlined';
 import SpeakerNotesOutlined from '@material-ui/icons/SpeakerNotesOutlined';
 import StarBorderOutlinedIcon from '@material-ui/icons/StarBorderOutlined';
 import VerifiedUserOutlined from '@material-ui/icons/VerifiedUserOutlined';
-import ReportProblemOutlined from '@material-ui/icons/ReportProblemOutlined';
 
-export { ExpandLess, ExpandMore, PhoneAndroidIcon, BookOutlinedIcon, MenuIcon, SpeakerNotesOutlined, PermDeviceInformationOutlinedIcon, DeveloperModeOutlinedIcon, SearchIcon, SmartphoneOutlinedIcon, FilterListIcon, LabelImportantOutlinedIcon, ArchiveOutlined, SdCardOutlinedIcon, VerifiedUserOutlined, GetAppIconOutlined, DescriptionOutlined, BugReportIcon, ReportProblemOutlinedIcon, PermIdentityOutlinedIcon, StarBorderOutlinedIcon, ReportProblemOutlined, ClearOutlinedIcon };
+export {
+    ExpandLess, ExpandMore, BookOutlinedIcon, MenuIcon, SpeakerNotesOutlined, PermDeviceInformationOutlinedIcon,
+    SearchIcon, LabelImportantOutlinedIcon, ArchiveOutlined, SdCardOutlinedIcon, VerifiedUserOutlined,
+    GetAppIconOutlined, DescriptionOutlined, BugReportIcon, PermIdentityOutlinedIcon, StarBorderOutlinedIcon,
+    ReportProblemOutlined, ClearOutlinedIcon
+};

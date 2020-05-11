@@ -1,8 +1,7 @@
 import React from 'react';
 import { RouteComponentProps } from '@reach/router';
-import { Logo } from './Logo';
 import { FormattedMessage } from 'react-intl';
-import { ReactComponent as SelectDeviceSvg } from '../arts/select_device.svg'
+import { Logo } from './Logo';
 
 export interface SplashProps extends RouteComponentProps { }
 
@@ -10,7 +9,12 @@ const Splash: React.SFC<SplashProps> = () => {
     return (
         <div>
             <div className="hero big-image">
-                <SelectDeviceSvg className="select-dev-img"/>
+                <img
+                    src="/images/select_device.svg"
+                    alt="Select Device from List"
+                    className="select-dev-img"
+                />
+
                 <span className="select-dev">{
                     <FormattedMessage
                         id="mainPage.hintText"
