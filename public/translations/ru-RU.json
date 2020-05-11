@@ -42,7 +42,8 @@
         "download": "Загрузки",
         "fetchLink": "Получение ссылок",
         "directLink": "Прямая ссылка",
-        "mirrorLink": "Зеркало"
+        "mirrorLink": "Зеркало",
+        "close": "Закрыть"
     },
     "footer": {
         "poweredBy": "Работает на {hostWebsite}",
