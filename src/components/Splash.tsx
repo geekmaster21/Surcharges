@@ -10,6 +10,7 @@ const Splash: React.SFC<SplashProps> = () => {
         <div>
             <div className="hero big-image">
                 <img
+                    draggable="false"
                     src="/images/select_device.svg"
                     alt="Select Device from List"
                     className="select-dev-img"

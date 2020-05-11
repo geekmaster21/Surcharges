@@ -109,6 +109,7 @@ const DeviceList: React.SFC<DeviceListProps> = ({ data, handleDeviceClick }) => 
                         ContentChild={c => (<>
                             <ListItemIcon>
                                 <img
+                                    draggable="false"
                                     alt="dev"
                                     src="/images/device.svg"
                                     className="device-list-item-icon"
