@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { apiGetAllDeviceList } from '../../apis';
 import {
-    AppBar, Drawer as DrawerDesktop, Hidden,
-    IconButton, LinkLocale, Toolbar, Typography
+    AppBar, Drawer as DrawerDesktop, Hidden, IconButton,
+    LinkLocale, OpenOutside, Toolbar, Typography
 } from '../../components';
 import { BookOutlinedIcon, MenuIcon } from '../../components/Icons';
 import { IDevice } from '../../models';
@@ -17,7 +17,7 @@ const Drawer: React.SFC = () => {
     const [list, setDeviceList] = React.useState<IDevice[]>([]);
     const handleDrawerToggle = (toggle: boolean) => setMobileOpen(toggle);
 
-    useEffect(() => {
+    React.useEffect(() => {
         apiGetAllDeviceList()
             .then(data => setDeviceList(data))
             .catch(() => setDeviceList(undefined as any));
@@ -47,21 +47,20 @@ const Drawer: React.SFC = () => {
                     </LinkLocale>
 
                     <div className={classes.headerControls}>
-                        <a
-                            target="_blank"
+
+                        <OpenOutside
                             href="https://wiki.orangefox.tech"
                             title="OrangeFox Wiki"
-                            rel="noopener noreferrer"
                             className={'link no-hover ' + classes.headerContentRight}
                         >
                             <IconButton
+                                edge="end"
                                 color="inherit"
                                 aria-label="Open Wiki link"
-                                edge="end"
                             >
                                 <BookOutlinedIcon />
                             </IconButton>
-                        </a>
+                        </OpenOutside>
 
                         <LanguageToggle />
 

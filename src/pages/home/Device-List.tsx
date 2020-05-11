@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { navigate } from '@reach/router';
 import { groupBy } from 'lodash';
 import { FormattedMessage } from 'react-intl';
-import { Input, List, ListItemIcon, ListItemText } from '../../components';
-import { SearchIcon, ClearOutlinedIcon } from '../../components/Icons';
+import { Image, Input, List, ListItemIcon, ListItemText } from '../../components';
+import { ClearOutlinedIcon, SearchIcon } from '../../components/Icons';
 import { IDevice, IDeviceGroup } from '../../models';
 import { GetCurrentLocale } from '../../utils';
 import { useStyles } from './constants';
@@ -30,8 +30,8 @@ const GroupList = (_data: IDevice[]) => {
 const DeviceList: React.SFC<DeviceListProps> = ({ data, handleDeviceClick }) => {
     const classes = useStyles();
     const locale = GetCurrentLocale();
-    const [list, setList] = useState<IDeviceGroup[]>(GroupList(data));
-    const [filter, setFilter] = useState<string>('');
+    const [list, setList] = React.useState<IDeviceGroup[]>(GroupList(data));
+    const [filter, setFilter] = React.useState<string>('');
 
     const onDeviceClick = (dev: IDevice) => {
         const url = `/${locale}/device/${dev.codename}`;
@@ -107,18 +107,19 @@ const DeviceList: React.SFC<DeviceListProps> = ({ data, handleDeviceClick }) => 
                         expanded={filter?.trim().length > 1}
                         ContentParent={p => <ListItemText primary={p.oem} />}
                         ContentChild={c => (<>
+
                             <ListItemIcon>
-                                <img
-                                    draggable="false"
+                                <Image
                                     alt="dev"
                                     src="/images/device.svg"
                                     className="device-list-item-icon"
                                 />
-                                {/* <SmartphoneOutlinedIcon style={{ color: '#ddd' }} /> */}
                             </ListItemIcon>
+
                             <ListItemText
                                 primary={c.modelname}
-                                secondary={c.codename} />
+                                secondary={c.codename}
+                            />
                         </>)}
                         onClickChild={c => onDeviceClick(c)}
                     />

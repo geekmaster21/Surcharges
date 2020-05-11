@@ -1,11 +1,15 @@
 import React from 'react';
-import { Button, CircularProgress, DialogContent, DialogTitle, ListItemIcon, ListItemText } from '@material-ui/core';
+import {
+    Button, CircularProgress, DialogContent,
+    DialogTitle, ListItemIcon, ListItemText
+} from '@material-ui/core';
 import { RouteComponentProps } from '@reach/router';
 import { FormattedMessage } from 'react-intl';
 import { Modal, PoweredBy } from '..';
 import { IRelease } from '../../models';
 import { GetAppIconOutlined } from '../Icons';
 import { LoadShimmer } from '../Load-Shimmer';
+import { OpenOutside } from '../Open-Outside';
 import { useStylesRelease } from './helpers';
 
 interface DownloadsProps extends RouteComponentProps {
@@ -37,14 +41,16 @@ const Downloads: React.SFC<DownloadsProps> = ({ release, showLoader }) => {
             <ListItemIcon>
                 <GetAppIconOutlined
                     fontSize="small"
-                    className={classes.icon} />
+                    className={classes.icon}
+                />
             </ListItemIcon>
             {
                 !showLoader && (<>
                     <ListItemText primary={
                         <FormattedMessage
                             id="release.download"
-                            defaultMessage="Download" />
+                            defaultMessage="Download"
+                        />
                     } />
                 </>)
             }
@@ -67,50 +73,64 @@ const Downloads: React.SFC<DownloadsProps> = ({ release, showLoader }) => {
             <DialogTitle>
                 <FormattedMessage
                     id="modal.download"
-                    defaultMessage="Downloads" />
+                    defaultMessage="Downloads"
+                />
             </DialogTitle>
             <DialogContent dividers>
                 {
                     !tmoDirectLink && (
-                        <Button variant="outlined" color="secondary">
-                            <CircularProgress color="secondary" size="18px" />
+                        <Button
+                            variant="outlined"
+                            color="secondary"
+                        >
+                            <CircularProgress
+                                size="18px"
+                                color="secondary"
+                            />
                             &nbsp;&nbsp;&nbsp;&nbsp;
                             <FormattedMessage
                                 id="modal.fetchLink"
-                                defaultMessage="Fetching Links" />
+                                defaultMessage="Fetching Links"
+                            />
                         </Button>
                     )
                 }
                 {
                     tmoDirectLink && (<>
-                        <Button variant="contained" color="secondary">
-                            <a
-                                href={release.direct_url || release.url}
+                        <Button
+                            color="secondary"
+                            variant="contained"
+                        >
+                            <OpenOutside
                                 className="link no-hover"
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                href={release.direct_url || release.url}
                             >
                                 <FormattedMessage
                                     id="modal.directLink"
-                                    defaultMessage="Direct Link" />
-                            </a>
+                                    defaultMessage="Direct Link"
+                                />
+                            </OpenOutside>
+
                         </Button>
 
                         {
                             release?.sf?.url && (<>
                                 &nbsp;
                                 &nbsp;
-                                <Button variant="outlined" color="secondary">
-                                    <a
+                                <Button
+                                    color="secondary"
+                                    variant="contained"
+                                >
+                                    <OpenOutside
                                         href={release?.sf?.url}
                                         className="link orange no-hover"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
                                     >
                                         <FormattedMessage
-                                            id="modal.mirrorLink"
-                                            defaultMessage="Mirror Link" />
-                                    </a>
+                                            id="modal.directLink"
+                                            defaultMessage="Direct Link"
+                                        />
+                                    </OpenOutside>
+
                                 </Button>
                             </>)
                         }

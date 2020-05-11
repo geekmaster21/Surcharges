@@ -8,7 +8,6 @@ import { createStyles, makeStyles } from '@material-ui/core/styles';
 import { FormattedMessage } from 'react-intl';
 
 interface ModalProps {
-    children?: any;
     showModal: boolean;
     toggleModal?: () => void;
 }

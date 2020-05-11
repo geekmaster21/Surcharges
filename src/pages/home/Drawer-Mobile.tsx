@@ -3,7 +3,6 @@ import { SwipeableDrawer } from '../../components';
 
 export interface DrawerMobileProps {
     openDrawer: boolean;
-    children?: any;
     onStateChange?: (open: boolean) => void;
 }
 

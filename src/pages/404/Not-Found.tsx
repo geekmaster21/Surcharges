@@ -1,15 +1,15 @@
 import React from 'react';
 import { RouteComponentProps } from '@reach/router';
 import { FormattedMessage } from 'react-intl';
-import { LinkLocale } from '../../components';
+import { Image, LinkLocale } from '../../components';
 
 interface NotFoundProps extends RouteComponentProps { }
 
 const NotFound: React.SFC<NotFoundProps> = () => {
     return (<>
         <div className="hero big-image">
-            <img
-                draggable="false"
+
+            <Image
                 src="/images/404.svg"
                 alt="Not Found"
                 className="nf-img"

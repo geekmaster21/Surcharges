@@ -1,5 +1,6 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
+import { OpenOutside } from './Open-Outside';
 
 const PoweredBy: React.SFC = () => {
     return (<>
@@ -9,11 +10,12 @@ const PoweredBy: React.SFC = () => {
                 defaultMessage="Powered by {hostWebsite}"
                 values={{
                     hostWebsite: (
-                        <a href='https://www.ua-hosting.company'
+                        <OpenOutside
                             className="link"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >UA-Hosting Company</a>
+                            href='https://www.ua-hosting.company'
+                        >
+                            UA-Hosting Company
+                        </OpenOutside>
                     )
                 }}
             />

@@ -2,6 +2,7 @@ import React from 'react';
 import { createStyles, makeStyles, Paper, Theme } from '@material-ui/core';
 import { PoweredBy } from './Powered-By';
 import { FormattedMessage } from 'react-intl';
+import { OpenOutside } from './Open-Outside';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -19,24 +20,29 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const Footer: React.SFC = () => {
     const classes = useStyles();
+    const Dot = () => <>&#x25CF;</>;
+
     return (
         <footer >
-            <Paper elevation={3} className={classes.root} >
-                <a href="https://gitlab.com/OrangeFox/site/dsite"
-                    target="_blank"
-                    rel="noopener noreferrer"
+            <Paper
+                elevation={3}
+                className={classes.root}
+            >
+                <OpenOutside
+                    href="https://gitlab.com/OrangeFox/site/dsite"
                     className={"link " + classes.mx}
                 >
                     <FormattedMessage
                         id="footer.openSource"
-                        defaultMessage="Open-Source Project" />
-                </a>
-                &#x25CF;
+                        defaultMessage="Open-Source Project"
+                    />
+                </OpenOutside>
+                <Dot />
                 <span className={classes.mx}>
                     <PoweredBy />
                 </span>
             </Paper>
-        </footer>
+        </footer >
     );
 }
 
