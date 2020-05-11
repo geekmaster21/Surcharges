@@ -9,6 +9,7 @@ const NotFound: React.SFC<NotFoundProps> = () => {
     return (<>
         <div className="hero big-image">
             <img
+                draggable="false"
                 src="/images/404.svg"
                 alt="Not Found"
                 className="nf-img"
