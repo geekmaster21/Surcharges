@@ -39,7 +39,6 @@
         "allBuild": "全てのビルドを表示する"
     },
     "modal": {
-        "download": "ダウンロード",
         "fetchLink": "データを要求する",
         "directLink": "ダイレクトリンク",
         "mirrorLink": "ミラーリンク",

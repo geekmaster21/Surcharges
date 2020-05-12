@@ -32,14 +32,13 @@
         },
         "notFound": "There are no releases for this device yet!",
         "fileSize": "File Size",
-        "download": "Download",
+        "download": "Downloads",
         "changeLogs": "Change Logs",
         "buildNotes": "Build Notes",
         "bugs": "Bugs",
         "allBuild": "Show All Builds"
     },
     "modal": {
-        "download": "Downloads",
         "fetchLink": "Fetching Links",
         "directLink": "Direct Link",
         "mirrorLink": "Mirror Link",

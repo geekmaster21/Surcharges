@@ -1,5 +1,8 @@
 import React from 'react';
-import { DialogContent, DialogTitle, ListItemIcon, ListItemText } from '@material-ui/core';
+import {
+    DialogContent, DialogTitle, ListItem,
+    ListItemIcon, ListItemText
+} from '@material-ui/core';
 import { RouteComponentProps } from '@reach/router';
 import { FormattedMessage } from 'react-intl';
 import { IRelease } from '../../models';
@@ -15,15 +18,20 @@ interface BuildNotesProps extends RouteComponentProps {
 }
 
 const BuildNotes: React.SFC<BuildNotesProps> = ({ release, showLoader }) => {
+    const classes = useStylesRelease();
     const [showModal, toggleModal] = React.useState(false);
     const handleModal = () => toggleModal(!showModal);
-    const classes = useStylesRelease();
+    const Title = () => (
+        <FormattedMessage
+            id="release.buildNotes"
+            defaultMessage="Build Notes" />
+    );
 
-    return release?.notes ? (<>
+    return (<>
 
-        <span
+        <ListItem
+            button
             onClick={handleModal}
-            className={classes.actionSpan}
         >
             <ListItemIcon>
                 <SpeakerNotesOutlined
@@ -33,11 +41,7 @@ const BuildNotes: React.SFC<BuildNotesProps> = ({ release, showLoader }) => {
             </ListItemIcon>
             {
                 !showLoader && (<>
-                    <ListItemText primary={
-                        <FormattedMessage
-                            id="release.buildNotes"
-                            defaultMessage="Build Notes" />
-                    } />
+                    <ListItemText primary={<Title />} />
                 </>)
             }
 
@@ -50,24 +54,20 @@ const BuildNotes: React.SFC<BuildNotesProps> = ({ release, showLoader }) => {
                     />
                 </>)
             }
-        </span>
+        </ListItem>
 
         <Modal
             showModal={showModal}
             toggleModal={handleModal}
         >
             <DialogTitle>
-                <FormattedMessage
-                    id="release.buildNotes"
-                    defaultMessage="Build Notes"
-                />
+                <Title />
             </DialogTitle>
             <DialogContent dividers>
                 <SplitMsg msg={release.notes} />
             </DialogContent>
         </Modal>
-    </>
-    ) : null;
+    </>)
 
 }
 

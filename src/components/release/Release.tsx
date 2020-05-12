@@ -8,7 +8,10 @@ import { GetCurrentLocale } from '../../utils';
 import { ExpandMore, LabelImportantOutlinedIcon } from '../Icons';
 import { LinkLocale } from '../Link-Locale';
 import { LoadShimmer } from '../Load-Shimmer';
-import { ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary, Typography } from '../React-Material';
+import {
+    ExpansionPanel, ExpansionPanelDetails,
+    ExpansionPanelSummary, Typography
+} from '../React-Material';
 import { Bugs } from './Bugs';
 import { BuildNotes } from './Build-Notes';
 import { ChangeLogs } from './Change-Logs';
@@ -127,41 +130,33 @@ const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type,
                         component="div"
                         className={classes.nestedList} >
 
-                        <ListItem button>
-                            <Downloads
-                                release={release}
-                                showLoader={showLoader}
-                            />
-                        </ListItem>
+                        <Downloads
+                            release={release}
+                            showLoader={showLoader}
+                        />
 
                         {
                             release?.changelog &&
-                            <ListItem button>
-                                <ChangeLogs
-                                    release={release}
-                                    showLoader={showLoader}
-                                />
-                            </ListItem>
+                            <ChangeLogs
+                                release={release}
+                                showLoader={showLoader}
+                            />
                         }
 
                         {
                             release?.notes &&
-                            <ListItem button>
-                                <BuildNotes
-                                    release={release}
-                                    showLoader={showLoader}
-                                />
-                            </ListItem>
+                            <BuildNotes
+                                release={release}
+                                showLoader={showLoader}
+                            />
                         }
 
                         {
                             release?.bugs &&
-                            <ListItem button>
-                                <Bugs
-                                    release={release}
-                                    showLoader={showLoader}
-                                />
-                            </ListItem>
+                            <Bugs
+                                release={release}
+                                showLoader={showLoader}
+                            />
                         }
                     </List>
 

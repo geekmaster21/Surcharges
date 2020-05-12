@@ -39,7 +39,6 @@
         "allBuild": "显示所有版本"
     },
     "modal": {
-        "download": "下载",
         "fetchLink": "正在获取链接",
         "directLink": "直接下载",
         "mirrorLink": "镜像链接",

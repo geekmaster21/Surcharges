@@ -39,7 +39,6 @@
         "allBuild": "Alle Builds anzeigen"
     },
     "modal": {
-        "download": "Downloads",
         "fetchLink": "Links werden abgerufen",
         "directLink": "Direkter Link",
         "mirrorLink": "Alternativer Link",

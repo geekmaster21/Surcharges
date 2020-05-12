@@ -39,7 +39,6 @@
         "allBuild": "Zobrazit všechny vydání"
     },
     "modal": {
-        "download": "Stáhnout",
         "fetchLink": "Načítání odkazů",
         "directLink": "Přímý odkaz",
         "mirrorLink": "Mirror odkaz"

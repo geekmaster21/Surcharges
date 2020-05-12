@@ -32,14 +32,13 @@
         },
         "notFound": "Henüz bu cihaz için sürüm yok!",
         "fileSize": "Dosya Boyutu",
-        "download": "İndir",
+        "download": "İndirmeler",
         "changeLogs": "Yenilikler",
         "buildNotes": "Derleme Notları",
         "bugs": "Hatalar",
         "allBuild": "Bütün Derlemeleri Göster"
     },
     "modal": {
-        "download": "İndirmeler",
         "fetchLink": "Bağlantılar Getiriliyor",
         "directLink": "Doğrudan Bağlantı",
         "mirrorLink": "Yedek Bağlantı",

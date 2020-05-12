@@ -32,14 +32,13 @@
         },
         "notFound": "Нет релизов для этого устройства!",
         "fileSize": "Размер файла",
-        "download": "Скачать",
+        "download": "Загрузки",
         "changeLogs": "Изменения",
         "buildNotes": "Заметки",
         "bugs": "Баги",
         "allBuild": "Показать все сборки"
     },
     "modal": {
-        "download": "Загрузки",
         "fetchLink": "Получение ссылок",
         "directLink": "Прямая ссылка",
         "mirrorLink": "Зеркало",

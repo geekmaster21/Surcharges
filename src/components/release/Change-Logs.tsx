@@ -1,5 +1,8 @@
 import React from 'react';
-import { DialogContent, DialogTitle, ListItemIcon, ListItemText } from '@material-ui/core';
+import {
+    DialogContent, DialogTitle, ListItem,
+    ListItemIcon, ListItemText
+} from '@material-ui/core';
 import { RouteComponentProps } from '@reach/router';
 import { FormattedMessage } from 'react-intl';
 import { IRelease } from '../../models';
@@ -18,12 +21,16 @@ const ChangeLogs: React.SFC<ChangeLogsProps> = ({ release, showLoader }) => {
     const [showModal, toggleModal] = React.useState(false);
     const handleModal = () => toggleModal(!showModal);
     const classes = useStylesRelease();
+    const Title = () => (
+        <FormattedMessage
+            id="release.changeLogs"
+            defaultMessage="Change Logs" />
+    );
 
-    return release?.changelog ? (<>
-
-        <span
+    return (<>
+        <ListItem
+            button
             onClick={handleModal}
-            className={classes.actionSpan}
         >
             <ListItemIcon>
                 <DescriptionOutlined
@@ -32,13 +39,7 @@ const ChangeLogs: React.SFC<ChangeLogsProps> = ({ release, showLoader }) => {
                 />
             </ListItemIcon>
             {
-                !showLoader && (<>
-                    <ListItemText primary={
-                        <FormattedMessage
-                            id="release.changeLogs"
-                            defaultMessage="Change Logs" />
-                    } />
-                </>)
+                !showLoader && (<ListItemText primary={<Title />} />)
             }
 
             {/* Loading Placeholder */}
@@ -50,25 +51,21 @@ const ChangeLogs: React.SFC<ChangeLogsProps> = ({ release, showLoader }) => {
                     />
                 </>)
             }
-        </span>
+
+        </ListItem>
 
         <Modal
             showModal={showModal}
             toggleModal={handleModal}
         >
             <DialogTitle>
-                <FormattedMessage
-                    id="release.changeLogs"
-                    defaultMessage="Change Logs"
-                />
+                <Title />
             </DialogTitle>
             <DialogContent dividers>
                 <SplitMsg msg={release.changelog} />
             </DialogContent>
         </Modal>
-    </>
-    ) : null;
-
+    </>)
 }
 
 export { ChangeLogs };

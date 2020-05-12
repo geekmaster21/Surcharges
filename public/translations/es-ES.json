@@ -32,14 +32,13 @@
         },
         "notFound": "¡Todavía no hay lanzamientos para este dispositivo!",
         "fileSize": "Tamaño del Archivo",
-        "download": "Descargar",
+        "download": "Descargas",
         "changeLogs": "Registro de Cambios",
         "buildNotes": "Notas de Compilación",
         "bugs": "Errores",
         "allBuild": "Mostrar todas las compilaciones"
     },
     "modal": {
-        "download": "Descargas",
         "fetchLink": "Obteniendo Enlaces",
         "directLink": "Enlace Directo",
         "mirrorLink": "Enlace Espejado"

@@ -1,5 +1,5 @@
 import React from 'react';
-import { DialogContent, DialogTitle, ListItemIcon, ListItemText } from '@material-ui/core';
+import { DialogContent, DialogTitle, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
 import { RouteComponentProps } from '@reach/router';
 import { FormattedMessage } from 'react-intl';
 import { IRelease } from '../../models';
@@ -15,15 +15,21 @@ interface BugsProps extends RouteComponentProps {
 }
 
 const Bugs: React.SFC<BugsProps> = ({ release, showLoader }) => {
+    const classes = useStylesRelease();
     const [showModal, toggleModal] = React.useState(false);
     const handleModal = () => toggleModal(!showModal);
-    const classes = useStylesRelease();
+    const Title = () => (
+        <FormattedMessage
+            id="release.bugs"
+            defaultMessage="Bugs" />
+    );
 
     return release?.bugs ? (<>
 
-        <span
+        <ListItem
+            button
             onClick={handleModal}
-            className={classes.actionSpan + ' ' + classes.bug}
+            className={classes.bug}
         >
             <ListItemIcon className={classes.bug}>
                 <BugReportIcon
@@ -33,11 +39,7 @@ const Bugs: React.SFC<BugsProps> = ({ release, showLoader }) => {
             </ListItemIcon>
             {
                 !showLoader && (<>
-                    <ListItemText primary={
-                        <FormattedMessage
-                            id="release.bugs"
-                            defaultMessage="Bugs" />
-                    } />
+                    <ListItemText primary={<Title />} />
                 </>)
             }
 
@@ -50,17 +52,14 @@ const Bugs: React.SFC<BugsProps> = ({ release, showLoader }) => {
                     />
                 </>)
             }
-        </span>
+        </ListItem>
 
         <Modal
             showModal={showModal}
             toggleModal={handleModal}
         >
             <DialogTitle>
-                <FormattedMessage
-                    id="release.bugs"
-                    defaultMessage="Bugs"
-                />
+                <Title />
             </DialogTitle>
             <DialogContent dividers>
                 <SplitMsg msg={release.bugs} />

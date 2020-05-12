@@ -45,12 +45,6 @@ export const useStylesRelease = makeStyles((theme: Theme) =>
             width: '100%',
             display: 'flex',
             placeContent: 'space-between'
-        },
-        actionSpan: {
-            display: 'flex',
-            alignItems: 'center',
-            height: '100%',
-            width: '100%'
         }
     }),
 );

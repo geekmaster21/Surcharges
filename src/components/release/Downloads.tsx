@@ -1,7 +1,7 @@
 import React from 'react';
 import {
     Button, CircularProgress, DialogContent,
-    DialogTitle, ListItemIcon, ListItemText
+    DialogTitle, ListItem, ListItemIcon, ListItemText
 } from '@material-ui/core';
 import { RouteComponentProps } from '@reach/router';
 import { FormattedMessage } from 'react-intl';
@@ -28,15 +28,21 @@ const Downloads: React.SFC<DownloadsProps> = ({ release, showLoader }) => {
         toggleModal(!showModal);
     };
 
+    const Title = () => (
+        <FormattedMessage
+            id="release.download"
+            defaultMessage="Downloads" />
+    );
+
     if (showModal) {
         tmoDownload = setTimeout(() => toggleTmoDirectLink(true), 2500);
     }
 
     return release ? (<>
 
-        <span
+        <ListItem
+            button
             onClick={handleModal}
-            className={classes.actionSpan}
         >
             <ListItemIcon>
                 <GetAppIconOutlined
@@ -46,12 +52,7 @@ const Downloads: React.SFC<DownloadsProps> = ({ release, showLoader }) => {
             </ListItemIcon>
             {
                 !showLoader && (<>
-                    <ListItemText primary={
-                        <FormattedMessage
-                            id="release.download"
-                            defaultMessage="Download"
-                        />
-                    } />
+                    <ListItemText primary={<Title />} />
                 </>)
             }
 
@@ -64,17 +65,14 @@ const Downloads: React.SFC<DownloadsProps> = ({ release, showLoader }) => {
                     />
                 </>)
             }
-        </span>
+        </ListItem>
 
         <Modal
             showModal={showModal}
             toggleModal={handleModal}
         >
             <DialogTitle>
-                <FormattedMessage
-                    id="modal.download"
-                    defaultMessage="Downloads"
-                />
+                <Title />
             </DialogTitle>
             <DialogContent dividers>
                 {
@@ -123,11 +121,11 @@ const Downloads: React.SFC<DownloadsProps> = ({ release, showLoader }) => {
                                 >
                                     <OpenOutside
                                         href={release?.sf?.url}
-                                        className="link orange no-hover"
+                                        className="link no-hover"
                                     >
                                         <FormattedMessage
-                                            id="modal.directLink"
-                                            defaultMessage="Direct Link"
+                                            id="modal.mirrorLink"
+                                            defaultMessage="Mirror Link"
                                         />
                                     </OpenOutside>
 

@@ -39,7 +39,6 @@
         "allBuild": "सारे बिल्ड दिखाओ"
     },
     "modal": {
-        "download": "डाउनलोड",
         "fetchLink": "लिंक लाए जा रहे हैं",
         "directLink": "सीधा लिंक",
         "mirrorLink": "मिरर लिंक",
