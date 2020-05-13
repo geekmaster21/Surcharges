@@ -1,15 +1,15 @@
 import React from 'react';
 import { apiGetAllDeviceList } from '../../apis';
 import {
-    AppBar, Drawer as DrawerDesktop, Hidden, IconButton,
-    LinkLocale, OpenOutside, Toolbar, Typography
+    AppBar, Drawer as DrawerDesktop, Hidden,
+    IconButton, LinkLocale, OpenOutside, Toolbar, Typography
 } from '../../components';
 import { BookOutlinedIcon, MenuIcon } from '../../components/Icons';
 import { IDevice } from '../../models';
-import { useStyles } from './constants';
 import { DeviceList } from './Device-List';
 import { DrawerMobile } from './Drawer-Mobile';
 import { LanguageToggle } from './Language-Toggle';
+import { useStyles } from './style';
 
 const Drawer: React.SFC = () => {
     const classes = useStyles();
@@ -27,9 +27,9 @@ const Drawer: React.SFC = () => {
         <AppBar position="fixed" className={classes.appBar}>
             <Toolbar className={classes.header}>
                 <IconButton
+                    edge="start"
                     color="inherit"
                     aria-label="open drawer"
-                    edge="start"
                     className={classes.menuButton}
                     onClick={() => handleDrawerToggle(true)}
                 >
@@ -40,7 +40,8 @@ const Drawer: React.SFC = () => {
                     component="div"
                     className={classes.headerContent}
                 >
-                    <LinkLocale to="/"
+                    <LinkLocale
+                        to="/"
                         className={'link no-hover ' + classes.brand}
                     >
                         OrangeFox <span className={classes.recoverySmall}>Recovery</span>
@@ -49,8 +50,8 @@ const Drawer: React.SFC = () => {
                     <div className={classes.headerControls}>
 
                         <OpenOutside
-                            href="https://wiki.orangefox.tech"
                             title="OrangeFox Wiki"
+                            href="https://wiki.orangefox.tech"
                             className={'link no-hover ' + classes.headerContentRight}
                         >
                             <IconButton
@@ -71,10 +72,14 @@ const Drawer: React.SFC = () => {
         </AppBar>
 
         <nav className={classes.drawer} >
-            <Hidden smUp implementation="css">
+            <Hidden
+                smUp
+                implementation="css"
+            >
                 <DrawerMobile
                     openDrawer={mobileOpen}
                     onStateChange={handleDrawerToggle}
+                    classes={{ paper: classes.drawerPaper }}
                 >
                     <DeviceList
                         data={list}
@@ -82,7 +87,10 @@ const Drawer: React.SFC = () => {
                     />
                 </DrawerMobile>
             </Hidden>
-            <Hidden xsDown implementation="css">
+            <Hidden
+                xsDown
+                implementation="css"
+            >
                 <DrawerDesktop
                     open
                     variant="permanent"

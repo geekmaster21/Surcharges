@@ -6,7 +6,7 @@ import { Image, Input, List, ListItemIcon, ListItemText } from '../../components
 import { ClearOutlinedIcon, SearchIcon } from '../../components/Icons';
 import { IDevice, IDeviceGroup } from '../../models';
 import { GetCurrentLocale } from '../../utils';
-import { useStyles } from './constants';
+import { useStyles } from './style';
 
 interface DeviceListProps {
     data: IDevice[];
@@ -143,6 +143,16 @@ const DeviceList: React.SFC<DeviceListProps> = ({ data, handleDeviceClick }) => 
                             id="deviceList.notFound"
                             defaultMessage="Device not found!" />
                     </div>
+                )
+            }
+
+            {
+                !data && (
+                    <span className={classes.listNotFound}>
+                        <FormattedMessage
+                            id="error.server"
+                            defaultMessage="Couldn't connect with OrangeFox! Try again later." />
+                    </span>
                 )
             }
 

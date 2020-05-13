@@ -3,7 +3,7 @@ import { navigate, Redirect, Router } from "@reach/router";
 import { APP_CONFIG } from './app-config';
 import { Splash } from "./components";
 import { STORAGE } from './core';
-import { Device, DirectBuild, Home, NotFound } from './pages';
+import { Device, Build, Home, NotFound } from './pages';
 import './styles/style.scss';
 
 function App() {
@@ -23,7 +23,7 @@ function App() {
       <Home path="/:lang">
         <Splash path="/" />
         <Device path="/device/:code" />
-        <DirectBuild path="/build/:code/:type/:version" />
+        <Build path="/build/:code/:type/:version" />
         <NotFound default />
       </Home>
       <Redirect from="/" to={`/${locale}`} noThrow />

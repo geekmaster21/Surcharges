@@ -38,6 +38,9 @@
         "bugs": "Bugs",
         "allBuild": "Show All Builds"
     },
+    "error": {
+        "server": "Couldn't connect with OrangeFox! Try again later."
+    },
     "modal": {
         "fetchLink": "Fetching Links",
         "directLink": "Direct Link",

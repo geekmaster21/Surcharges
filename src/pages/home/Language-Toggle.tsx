@@ -1,12 +1,12 @@
+import React from 'react';
 import { navigate, useLocation } from '@reach/router';
 import { sortBy } from 'lodash';
-import React from 'react';
 import { apiGetAllLanguages } from '../../apis';
 import { FormControl, MenuItem, Select } from '../../components';
 import { STORAGE } from '../../core';
 import { ILanguage } from '../../models';
 import { GetCurrentLocale } from '../../utils';
-import { useStyles } from './constants';
+import { useStyles } from './style';
 
 const LanguageToggle: React.SFC = () => {
     const classes = useStyles();

@@ -72,6 +72,7 @@ export const useStyles = makeStyles((theme: Theme) => ({
         fontSize: '.8rem',
     },
     drawerPaper: {
+        width: `${drawerWidth}px`,
         boxShadow: '0 0 5px black'
     },
     routeContent: {
@@ -86,6 +87,11 @@ export const useStyles = makeStyles((theme: Theme) => ({
     headerControls: {
         display: 'flex',
         alignItems: 'center'
+    },
+    listNotFound: {
+        display: 'flex',
+        textAlign: 'center',
+        padding: theme.spacing(1)
     },
     formControl: {
         maxWidth: 80,
