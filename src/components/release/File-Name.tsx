@@ -4,6 +4,7 @@ import { RouteComponentProps } from '@reach/router';
 import { IRelease } from '../../models';
 import { ArchiveOutlined } from '../Icons';
 import { LoadShimmer } from '../Load-Shimmer';
+import { FileDate } from './File-Date';
 import { useStylesRelease } from './helpers';
 
 interface FileNameProps extends RouteComponentProps {
@@ -23,7 +24,7 @@ const FileName: React.SFC<FileNameProps> = ({ release, showLoader }) => {
             !showLoader && (<>
                 <ListItemText
                     primary={release.file_name}
-                    secondary={release.date}
+                    secondary={<FileDate release={release} />}
                 />
             </>)
         }

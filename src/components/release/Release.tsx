@@ -31,9 +31,9 @@ interface ReleaseProps extends RouteComponentProps {
     defaultExpanded?: boolean;
 }
 
-const Release: React.SFC<ReleaseProps> = ({ code, expanded, version, type,
-    onClick, defaultExpanded, showAllBuild }) => {
-
+const Release: React.SFC<ReleaseProps> = props => {
+    const { code, expanded, version, type,
+        onClick, defaultExpanded, showAllBuild } = props;
     const classes = useStylesRelease();
     const locale = GetCurrentLocale();
     const [release, setReleaseDetail] = React.useState<IRelease>({} as IRelease);

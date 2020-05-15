@@ -12,6 +12,7 @@ export interface IRelease {
     size_bytes: number;
     size_human: string;
     direct_url: string;
+    unixtime: number;
     url: string;
     version: string;
     sf: {
