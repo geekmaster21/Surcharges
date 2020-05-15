@@ -1,30 +1,28 @@
 import React from 'react';
-import dayjs from 'dayjs';
-import LocalizedFormat from 'dayjs/plugin/localizedFormat';
 import { IRelease } from '../../models';
-import { GetCurrentLocale } from '../../utils';
+import { DayJs, GetCurrentLocale } from '../../utils';
 
 export interface FileDateProps {
     release: IRelease;
 }
 
 const FileDate: React.SFC<FileDateProps> = ({ release: { date, unixtime } }) => {
-    const locale = (GetCurrentLocale() || 'en').toLowerCase();
-    const localeFirst = locale.split('-').shift() || '';
+    const localeLang = (GetCurrentLocale() || 'en').toLowerCase();
+    const locale = localeLang.split('-').shift() || '';
     const [unixDate, setUnixDate] = React.useState<string>(date);
-    const formatUnixDate = (formatLLLL: string, _locale: string) => {
-        const _date = dayjs.unix(unixtime).locale(_locale).format(formatLLLL);
-        setUnixDate(_date);
-        return _date;
-    };
-    const pms = async (_locale: string) => {
-        return await import(`dayjs/locale/${_locale}`)
-            .then(x => formatUnixDate(x?.formats?.LLLL || 'dddd, D MMMM YYYY HH:mm', _locale))
+    const pmsDayjsDate = async (locale2use: string) => {
+        return await import(`dayjs/locale/${locale2use}`)
+            .then(x => {
+                const dateFormat = x?.formats?.LLLL || 'dddd, D MMMM YYYY HH:mm';
+                const _date = DayJs.unix(unixtime).locale(locale2use).format(dateFormat);
+                setUnixDate(_date);
+            });
     }
 
-    dayjs.extend(LocalizedFormat);
-    if (unixtime && localeFirst)
-        pms(localeFirst).catch(() => pms(locale));
+    if (unixtime && locale)
+        pmsDayjsDate(locale)
+            .catch(() => pmsDayjsDate(localeLang)
+                .catch(() => setUnixDate(date)));
     else if (unixDate !== date)
         setUnixDate(date);
 

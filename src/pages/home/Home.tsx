@@ -32,13 +32,10 @@ const Home: React.SFC<HomeProps> = ({ children, lang }) => {
         <IntlProvider locale={locale} messages={translations} >
 
             <div className={classes.root}>
-
                 <Drawer />
-
                 <main className={classes.routeContent}>
                     {children}
                 </main>
-
             </div>
 
             <Footer />

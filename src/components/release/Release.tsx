@@ -3,6 +3,7 @@ import { Button, Divider, List, ListItem } from '@material-ui/core';
 import { navigate, RouteComponentProps } from '@reach/router';
 import { FormattedMessage } from 'react-intl';
 import { apiGetRelease } from '../../apis';
+import { usePreviousProps } from '../../hooks';
 import { EReleaseType, IRelease } from '../../models';
 import { GetCurrentLocale } from '../../utils';
 import { ExpandMore, LabelImportantOutlinedIcon } from '../Icons';
@@ -32,23 +33,23 @@ interface ReleaseProps extends RouteComponentProps {
 }
 
 const Release: React.SFC<ReleaseProps> = props => {
-    const { code, expanded, version, type,
-        onClick, defaultExpanded, showAllBuild } = props;
+    const { code, version, type, onClick,
+        expanded, defaultExpanded, showAllBuild } = props;
     const classes = useStylesRelease();
     const locale = GetCurrentLocale();
+    const prevProps = usePreviousProps({ code, version, type });
     const [release, setReleaseDetail] = React.useState<IRelease>({} as IRelease);
-
     const isDifferentDevice = code && release?.codename !== code;
 
     React.useEffect(() => {
-        if (code) {
+        if (code && prevProps?.code !== code) {
             apiGetRelease(code, type, version)
                 .then(data => setReleaseDetail(data))
                 .catch(() => {
                     showAllBuild && navigate(`/${locale}/404`);
                 });
         }
-    }, [code, type, version, locale, showAllBuild]);
+    }, [code, type, version, prevProps, locale, showAllBuild]);
 
     const _version = release?.version || version;
     const showLoader = Boolean(!release?.codename || isDifferentDevice);
@@ -67,7 +68,10 @@ const Release: React.SFC<ReleaseProps> = props => {
             >
                 <div className={classes.summary}>
                     <Typography className={classes.version} >
-                        <LabelImportantOutlinedIcon className={classes.icon + ' ' + classes.iconM5} fontSize="small" />
+                        <LabelImportantOutlinedIcon
+                            fontSize="small"
+                            className={classes.icon + ' ' + classes.iconM5}
+                        />
                         {
                             !showLoader && (_version)
                         }
