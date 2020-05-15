@@ -38,6 +38,9 @@
         "bugs": "Hatalar",
         "allBuild": "Bütün Derlemeleri Göster"
     },
+    "error": {
+        "server": "OrangeFox ile bağlantı kurulamadı! Daha sonra tekrar deneyin."
+    },
     "modal": {
         "fetchLink": "Bağlantılar Getiriliyor",
         "directLink": "Doğrudan Bağlantı",

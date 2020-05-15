@@ -38,6 +38,9 @@
         "bugs": "Bugs",
         "allBuild": "显示所有版本"
     },
+    "error": {
+        "server": "无法连接到 OrangeFox ！请稍候再试。"
+    },
     "modal": {
         "fetchLink": "正在获取链接",
         "directLink": "直接下载",
