@@ -72,6 +72,7 @@ export const useStyles = makeStyles((theme: Theme) => ({
         fontSize: '.8rem',
     },
     drawerPaper: {
+        overflowX: 'hidden',
         width: `${drawerWidth}px`,
         boxShadow: '0 0 5px black'
     },
