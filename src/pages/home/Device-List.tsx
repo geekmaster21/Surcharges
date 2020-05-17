@@ -5,7 +5,7 @@ import { FormattedMessage } from 'react-intl';
 import { Image, Input, List, ListItemIcon, ListItemText } from '../../components';
 import { ClearOutlinedIcon, SearchIcon } from '../../components/Icons';
 import { IDevice, IDeviceGroup } from '../../models';
-import { GetCurrentLocale } from '../../utils';
+import { GetSelectedLocale } from '../../utils';
 import { useStyles } from './style';
 
 interface DeviceListProps {
@@ -29,7 +29,7 @@ const GroupList = (_data: IDevice[]) => {
 
 const DeviceList: React.SFC<DeviceListProps> = ({ data, handleDeviceClick }) => {
     const classes = useStyles();
-    const locale = GetCurrentLocale();
+    const locale = GetSelectedLocale();
     const [list, setList] = React.useState<IDeviceGroup[]>(GroupList(data));
     const [filter, setFilter] = React.useState<string>('');
 

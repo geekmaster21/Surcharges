@@ -5,13 +5,13 @@ import { apiGetAllLanguages } from '../../apis';
 import { FormControl, MenuItem, Select } from '../../components';
 import { STORAGE } from '../../core';
 import { ILanguage } from '../../models';
-import { GetCurrentLocale } from '../../utils';
+import { GetSelectedLocale } from '../../utils';
 import { useStyles } from './style';
 
 const LanguageToggle: React.SFC = () => {
     const classes = useStyles();
     const { pathname } = useLocation();
-    const currentLocale = GetCurrentLocale();
+    const currentLocale = GetSelectedLocale();
     const [langs, setLang] = React.useState([] as ILanguage[]);
     const [locale, setLocale] = React.useState(currentLocale);
 

@@ -7,7 +7,7 @@ import { navigate, RouteComponentProps } from '@reach/router';
 import { FormattedMessage } from 'react-intl';
 import { apiGetDeviceByCode } from '../apis';
 import { IDevice } from '../models';
-import { GetCurrentLocale } from '../utils';
+import { GetSelectedLocale } from '../utils';
 import {
     ExpandMore, PermDeviceInformationOutlinedIcon,
     PermIdentityOutlinedIcon, ReportProblemOutlined
@@ -59,7 +59,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const DeviceInfo: React.SFC<DeviceInfoProps> = ({ code }) => {
     const classes = useStyles();
-    const locale = GetCurrentLocale();
+    const locale = GetSelectedLocale();
     const [device, setDeviceDetail] = useState<IDevice>({} as IDevice);
     const isDifferentDevice = code && device.codename !== code;
 

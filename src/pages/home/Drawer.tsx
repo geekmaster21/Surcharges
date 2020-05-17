@@ -1,11 +1,12 @@
 import React from 'react';
 import { apiGetAllDeviceList } from '../../apis';
 import {
-    AppBar, Drawer as DrawerDesktop, Hidden,
-    IconButton, LinkLocale, OpenOutside, Toolbar, Typography
+    AppBar, Donations, Drawer as DrawerDesktop, Hidden,
+    IconButton, LinkLocale, Toolbar, Typography, Wiki
 } from '../../components';
-import { BookOutlinedIcon, MenuIcon } from '../../components/Icons';
+import { MenuIcon } from '../../components/Icons';
 import { IDevice } from '../../models';
+import { isMobile } from '../../utils';
 import { DeviceList } from './Device-List';
 import { DrawerMobile } from './Drawer-Mobile';
 import { LanguageToggle } from './Language-Toggle';
@@ -49,19 +50,13 @@ const Drawer: React.SFC = () => {
 
                     <div className={classes.headerControls}>
 
-                        <OpenOutside
-                            title="OrangeFox Wiki"
-                            href="https://wiki.orangefox.tech"
+                        <Donations
                             className={'link no-hover ' + classes.headerContentRight}
-                        >
-                            <IconButton
-                                edge="end"
-                                color="inherit"
-                                aria-label="Open Wiki link"
-                            >
-                                <BookOutlinedIcon />
-                            </IconButton>
-                        </OpenOutside>
+                        />
+
+                        <Wiki
+                            className={'link no-hover ' + classes.headerContentRight}
+                        />
 
                         <LanguageToggle />
 
@@ -73,31 +68,32 @@ const Drawer: React.SFC = () => {
 
         <nav className={classes.drawer} >
             <Hidden
-                smUp
+                smUp={isMobile}
+                xsDown={!isMobile}
                 implementation="css"
             >
-                <DrawerMobile
-                    openDrawer={mobileOpen}
-                    onStateChange={handleDrawerToggle}
-                    classes={{ paper: classes.drawerPaper }}
-                >
-                    <DeviceList
-                        data={list}
-                        handleDeviceClick={() => handleDrawerToggle(false)}
-                    />
-                </DrawerMobile>
-            </Hidden>
-            <Hidden
-                xsDown
-                implementation="css"
-            >
-                <DrawerDesktop
-                    open
-                    variant="permanent"
-                    classes={{ paper: classes.drawerPaper }}
-                >
-                    <DeviceList data={list} />
-                </DrawerDesktop>
+                {
+                    isMobile ? (
+                        <DrawerMobile
+                            openDrawer={mobileOpen}
+                            onStateChange={handleDrawerToggle}
+                            classes={{ paper: classes.drawerPaper }}
+                        >
+                            <DeviceList
+                                data={list}
+                                handleDeviceClick={() => handleDrawerToggle(false)}
+                            />
+                        </DrawerMobile>
+                    ) : (
+                            <DrawerDesktop
+                                open
+                                variant="permanent"
+                                classes={{ paper: classes.drawerPaper }}
+                            >
+                                <DeviceList data={list} />
+                            </DrawerDesktop>
+                        )
+                }
             </Hidden>
         </nav>
     </>);

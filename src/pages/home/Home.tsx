@@ -4,7 +4,7 @@ import { IntlProvider } from 'react-intl';
 import { apiGetTranslation } from '../../apis';
 import { APP_CONFIG } from '../../app-config';
 import { Footer } from '../../components';
-import { GetCurrentLocale, SetCurrentLocale } from '../../utils';
+import { GetSelectedLocale, SetSelectedLocale } from '../../utils';
 import { Drawer } from './Drawer';
 import { useStyles } from './style';
 
@@ -23,9 +23,9 @@ const Home: React.SFC<HomeProps> = ({ children, lang }) => {
             .catch(() => setTranslations({} as any))
     }, [locale])
 
-    const currentLocale = GetCurrentLocale();
+    const currentLocale = GetSelectedLocale();
     if (locale !== currentLocale) {
-        SetCurrentLocale(locale);
+        SetSelectedLocale(locale);
     }
 
     return translations ? (<>

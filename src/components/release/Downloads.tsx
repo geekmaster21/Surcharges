@@ -7,6 +7,7 @@ import { RouteComponentProps } from '@reach/router';
 import { FormattedMessage } from 'react-intl';
 import { Modal, PoweredBy } from '..';
 import { IRelease } from '../../models';
+import { Donations } from '../Donation';
 import { GetAppIconOutlined } from '../Icons';
 import { LoadShimmer } from '../Load-Shimmer';
 import { OpenOutside } from '../Open-Outside';
@@ -136,7 +137,10 @@ const Downloads: React.SFC<DownloadsProps> = ({ release, showLoader }) => {
                 }
                 <br />
                 <br />
-                <PoweredBy />
+                <div className="links-in-dwld">
+                    <PoweredBy />
+                    <Donations className="link flexd v-center" />
+                </div>
             </DialogContent>
         </Modal>
     </>

@@ -1,6 +1,6 @@
 {
   "name": "d-site",
-  "version": "20.5.16",
+  "version": "20.5.17",
   "private": true,
   "dependencies": {
     "@loadable/component": "^5.12.0",

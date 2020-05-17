@@ -8,6 +8,7 @@ import ExpandMore from '@material-ui/icons/ExpandMore';
 import GetAppIconOutlined from '@material-ui/icons/GetAppOutlined';
 import LabelImportantOutlinedIcon from '@material-ui/icons/LabelImportantOutlined';
 import MenuIcon from '@material-ui/icons/Menu';
+import MonetizationOnOutlinedIcon from '@material-ui/icons/MonetizationOnOutlined';
 import PermDeviceInformationOutlinedIcon from '@material-ui/icons/PermDeviceInformationOutlined';
 import PermIdentityOutlinedIcon from '@material-ui/icons/PermIdentityOutlined';
 import ReportProblemOutlined from '@material-ui/icons/ReportProblemOutlined';
@@ -21,5 +22,5 @@ export {
     ExpandLess, ExpandMore, BookOutlinedIcon, MenuIcon, SpeakerNotesOutlined, PermDeviceInformationOutlinedIcon,
     SearchIcon, LabelImportantOutlinedIcon, ArchiveOutlined, SdCardOutlinedIcon, VerifiedUserOutlined,
     GetAppIconOutlined, DescriptionOutlined, BugReportIcon, PermIdentityOutlinedIcon, StarBorderOutlinedIcon,
-    ReportProblemOutlined, ClearOutlinedIcon
+    ReportProblemOutlined, ClearOutlinedIcon, MonetizationOnOutlinedIcon
 };

@@ -5,7 +5,7 @@ import { FormattedMessage } from 'react-intl';
 import { apiGetRelease } from '../../apis';
 import { usePreviousProps } from '../../hooks';
 import { EReleaseType, IRelease } from '../../models';
-import { GetCurrentLocale } from '../../utils';
+import { GetSelectedLocale } from '../../utils';
 import { ExpandMore, LabelImportantOutlinedIcon } from '../Icons';
 import { LinkLocale } from '../Link-Locale';
 import { LoadShimmer } from '../Load-Shimmer';
@@ -36,7 +36,7 @@ const Release: React.SFC<ReleaseProps> = props => {
     const { code, version, type, onClick,
         expanded, defaultExpanded, showAllBuild } = props;
     const classes = useStylesRelease();
-    const locale = GetCurrentLocale();
+    const locale = GetSelectedLocale();
     const prevProps = usePreviousProps({ code, version, type });
     const [release, setReleaseDetail] = React.useState<IRelease>({} as IRelease);
     const isDifferentDevice = code && release?.codename !== code;

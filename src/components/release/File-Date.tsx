@@ -1,13 +1,13 @@
 import React from 'react';
 import { IRelease } from '../../models';
-import { DayJs, GetCurrentLocale } from '../../utils';
+import { DayJs, GetSelectedLocale } from '../../utils';
 
 export interface FileDateProps {
     release: IRelease;
 }
 
 const FileDate: React.SFC<FileDateProps> = ({ release: { date, unixtime } }) => {
-    const localeLang = (GetCurrentLocale() || 'en').toLowerCase();
+    const localeLang = (GetSelectedLocale() || 'en').toLowerCase();
     const locale = localeLang.split('-').shift() || '';
     const [unixDate, setUnixDate] = React.useState<string>(date);
     const pmsDayjsDate = async (locale2use: string) => {

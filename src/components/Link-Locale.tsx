@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link, LinkProps } from '@reach/router';
-import { GetCurrentLocale } from '../utils';
+import { GetSelectedLocale } from '../utils';
 
 export interface LinkLocaleProps<T = any> extends LinkProps<T> {
     to: string
 }
 
 const LinkLocale: React.SFC<LinkLocaleProps> = ({ to, ...props }) => {
-    const locale = GetCurrentLocale();
+    const locale = GetSelectedLocale();
     return (
         <Link
             to={`/${locale}${to}`}
