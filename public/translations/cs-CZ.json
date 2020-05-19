@@ -4,6 +4,7 @@
         "emoji": "🇨🇿"
     },
     "mainPage": {
+        "donation": "Příspěvky",
         "hintText": "Vyberte zařízení ze seznamu nebo použijte vyhledávání",
         "notFound": "Tohle je konec. Vrať mě domů!"
     },
@@ -38,10 +39,14 @@
         "bugs": "Chyby",
         "allBuild": "Zobrazit všechny vydání"
     },
+    "error": {
+        "server": "Nelze se připojit k OrangeFox! Zkuste to znovu později."
+    },
     "modal": {
         "fetchLink": "Načítání odkazů",
         "directLink": "Přímý odkaz",
-        "mirrorLink": "Mirror odkaz"
+        "mirrorLink": "Mirror odkaz",
+        "close": "Zavřít"
     },
     "footer": {
         "poweredBy": "Vytvořeno uživatelem {hostWebsite}",
