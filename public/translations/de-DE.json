@@ -4,6 +4,7 @@
         "emoji": "🇩🇪"
     },
     "mainPage": {
+        "donation": "Spenden",
         "hintText": "Wählen Sie ein Gerät aus der Liste oder verwenden Sie die Suche",
         "notFound": "Das wars. Bring mich nach Hause!"
     },

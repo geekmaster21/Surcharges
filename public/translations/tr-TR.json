@@ -4,6 +4,7 @@
         "emoji": "🇹🇷"
     },
     "mainPage": {
+        "donation": "Bağışlar",
         "hintText": "Listeden bir cihaz seçin veya aramayı kullanın",
         "notFound": "Bu son. Beni eve götür!"
     },
