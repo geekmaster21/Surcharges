@@ -1,9 +1,10 @@
 {
     "languageInfo": {
-        "name": "Spanish",
-        "emoji": "🇪🇸"
+        "name": "Inglés",
+        "emoji": "🇺🇸"
     },
     "mainPage": {
+        "donation": "Donaciones",
         "hintText": "Seleccionar dispositivo de la lista o usar la búsqueda",
         "notFound": "Este es el final. ¡Llévame de vuelta al Inicio!"
     },
@@ -38,10 +39,14 @@
         "bugs": "Errores",
         "allBuild": "Mostrar todas las compilaciones"
     },
+    "error": {
+        "server": "¡No se pudo conectar con OrangeFox! Inténtalo de nuevo más tarde."
+    },
     "modal": {
         "fetchLink": "Obteniendo Enlaces",
         "directLink": "Enlace Directo",
-        "mirrorLink": "Enlace Espejado"
+        "mirrorLink": "Enlace Espejado",
+        "close": "Cerrar"
     },
     "footer": {
         "poweredBy": "Potenciado por {hostWebsite}",
