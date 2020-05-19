@@ -40,7 +40,7 @@
         "allBuild": "Alle Builds anzeigen"
     },
     "error": {
-        "server": "Konnte keine Verbindung mit OrangeFox aufbauen! Versuchen Sie es später erneut."
+        "server": "Verbindung mit OrangeFox herstellen nicht möglich! Später erneut versuchen."
     },
     "modal": {
         "fetchLink": "Links werden abgerufen",
