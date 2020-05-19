@@ -4,6 +4,7 @@
         "emoji": "🇨🇳"
     },
     "mainPage": {
+        "donation": "支持我们",
         "hintText": "从列表中选择您的设备或者搜索您的设备",
         "notFound": "到底啦！回到首页！"
     },
