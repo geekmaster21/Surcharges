@@ -4,6 +4,7 @@
         "emoji": "🇺🇸"
     },
     "mainPage": {
+        "donation": "Doações",
         "hintText": "Selecione o dispositivo da lista ou use a pesquisa",
         "notFound": "Esse é o fim  Leve-me de volta para casa!"
     },
