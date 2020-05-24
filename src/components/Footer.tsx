@@ -29,7 +29,7 @@ const Footer: React.SFC = () => {
                 className={classes.root}
             >
                 <OpenOutside
-                    href="https://gitlab.com/OrangeFox/site/dsite"
+                    href="https://gitlab.com/OrangeFox/infrastructure/dsite"
                     className={"link " + classes.mx}
                 >
                     <FormattedMessage

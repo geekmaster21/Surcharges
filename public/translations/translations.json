@@ -1,60 +1,5 @@
 [
   {
-    "code": "pa-IN",
-    "name": "Punjabi",
-    "emoji": "\ud83c\uddee\ud83c\uddf3"
-  },
-  {
-    "code": "it-IT",
-    "name": "Italian",
-    "emoji": "\ud83c\uddee\ud83c\uddf9"
-  },
-  {
-    "code": "ru-RU",
-    "name": "Russian",
-    "emoji": "\ud83c\uddf7\ud83c\uddfa"
-  },
-  {
-    "code": "de-DE",
-    "name": "Deutsch",
-    "emoji": "\ud83c\udde9\ud83c\uddea"
-  },
-  {
-    "code": "uk-UA",
-    "name": "Ukrainian",
-    "emoji": "\ud83c\uddfa\ud83c\udde6"
-  },
-  {
-    "code": "tr-TR",
-    "name": "Turkish",
-    "emoji": "\ud83c\uddf9\ud83c\uddf7"
-  },
-  {
-    "code": "hi-IN",
-    "name": "Hindi",
-    "emoji": "\ud83c\uddee\ud83c\uddf3"
-  },
-  {
-    "code": "sr-Cyrl",
-    "name": "Serbian (Cyrillic)",
-    "emoji": "\ud83c\uddf7\ud83c\uddf8"
-  },
-  {
-    "code": "el-GR",
-    "name": "Greek",
-    "emoji": "\ud83c\uddec\ud83c\uddf7"
-  },
-  {
-    "code": "ml-IN",
-    "name": "Malayalam",
-    "emoji": "\ud83c\uddee\ud83c\uddf3"
-  },
-  {
-    "code": "es-ES",
-    "name": "Spanish",
-    "emoji": "\ud83c\uddea\ud83c\uddf8"
-  },
-  {
     "code": "zh-CN",
     "name": "Chinese Simplified",
     "emoji": "\ud83c\udde8\ud83c\uddf3"
@@ -65,13 +10,73 @@
     "emoji": "\ud83c\udde8\ud83c\uddff"
   },
   {
-    "code": "ja-JP",
-    "name": "Japanese",
-    "emoji": "\ud83c\uddef\ud83c\uddf5"
+    "code": "de-DE",
+    "name": "Deutsch",
+    "emoji": "\ud83c\udde9\ud83c\uddea"
   },
   {
     "code": "en",
     "name": "English",
     "emoji": "\ud83c\uddfa\ud83c\uddf8"
+  },
+  {
+    "code": "el-GR",
+    "name": "Greek",
+    "emoji": "\ud83c\uddec\ud83c\uddf7"
+  },
+  {
+    "code": "hi-IN",
+    "name": "Hindi",
+    "emoji": "\ud83c\uddee\ud83c\uddf3"
+  },
+  {
+    "code": "pt-BR",
+    "name": "Ingl\u00eas",
+    "emoji": "\ud83c\uddfa\ud83c\uddf8"
+  },
+  {
+    "code": "it-IT",
+    "name": "Italian",
+    "emoji": "\ud83c\uddee\ud83c\uddf9"
+  },
+  {
+    "code": "ja-JP",
+    "name": "Japanese",
+    "emoji": "\ud83c\uddef\ud83c\uddf5"
+  },
+  {
+    "code": "ml-IN",
+    "name": "Malayalam",
+    "emoji": "\ud83c\uddee\ud83c\uddf3"
+  },
+  {
+    "code": "pa-IN",
+    "name": "Punjabi",
+    "emoji": "\ud83c\uddee\ud83c\uddf3"
+  },
+  {
+    "code": "ru-RU",
+    "name": "Russian",
+    "emoji": "\ud83c\uddf7\ud83c\uddfa"
+  },
+  {
+    "code": "sr-Cyrl",
+    "name": "Serbian (Cyrillic)",
+    "emoji": "\ud83c\uddf7\ud83c\uddf8"
+  },
+  {
+    "code": "es-ES",
+    "name": "Spanish",
+    "emoji": "\ud83c\uddea\ud83c\uddf8"
+  },
+  {
+    "code": "tr-TR",
+    "name": "Turkish",
+    "emoji": "\ud83c\uddf9\ud83c\uddf7"
+  },
+  {
+    "code": "uk-UA",
+    "name": "Ukrainian",
+    "emoji": "\ud83c\uddfa\ud83c\udde6"
   }
 ]
