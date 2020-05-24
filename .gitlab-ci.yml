@@ -3,7 +3,7 @@ stages:
 
 
 variables:
-  DOCKER_IMAGE: "registry.gitlab.com/orangefox/site/dsite:$CI_COMMIT_BRANCH"
+  DOCKER_IMAGE: "registry.gitlab.com/orangefox/infrastructure/dsite:$CI_COMMIT_BRANCH"
 
 
 docker:push:
