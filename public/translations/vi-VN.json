@@ -1,0 +1,55 @@
+{
+    "languageInfo": {
+        "name": "Tiếng Anh",
+        "emoji": "vi"
+    },
+    "mainPage": {
+        "donation": "Quyên góp",
+        "hintText": "Chọn thiết bị từ danh sách hoặc tìm kiếm",
+        "notFound": "Đây là kết thúc. Đưa bạn trở về Home!"
+    },
+    "deviceList": {
+        "searchDevice": "Tìm kiếm thiết bị",
+        "notFound": "Không tìm thấy thiết bị!"
+    },
+    "device": {
+        "info": "(Thông tin thiết bị)"
+    },
+    "maintain": {
+        "status": {
+            "maintained": "Người duy trì",
+            "maintainedWithoutDevice": "Người duy trì không có thiết bị trên tay",
+            "notMaintained": "Không có người duy trì!"
+        },
+        "by": {
+            "current": "Người bảo trì: {maintainer}",
+            "previous": "Người bảo trì trước:{maintainer}"
+        }
+    },
+    "release": {
+        "type": {
+            "beta": "Phiên bản thử nghiệm",
+            "stable": "Phiên bản chính thức"
+        },
+        "notFound": "Không có bản phát hành cho thiết bị này!",
+        "fileSize": "Kích thước tập tin",
+        "download": "Tải xuống",
+        "changeLogs": "Nhật ký thay đổi",
+        "buildNotes": "Ghi chú bản dựng",
+        "bugs": "Lỗi",
+        "allBuild": "Hiển thị tất cả bản dựng"
+    },
+    "error": {
+        "server": "Không thể kết nối đến OrangeFox! Thử lại sau."
+    },
+    "modal": {
+        "fetchLink": "Liên kết tìm kiếm",
+        "directLink": "Đường dẫn trực tiếp",
+        "mirrorLink": "Liên kết nhanh",
+        "close": "Đóng"
+    },
+    "footer": {
+        "poweredBy": "Cung cấp bởi {hostWebsite}",
+        "openSource": "Dự án mã nguồn mở"
+    }
+}
