@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
 import {
-    createStyles, ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary,
+    Accordion, AccordionDetails, AccordionSummary, createStyles,
     List, ListItem, ListItemIcon, ListItemText, makeStyles, Theme, Typography
 } from '@material-ui/core';
 import { navigate, RouteComponentProps } from '@reach/router';
+import React, { useEffect, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { apiGetDeviceByCode } from '../apis';
 import { IDevice } from '../models';
@@ -142,12 +142,12 @@ const DeviceInfo: React.SFC<DeviceInfoProps> = ({ code }) => {
     const showLoader = !device?.fullname || isDifferentDevice;
 
     return (
-        <ExpansionPanel
+        <Accordion
             defaultExpanded
             className={classes.root}
         >
 
-            <ExpansionPanelSummary
+            <AccordionSummary
                 id="device-info"
                 expandIcon={<ExpandMore className={classes.icon} />}
                 aria-controls="device-info-content"
@@ -170,8 +170,8 @@ const DeviceInfo: React.SFC<DeviceInfoProps> = ({ code }) => {
                         showLoader && <LoadShimmer />
                     }
                 </Typography>
-            </ExpansionPanelSummary>
-            <ExpansionPanelDetails className={classes.details} >
+            </AccordionSummary>
+            <AccordionDetails className={classes.details} >
                 <List
                     component="ul"
                     className={classes.list}
@@ -226,8 +226,8 @@ const DeviceInfo: React.SFC<DeviceInfoProps> = ({ code }) => {
                         }
                     </ListItem>
                 </List>
-            </ExpansionPanelDetails>
-        </ExpansionPanel>
+            </AccordionDetails>
+        </Accordion>
     );
 }
 

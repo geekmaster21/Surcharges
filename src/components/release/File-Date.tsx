@@ -11,7 +11,7 @@ const FileDate: React.SFC<FileDateProps> = ({ release: { date, unixtime } }) => 
     const locale = localeLang.split('-').shift() || '';
     const [unixDate, setUnixDate] = React.useState<string>(date);
     const pmsDayjsDate = async (locale2use: string) => {
-        return await import(`dayjs/locale/${locale2use}`)
+        return await import(`dayjs/locale/${locale2use}.js` )
             .then(x => {
                 const dateFormat = x?.formats?.LLLL || 'dddd, D MMMM YYYY HH:mm';
                 const _date = DayJs.unix(unixtime).locale(locale2use).format(dateFormat);

@@ -1,10 +1,11 @@
-import React from 'react';
 import { Theme } from '@material-ui/core';
 import { RouteComponentProps } from '@reach/router';
 import { isEqual, sortBy } from 'lodash';
+import React from 'react';
 import {
-    createStyles, ExpansionPanel, ExpansionPanelDetails,
-    ExpansionPanelSummary, makeStyles, Release, Typography
+    Accordion, AccordionDetails,
+    AccordionSummary, createStyles,
+    makeStyles, Release, Typography
 } from '../../components';
 import { ExpandMore, StarBorderOutlinedIcon } from '../../components/Icons';
 import { usePreviousProps } from '../../hooks';
@@ -62,11 +63,11 @@ const ReleaseType: React.SFC<ReleaseTypeProps> = (props) => {
     }
 
     return (<>
-        <ExpansionPanel
+        <Accordion
             className={classes.root}
             defaultExpanded={expanded}
         >
-            <ExpansionPanelSummary
+            <AccordionSummary
                 id={`release-${type}-header`}
                 expandIcon={<ExpandMore className={classes.icon} />}
                 aria-controls={`release-${type}-content`}
@@ -75,8 +76,8 @@ const ReleaseType: React.SFC<ReleaseTypeProps> = (props) => {
                     <StarBorderOutlinedIcon className={classes.iconM5} fontSize="small" />
                     {releaseLabel}
                 </Typography>
-            </ExpansionPanelSummary>
-            <ExpansionPanelDetails className={classes.details} >
+            </AccordionSummary>
+            <AccordionDetails className={classes.details} >
                 {
                     sortedData.map((m, i) => (
                         <Release
@@ -89,8 +90,8 @@ const ReleaseType: React.SFC<ReleaseTypeProps> = (props) => {
                         />
                     ))
                 }
-            </ExpansionPanelDetails>
-        </ExpansionPanel>
+            </AccordionDetails>
+        </Accordion>
     </>);
 }
 

@@ -110,3 +110,4 @@ dist*
 
 # Jetbrains editors
 .idea
+*.lock

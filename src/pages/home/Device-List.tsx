@@ -1,6 +1,7 @@
-import React from 'react';
 import { navigate } from '@reach/router';
 import { groupBy } from 'lodash';
+import matchSorter from "match-sorter";
+import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Image, Input, List, ListItemIcon, ListItemText } from '../../components';
 import { ClearOutlinedIcon, SearchIcon } from '../../components/Icons';
@@ -49,11 +50,7 @@ const DeviceList: React.SFC<DeviceListProps> = ({ data, handleDeviceClick }) => 
     const doFilter = (_filter: string) => {
         const _f = _filter.trim();
         const _data = data || [];
-        const filteredData = _f.trim() ? _data.filter(f => {
-            const items = [f.fullname.toLocaleLowerCase(), f.codename.toLocaleLowerCase()];
-            return items.some(i => i.includes(_f));
-        }) : _data;
-
+        const filteredData = _f.trim() ? matchSorter(_data, _f, { keys: ["fullname", "codename"] }) : _data;
         return GroupList(filteredData);
     }
 

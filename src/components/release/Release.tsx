@@ -1,6 +1,5 @@
-import React from 'react';
-import { Button, Divider, List, ListItem } from '@material-ui/core';
 import { navigate, RouteComponentProps } from '@reach/router';
+import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { apiGetRelease } from '../../apis';
 import { usePreviousProps } from '../../hooks';
@@ -9,10 +8,7 @@ import { GetSelectedLocale } from '../../utils';
 import { ExpandMore, LabelImportantOutlinedIcon } from '../Icons';
 import { LinkLocale } from '../Link-Locale';
 import { LoadShimmer } from '../Load-Shimmer';
-import {
-    ExpansionPanel, ExpansionPanelDetails,
-    ExpansionPanelSummary, Typography
-} from '../React-Material';
+import { Accordion, AccordionDetails, AccordionSummary, Button, Divider, MaterialList, ListItem, Typography } from '../React-Material';
 import { Bugs } from './Bugs';
 import { BuildNotes } from './Build-Notes';
 import { ChangeLogs } from './Change-Logs';
@@ -55,13 +51,13 @@ const Release: React.SFC<ReleaseProps> = props => {
     const showLoader = Boolean(!release?.codename || isDifferentDevice);
 
     return (<>
-        <ExpansionPanel
+        <Accordion
             className={classes.root}
             expanded={expanded}
             defaultExpanded={defaultExpanded}
             onChange={() => onClick && onClick()}
         >
-            <ExpansionPanelSummary
+            <AccordionSummary
                 id={_version}
                 expandIcon={<ExpandMore className={classes.icon} />}
                 aria-controls={`${_version} [ ${release.date} ]`}
@@ -98,10 +94,10 @@ const Release: React.SFC<ReleaseProps> = props => {
                     }
                 </div>
 
-            </ExpansionPanelSummary>
+            </AccordionSummary>
 
-            <ExpansionPanelDetails className={classes.details} >
-                <List component="nav" className={classes.list} >
+            <AccordionDetails className={classes.details} >
+                <MaterialList component="nav" className={classes.list} >
 
                     <ListItem >
                         <FileName
@@ -130,7 +126,7 @@ const Release: React.SFC<ReleaseProps> = props => {
 
                     <Divider />
 
-                    <List
+                    <MaterialList
                         component="div"
                         className={classes.nestedList} >
 
@@ -162,11 +158,11 @@ const Release: React.SFC<ReleaseProps> = props => {
                                 showLoader={showLoader}
                             />
                         }
-                    </List>
+                    </MaterialList>
 
-                </List>
-            </ExpansionPanelDetails>
-        </ExpansionPanel>
+                </MaterialList>
+            </AccordionDetails>
+        </Accordion>
 
     </>);
 }
