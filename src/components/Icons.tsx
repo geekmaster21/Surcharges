@@ -7,6 +7,7 @@ import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import GetAppIconOutlined from '@material-ui/icons/GetAppOutlined';
 import LabelImportantOutlinedIcon from '@material-ui/icons/LabelImportantOutlined';
+import HyperLink from '@material-ui/icons/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import MonetizationOnOutlinedIcon from '@material-ui/icons/MonetizationOnOutlined';
 import PermDeviceInformationOutlinedIcon from '@material-ui/icons/PermDeviceInformationOutlined';
@@ -17,10 +18,11 @@ import SearchIcon from '@material-ui/icons/Search';
 import SpeakerNotesOutlined from '@material-ui/icons/SpeakerNotesOutlined';
 import StarBorderOutlinedIcon from '@material-ui/icons/StarBorderOutlined';
 import VerifiedUserOutlined from '@material-ui/icons/VerifiedUserOutlined';
+import  IconButton from '@material-ui/core/IconButton';
 
 export {
-    ExpandLess, ExpandMore, BookOutlinedIcon, MenuIcon, SpeakerNotesOutlined, PermDeviceInformationOutlinedIcon,
+    ExpandLess, ExpandMore, HyperLink, BookOutlinedIcon, MenuIcon, SpeakerNotesOutlined, PermDeviceInformationOutlinedIcon,
     SearchIcon, LabelImportantOutlinedIcon, ArchiveOutlined, SdCardOutlinedIcon, VerifiedUserOutlined,
     GetAppIconOutlined, DescriptionOutlined, BugReportIcon, PermIdentityOutlinedIcon, StarBorderOutlinedIcon,
-    ReportProblemOutlined, ClearOutlinedIcon, MonetizationOnOutlinedIcon
+    ReportProblemOutlined, ClearOutlinedIcon, MonetizationOnOutlinedIcon, IconButton
 };

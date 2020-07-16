@@ -31,6 +31,7 @@
             "beta": "Beta Releases",
             "stable": "Stable Releases"
         },
+        "copy": "Link copied to clipboard!",
         "notFound": "There are no releases for this device yet!",
         "fileSize": "File Size",
         "download": "Downloads",
@@ -46,7 +47,8 @@
         "fetchLink": "Fetching Links",
         "directLink": "Direct Link",
         "mirrorLink": "Mirror Link",
-        "close": "Close"
+        "close": "Close",
+        "info": "Info"
     },
     "footer": {
         "poweredBy": "Powered By {hostWebsite}",

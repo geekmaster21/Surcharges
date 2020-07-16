@@ -4,12 +4,16 @@ import { FormattedMessage } from 'react-intl';
 import { apiGetRelease } from '../../apis';
 import { usePreviousProps } from '../../hooks';
 import { EReleaseType, IRelease } from '../../models';
-import { GetSelectedLocale } from '../../utils';
+import { GetSelectedLocale, StopEvent } from '../../utils';
 import { ExpandMore, LabelImportantOutlinedIcon } from '../Icons';
 import { LinkLocale } from '../Link-Locale';
 import { LoadShimmer } from '../Load-Shimmer';
-import { Accordion, AccordionDetails, AccordionSummary, Button, Divider, MaterialList, ListItem, Typography } from '../React-Material';
+import {
+    Accordion, AccordionDetails, AccordionSummary,
+    Button, Divider, ListItem, MaterialList, Typography
+} from '../React-Material';
 import { Bugs } from './Bugs';
+import { BuildHyperLink } from './Build-Hyperlink';
 import { BuildNotes } from './Build-Notes';
 import { ChangeLogs } from './Change-Logs';
 import { Downloads } from './Downloads';
@@ -52,8 +56,8 @@ const Release: React.SFC<ReleaseProps> = props => {
 
     return (<>
         <Accordion
-            className={classes.root}
             expanded={expanded}
+            className={classes.root}
             defaultExpanded={defaultExpanded}
             onChange={() => onClick && onClick()}
         >
@@ -77,21 +81,26 @@ const Release: React.SFC<ReleaseProps> = props => {
                             showLoader && <LoadShimmer />
                         }
                     </Typography>
+                    <span onClick={StopEvent} >
+                        {
+                            release && <BuildHyperLink {...release} />
+                        }
+                        {
+                            showAllBuild && (
+                                <LinkLocale
+                                    to={`/device/${code}`}
+                                    className="link"
+                                >
+                                    <Button color="secondary">
+                                        <FormattedMessage
+                                            id="release.allBuild"
+                                            defaultMessage="Show All Builds" />
+                                    </Button>
+                                </LinkLocale>
+                            )
+                        }
+                    </span>
 
-                    {
-                        showAllBuild && (
-                            <LinkLocale
-                                to={`/device/${code}`}
-                                className="link"
-                            >
-                                <Button color="secondary">
-                                    <FormattedMessage
-                                        id="release.allBuild"
-                                        defaultMessage="Show All Builds" />
-                                </Button>
-                            </LinkLocale>
-                        )
-                    }
                 </div>
 
             </AccordionSummary>

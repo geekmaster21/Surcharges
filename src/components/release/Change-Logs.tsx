@@ -1,9 +1,9 @@
-import React from 'react';
 import {
     DialogContent, DialogTitle, ListItem,
     ListItemIcon, ListItemText
 } from '@material-ui/core';
 import { RouteComponentProps } from '@reach/router';
+import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { IRelease } from '../../models';
 import { DescriptionOutlined } from '../Icons';
