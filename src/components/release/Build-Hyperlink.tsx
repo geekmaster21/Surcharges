@@ -11,17 +11,17 @@ export const BuildHyperLink = (release: IRelease) => {
     const [modal, setModal] = React.useState(false);
     const toggleModal = () => setModal(!modal);
     const url = `${window.location.origin}/${locale}/build/${release.codename}/${release.build_type}/${release.version}`;
-
+    
     function onCopyClick(e: any) {
         StopEvent(e);
-        CopyToClipboard(url);
         toggleModal();
+        CopyToClipboard(url);
     }
 
     return (
         <>
-            <IconButton onClick={onCopyClick} color="secondary">
-                <HyperLink />
+            <IconButton onClick={onCopyClick} color="secondary" >
+                <HyperLink fontSize="small" style={{color: "white"}} />
             </IconButton>
             <Modal
                 showModal={modal}
