@@ -1,7 +1,7 @@
 {
     "languageInfo": {
-        "name": "Portuguese",
-        "emoji": "🇵🇹"
+        "name": "Português",
+        "emoji": "🇧🇷"
     },
     "mainPage": {
         "donation": "Doações",
@@ -31,6 +31,7 @@
             "beta": "Versões beta",
             "stable": "Lançamentos estáveis"
         },
+        "copy": "Link copiado para a área de transferência!",
         "notFound": "Ainda não há lançamentos para este dispositivo!",
         "fileSize": "Tamanho do arquivo",
         "download": "Downloads",
@@ -46,7 +47,8 @@
         "fetchLink": "Buscando links",
         "directLink": "Link direto",
         "mirrorLink": "Link espelhado",
-        "close": "Fechar"
+        "close": "Fechar",
+        "info": "Info."
     },
     "footer": {
         "poweredBy": "Desenvolvido por {hostWebsite}",
