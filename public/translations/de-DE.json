@@ -31,6 +31,7 @@
             "beta": "Beta-Versionen",
             "stable": "Stabile-Versionen"
         },
+        "copy": "Link in die Zwischenablage kopiert!",
         "notFound": "Es wurden noch keine Versionen für dieses Gerät veröffentlicht!",
         "fileSize": "Gesamtgröße",
         "download": "Downloads",
@@ -46,7 +47,8 @@
         "fetchLink": "Links werden abgerufen",
         "directLink": "Direkter Link",
         "mirrorLink": "Alternativer Link",
-        "close": "Schließen"
+        "close": "Schließen",
+        "info": "Info"
     },
     "footer": {
         "poweredBy": "Unterstützt von {hostWebsite}",

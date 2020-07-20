@@ -31,6 +31,7 @@
             "beta": "Rilis Beta",
             "stable": "Rilis Stabil"
         },
+        "copy": "Link tersalin ke clipboard!",
         "notFound": "Belum ada rilis untuk perangkat ini!",
         "fileSize": "Ukuran File",
         "download": "Unduh",
@@ -46,7 +47,8 @@
         "fetchLink": "Mengambil Tautan",
         "directLink": "Tautan Langsung",
         "mirrorLink": "Tautan Lain",
-        "close": "Tutup"
+        "close": "Tutup",
+        "info": "Info"
     },
     "footer": {
         "poweredBy": "Didukung Oleh {hostWebsite}",
