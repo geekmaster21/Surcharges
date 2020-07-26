@@ -123,8 +123,6 @@ const Release: React.SFC<ReleaseProps> = (props) => {
 
             <MD5 release={release} showLoader={showLoader} />
 
-            <Divider />
-
             <MaterialList component="div" className={classes.nestedList}>
               <Downloads release={release} showLoader={showLoader} />
 
