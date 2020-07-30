@@ -51,7 +51,7 @@
         "info": "Info"
     },
     "footer": {
-        "poweredBy": "Powered By {hostWebsite}",
+        "poweredBy": "Powered by {hostWebsite}",
         "openSource": "Open-Source Project"
     }
 }
