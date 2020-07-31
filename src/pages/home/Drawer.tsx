@@ -13,9 +13,8 @@ import {
 } from "../../components";
 import { MenuIcon } from "../../components/Icons";
 import { IDevice } from "../../models";
-import { isMobile } from "../../utils";
 import { DeviceList } from "./Device-List";
-import { DrawerMobile } from "./Drawer-Mobile";
+import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import { LanguageToggle } from "./Language-Toggle";
 import { useStyles } from "./style";
 
@@ -33,58 +32,56 @@ const Drawer: React.SFC = () => {
 
   return (
     <>
-      <AppBar position="fixed" className={classes.appBar}>
+      <AppBar className={classes.appBar}>
         <Toolbar className={classes.header}>
           <IconButton
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            className={classes.menuButton}
-            onClick={() => handleDrawerToggle(true)}
-          >
-            <MenuIcon />
+              color="inherit"
+              aria-label="open drawer"
+              edge="start"
+              onClick={() => handleDrawerToggle(true)}
+              className={classes.menuButton} >
+              <MenuIcon />
           </IconButton>
 
-          <Typography component="div" className={classes.headerContent}>
-            <LinkLocale to="/" className={"link no-hover " + classes.brand}>
-              OrangeFox <span className={classes.recoverySmall}>Recovery</span>
-            </LinkLocale>
-
-            <div className={classes.headerControls}>
-              <Donations
-                className={"link no-hover " + classes.headerContentRight}
-              />
-
-              <Wiki className={"link no-hover " + classes.headerContentRight} />
-
-              <LanguageToggle />
-            </div>
+          <Typography
+              component="div"
+              className={classes.headerContent} >
+              <LinkLocale
+                  to="/"
+                  className={'link no-hover ' + classes.brand} >
+                  OrangeFox <span className={classes.recoverySmall}>Recovery</span>
+              </LinkLocale>
           </Typography>
+          
+          <Donations className={'link no-hover ' + classes.headerContentRight} />
+          <Wiki className={'link no-hover ' + classes.headerContentRight} />
+          <LanguageToggle />
         </Toolbar>
       </AppBar>
 
       <nav className={classes.drawer}>
-        <Hidden smUp={isMobile} xsDown={!isMobile} implementation="css">
-          {isMobile ? (
-            <DrawerMobile
-              openDrawer={mobileOpen}
-              onStateChange={handleDrawerToggle}
-              classes={{ paper: classes.drawerPaper }}
-            >
-              <DeviceList
-                data={list}
-                handleDeviceClick={() => handleDrawerToggle(false)}
-              />
-            </DrawerMobile>
-          ) : (
+        <Hidden smUp implementation="css">
+            <SwipeableDrawer
+                disableBackdropTransition
+                open={mobileOpen}
+                anchor="left"
+                onOpen={() => handleDrawerToggle(true)}
+                onClose={() => handleDrawerToggle(false)}
+                classes={{ paper: classes.drawerPaper, }}>
+
+                <DeviceList data={list}
+                            handleDeviceClick={() => handleDrawerToggle(false)} />
+
+            </SwipeableDrawer>
+        </Hidden>
+
+        <Hidden xsDown implementation="css">
             <DrawerDesktop
-              open
-              variant="permanent"
-              classes={{ paper: classes.drawerPaper }}
-            >
-              <DeviceList data={list} />
+                classes={{ paper: classes.drawerPaper, }}
+                variant="permanent"
+                open >
+                <DeviceList data={list} />
             </DrawerDesktop>
-          )}
         </Hidden>
 
         {/* <ul className="device-list-seo" role="acts as a ">
