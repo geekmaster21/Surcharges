@@ -16,6 +16,10 @@ body {
     user-select: none;
 }
 
+body, header{
+    padding-right: 0 !important;
+}
+
 .selectable {
     user-select: text;
 }
