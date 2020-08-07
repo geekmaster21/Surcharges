@@ -6,6 +6,7 @@ import { sortBy, STORAGE } from "../../core";
 import { ILanguage } from "../../models";
 import { GetSelectedLocale } from "../../utils";
 import { useStyles } from "./style";
+import KeyboardArrowDownRoundedIcon from '@material-ui/icons/KeyboardArrowDownRounded';
 
 const LanguageToggle: React.SFC = () => {
   const classes = useStyles();
@@ -43,6 +44,8 @@ const LanguageToggle: React.SFC = () => {
         displayEmpty
         value={locale}
         onChange={handleChange}
+        IconComponent={KeyboardArrowDownRoundedIcon}
+        classes={{ icon: classes.selectIcon }}
         renderValue={() => getEmoji()}
       >
         {langs.map((m) => (

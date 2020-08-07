@@ -13,6 +13,7 @@ import {
     PermIdentityOutlinedIcon, ReportProblemOutlined
 } from './Icons';
 import { LoadShimmer } from './Load-Shimmer';
+import { isMobile } from "../utils";
 
 interface DeviceInfoProps extends RouteComponentProps {
     code?: string;
@@ -145,6 +146,8 @@ const DeviceInfo: React.SFC<DeviceInfoProps> = ({ code }) => {
         <Accordion
             defaultExpanded
             className={classes.root}
+            TransitionProps={{ timeout: isMobile ? 0 : 500 }}
+            style={isMobile ? { transform: 'none', transition: 'none' } : {}}
         >
 
             <AccordionSummary

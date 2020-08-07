@@ -1,13 +1,11 @@
 import React from 'react';
 import {
-    DialogContent, DialogTitle, ListItem,
-    ListItemIcon, ListItemText
+    DialogContent, DialogTitle, Button
 } from '@material-ui/core';
 import { RouteComponentProps } from '@reach/router';
 import { FormattedMessage } from 'react-intl';
 import { IRelease } from '../../models';
 import { SpeakerNotesOutlined } from '../Icons';
-import { LoadShimmer } from '../Load-Shimmer';
 import { Modal } from '../Modal';
 import { useStylesRelease } from './helpers';
 import { SplitMsg } from './Split-Msg';
@@ -28,33 +26,15 @@ const BuildNotes: React.SFC<BuildNotesProps> = ({ release, showLoader }) => {
     );
 
     return (<>
-
-        <ListItem
-            button
-            onClick={handleModal}
-        >
-            <ListItemIcon>
-                <SpeakerNotesOutlined
-                    fontSize="small"
-                    className={classes.icon}
-                />
-            </ListItemIcon>
-            {
-                !showLoader && (<>
-                    <ListItemText primary={<Title />} />
-                </>)
-            }
-
-            {/* Loading Placeholder */}
-            {
-                showLoader && (<>
-                    <ListItemText
-                        primary={<LoadShimmer />}
-                        secondary={<LoadShimmer />}
-                    />
-                </>)
-            }
-        </ListItem>
+        {showLoader ? ( <span className={"shimmer-button " + classes.outlinedButton}/> ) : (
+            <Button variant="outlined"
+                color="secondary"
+                onClick={handleModal}
+                className={classes.outlinedButton}
+                startIcon={<SpeakerNotesOutlined/>} >
+                <Title />
+            </Button>
+        ) }
 
         <Modal
             showModal={showModal}
@@ -63,7 +43,7 @@ const BuildNotes: React.SFC<BuildNotesProps> = ({ release, showLoader }) => {
             <DialogTitle>
                 <Title />
             </DialogTitle>
-            <DialogContent dividers>
+            <DialogContent dividers className="selectable">
                 <SplitMsg msg={release.notes} />
             </DialogContent>
         </Modal>

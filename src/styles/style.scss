@@ -16,6 +16,14 @@ body {
     user-select: none;
 }
 
+body, header{
+    padding-right: 0 !important;
+}
+
+.selectable {
+    user-select: text;
+}
+
 @media screen and (min-width: 600px) {
     html {
         font-size: 1.15em !important;
@@ -71,6 +79,10 @@ p {
     }
 }
 
+.inheritColor {
+    color: inherit;
+}
+
 ul.no-list-style {
     list-style: none;
     padding: 0;
@@ -110,4 +122,22 @@ ul.no-list-style {
 
 .device-list-seo {
     display: none;
+}
+
+.iconMenu {
+    margin-right: 12px;
+    margin-left: -4px;
+}
+
+.bigIcon {
+    font-size: 1.5rem !important
+}
+
+.whiteColor {
+    color: white !important
+}
+
+.wikiButton {
+    @extend .whiteColor;
+    margin: 0 -12px 0 8px !important;
 }

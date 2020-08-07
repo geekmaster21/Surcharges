@@ -14,6 +14,7 @@ import { ExpandMore, StarBorderOutlinedIcon } from "../../components/Icons";
 import { isEqual, sortBy } from "../../core";
 import { usePreviousProps } from "../../hooks";
 import { EReleaseType, IRelease } from "../../models";
+import { isMobile } from "../../utils";
 
 interface ReleaseTypeProps extends RouteComponentProps {
   code: string;
@@ -71,7 +72,10 @@ const ReleaseType: React.SFC<ReleaseTypeProps> = (props) => {
 
   return (
     <>
-      <Accordion className={classes.root} defaultExpanded={expanded}>
+      <Accordion className={classes.root}
+                 defaultExpanded={expanded}
+                 TransitionProps={{ timeout: isMobile ? 0 : 500 }}
+                 style={isMobile ? { transform: 'none', transition: 'none' } : {}}>
         <AccordionSummary
           id={`release-${type}-header`}
           expandIcon={<ExpandMore className={classes.icon} />}
