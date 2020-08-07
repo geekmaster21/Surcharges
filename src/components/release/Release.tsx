@@ -27,6 +27,7 @@ import { FileName } from "./File-Name";
 import { FileSize } from "./File-Size";
 import { useStylesRelease } from "./helpers";
 import { MD5 } from "./MD5";
+import { isMobile } from "../../utils";
 
 interface ReleaseProps extends RouteComponentProps {
   code?: string;
@@ -74,6 +75,8 @@ const Release: React.SFC<ReleaseProps> = (props) => {
         className={classes.root}
         defaultExpanded={defaultExpanded}
         onChange={() => onClick && onClick()}
+        TransitionProps={{ timeout: isMobile ? 0 : 500 }}
+        style={isMobile ? { transform: 'none', transition: 'none' } : {}}
       >
         <AccordionSummary
           id={_version}
