@@ -107,7 +107,8 @@ dist
 build/*
 dist*
 .vscode
+*.lock
+*lock.json
 
 # Jetbrains editors
 .idea
-*.lock

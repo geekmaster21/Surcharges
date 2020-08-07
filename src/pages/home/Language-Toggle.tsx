@@ -2,11 +2,11 @@ import { navigate, useLocation } from "@reach/router";
 import React from "react";
 import { apiGetAllLanguages } from "../../apis";
 import { FormControl, MenuItem, Select } from "../../components";
+import { KeyboardArrowDownRoundedIcon } from "../../components/Icons";
 import { sortBy, STORAGE } from "../../core";
 import { ILanguage } from "../../models";
 import { GetSelectedLocale } from "../../utils";
 import { useStyles } from "./style";
-import KeyboardArrowDownRoundedIcon from '@material-ui/icons/KeyboardArrowDownRounded';
 
 const LanguageToggle: React.SFC = () => {
   const classes = useStyles();
