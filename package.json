@@ -1,6 +1,6 @@
 {
   "name": "d-site",
-  "version": "20.7.30-0",
+  "version": "20.8.8-0i",
   "private": true,
   "scripts": {
     "start": "react-scripts start",
