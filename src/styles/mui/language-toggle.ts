@@ -15,7 +15,15 @@ export default makeStyles((theme: Theme) => ({
   listItemSelected: {
     borderLeft: "3px solid var(--orange-1)",
   },
-  selectIcon: {
+  select: {
+    color: "var(--orange-1)",
+    width: "55px",
+    marginRight: theme.spacing(7),
+    [theme.breakpoints.up("sm")]: {
+      marginRight: theme.spacing(3),
+    },
+  },
+  arrowIcon: {
     fontSize: "20px",
     marginTop: "2px",
     color: "white",

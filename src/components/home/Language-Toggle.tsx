@@ -38,8 +38,9 @@ const LanguageToggle = () => {
         displayEmpty
         value={locale}
         onChange={handleChange}
+        className={classes.select}
         IconComponent={KeyboardArrowDownRoundedIcon}
-        classes={{ icon: classes.selectIcon }}
+        classes={{ icon: classes.arrowIcon }}
         renderValue={() => getEmoji()}
       >
         {langs.map((m) => (

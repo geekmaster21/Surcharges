@@ -1,11 +1,5 @@
-import {
-  DialogContent,
-  DialogTitle,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-} from "@material-ui/core";
-import { LoadShimmer, Modal, VerifiedUserOutlined } from "components/common";
+import { ListItem, ListItemIcon, ListItemText } from "@material-ui/core";
+import { LoadShimmer, Toast, VerifiedUserOutlined } from "components/common";
 import { IRelease } from "models";
 import { useState } from "react";
 import { FormattedMessage } from "react-intl";
@@ -54,12 +48,12 @@ const MD5: React.SFC<Props> = ({ release, showLoader }) => {
       </ListItem>
 
       {release?.md5 && (
-        <Modal showModal={modal} toggleModal={toggleModal}>
-          <DialogTitle>
-            <FormattedMessage id="copy.info" defaultMessage="Info" />
-          </DialogTitle>
-          <DialogContent dividers>MD5 copied to clipboard!</DialogContent>
-        </Modal>
+        <Toast show={modal} onClose={toggleModal}>
+          <FormattedMessage
+            id="copy.info"
+            defaultMessage="Copied to clipboard!"
+          />
+        </Toast>
       )}
     </>
   ) : null;

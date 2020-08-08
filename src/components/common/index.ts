@@ -11,4 +11,5 @@ export * from "./Modal";
 export * from "./Not-Found";
 export * from "./Open-Outside";
 export * from "./Powered-By";
+export * from "./Toast";
 export * from "./Wiki";

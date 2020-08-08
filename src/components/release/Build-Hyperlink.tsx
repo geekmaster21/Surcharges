@@ -1,5 +1,5 @@
-import { DialogContent, DialogTitle, IconButton } from "@material-ui/core";
-import { HyperLink, Modal } from "components/common";
+import { IconButton } from "@material-ui/core";
+import { HyperLink, Toast } from "components/common";
 import { IRelease } from "models";
 import { useState } from "react";
 import { FormattedMessage } from "react-intl";
@@ -31,26 +31,12 @@ export const BuildHyperLink = (release: IRelease) => {
       >
         <HyperLink fontSize="small" />
       </IconButton>
-      <Modal showModal={modal} toggleModal={toggleModal}>
-        <DialogTitle>
-          <FormattedMessage id="copy.info" defaultMessage="Info" />
-        </DialogTitle>
-        <DialogContent dividers>
-          <FormattedMessage
-            id="release.copy"
-            defaultMessage="Link copied to clipboard!"
-          />
-          <br />
-          <a
-            className="link orange selectable"
-            href={url}
-            target="_blank"
-            rel="noopener nofollow noreferrer"
-          >
-            {url}
-          </a>
-        </DialogContent>
-      </Modal>
+      <Toast show={modal} onClose={toggleModal}>
+        <FormattedMessage
+          id="copy.info"
+          defaultMessage="Copied to clipboard!"
+        />
+      </Toast>
     </>
   );
 };
