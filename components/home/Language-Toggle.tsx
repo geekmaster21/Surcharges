@@ -9,8 +9,7 @@ const LanguageToggle = () => {
   const classes = useStyles();
   const router = useRouter();
   const { availableLanguages: langs } = config;
-  const currentLocale = GetCurrentLocale();
-  console.log(currentLocale);
+  const locale = GetCurrentLocale();
 
   const handleChange = ({ target: { value } }: any) => {
     const query = (router.query || {}) as any;
@@ -25,7 +24,7 @@ const LanguageToggle = () => {
   };
 
   function getEmoji() {
-    const lang = langs?.find((f) => f.code === currentLocale);
+    const lang = langs?.find((f) => f.code === locale);
     return lang ? lang.emoji : null;
   }
 
@@ -37,7 +36,7 @@ const LanguageToggle = () => {
     >
       <Select
         displayEmpty
-        value={currentLocale}
+        value={locale}
         onChange={handleChange}
         IconComponent={KeyboardArrowDownRoundedIcon}
         classes={{ icon: classes.selectIcon }}

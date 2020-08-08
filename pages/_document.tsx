@@ -7,7 +7,7 @@ import Document, {
   NextScript,
 } from "next/document";
 import React from "react";
-import { CreateOriginUrl, GetCurrentLocale } from "utils";
+import { GetCurrentLocale } from "utils";
 
 export default class OrangeFoxDocument extends Document {
   render() {
@@ -36,7 +36,6 @@ OrangeFoxDocument.getInitialProps = async (ctx: DocumentContext) => {
             {...props}
             pageProps={{
               ...props.pageProps,
-              origin: CreateOriginUrl(ctx),
             }}
           />
         ),

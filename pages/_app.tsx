@@ -11,7 +11,12 @@ import React, { useEffect } from "react";
 import { IntlProvider } from "react-intl";
 import "styles/app.scss";
 import useStyles from "styles/mui/app";
-import { keyOfLang, RedirectIfNecessary, SetCurrentLocale } from "utils";
+import {
+  Dotize,
+  keyOfLang,
+  RedirectIfNecessary,
+  SetCurrentLocale,
+} from "utils";
 import { DarkTheme } from "../themes";
 
 const MetaDesc = [
@@ -23,7 +28,7 @@ export default function OrangeFoxApp(props: AppPropsType) {
   const classes = useStyles();
   const {
     Component,
-    pageProps: { translations, deviceList, origin, ...pageProps },
+    pageProps: { translations, deviceList, locale, ...pageProps },
   } = props;
 
   const list = (deviceList || []) as IDevice[];
@@ -70,7 +75,7 @@ export default function OrangeFoxApp(props: AppPropsType) {
         }}
       />
       <ThemeProvider theme={DarkTheme}>
-        <IntlProvider locale={config.currentLocale} messages={translations}>
+        <IntlProvider locale={locale} messages={translations}>
           <CssBaseline />
           <div className={classes.root}>
             <Drawer list={list} />
@@ -99,20 +104,19 @@ OrangeFoxApp.getInitialProps = async ({ ctx, Component }: AppContextType) => {
     SetCurrentLocale(serverLocale);
     deviceList = await apiGetAllDeviceList();
 
-    const transResults = await import(
-      `public/translations/${serverLocale}.json`
-    );
-    translations = transResults.default;
+    await import(`public/translations/${serverLocale}.json`).then((x) => {
+      translations = Dotize.convert(x.default || x);
+    });
 
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx);
     }
   }
+
   return {
     pageProps: {
       ...pageProps,
       deviceList,
-      serverLocale,
       translations,
       locale: serverLocale,
     },

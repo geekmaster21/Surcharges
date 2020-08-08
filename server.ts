@@ -15,7 +15,7 @@ app.prepare().then(() => {
 
   // tslint:disable-next-line:no-console
   console.log(
-    `> Server running @ http://localhost:${port} as ${
+    `Serving http://localhost:${port} as ${
       dev ? "development" : process.env.NODE_ENV
     }`
   );
