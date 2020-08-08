@@ -3,33 +3,38 @@
     place-content: center;
     place-items: center;
     min-height: calc(100vh - 232px);
-    
     margin-bottom: 1rem;
 }
+
 .big-image {
     flex-direction: column;
     font-family: 'Euclid';
     font-size: 12pt;
 }
+
 .nf-img {
     max-width: 512px;
     margin: 24px 12px;
 }
+
 .select-dev-img {
     max-width: 400px;
     margin: 0 12px;
 }
+
 .select-dev {
     max-width: 224px;
     text-align: center;
     color: $orange-1;
 }
+
 .bottom-logo {
     display: flex;
     vertical-align: bottom;
     place-content: center;
     place-items: center;
 }
+
 .logo {
     height: 48px;
     margin-right: 12px;

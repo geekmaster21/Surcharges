@@ -23,6 +23,6 @@ for file in langs:
 
 LANGUAGES = sorted(LANGUAGES, key=itemgetter('name'))
 
-with open('public/translations/translations.json', 'w+') as f:
+with open('public/translations/list.json', 'w+') as f:
     dump = json.dumps(LANGUAGES, indent=2)
     f.write(dump)

@@ -4,10 +4,12 @@ import Cookies from 'universal-cookie';
 const ofLang = 'of-lang';
 const cookies = new Cookies();
 
-export const SetSelectedLocale = (lang?: string) => {
-    cookies.set(ofLang, lang);
+export const SetCurrentLocale = (locale: string) => {
+    config.currentLocale = locale;
+    cookies.set(ofLang, locale);
 }
 
-export const GetSelectedLocale = () => {
-    return cookies.get(ofLang) || config.defaultLang;
+export const GetCurrentLocale = (): string => {
+    const value = cookies.get(ofLang);
+    return String((value ? value : config.defaultLang) || 'en');
 }

@@ -7,20 +7,14 @@ import Document, {
   NextScript,
 } from "next/document";
 import React from "react";
-import { DarkTheme } from "../themes";
+import { GetCurrentLocale } from "utils";
 
 export default class OrangeFoxDocument extends Document {
   render() {
+    const lang = GetCurrentLocale();
     return (
-      <Html lang="en">
-        <Head>
-          {/* PWA primary color */}
-          <meta name="theme-color" content={DarkTheme.palette.primary.main} />
-          <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-          />
-        </Head>
+      <Html lang={lang}>
+        <Head />
         <body>
           <Main />
           <NextScript />
