@@ -1,28 +1,40 @@
-import { useRouter } from "next/router";
-import { EReleaseType } from "models";
+import { apiGetAllReleases, apiGetDeviceByCode } from "apis";
+import { DeviceInfo } from "components/common";
+import { DeviceReleases } from "components/device-releases";
+import { IAllReleases, IDevice } from "models";
+import { NextPageContext } from "next";
+import { RedirectTo } from "utils";
 
 type Props = {
-  code?: string;
-  version?: string;
-  type?: EReleaseType;
+  info: IDevice;
+  releases: IAllReleases;
 };
 
-const Build = () => {
-  const router = useRouter();
-  const { code, type, version } = router.query as Props;
+const Device = ({ info, releases }: Props) => {
   return (
     <>
-      {router.pathname}
-      <br />
-      {router.asPath}
-      <br />
-      {code}
-      <br />
-      {type}
-      <br />
-      {version}
+      <DeviceInfo {...info} />
+      <DeviceReleases code={info.codename} releases={releases} />
     </>
   );
 };
 
-export default Build;
+async function safe<T>(fn: () => Promise<T>) {
+  return fn().catch(() => Promise.resolve(undefined));
+}
+
+Device.getInitialProps = async ({ query, res }: NextPageContext) => {
+  const code = query.code as string;
+  const info = await safe(() => apiGetDeviceByCode(code));
+  if (!info) {
+    RedirectTo({ res, asPath: "/404" } as NextPageContext);
+  }
+  const releases = await safe(() => apiGetAllReleases(code));
+
+  return {
+    info,
+    releases,
+  };
+};
+
+export default Device;

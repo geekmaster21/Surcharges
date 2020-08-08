@@ -15,8 +15,8 @@ const LanguageToggle: React.SFC = () => {
       .filter(Boolean)
       .slice(1)
       .join("/");
-    const url = `/${value}${path ? `/${path}` : ""}`;
-    router.push(url);
+    const url = `${value}${path ? `${path}` : ""}`;
+    router.push(`/${url}`);
   };
 
   function getEmoji() {

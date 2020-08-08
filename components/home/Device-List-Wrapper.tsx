@@ -6,8 +6,8 @@ import React from "react";
 import { FormattedMessage } from "react-intl";
 import useStyles from "styles/mui/device-list";
 import { LocalizedPaths } from "utils";
-import { groupBy } from "../../core";
-import { IDevice, IDeviceGroup } from "../../models";
+import { groupBy } from "core";
+import { IDevice, IDeviceGroup } from "models";
 import { DeviceList } from "./Device-List";
 
 interface DeviceListWrapperProps {

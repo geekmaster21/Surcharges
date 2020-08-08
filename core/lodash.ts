@@ -1,3 +1,9 @@
-export { default as groupBy } from 'lodash.groupby';
-export { default as isEqual } from 'lodash.isequal';
-export { default as sortBy } from 'lodash.sortby';
+import groupBy from "lodash.groupby";
+import isEqual from "lodash.isequal";
+import sortBy from "lodash.sortby";
+
+export {
+    groupBy,
+    isEqual,
+    sortBy,
+};

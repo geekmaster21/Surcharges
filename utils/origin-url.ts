@@ -1,7 +1,7 @@
 import { DocumentContext } from "next/document";
 import { IsCSR } from "./common";
 
-export function CreateAssetPath(ctx: DocumentContext) {
+export function CreateOriginUrl(ctx: DocumentContext) {
     let baseUrl = "";
     if (IsCSR) {
         baseUrl = location.origin;
