@@ -21,10 +21,9 @@
   "version": "20.8.8-2",
   "private": false,
   "scripts": {
-    "dev": "cross-env NODE_ENV=development nodemon",
     "next": "next",
-    "clean-up": "rimraf dist .next",
-    "build": "npm run clean-up && next build && tsc --project tsconfig.server.json",
+    "dev": "cross-env NODE_ENV=development nodemon",
+    "build": "next build && tsc --project tsconfig.server.json",
     "start": "cross-env NODE_ENV=production node dist/server.js"
   },
   "dependencies": {
@@ -44,8 +43,7 @@
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-intl": "^5.4.6",
-    "universal-cookie": "^4.0.3"
+    "react-intl": "^5.4.6"
   },
   "devDependencies": {
     "@types/js-cookie": "^2.2.6",
@@ -59,7 +57,6 @@
     "@types/react": "^16.9.44",
     "@types/react-dom": "^16.9.8",
     "nodemon": "^2.0.4",
-    "rimraf": "^3.0.2",
     "ts-node": "^8.10.2",
     "typescript": "~3.9.7"
   },
