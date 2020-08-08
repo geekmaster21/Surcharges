@@ -98,6 +98,7 @@ OrangeFoxApp.getInitialProps = async ({ ctx, Component }: AppContextType) => {
       `public/translations/${currentLocale}.json`
     );
     translations = transResults.default;
+    console.log(translations);
 
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx);

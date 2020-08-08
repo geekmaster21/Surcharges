@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import useStyles from "styles/mui/language-toggle";
 import { SetCurrentLocale } from "utils";
 
-const LanguageToggle: React.SFC = () => {
+const LanguageToggle = () => {
   const classes = useStyles();
   const router = useRouter();
   const { availableLanguages: langs, currentLocale } = config;

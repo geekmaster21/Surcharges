@@ -21,13 +21,12 @@
   "version": "20.8.8-4",
   "private": false,
   "scripts": {
-    "next": "next",
+    "next": "NODE_OPTIONS='--inspect' next",
     "dev": "cross-env NODE_ENV=development nodemon",
     "build": "next build && tsc --project tsconfig.server.json",
     "start": "cross-env NODE_ENV=production node dist/server.js"
   },
   "dependencies": {
-    "@loadable/component": "^5.13.1",
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
     "cross-env": "^7.0.2",
@@ -48,7 +47,6 @@
   "devDependencies": {
     "@types/js-cookie": "^2.2.6",
     "@types/linkifyjs": "^2.1.3",
-    "@types/loadable__component": "^5.13.0",
     "@types/lodash.groupby": "^4.6.6",
     "@types/lodash.isequal": "^4.5.5",
     "@types/lodash.sortby": "^4.7.6",
