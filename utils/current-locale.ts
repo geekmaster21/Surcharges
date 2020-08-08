@@ -1,8 +1,7 @@
 import config from 'config';
-import Cookies from 'universal-cookie';
+import cookies from 'js-cookie';
 
 const ofLang = 'of-lang';
-const cookies = new Cookies();
 
 export const SetCurrentLocale = (locale: string) => {
     config.currentLocale = locale;

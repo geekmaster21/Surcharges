@@ -109,6 +109,7 @@ dist*
 .vscode
 *.lock
 *lock.json
+server.js
 
 # Jetbrains editors
 .idea
