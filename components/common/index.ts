@@ -8,6 +8,7 @@ export * from "./Load-Shimmer";
 export * from "./Meta-Tags-Dynamic";
 export * from "./Meta-Tags-Static";
 export * from "./Modal";
+export * from "./Not-Found";
 export * from "./Open-Outside";
 export * from "./Powered-By";
 export * from "./Wiki";

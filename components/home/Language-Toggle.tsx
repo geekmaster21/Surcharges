@@ -3,6 +3,7 @@ import { KeyboardArrowDownRoundedIcon } from "components/common";
 import config from "config";
 import { useRouter } from "next/router";
 import useStyles from "styles/mui/language-toggle";
+import { SetCurrentLocale } from "utils";
 
 const LanguageToggle: React.SFC = () => {
   const classes = useStyles();
@@ -10,13 +11,15 @@ const LanguageToggle: React.SFC = () => {
   const { availableLanguages: langs, currentLocale } = config;
 
   const handleChange = ({ target: { value } }: any) => {
-    const path = (router.asPath || "")
-      .split("/")
-      .filter(Boolean)
-      .slice(1)
-      .join("/");
-    const url = `${value}${path ? `${path}` : ""}`;
-    router.push(`/${url}`);
+    const query = (router.query || {}) as any;
+    query.lang = value;
+    SetCurrentLocale(value);
+    const url = router.pathname;
+    let as = url;
+    Object.keys(query).forEach((key) => {
+      as = as.replace(`[${key}]`, query[key]);
+    });
+    router.push(url, as);
   };
 
   function getEmoji() {
