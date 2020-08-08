@@ -18,7 +18,7 @@
   "displayName": "OrangeFox Recovery | Downloads",
   "license": "AGPL-3.0-or-later",
   "homepage": "http://orangefox.download",
-  "version": "20.8.8-3",
+  "version": "20.8.8-4",
   "private": false,
   "scripts": {
     "next": "next",
