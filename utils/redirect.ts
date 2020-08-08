@@ -23,14 +23,14 @@ export function RedirectTo(ctx: NextPageContext, locale?: string) {
   return false;
 }
 
-export function RedirectIfNecessary(ctx: NextPageContext) {
+export function RedirectIfNecessary(ctx: NextPageContext, locale?: string) {
   const { asPath } = ctx;
   if (asPath) {
     const { localePattern } = config;
     const reqLocale = (asPath || "").split("/").filter(Boolean).shift() || "";
     if (!localePattern.test(reqLocale)) {
       // is not like /en
-      return RedirectTo(ctx);
+      return RedirectTo(ctx, locale);
     }
   }
   return false;

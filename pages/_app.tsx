@@ -4,13 +4,14 @@ import { apiGetAllDeviceList } from "apis";
 import { Footer, MetaTagsDynamic, MetaTagsStatic } from "components/common";
 import { Drawer } from "components/home";
 import config from "config";
+import cookie from "cookie";
 import { IDevice } from "models";
 import { AppContextType, AppPropsType } from "next/dist/next-server/lib/utils";
 import React, { useEffect } from "react";
 import { IntlProvider } from "react-intl";
 import "styles/app.scss";
 import useStyles from "styles/mui/app";
-import { RedirectIfNecessary } from "utils";
+import { keyOfLang, RedirectIfNecessary, SetCurrentLocale } from "utils";
 import { DarkTheme } from "../themes";
 
 const MetaDesc = [
@@ -22,7 +23,7 @@ export default function OrangeFoxApp(props: AppPropsType) {
   const classes = useStyles();
   const {
     Component,
-    pageProps: { messages, deviceList, origin, ...pageProps },
+    pageProps: { translations, deviceList, origin, ...pageProps },
   } = props;
 
   const list = (deviceList || []) as IDevice[];
@@ -69,7 +70,7 @@ export default function OrangeFoxApp(props: AppPropsType) {
         }}
       />
       <ThemeProvider theme={DarkTheme}>
-        <IntlProvider locale={config.currentLocale} messages={messages}>
+        <IntlProvider locale={config.currentLocale} messages={translations}>
           <CssBaseline />
           <div className={classes.root}>
             <Drawer list={list} />
@@ -85,20 +86,23 @@ export default function OrangeFoxApp(props: AppPropsType) {
 }
 
 OrangeFoxApp.getInitialProps = async ({ ctx, Component }: AppContextType) => {
-  const isRedirected = RedirectIfNecessary(ctx);
+  const serverLocale =
+    cookie.parse(ctx.req?.headers.cookie || "")[keyOfLang] ||
+    config.currentLocale;
+
+  const isRedirected = RedirectIfNecessary(ctx, serverLocale);
   let pageProps: any = {},
     translations: any = {},
     deviceList: IDevice[] = [];
-  const { currentLocale } = config;
 
   if (!isRedirected) {
+    SetCurrentLocale(serverLocale);
     deviceList = await apiGetAllDeviceList();
 
     const transResults = await import(
-      `public/translations/${currentLocale}.json`
+      `public/translations/${serverLocale}.json`
     );
     translations = transResults.default;
-    console.log(translations);
 
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx);
@@ -108,8 +112,9 @@ OrangeFoxApp.getInitialProps = async ({ ctx, Component }: AppContextType) => {
     pageProps: {
       ...pageProps,
       deviceList,
+      serverLocale,
       translations,
-      locale: currentLocale,
+      locale: serverLocale,
     },
   };
 };

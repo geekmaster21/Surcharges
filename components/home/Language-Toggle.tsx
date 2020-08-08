@@ -3,12 +3,14 @@ import { KeyboardArrowDownRoundedIcon } from "components/common";
 import config from "config";
 import { useRouter } from "next/router";
 import useStyles from "styles/mui/language-toggle";
-import { SetCurrentLocale } from "utils";
+import { GetCurrentLocale, SetCurrentLocale } from "utils";
 
 const LanguageToggle = () => {
   const classes = useStyles();
   const router = useRouter();
-  const { availableLanguages: langs, currentLocale } = config;
+  const { availableLanguages: langs } = config;
+  const currentLocale = GetCurrentLocale();
+  console.log(currentLocale);
 
   const handleChange = ({ target: { value } }: any) => {
     const query = (router.query || {}) as any;

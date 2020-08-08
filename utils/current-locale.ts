@@ -1,14 +1,21 @@
-import config from 'config';
-import cookies from 'js-cookie';
+import config from "config";
+import cookies from "js-cookie";
 
-const ofLang = 'of-lang';
+export const keyOfLang = "of-lang";
 
 export const SetCurrentLocale = (locale: string) => {
-    config.currentLocale = locale;
-    cookies.set(ofLang, locale);
-}
+  const _locale = locale || "en";
+  console.log("set _locale", _locale);
+  config.currentLocale = _locale;
+  cookies.set(keyOfLang, _locale);
+};
 
 export const GetCurrentLocale = (): string => {
-    const value = cookies.get(ofLang);
-    return String((value ? value : config.defaultLang) || 'en');
-}
+  const _locale =
+    cookies.get(keyOfLang) ||
+    config.currentLocale ||
+    config.defaultLang ||
+    "en";
+  console.log("get _locale", _locale);
+  return _locale;
+};
