@@ -1,7 +1,9 @@
+import Head from "next/head";
 import { DarkTheme } from "themes";
 
-export const StaticMetaTags = () => (
-  <>
+export const MetaTagsStatic = () => (
+  <Head>
+    <title>OrangeFox Recovery</title>
     <meta charSet="utf-8" />
 
     <meta name="theme-color" content={DarkTheme.palette.primary.main} />
@@ -10,7 +12,6 @@ export const StaticMetaTags = () => (
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
     />
-    <meta name="theme-color" content="#E06902" />
     <meta name="description" content="OrangeFox Recovery | Downloads" />
 
     <meta name="msapplication-TileColor" content="#000000" />
@@ -57,5 +58,5 @@ export const StaticMetaTags = () => (
       href="/android-icon-192x192.png"
     />
     <link rel="manifest" href="/manifest.json" />
-  </>
+  </Head>
 );

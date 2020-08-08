@@ -1,4 +1,5 @@
 export interface IDevice {
+    _id: string;
     codename: string;
     modelname: string;
     fullname: string;

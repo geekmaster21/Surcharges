@@ -6,9 +6,13 @@ import {
   Typography,
 } from "@material-ui/core";
 import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
-import { IconButton, MenuIcon, Wiki } from "components/common";
-import { Donations } from "components/common/Donation";
-import { LinkLocale } from "components/common/Link-Locale";
+import {
+  Donations,
+  IconButton,
+  LinkLocale,
+  MenuIcon,
+  Wiki,
+} from "components/common";
 import { IDevice } from "models";
 import { useState } from "react";
 import useStyles from "styles/mui/drawer";

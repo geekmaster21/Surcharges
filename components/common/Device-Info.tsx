@@ -21,7 +21,7 @@ import { LoadShimmer } from "./Load-Shimmer";
 
 const DeviceInfo = (device: IDevice) => {
   const classes = useStyles();
-  const maintainer = device.maintainer?.name;
+  const maintainer = device.maintainer?.name || "None";
   let maintainPrimaryText: JSX.Element | null = null;
   let maintainSecondaryText: JSX.Element | null = null;
 
@@ -77,7 +77,7 @@ const DeviceInfo = (device: IDevice) => {
         <FormattedMessage
           id="maintain.by.previous"
           defaultMessage="Previous Maintainer: {maintainer}"
-          values={{ maintainer: maintainer || "None" }}
+          values={{ maintainer }}
         />
       );
       break;

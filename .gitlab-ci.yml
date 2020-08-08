@@ -1,10 +1,8 @@
 stages:
   - docker:push
 
-
 variables:
   DOCKER_IMAGE: "registry.gitlab.com/orangefox/infrastructure/dsite:$CI_COMMIT_BRANCH"
-
 
 docker:push:
   image: docker:latest
@@ -20,7 +18,7 @@ docker:push:
     - docker build --pull -t "$DOCKER_IMAGE" .
     - docker push "$DOCKER_IMAGE"
   artifacts:
-    paths: [public/translations/translations.json]
+    paths: [public/translations/list.json]
   only:
     - master
     - ci-test

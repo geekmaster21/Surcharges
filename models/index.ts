@@ -1,3 +1,4 @@
+export * from "./children";
 export * from './device';
 export * from './language';
 export * from './location-state';
