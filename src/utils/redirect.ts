@@ -23,7 +23,8 @@ export function RedirectTo(ctx: NextPageContext, locale?: string) {
   return false;
 }
 
-export function RedirectIfNecessary(ctx: NextPageContext, locale?: string) {
+/** This function redirects route on missing or incorrect locale when passed in the url */
+export function RedirectOnMissingLocale(ctx: NextPageContext, locale?: string) {
   const { asPath } = ctx;
   if (asPath) {
     const { localePattern } = config;

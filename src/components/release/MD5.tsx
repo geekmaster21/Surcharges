@@ -50,7 +50,7 @@ const MD5: React.SFC<Props> = ({ release, showLoader }) => {
       {release?.md5 && (
         <Toast show={modal} onClose={toggleModal}>
           <FormattedMessage
-            id="copy.info"
+            id="clipboardCopy"
             defaultMessage="Copied to clipboard!"
           />
         </Toast>

@@ -33,7 +33,7 @@ export const BuildHyperLink = (release: IRelease) => {
       </IconButton>
       <Toast show={modal} onClose={toggleModal}>
         <FormattedMessage
-          id="copy.info"
+          id="clipboardCopy"
           defaultMessage="Copied to clipboard!"
         />
       </Toast>

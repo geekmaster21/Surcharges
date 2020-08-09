@@ -1,5 +1,11 @@
-import { Slide, SlideProps, Snackbar } from "@material-ui/core";
+import {
+  Slide,
+  SlideProps,
+  Snackbar,
+  SnackbarContent,
+} from "@material-ui/core";
 import { ReactNode, useEffect, useState } from "react";
+import useStyles from "styles/mui/toast";
 import { isMobile } from "utils";
 
 type TransitionProps = Omit<SlideProps, "direction">;
@@ -17,6 +23,7 @@ export function Toast({
   children?: ReactNode;
   onClose: () => void;
 }) {
+  const classes = useStyles();
   const [open, setOpen] = useState(false);
   const [transition, setTransition] = useState<
     React.ComponentType<TransitionProps> | undefined
@@ -43,14 +50,15 @@ export function Toast({
   return (
     <Snackbar
       open={open}
+      message={children}
+      onClose={handleClose}
       autoHideDuration={1500}
+      TransitionComponent={transition}
       anchorOrigin={
         isMobile ? undefined : { vertical: "top", horizontal: "right" }
       }
-      message={children}
-      onClose={handleClose}
-      TransitionComponent={transition}
-      key={transition ? transition.name : ""}
-    />
+    >
+      <SnackbarContent className={classes.toast} message={children} />
+    </Snackbar>
   );
 }

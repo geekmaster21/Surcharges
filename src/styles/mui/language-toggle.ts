@@ -16,7 +16,6 @@ export default makeStyles((theme: Theme) => ({
     borderLeft: "3px solid var(--orange-1)",
   },
   select: {
-    color: "var(--orange-1)",
     width: "55px",
     marginRight: theme.spacing(7),
     [theme.breakpoints.up("sm")]: {

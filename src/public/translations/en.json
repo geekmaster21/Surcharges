@@ -26,12 +26,12 @@
             "previous": "Previous Maintainer: {maintainer}"
         }
     },
+    "clipboardCopy": "Copied to clipboard!",
     "release": {
         "type": {
             "beta": "Beta Releases",
             "stable": "Stable Releases"
         },
-        "copy": "Link copied to clipboard!",
         "notFound": "There are no releases for this device yet!",
         "fileSize": "File Size",
         "download": "Downloads",

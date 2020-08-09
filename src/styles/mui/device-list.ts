@@ -1,6 +1,5 @@
 import { makeStyles, Theme } from "@material-ui/core";
-
-const drawerWidth = 300;
+import { drawerWidth } from "./_constants";
 
 export default makeStyles((theme: Theme) => ({
     root: {

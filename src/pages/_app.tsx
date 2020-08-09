@@ -9,15 +9,16 @@ import { IDevice } from "models";
 import { AppContextType, AppPropsType } from "next/dist/next-server/lib/utils";
 import React, { useEffect } from "react";
 import { IntlProvider } from "react-intl";
-import "styles/app.scss";
 import useStyles from "styles/mui/app";
 import {
   Dotize,
   keyOfLang,
-  RedirectIfNecessary,
+  RedirectOnMissingLocale,
   SetCurrentLocale,
 } from "utils";
 import { DarkTheme } from "../themes";
+
+import "styles/app.scss";
 
 const MetaDesc = [
   "OrangeFox Recovery is one of the most popular custom recoveries in android ecosystem,",
@@ -95,7 +96,7 @@ OrangeFoxApp.getInitialProps = async ({ ctx, Component }: AppContextType) => {
     cookie.parse(ctx.req?.headers.cookie || "")[keyOfLang] ||
     config.currentLocale;
 
-  const isRedirected = RedirectIfNecessary(ctx, serverLocale);
+  const isRedirected = RedirectOnMissingLocale(ctx, serverLocale);
   let pageProps: any = {},
     translations: any = {},
     deviceList: IDevice[] = [];
