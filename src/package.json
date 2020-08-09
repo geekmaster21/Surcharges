@@ -21,7 +21,7 @@
   "version": "20.8.9-1",
   "private": false,
   "scripts": {
-    "clean-up": "rimraf dist .next",
+    "clean": "rimraf .next dist",
     "next": "cross-env NODE_OPTIONS='--inspect' next",
     "dev": "cross-env NODE_ENV=development nodemon",
     "build": "next build && tsc --project tsconfig.server.json",

@@ -28,6 +28,9 @@ export default makeStyles((theme: Theme) => ({
             flexWrap: 'wrap'
         },
     },
+    md5: {
+        overflowWrap: "anywhere"
+    },
     bug: {
         color: '#ff5e5e',
         borderColor: '#ff5e5e66',

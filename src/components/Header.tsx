@@ -1,35 +1,11 @@
 import { AppBar, Toolbar, Typography } from "@material-ui/core";
 import { Donations, IconButton, LinkLocale, MenuIcon, Wiki } from "components";
-import Router from "next/router";
-import { memo, useEffect, useState } from "react";
+import { memo } from "react";
 import useStyles from "styles/mui/drawer";
-import { IsCSR } from "utils";
 import { LanguageToggle } from "./Language-Toggle";
-import Logo from "./Logo";
 
 function Header(props: { toggleClick: () => void }) {
   const classes = useStyles();
-  const [animate, setAnimate] = useState(false);
-  function startAnimation() {
-    setAnimate(true);
-  }
-  function stopAnimation() {
-    setAnimate(false);
-  }
-  useEffect(() => {
-    if (IsCSR) {
-      Router.events.on("routeChangeStart", startAnimation);
-      Router.events.on("routeChangeComplete", stopAnimation);
-      Router.events.on("routeChangeError", stopAnimation);
-    }
-    return () => {
-      if (IsCSR) {
-        Router.events.off("routeChangeStart", startAnimation);
-        Router.events.off("routeChangeComplete", stopAnimation);
-        Router.events.off("routeChangeError", stopAnimation);
-      }
-    };
-  }, []);
   return (
     <>
       <AppBar className={classes.appBar}>
@@ -45,8 +21,6 @@ function Header(props: { toggleClick: () => void }) {
           </IconButton>
 
           <Typography component="div" className={classes.headerContent}>
-            <Logo animate={animate} />
-
             <LinkLocale
               ATagProps={{
                 className: "link no-hover " + classes.brand,

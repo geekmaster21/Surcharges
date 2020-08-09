@@ -1,13 +1,13 @@
-export default function Logo({ animate }: { animate?: boolean }) {
+export default function Logo() {
   return (
     <>
       <svg
-        width="45px"
-        height="45px"
+        width="200px"
+        height="200px"
         viewBox="0 0 30 30"
-        className={`animated-logo ${animate && "animate"}`}
+        className="animated-logo"
         xmlns="http://www.w3.org/2000/svg"
-        preserveAspectRatio="x200Y200 meet"
+        // preserveAspectRatio="x200Y200 meet"
       >
         <path
           className="leg"

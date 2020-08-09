@@ -40,6 +40,7 @@ const MD5: React.SFC<Props> = ({ release, showLoader }) => {
           <>
             <ListItemText
               primary="MD5"
+              className={classes.md5}
               onClick={onCopyClick}
               secondary={release.md5}
             />

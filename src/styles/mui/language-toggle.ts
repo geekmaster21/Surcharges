@@ -21,6 +21,9 @@ export default makeStyles((theme: Theme) => ({
     [theme.breakpoints.up("sm")]: {
       marginRight: theme.spacing(3),
     },
+    [theme.breakpoints.down("xs")]: {
+      marginRight: theme.spacing(10),
+    },
   },
   arrowIcon: {
     fontSize: "20px",
