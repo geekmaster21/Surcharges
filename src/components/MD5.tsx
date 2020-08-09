@@ -1,5 +1,5 @@
 import { ListItem, ListItemIcon, ListItemText } from "@material-ui/core";
-import { LoadShimmer, Toast, VerifiedUserOutlined } from "components/common";
+import { LoadShimmer, Toast, VerifiedUserOutlined } from "components";
 import { IRelease } from "models";
 import { useState } from "react";
 import { FormattedMessage } from "react-intl";

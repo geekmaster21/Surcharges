@@ -1,15 +1,13 @@
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { ThemeProvider } from "@material-ui/core/styles";
 import { apiGetAllDeviceList } from "apis";
-import { Footer, MetaTagsDynamic, MetaTagsStatic } from "components/common";
-import { Drawer } from "components/home";
+import { Layout, MetaTagsDynamic, MetaTagsStatic } from "components";
 import config from "config";
 import cookie from "cookie";
 import { IDevice } from "models";
 import { AppContextType, AppPropsType } from "next/dist/next-server/lib/utils";
 import React, { useEffect } from "react";
 import { IntlProvider } from "react-intl";
-import useStyles from "styles/mui/app";
 import {
   Dotize,
   keyOfLang,
@@ -26,7 +24,6 @@ const MetaDesc = [
 ].join("");
 
 export default function OrangeFoxApp(props: AppPropsType) {
-  const classes = useStyles();
   const {
     Component,
     pageProps: { translations, deviceList, locale, ...pageProps },
@@ -78,13 +75,9 @@ export default function OrangeFoxApp(props: AppPropsType) {
       <ThemeProvider theme={DarkTheme}>
         <IntlProvider locale={locale} messages={translations}>
           <CssBaseline />
-          <div className={classes.root}>
-            <Drawer list={list} />
-            <main className={classes.routeContent}>
-              <Component {...pageProps} />
-            </main>
-          </div>
-          <Footer />
+          <Layout list={list}>
+            <Component {...pageProps} />
+          </Layout>
         </IntlProvider>
       </ThemeProvider>
     </>

@@ -4,13 +4,12 @@ import {
   AccordionSummary,
   Typography,
 } from "@material-ui/core";
-import { ExpandMore, StarBorderOutlinedIcon } from "components/common";
-import { Release } from "components/release";
 import { isEqual, sortBy } from "core";
 import { usePreviousProps } from "hooks";
 import { EReleaseType, IRelease } from "models";
 import { useState } from "react";
 import useStyles from "styles/mui/release-type";
+import { ExpandMore, Release, StarBorderOutlinedIcon } from "./";
 
 type Props = {
   code: string;

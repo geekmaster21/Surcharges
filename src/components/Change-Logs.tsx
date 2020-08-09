@@ -1,22 +1,22 @@
 import { Button, DialogContent, DialogTitle } from "@material-ui/core";
-import { Modal, SpeakerNotesOutlined } from "components/common";
+import { DescriptionOutlined, Modal } from "components";
 import { IRelease } from "models";
 import { useState } from "react";
 import { FormattedMessage } from "react-intl";
 import useStyles from "styles/mui/release";
 import { SplitMsg } from "./Split-Msg";
 
-interface BuildNotesProps {
+interface ChangeLogsProps {
   release: IRelease;
   showLoader?: boolean;
 }
 
-const BuildNotes: React.SFC<BuildNotesProps> = ({ release, showLoader }) => {
-  const classes = useStyles();
+const ChangeLogs: React.SFC<ChangeLogsProps> = ({ release, showLoader }) => {
   const [showModal, toggleModal] = useState(false);
   const handleModal = () => toggleModal(!showModal);
+  const classes = useStyles();
   const Title = () => (
-    <FormattedMessage id="release.buildNotes" defaultMessage="Build Notes" />
+    <FormattedMessage id="release.changeLogs" defaultMessage="Change Logs" />
   );
 
   return (
@@ -29,7 +29,7 @@ const BuildNotes: React.SFC<BuildNotesProps> = ({ release, showLoader }) => {
           color="secondary"
           onClick={handleModal}
           className={classes.outlinedButton}
-          startIcon={<SpeakerNotesOutlined />}
+          startIcon={<DescriptionOutlined />}
         >
           <Title />
         </Button>
@@ -40,11 +40,11 @@ const BuildNotes: React.SFC<BuildNotesProps> = ({ release, showLoader }) => {
           <Title />
         </DialogTitle>
         <DialogContent dividers className="selectable">
-          <SplitMsg msg={release.notes} />
+          <SplitMsg msg={release.changelog} />
         </DialogContent>
       </Modal>
     </>
   );
 };
 
-export { BuildNotes };
+export { ChangeLogs };

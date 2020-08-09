@@ -11,7 +11,7 @@ import {
   Modal,
   OpenOutside,
   PoweredBy,
-} from "components/common";
+} from "components";
 import { IRelease } from "models";
 import { useState } from "react";
 import { FormattedMessage } from "react-intl";

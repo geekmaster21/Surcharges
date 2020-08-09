@@ -1,5 +1,5 @@
 import { IconButton } from "@material-ui/core";
-import { HyperLink, Toast } from "components/common";
+import { HyperLink, Toast } from "components";
 import { IRelease } from "models";
 import { useState } from "react";
 import { FormattedMessage } from "react-intl";

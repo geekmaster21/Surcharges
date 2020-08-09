@@ -1,5 +1,5 @@
 import { ListItemIcon, ListItemText } from "@material-ui/core";
-import { LoadShimmer, SdCardOutlinedIcon } from "components/common";
+import { LoadShimmer, SdCardOutlinedIcon } from "components";
 import { IRelease } from "models";
 import { FormattedMessage } from "react-intl";
 import useStyles from "styles/mui/release";

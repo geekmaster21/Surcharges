@@ -1,7 +1,6 @@
 import { Card, CardContent } from "@material-ui/core";
 import { apiGetDeviceByCode } from "apis";
-import { DeviceInfo, MetaTagsDynamic } from "components/common";
-import { Release } from "components/release";
+import { DeviceInfo, MetaTagsDynamic, Release } from "components";
 import { EReleaseType, IDevice } from "models";
 import { NextPageContext } from "next";
 import { RedirectTo, SafePromise } from "utils";

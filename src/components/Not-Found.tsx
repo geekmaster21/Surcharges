@@ -1,4 +1,4 @@
-import { Image, LinkLocale } from "components/common";
+import { Image, LinkLocale } from "components";
 import { FormattedMessage } from "react-intl";
 
 function NotFound() {

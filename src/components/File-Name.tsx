@@ -1,5 +1,5 @@
 import { ListItemIcon, ListItemText } from "@material-ui/core";
-import { ArchiveOutlined, LoadShimmer } from "components/common";
+import { ArchiveOutlined, LoadShimmer } from "components";
 import { IRelease } from "models";
 import useStyles from "styles/mui/release";
 import { FileDate } from "./File-Date";

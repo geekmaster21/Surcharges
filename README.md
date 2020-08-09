@@ -12,7 +12,9 @@ This project is created using NextJS, React, Material UI, React-Intl, SASS and T
 
 ### Setup Instructions (`package.json` > `scripts`)
 
-\_Recommendation: use **Yarn** instead of **NPM\_**
+First `cd src` to get into the project, and then:
+
+_Recommendation: use **Yarn** instead of **NPM**_
 
 - Install all packages
 

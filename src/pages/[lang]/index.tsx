@@ -1,4 +1,4 @@
-import { Image } from "components/common";
+import { Image } from "components";
 import { FormattedMessage } from "react-intl";
 
 export default function Splash() {
@@ -22,7 +22,7 @@ export default function Splash() {
       </div>
 
       <div className="bottom-logo">
-        <Image alt="OF Logo" className="logo" src="/images/logo.svg" />
+        <Image alt="OrangeFox Logo" className="logo" src="/images/logo.svg" />
 
         <div className="title-container">
           <h1 className="title">OrangeFox</h1>

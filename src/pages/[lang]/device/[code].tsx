@@ -1,6 +1,5 @@
 import { apiGetAllReleases, apiGetDeviceByCode } from "apis";
-import { DeviceInfo, MetaTagsDynamic } from "components/common";
-import { DeviceReleases } from "components/device-releases";
+import { DeviceInfo, DeviceReleases, MetaTagsDynamic } from "components";
 import { IAllReleases, IDevice } from "models";
 import { NextPageContext } from "next";
 import { RedirectTo, SafePromise } from "utils";

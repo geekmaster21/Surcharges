@@ -1,5 +1,5 @@
 import { FormControl, MenuItem, Select } from "@material-ui/core";
-import { KeyboardArrowDownRoundedIcon } from "components/common";
+import { KeyboardArrowDownRoundedIcon } from "components";
 import config from "config";
 import { useRouter } from "next/router";
 import useStyles from "styles/mui/language-toggle";

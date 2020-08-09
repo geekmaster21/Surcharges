@@ -5,7 +5,7 @@ import {
   makeStyles,
   Theme,
 } from "@material-ui/core";
-import { ExpandLess, ExpandMore } from "components/common";
+import { ExpandLess, ExpandMore } from "components";
 import { useState } from "react";
 import { DeviceList } from "./Device-List";
 

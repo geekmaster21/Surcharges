@@ -1,5 +1,5 @@
 import { Button, DialogContent, DialogTitle } from "@material-ui/core";
-import { BugReportIcon, Modal } from "components/common";
+import { BugReportIcon, Modal } from "components";
 import { IRelease } from "models";
 import { useState } from "react";
 import { FormattedMessage } from "react-intl";

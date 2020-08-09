@@ -1,5 +1,5 @@
 import { ListItemIcon, ListItemText, TextField } from "@material-ui/core";
-import { ClearOutlinedIcon, Image, SearchIcon } from "components/common";
+import { ClearOutlinedIcon, Image, SearchIcon } from "components";
 import matchSorter from "match-sorter";
 import { useRouter } from "next/router";
 import React from "react";

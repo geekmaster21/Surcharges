@@ -1,10 +1,11 @@
-@import './variables',
-'./font-family',
-'./flex-display',
-'./scroll-bar',
-'./shimmer',
-'./cards',
-'./hero';
+@import './variables'
+, './font-family'
+, './animated-logo'
+, './flex-display'
+, './scroll-bar'
+, './shimmer'
+, './cards'
+, './hero';
 
 html,
 body {
@@ -119,10 +120,6 @@ ul.no-list-style {
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-
-.device-list-seo {
-    display: none;
 }
 
 .iconMenu {

@@ -14,7 +14,7 @@ import {
   LabelImportantOutlinedIcon,
   LinkLocale,
   LoadShimmer,
-} from "components/common";
+} from "components";
 import { EReleaseType, IRelease } from "models";
 import { useEffect, useState } from "react";
 import { FormattedMessage } from "react-intl";

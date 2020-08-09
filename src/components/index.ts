@@ -1,8 +1,10 @@
 export * from "./Device-Info";
+export * from "./Device-Release";
 export * from "./Donation";
 export * from "./Footer";
 export * from "./Icons";
 export * from "./Image";
+export * from "./Layout";
 export * from "./Link-Locale";
 export * from "./Load-Shimmer";
 export * from "./Meta-Tags-Dynamic";
@@ -11,5 +13,6 @@ export * from "./Modal";
 export * from "./Not-Found";
 export * from "./Open-Outside";
 export * from "./Powered-By";
+export * from "./Release";
 export * from "./Toast";
 export * from "./Wiki";
