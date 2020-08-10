@@ -10,8 +10,6 @@ const handle = app.getRequestHandler();
 app.prepare().then(() => {
   createServer((req, res) => {
     const parsedUrl = parse(req.url!, true);
-    console.log('req', req);
-    console.log('res', res);
     handle(req, res, parsedUrl);
   }).listen(port);
 

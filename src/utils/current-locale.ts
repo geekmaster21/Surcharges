@@ -3,16 +3,18 @@ import cookie from "js-cookie";
 
 export const keyOfLang = "of-lang";
 
+function validatedLocale(locale: string) {
+  const isValidLocale = config.localePattern.test(locale);
+  return isValidLocale ? locale : config.defaultLang;
+}
+
 export const SetCurrentLocale = (locale: string) => {
-  let _locale = locale || config.defaultLang;
-  const isValidLocale = config.localePattern.test(_locale);
-  _locale = isValidLocale ? _locale : config.defaultLang;
-  config.currentLocale = _locale;
-  cookie.set(keyOfLang, _locale);
+  locale = validatedLocale(locale);
+  config.currentLocale = locale;
+  cookie.set(keyOfLang, locale, { expires: 1000 });
 };
 
 export const GetCurrentLocale = (): string => {
-  const _locale =
-    cookie.get(keyOfLang) || config.currentLocale || config.defaultLang;
-  return _locale;
+  const locale = cookie.get(keyOfLang) || config.currentLocale;
+  return validatedLocale(locale);
 };
