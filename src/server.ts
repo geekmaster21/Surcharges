@@ -10,13 +10,15 @@ const handle = app.getRequestHandler();
 app.prepare().then(() => {
   createServer((req, res) => {
     const parsedUrl = parse(req.url!, true);
+    console.log('req', req);
+    console.log('res', res);
     handle(req, res, parsedUrl);
   }).listen(port);
 
   // tslint:disable-next-line:no-console
   console.log(
     `Serving http://localhost:${port} as ${
-      dev ? "development" : process.env.NODE_ENV
+    dev ? "development" : process.env.NODE_ENV
     }`
   );
 });

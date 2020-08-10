@@ -6,8 +6,8 @@ import glob
 LANGUAGES = []
 dir_translations = "src/public/translations"
 
-langs = glob.glob("{dir_translations}/*-*.json")
-langs.append("{dir_translations}/en.json")
+langs = glob.glob(f"{dir_translations}/*-*.json")
+langs.append(f"{dir_translations}/en.json")
 
 for file in langs:
     language = json.load(open(file))
@@ -24,6 +24,6 @@ for file in langs:
 
 LANGUAGES = sorted(LANGUAGES, key=itemgetter('name'))
 
-with open('{dir_translations}/list.json', 'w+') as f:
+with open(f'{dir_translations}/list.json', 'w+') as f:
     dump = json.dumps(LANGUAGES, indent=1)
     f.write(dump)
