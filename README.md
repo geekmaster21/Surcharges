@@ -18,26 +18,26 @@ _Recommendation: use **Yarn** instead of **NPM**_
 
 - Install all packages
 
-  > `npm i` or `yarn`
+  > `yarn` or `npm i`
 
 - Run the application with Nodemon support
 
-  > `npm run dev` or `yarn dev`
+  > `yarn dev` or `npm run dev`
 
 - Run the application to support easy debugging using VSCode
 
-  > `npm run next` or `yarn next`
+  > `yarn next` or `npm run next`
 
 - Build the application with Server bundle
 
-  > `npm run build` or `yarn build`
+  > `yarn build` or `npm run build`
 
 - Start the application with Server bundle
 
-  > `npm run start` or `yarn start`
+  > `yarn start` or `npm run start`
 
 - Serve the application with Server bundle (clubs both Build and Start scripts)
-  > `npm run server` or `yarn server`
+  > `yarn server` or `npm run server`
 
 ### Related Links
 

@@ -3,8 +3,10 @@ import { version } from "./package.json";
 
 export default {
   version,
-  defaultLang: "en",
-  currentLocale: "en", // changes dynamically
+  locale: {
+    default: "en",
+    current: "en", // changes dynamically
+  },
   availableLanguages,
   apiUrl: "https://api.orangefox.download/v2",
   isDevEnv: process.env.NODE_ENV === "development",

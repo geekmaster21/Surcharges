@@ -4,7 +4,7 @@ import { OpenOutside } from "./Open-Outside";
 const PoweredBy = () => {
   return (
     <>
-      <span style={{ marginRight: "5px" }}>
+      <span style={{ marginRight: "10px" }}>
         <FormattedMessage
           id="footer.poweredBy"
           defaultMessage="Powered by {hostWebsite}"

@@ -26,7 +26,7 @@ export function RedirectTo(ctx: NextPageContext, locale?: string) {
 /** This function redirects route on missing or incorrect locale when passed in the url */
 export function RedirectOnMissingLocale(ctx: NextPageContext, locale?: string) {
   const { asPath } = ctx;
-  if (asPath) {
+  if (asPath && !asPath.includes("sitemap")) {
     const { localePattern } = config;
     const reqLocale = (asPath || "").split("/").filter(Boolean).shift() || "";
     if (!localePattern.test(reqLocale)) {

@@ -26,7 +26,7 @@ const MetaDesc = [
 export default function OrangeFoxApp(props: AppPropsType) {
   const {
     Component,
-    pageProps: { translations, deviceList, locale, ...pageProps },
+    pageProps: { translations, deviceList, locale, ...rest },
   } = props;
 
   const list = (deviceList || []) as IDevice[];
@@ -76,7 +76,7 @@ export default function OrangeFoxApp(props: AppPropsType) {
         <IntlProvider locale={locale} messages={translations}>
           <CssBaseline />
           <Layout list={list}>
-            <Component {...pageProps} />
+            <Component {...{ deviceList, ...rest }} />
           </Layout>
         </IntlProvider>
       </ThemeProvider>
@@ -84,23 +84,29 @@ export default function OrangeFoxApp(props: AppPropsType) {
   );
 }
 
-OrangeFoxApp.getInitialProps = async ({ ctx, Component }: AppContextType) => {
-  const serverLocale =
-    cookie.parse(ctx.req?.headers.cookie || "")[keyOfLang] ||
-    config.currentLocale;
+const appCache: {
+  deviceList: IDevice[];
+  [currentLocale: string]: any; // Translation for current locale
+} = { deviceList: [] };
 
-  const isRedirected = RedirectOnMissingLocale(ctx, serverLocale);
-  let pageProps: any = {},
-    translations: any = {},
-    deviceList: IDevice[] = [];
+OrangeFoxApp.getInitialProps = async ({ ctx, Component }: AppContextType) => {
+  let pageProps: any = {};
+  const cookieData = cookie.parse(ctx.req?.headers.cookie || "");
+  const locale = cookieData[keyOfLang] || config.locale.current;
+  const isRedirected = RedirectOnMissingLocale(ctx, locale);
 
   if (!isRedirected) {
-    SetCurrentLocale(serverLocale);
-    deviceList = await apiGetAllDeviceList();
+    SetCurrentLocale(locale);
 
-    await import(`public/translations/${serverLocale}.json`).then((x) => {
-      translations = Dotize.convert(x.default || x);
-    });
+    if (!appCache.deviceList.length) {
+      appCache.deviceList = await apiGetAllDeviceList();
+    }
+
+    if (!appCache[locale]) {
+      await import(`public/translations/${locale}.json`).then((x) => {
+        appCache[locale] = Dotize.convert(x.default || x);
+      });
+    }
 
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx);
@@ -110,9 +116,9 @@ OrangeFoxApp.getInitialProps = async ({ ctx, Component }: AppContextType) => {
   return {
     pageProps: {
       ...pageProps,
-      deviceList,
-      translations,
-      locale: serverLocale,
+      locale,
+      deviceList: appCache.deviceList,
+      translations: appCache[locale],
     },
   };
 };

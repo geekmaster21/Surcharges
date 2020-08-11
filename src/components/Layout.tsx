@@ -7,15 +7,21 @@ import useStyles from "styles/mui/layout";
 import AppLoader from "./App-Loader";
 import { DeviceListWrapper } from "./Device-List-Wrapper";
 import Header from "./Header";
+import { useRouter } from "next/router";
 
 type Props = IChildren & { list: IDevice[] };
 
 export function Layout({ children, list }: Props) {
   const classes = useStyles();
+  const router = useRouter();
   const [mobileDrawer, setMobileDrawer] = useState(false);
 
   function toggleDrawer() {
     setMobileDrawer((s) => !s);
+  }
+
+  if (router.pathname.includes("sitemap")) {
+    return <>{children}</>;
   }
 
   return (
