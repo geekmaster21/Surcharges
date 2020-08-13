@@ -2,7 +2,7 @@ import config from "config";
 import { NextPageContext } from "next";
 import Router from "next/router";
 import { IsCSR } from "./common";
-import { GetCurrentLocale } from "./current-locale";
+import { GetCurrentLocale } from "./locale";
 
 export function RedirectTo(ctx: NextPageContext, locale?: string) {
   const { res, asPath } = ctx;

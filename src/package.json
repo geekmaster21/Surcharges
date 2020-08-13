@@ -11,6 +11,7 @@
   ],
   "contributors": [
     "Rahul Kurup",
+    "No Moderator",
     "Yacha",
     "FD",
     "Community Translators"
@@ -18,7 +19,7 @@
   "displayName": "OrangeFox Recovery Downloads",
   "license": "AGPL-3.0-or-later",
   "homepage": "http://orangefox.download",
-  "version": "20.8.11-0",
+  "version": "20.8.13-0",
   "private": false,
   "scripts": {
     "clean": "rimraf .next dist",

@@ -2,7 +2,6 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import { ThemeProvider } from "@material-ui/core/styles";
 import { apiGetAllDeviceList } from "apis";
 import { Layout, MetaTagsDynamic, MetaTagsStatic } from "components";
-import config from "config";
 import cookie from "cookie";
 import { IDevice } from "models";
 import { AppContextType, AppPropsType } from "next/dist/next-server/lib/utils";
@@ -10,9 +9,11 @@ import React, { useEffect } from "react";
 import { IntlProvider } from "react-intl";
 import {
   Dotize,
+  GetCurrentLocale, 
   keyOfLang,
   RedirectOnMissingLocale,
   SetCurrentLocale,
+  ValidatedLocale
 } from "utils";
 import { DarkTheme } from "../themes";
 
@@ -92,7 +93,7 @@ const appCache: {
 OrangeFoxApp.getInitialProps = async ({ ctx, Component }: AppContextType) => {
   let pageProps: any = {};
   const cookieData = cookie.parse(ctx.req?.headers.cookie || "");
-  const locale = cookieData[keyOfLang] || config.locale.current || config.locale.default;
+  const locale = ValidatedLocale(cookieData[keyOfLang] || GetCurrentLocale()) ;
   const isRedirected = RedirectOnMissingLocale(ctx, locale);
 
   if (!isRedirected) {

@@ -1,5 +1,5 @@
 import { UrlObject } from "url";
-import { GetCurrentLocale } from "./current-locale";
+import { GetCurrentLocale } from "./locale";
 
 export function StopEvent(e: any) {
     e.preventDefault && e.preventDefault();
