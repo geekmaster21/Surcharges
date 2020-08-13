@@ -92,7 +92,7 @@ const appCache: {
 OrangeFoxApp.getInitialProps = async ({ ctx, Component }: AppContextType) => {
   let pageProps: any = {};
   const cookieData = cookie.parse(ctx.req?.headers.cookie || "");
-  const locale = cookieData[keyOfLang] || config.locale.current;
+  const locale = cookieData[keyOfLang] || config.locale.current || config.locale.default;
   const isRedirected = RedirectOnMissingLocale(ctx, locale);
 
   if (!isRedirected) {
