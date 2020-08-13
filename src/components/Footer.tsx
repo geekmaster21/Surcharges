@@ -13,7 +13,7 @@ const Footer = () => {
     <footer>
       <Paper elevation={3} className={classes.root}>
         <Link href="/sitemap" as="/sitemap">
-          <a className="link">Site Map</a>
+          <a className="link">Sitemap</a>
         </Link>
 
         <Dot />
