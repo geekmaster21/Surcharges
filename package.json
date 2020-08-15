@@ -19,7 +19,7 @@
   "displayName": "OrangeFox Recovery Downloads",
   "license": "AGPL-3.0-or-later",
   "homepage": "http://orangefox.download",
-  "version": "20.8.13-0",
+  "version": "20.8.15-0",
   "private": false,
   "scripts": {
     "clean": "rimraf .next dist",
