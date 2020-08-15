@@ -1,20 +1,24 @@
 import { IconButton } from "@material-ui/core";
 import { HyperLink, Toast } from "components";
-import { IRelease } from "models";
 import { useState } from "react";
 import { FormattedMessage } from "react-intl";
 import { CopyToClipboard, GetCurrentLocale, IsCSR, StopEvent } from "utils";
 
-export const BuildHyperLink = (release: IRelease) => {
-  const { codename, build_type, version } = release || ({} as IRelease);
-  if (!codename || !build_type || !version) {
+type Props = {
+  version?: string;
+  codename?: string;
+  buildType?: string;
+};
+
+export const BuildHyperLink = ({ codename, version, buildType }: Props) => {
+  if (!codename || !buildType || !version) {
     return null;
   }
   const locale = GetCurrentLocale();
   const [modal, setModal] = useState(false);
   const toggleModal = () => setModal(!modal);
   const origin = IsCSR ? window.location.origin : "";
-  const url = `${origin}/${locale}/build/${codename}/${build_type}/${version}`;
+  const url = `${origin}/${locale}/build/${codename}/${buildType}/${version}`;
 
   function onCopyClick(e: any) {
     StopEvent(e);

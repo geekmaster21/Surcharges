@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@material-ui/core";
 import { apiGetDeviceByCode } from "apis";
 import { DeviceInfo, MetaTagsDynamic, Release } from "components";
+import { titleCase } from "core";
 import { EReleaseType, IDevice } from "models";
 import { NextPageContext } from "next";
 import { RedirectTo, SafePromise } from "utils";
@@ -15,7 +16,9 @@ type Props = {
 const Page = ({ code, type, version, info }: Props) => {
   const m = info;
   const url = `/build/${code}/${type}/${version}`;
-  const title = `${type} build v${version} for ${m.fullname} (${m.codename})`;
+  const title = `${titleCase(type)} build v${version} for ${m.fullname} (${
+    m.codename
+  })`;
   return (
     <>
       <MetaTagsDynamic

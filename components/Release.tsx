@@ -9,17 +9,13 @@ import {
   Typography,
 } from "@material-ui/core";
 import { apiGetRelease } from "apis";
-import {
-  ExpandMore,
-  LabelImportantOutlinedIcon,
-  LinkLocale,
-  LoadShimmer,
-} from "components";
+import { ExpandMore, LabelImportantOutlinedIcon, LinkLocale } from "components";
 import { EReleaseType, IRelease } from "models";
+import Router from "next/router";
 import { useEffect, useState } from "react";
 import { FormattedMessage } from "react-intl";
 import useStyles from "styles/mui/release";
-import { StopEvent } from "utils";
+import { GetCurrentLocale, StopEvent } from "utils";
 import { Bugs } from "./Bugs";
 import { BuildHyperLink } from "./Build-Hyperlink";
 import { BuildNotes } from "./Build-Notes";
@@ -50,20 +46,22 @@ const Release: React.SFC<Props> = (props) => {
     showAllBuild,
   } = props;
   const classes = useStyles();
+  const locale = GetCurrentLocale();
+  const isExpanded = props.expanded || props.defaultExpanded;
   const [release, setReleaseDetail] = useState<IRelease>({} as IRelease);
-  const isDifferentDevice = code && release?.codename !== code;
+
   useEffect(() => {
-    if (code) {
+    if (code && isExpanded && !Object.keys(release || {}).length) {
       apiGetRelease(code, type, version)
         .then((data) => setReleaseDetail(data))
         .catch(() => {
-          // showAllBuild && navigate(`/${locale}/404`);
+          showAllBuild && Router.push(`/${locale}/404`);
         });
     }
-  }, [code, type, version, showAllBuild]);
+  }, [code, type, version, release, showAllBuild, isExpanded]);
 
   const _version = release?.version || version;
-  const showLoader = Boolean(!release?.codename || isDifferentDevice);
+  const showLoader = Boolean(!release?.codename);
 
   return (
     <>
@@ -84,13 +82,14 @@ const Release: React.SFC<Props> = (props) => {
                 fontSize="small"
                 className={classes.icon + " " + classes.iconM5}
               />
-              {!showLoader && _version}
-
-              {/* Loading Placeholder */}
-              {showLoader && <LoadShimmer />}
+              {_version}
             </Typography>
             <span onClick={StopEvent}>
-              {release && <BuildHyperLink {...release} />}
+              <BuildHyperLink
+                codename={code}
+                buildType={type}
+                version={_version}
+              />
               {showAllBuild && (
                 <LinkLocale
                   as={`device/${code}`}
