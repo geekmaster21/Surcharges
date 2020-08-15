@@ -22,7 +22,8 @@ export default makeStyles((theme: Theme) => ({
       marginRight: theme.spacing(3),
     },
     [theme.breakpoints.down("xs")]: {
-      marginRight: theme.spacing(10),
+      width: "60px",
+      marginRight: theme.spacing(12),
     },
   },
   arrowIcon: {

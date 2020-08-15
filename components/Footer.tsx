@@ -7,32 +7,30 @@ import { PoweredBy } from "./Powered-By";
 
 const Footer = () => {
   const classes = useStyles();
-  const Dot = () => <span className={classes.mx}>&#x25CF;</span>;
+  const Dot = () => <span className={classes.dot}>&#x25CF;</span>;
 
   return (
-    <footer>
-      <Paper elevation={3} className={classes.root}>
-        <Link href="/sitemap" as="/sitemap">
-          <a className="link">Sitemap</a>
-        </Link>
+    <Paper component="footer" elevation={3} className={classes.root}>
+      <Link href="/sitemap" as="/sitemap">
+        <a className="link">Sitemap</a>
+      </Link>
 
-        <Dot />
+      <Dot />
 
-        <OpenOutside
-          className="link"
-          href="https://gitlab.com/OrangeFox/infrastructure/dsite"
-        >
-          <FormattedMessage
-            id="footer.openSource"
-            defaultMessage="Open-Source Project"
-          />
-        </OpenOutside>
+      <OpenOutside
+        className="link"
+        href="https://gitlab.com/OrangeFox/infrastructure/dsite"
+      >
+        <FormattedMessage
+          id="footer.openSource"
+          defaultMessage="Open-Source Project"
+        />
+      </OpenOutside>
 
-        <Dot />
+      <Dot />
 
-        <PoweredBy />
-      </Paper>
-    </footer>
+      <PoweredBy />
+    </Paper>
   );
 };
 

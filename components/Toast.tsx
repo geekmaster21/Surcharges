@@ -52,7 +52,7 @@ export function Toast({
       open={open}
       message={children}
       onClose={handleClose}
-      autoHideDuration={1500}
+      autoHideDuration={2000}
       TransitionComponent={transition}
       anchorOrigin={
         isMobile ? undefined : { vertical: "top", horizontal: "right" }
