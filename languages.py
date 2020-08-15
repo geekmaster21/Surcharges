@@ -4,7 +4,7 @@ import json
 import glob
 
 LANGUAGES = []
-dir_translations = "src/public/translations"
+dir_translations = "public/translations"
 
 langs = glob.glob(f"{dir_translations}/*-*.json")
 langs.append(f"{dir_translations}/en.json")

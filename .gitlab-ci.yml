@@ -13,7 +13,7 @@ docker:push:
     - docker build --pull -t "$DOCKER_IMAGE" .
     - docker push "$DOCKER_IMAGE"
   artifacts:
-    paths: [src/public/translations/list.json]
+    paths: [public/translations/list.json]
   only:
     - master
     - ci-test
