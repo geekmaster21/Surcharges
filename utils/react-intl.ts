@@ -1,14 +1,23 @@
 import config from "config";
+import { IsCSR } from "./common";
 
-/** Temporary hack to ignore React.Intl related error in prod env */
+const consoleError = console.error;
+const isProdEnv = !config.isDevEnv;
+const errIdentifier = "@formatjs/cli";
+
+/** Temporary hack to suppress React.Intl related error in prod env and on client browsers */
 export default function DisableErrorFromReactIntl() {
-  if (!config.isDevEnv) {
-    // if prod env
+  if (isProdEnv && IsCSR) {
     console.error = (...r: any) => {
-      if (r.includes && r.includes("@formatjs/cli")) {
-        // do nothing
-      } else {
-        console.error(...r);
+      const hasReactIntlError = (s: string) =>
+        typeof s === "string" && s.includes(errIdentifier);
+
+      const isIntlErr = Array.isArray(r)
+        ? r.some((s) => hasReactIntlError(s))
+        : hasReactIntlError(r);
+
+      if (!isIntlErr) {
+        consoleError(...r);
       }
     };
   }

@@ -19,15 +19,15 @@
   "displayName": "OrangeFox Recovery Downloads",
   "license": "AGPL-3.0-or-later",
   "homepage": "http://orangefox.download",
-  "version": "20.8.17-0",
+  "version": "20.8.17-1",
   "private": false,
   "scripts": {
     "clean": "rimraf .next dist",
     "dev": "cross-env NODE_ENV=development nodemon",
     "next": "cross-env NODE_OPTIONS='--inspect' next",
-    "build": "cross-env NODE_ENV=production next build",
-    "start": "cross-env NODE_ENV=production next start",
-    "build-server": "tsc --project tsconfig.server.json",
+    "build": "yarn clean && next build",
+    "start": "next start",
+    "build-server": "cross-env NODE_ENV=production tsc --project tsconfig.server.json",
     "start-server": "cross-env NODE_ENV=production node dist/server.js"
   },
   "dependencies": {
@@ -60,7 +60,6 @@
     "@types/lodash.startcase": "^4.4.6",
     "@types/match-sorter": "^4.0.0",
     "@types/node": "^14.0.27",
-    "@types/node-fetch": "^2.5.7",
     "@types/react": "^16.9.46",
     "@types/react-dom": "^16.9.8",
     "babel-plugin-inline-react-svg": "^1.1.1",

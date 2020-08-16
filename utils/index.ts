@@ -5,4 +5,3 @@ export * from "./locale";
 export * from "./daysjs";
 export * from "./dotize";
 export * from "./redirect";
-export * from "./react-intl";
