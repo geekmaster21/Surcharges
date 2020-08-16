@@ -24,4 +24,8 @@ async function generateSiteMap() {
     fs.writeFileSync('public/sitemap.xml', sitemap)
 }
 
-generateSiteMap();
+try {
+    generateSiteMap();
+} catch (error) {
+    console.error('Error occurred while creating sitemap', error);
+}

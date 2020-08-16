@@ -7,7 +7,7 @@ import { PoweredBy } from "./Powered-By";
 
 const Footer = () => {
   const classes = useStyles();
-  const Dot = () => <span className={classes.dot}>&#x25CF;</span>;
+  const Dot = () => <span className={"dot " + classes.dot}>&#x25CF;</span>;
 
   return (
     <Paper component="footer" elevation={3} className={classes.root}>

@@ -26,10 +26,12 @@ const Donations: React.SFC<DonationsProps> = ({ className }) => {
             className="whiteColor"
             startIcon={<MonetizationOnOutlinedIcon className="bigIcon" />}
           >
-            <FormattedMessage
-              id="mainPage.donation"
-              defaultMessage="Donations"
-            />
+            <span style={{ whiteSpace: "nowrap" }}>
+              <FormattedMessage
+                id="mainPage.donation"
+                defaultMessage="Donations"
+              />
+            </span>
           </Button>
         </Hidden>
       </OpenOutside>

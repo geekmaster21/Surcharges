@@ -27,9 +27,8 @@ export function RedirectTo(ctx: NextPageContext, locale?: string) {
 export function RedirectOnMissingLocale(ctx: NextPageContext, locale?: string) {
   const { asPath } = ctx;
   if (asPath && !asPath.includes("sitemap")) {
-    const { localePattern } = config;
     const reqLocale = (asPath || "").split("/").filter(Boolean).shift() || "";
-    if (!localePattern.test(reqLocale)) {
+    if (!config.locale.pattern.test(reqLocale)) {
       // is not like /en
       return RedirectTo(ctx, locale);
     }

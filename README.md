@@ -12,8 +12,6 @@ This project is created using NextJS, React, Material UI, React-Intl, SASS and T
 
 ### Setup Instructions (`package.json` > `scripts`)
 
-<!-- First `cd src` to get into the project, and then: -->
-
 _Recommendation: use **Yarn** instead of **NPM**_
 
 - Install all packages
@@ -28,16 +26,13 @@ _Recommendation: use **Yarn** instead of **NPM**_
 
   > `yarn next` or `npm run next`
 
-- Build the application with Server bundle
+- Build the application in Prod mode
 
   > `yarn build` or `npm run build`
 
-- Start the application with Server bundle
+- Start the application (works only if `build` or `next` command is executed)
 
   > `yarn start` or `npm run start`
-
-- Serve the application with Server bundle (clubs both Build and Start scripts)
-  > `yarn server` or `npm run server`
 
 ### Related Links
 

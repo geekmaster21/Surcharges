@@ -9,12 +9,13 @@ import React, { useEffect } from "react";
 import { IntlProvider } from "react-intl";
 import {
   Dotize,
-  GetCurrentLocale, 
+  GetCurrentLocale,
   keyOfLang,
   RedirectOnMissingLocale,
   SetCurrentLocale,
-  ValidatedLocale
+  ValidatedLocale,
 } from "utils";
+import DisableErrorFromReactIntl from "utils/react-intl";
 import { DarkTheme } from "../themes";
 
 import "styles/app.scss";
@@ -23,6 +24,9 @@ const MetaDesc = [
   "OrangeFox Recovery is one of the most popular custom recoveries in android ecosystem,",
   " with amazing additional features that are not present in other recoveries. We support a host of devices",
 ].join("");
+
+// TODO: remove this and handle translations properly
+DisableErrorFromReactIntl();
 
 export default function OrangeFoxApp(props: AppPropsType) {
   const {
@@ -93,7 +97,7 @@ const appCache: {
 OrangeFoxApp.getInitialProps = async ({ ctx, Component }: AppContextType) => {
   let pageProps: any = {};
   const cookieData = cookie.parse(ctx.req?.headers.cookie || "");
-  const locale = ValidatedLocale(cookieData[keyOfLang] || GetCurrentLocale()) ;
+  const locale = ValidatedLocale(cookieData[keyOfLang] || GetCurrentLocale());
   const isRedirected = RedirectOnMissingLocale(ctx, locale);
 
   if (!isRedirected) {

@@ -110,6 +110,7 @@ dist*
 *.lock
 *lock.json
 server.js
+out
 
 # Jetbrains editors
 .idea

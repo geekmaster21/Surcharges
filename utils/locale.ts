@@ -4,7 +4,7 @@ import cookie from "js-cookie";
 export const keyOfLang = "of-lang";
 
 export function ValidatedLocale(locale: string) {
-  const isValidLocale = config.localePattern.test(locale);
+  const isValidLocale = config.locale.pattern.test(locale);
   return isValidLocale ? locale : config.locale.default;
 }
 
