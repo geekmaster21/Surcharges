@@ -1,0 +1,68 @@
+svg.animated-logo {
+    path {
+        fill: none;
+        stroke: #ddd;
+        stroke-width: 1.5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-miterlimit: 10;
+        --anim: 2.5s cubic-bezier(0.85, 0, 0.15, 1)
+    }
+
+    @keyframes main {
+        0% {
+            stroke-dashoffset: 0
+        }
+
+        100% {
+            stroke-dashoffset: 236
+        }
+    }
+
+    @keyframes flash {
+        0% {
+            stroke: #555
+        }
+
+        50% {
+            stroke: #999
+        }
+
+        100% {
+            stroke: #ccc
+        }
+    }
+
+    @keyframes leg {
+        0% {
+            stroke-dashoffset: 0
+        }
+
+        8% {
+            stroke-dashoffset: 12
+        }
+
+        50% {
+            stroke-dashoffset: 12
+        }
+
+        58% {
+            stroke-dashoffset: 24
+        }
+
+        100% {
+            stroke-dashoffset: 24
+        }
+    }
+
+    .main {
+        stroke-dasharray: 118;
+        animation: main infinite var(--anim), flash infinite 1s linear alternate;
+    }
+
+    .leg {
+        stroke-dasharray: 12;
+        animation: leg infinite var(--anim), flash infinite 1s linear alternate;
+    }
+
+}

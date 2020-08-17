@@ -26,6 +26,7 @@
             "previous": "Previous Maintainer: {maintainer}"
         }
     },
+    "clipboardCopy": "Copied to clipboard!",
     "release": {
         "type": {
             "beta": "Beta Releases",
@@ -46,10 +47,11 @@
         "fetchLink": "Fetching Links",
         "directLink": "Direct Link",
         "mirrorLink": "Mirror Link",
-        "close": "Close"
+        "close": "Close",
+        "info": "Info"
     },
     "footer": {
-        "poweredBy": "Powered By {hostWebsite}",
+        "poweredBy": "Powered by {hostWebsite}",
         "openSource": "Open-Source Project"
     }
 }

@@ -1,0 +1,141 @@
+@import './variables'
+, './font-family'
+, './animated-logo'
+, './flex-display'
+, './scroll-bar'
+, './shimmer'
+, './cards'
+, './hero';
+
+html,
+body {
+    background-color: $grey-2;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.05em;
+    overscroll-behavior: none;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+}
+
+body,
+header {
+    padding-right: 0 !important;
+}
+
+.selectable {
+    user-select: text;
+}
+
+@media screen and (min-width: 600px) {
+    html {
+        font-size: 1.15em !important;
+    }
+}
+
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+header {
+    height: $header-ht;
+    padding: 0 4px;
+}
+
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+#root {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: $header-ht 1fr;
+    gap: 2px;
+}
+
+.link {
+    color: $white-1;
+    text-decoration: none;
+    outline: none;
+
+    &.orange {
+        color: $orange-1;
+    }
+
+    &.underline {
+        text-decoration: underline;
+    }
+
+    &:hover:not(.no-hover),
+    &:focus:not(.no-hover) {
+        color: $orange-1;
+    }
+}
+
+.inheritColor {
+    color: inherit;
+}
+
+ul.no-list-style {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+        padding: 0;
+        margin: 0;
+    }
+}
+
+.device-list-loading {
+    @extend .shimmer-wrapper;
+    @extend ul.no-list-style;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+
+    li {
+        @extend .shimmer;
+        margin: 10px 0;
+        height: 10px;
+        width: 90%;
+    }
+}
+
+.device-list-item-icon {
+    height: 25px;
+    color: white;
+}
+
+.links-in-dwld {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.iconMenu {
+    margin-right: 12px;
+    margin-left: -4px;
+}
+
+.bigIcon {
+    font-size: 1.5rem !important
+}
+
+.whiteColor {
+    color: white !important
+}
+
+.wikiButton {
+    @extend .whiteColor;
+    margin: 0 -12px 0 8px !important;
+}

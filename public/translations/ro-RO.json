@@ -1,55 +1,55 @@
 {
-    "languageInfo": {
-        "name": "Romanian",
-        "emoji": "🇷🇴"
+  "languageInfo": {
+    "name": "Romanian",
+    "emoji": "🇷🇴"
+  },
+  "mainPage": {
+    "donation": "Donații",
+    "hintText": "Selectați dispozitivul din listă sau folosiți căutarea",
+    "notFound": "Acesta este sfârşitul. Du-mă înapoi Acasă!"
+  },
+  "deviceList": {
+    "searchDevice": "Căutare dispozitiv",
+    "notFound": "Dispozitivul nu a fost găsit!"
+  },
+  "device": {
+    "info": "(Informații dispozitiv)"
+  },
+  "maintain": {
+    "status": {
+      "maintained": "Menținut de",
+      "maintainedWithoutDevice": "Menținut fără a avea dispozitivul",
+      "notMaintained": "Nu este întreţinut!"
     },
-    "mainPage": {
-        "donation": "Donații",
-        "hintText": "Selectați dispozitivul din listă sau folosiți căutarea",
-        "notFound": "Acesta este sfârşitul. Du-mă înapoi Acasă!"
-    },
-    "deviceList": {
-        "searchDevice": "Căutare dispozitiv",
-        "notFound": "Dispozitivul nu a fost găsit!"
-    },
-    "device": {
-        "info": "(Informații dispozitiv)"
-    },
-    "maintain": {
-        "status": {
-            "maintained": "Menținut de",
-            "maintainedWithoutDevice": "Menținut fără a avea dispozitivul",
-            "notMaintained": "Nu este întreţinut!"
-        },
-        "by": {
-            "current": "Responsabil: {maintainer}",
-            "previous": "Responsabil anterior: {maintainer}"
-        }
-    },
-    "release": {
-        "type": {
-            "beta": "Versiuni beta",
-            "stable": "Versiuni stabile"
-        },
-        "notFound": "Încă nu există versiuni pentru acest dispozitiv!",
-        "fileSize": "Dimensiune fișier",
-        "download": "Descărcări",
-        "changeLogs": "Jurnale de modificări",
-        "buildNotes": "Note compilare",
-        "bugs": "Probleme",
-        "allBuild": "Arată toate versiunile"
-    },
-    "error": {
-        "server": "Nu s-a putut conecta cu OrangeFox! Încercați din nou mai târziu."
-    },
-    "modal": {
-        "fetchLink": "Se preiau link-urile",
-        "directLink": "Link direct",
-        "mirrorLink": "Link adițional",
-        "close": "Închideți"
-    },
-    "footer": {
-        "poweredBy": "Realizat de {hostWebsite}",
-        "openSource": "Proiect Open-Source"
+    "by": {
+      "current": "Responsabil: {maintainer}",
+      "previous": "Responsabil anterior: {maintainer}"
     }
+  },
+  "release": {
+    "type": {
+      "beta": "Versiuni beta",
+      "stable": "Versiuni stabile"
+    },
+    "notFound": "Încă nu există versiuni pentru acest dispozitiv!",
+    "fileSize": "Dimensiune fișier",
+    "download": "Descărcări",
+    "changeLogs": "Jurnale de modificări",
+    "buildNotes": "Note compilare",
+    "bugs": "Probleme",
+    "allBuild": "Arată toate versiunile"
+  },
+  "error": {
+    "server": "Nu s-a putut conecta cu OrangeFox! Încercați din nou mai târziu."
+  },
+  "modal": {
+    "fetchLink": "Se preiau link-urile",
+    "directLink": "Link direct",
+    "mirrorLink": "Link adițional",
+    "close": "Închideți"
+  },
+  "footer": {
+    "poweredBy": "Realizat de {hostWebsite}",
+    "openSource": "Proiect Open-Source"
+  }
 }
