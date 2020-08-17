@@ -51,7 +51,7 @@
         "info": "信息"
     },
     "footer": {
-        "poweredBy": "Powered by {hostWebsite}",
+        "poweredBy": "由 {hostWebsite} 提供支持",
         "openSource": "源代码"
     }
 }
