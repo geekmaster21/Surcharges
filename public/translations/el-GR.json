@@ -51,7 +51,7 @@
         "info": "Πληροφορίες"
     },
     "footer": {
-        "poweredBy": "Υποστηρίζεται από{hostWebsite}",
+        "poweredBy": "Υποστηρίζεται από {hostWebsite}",
         "openSource": "Πρότζεκτ Ανοιχτού Κώδικα"
     }
 }
