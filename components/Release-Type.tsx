@@ -3,13 +3,13 @@ import {
   AccordionDetails,
   AccordionSummary,
   Typography,
-} from "@material-ui/core";
-import { isEqual, sortBy } from "core";
-import { usePreviousProps } from "hooks";
-import { EReleaseType, IRelease } from "models";
-import { useState } from "react";
-import useStyles from "styles/mui/release-type";
-import { ExpandMore, Release, StarBorderOutlinedIcon } from "./";
+} from '@material-ui/core';
+import { isEqual, sortBy } from 'core';
+import { usePreviousProps } from 'hooks';
+import { EReleaseType, IRelease } from 'models';
+import { useState } from 'react';
+import useStyles from 'styles/mui/release-type';
+import { ExpandMore, Release, StarBorderOutlinedIcon } from './';
 
 type Props = {
   code: string;
@@ -23,7 +23,7 @@ type Props = {
 const ReleaseType = (props: Props) => {
   const { code, expanded, data, type, version, releaseLabel } = props;
   const classes = useStyles();
-  const sortedData = sortBy(data, (d) => d.actualDate).reverse();
+  const sortedData = sortBy(data, d => d.actualDate).reverse();
   const [expandPanel, setExpanded] = useState<number>(0);
 
   const handleChange = (panel: number) => {
@@ -36,8 +36,8 @@ const ReleaseType = (props: Props) => {
     prevProps?.code &&
     code &&
     !isEqual(
-      sortBy(prevProps?.data || [], (p) => p.actualDate),
-      sortBy(data || [], (p) => p.actualDate)
+      sortBy(prevProps?.data || [], p => p.actualDate),
+      sortBy(data || [], p => p.actualDate)
     )
   ) {
     // hack to open first panel automatically
@@ -52,10 +52,10 @@ const ReleaseType = (props: Props) => {
           expandIcon={<ExpandMore className={classes.icon} />}
           aria-controls={`release-${type}-content`}
         >
-          <Typography className="flexd v-center">
+          <Typography className='flexd v-center'>
             <StarBorderOutlinedIcon
               className={classes.iconM5}
-              fontSize="small"
+              fontSize='small'
             />
             {releaseLabel}
           </Typography>

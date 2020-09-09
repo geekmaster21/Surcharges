@@ -1,7 +1,7 @@
-import { Backdrop, Button, Dialog, DialogActions } from "@material-ui/core";
-import { useState } from "react";
-import { FormattedMessage } from "react-intl";
-import useStyles from "styles/mui/modal";
+import { Backdrop, Button, Dialog, DialogActions } from '@material-ui/core';
+import { useState } from 'react';
+import { FormattedMessage } from 'react-intl';
+import useStyles from 'styles/mui/modal';
 
 interface ModalProps {
   showModal: boolean;
@@ -14,17 +14,17 @@ const Modal: React.SFC<ModalProps> = ({ showModal, children, toggleModal }) => {
   function chromeColor(color: string) {
     (document.querySelector(
       'meta[name="theme-color"]'
-    ) as HTMLInputElement).setAttribute("content", color);
+    ) as HTMLInputElement).setAttribute('content', color);
   }
 
   const handleClose = () => {
     toggleModal && toggleModal();
     setOpen(false);
-    chromeColor("#E06902");
+    chromeColor('#E06902');
   };
 
   const handleEnter = () => {
-    chromeColor("#703401");
+    chromeColor('#703401');
   };
 
   const classes = useStyles();
@@ -40,13 +40,13 @@ const Modal: React.SFC<ModalProps> = ({ showModal, children, toggleModal }) => {
       }}
       classes={{ paper: classes.dialog }}
       onEntered={handleEnter}
-      maxWidth="xs"
+      maxWidth='xs'
       fullWidth
     >
       {children}
       <DialogActions>
-        <Button onClick={handleClose} color="secondary">
-          <FormattedMessage id="modal.close" defaultMessage="Close" />
+        <Button onClick={handleClose} color='secondary'>
+          <FormattedMessage id='modal.close' defaultMessage='Close' />
         </Button>
       </DialogActions>
     </Dialog>

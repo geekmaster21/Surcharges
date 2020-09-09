@@ -1,5 +1,5 @@
-import Link, { LinkProps } from "next/link";
-import { LocalizedPaths } from "utils";
+import Link, { LinkProps } from 'next/link';
+import { LocalizedPaths } from 'utils';
 
 type LinkLocaleProps = Partial<LinkProps> & {
   activeClassName?: string;

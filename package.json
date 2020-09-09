@@ -19,9 +19,10 @@
   "displayName": "OrangeFox Recovery Downloads",
   "license": "AGPL-3.0-or-later",
   "homepage": "http://orangefox.download",
-  "version": "20.8.17-1",
+  "version": "20.9.9-0",
   "private": false,
   "scripts": {
+    "pretty": "prettier --write .",
     "clean": "rimraf .next dist",
     "dev": "cross-env NODE_ENV=development nodemon",
     "next": "cross-env NODE_OPTIONS='--inspect' next",
@@ -30,12 +31,16 @@
     "build-server": "cross-env NODE_ENV=production tsc --project tsconfig.server.json",
     "start-server": "cross-env NODE_ENV=production node dist/server.js"
   },
+  "pre-commit": {
+    "silent": true,
+    "run": "pretty"
+  },
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
     "cookie": "^0.4.1",
     "cross-env": "^7.0.2",
-    "dayjs": "^1.8.33",
+    "dayjs": "^1.8.35",
     "js-cookie": "^2.2.1",
     "linkifyjs": "^2.1.9",
     "lodash.groupby": "^4.6.0",
@@ -43,12 +48,12 @@
     "lodash.sortby": "^4.7.0",
     "lodash.startcase": "^4.4.0",
     "match-sorter": "^4.2.0",
-    "next": "^9.5.2",
-    "node-fetch": "^2.6.0",
+    "next": "^9.5.3",
+    "node-fetch": "^2.6.1",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-intl": "^5.6.3"
+    "react-intl": "^5.8.1"
   },
   "devDependencies": {
     "@types/cookie": "^0.4.0",
@@ -59,14 +64,15 @@
     "@types/lodash.sortby": "^4.7.6",
     "@types/lodash.startcase": "^4.4.6",
     "@types/match-sorter": "^4.0.0",
-    "@types/node": "^14.0.27",
-    "@types/react": "^16.9.46",
+    "@types/node": "^14.6.4",
+    "@types/react": "^16.9.49",
     "@types/react-dom": "^16.9.8",
     "babel-plugin-inline-react-svg": "^1.1.1",
     "nodemon": "^2.0.4",
+    "pre-commit": "^1.2.2",
     "rimraf": "^3.0.2",
-    "ts-node": "^8.10.2",
-    "typescript": "~3.9.7",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.2",
     "webpack": "^4.44.1"
   },
   "browserslist": {

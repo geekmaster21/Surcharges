@@ -1,4 +1,4 @@
-import { NotFound } from "components";
+import { NotFound } from 'components';
 
 function Page() {
   return <NotFound />;

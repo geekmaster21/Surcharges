@@ -1,6 +1,6 @@
-import { Image, LinkLocale } from "components";
-import { IDevice } from "models";
-import useStyles from "styles/mui/sitemap";
+import { Image, LinkLocale } from 'components';
+import { IDevice } from 'models';
+import useStyles from 'styles/mui/sitemap';
 
 type Props = {
   deviceList: IDevice[];
@@ -11,20 +11,20 @@ export default function Sitemap({ deviceList }: Props) {
     <>
       <LinkLocale
         ATagProps={{
-          className: "link no-hover " + classes.topLogo,
+          className: 'link no-hover ' + classes.topLogo,
         }}
       >
-        <Image alt="OrangeFox Logo" className="logo" src="/images/logo.svg" />
+        <Image alt='OrangeFox Logo' className='logo' src='/images/logo.svg' />
         OrangeFox Recovery
       </LinkLocale>
       <div className={classes.root}>
-        {deviceList.map((m) => (
+        {deviceList.map(m => (
           <LinkLocale
             key={m._id}
-            href="device/[code]"
+            href='device/[code]'
             as={`device/${m.codename}`}
             ATagProps={{
-              className: "link",
+              className: 'link',
               title: `Download Orangefox Recovery - ${m.modelname} ( ${m.codename} )`,
             }}
           >

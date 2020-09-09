@@ -1,8 +1,8 @@
-import { ListItemIcon, ListItemText } from "@material-ui/core";
-import { LoadShimmer, SdCardOutlinedIcon } from "components";
-import { IRelease } from "models";
-import { FormattedMessage } from "react-intl";
-import useStyles from "styles/mui/release";
+import { ListItemIcon, ListItemText } from '@material-ui/core';
+import { LoadShimmer, SdCardOutlinedIcon } from 'components';
+import { IRelease } from 'models';
+import { FormattedMessage } from 'react-intl';
+import useStyles from 'styles/mui/release';
 
 type FileSizeProps = {
   release: IRelease;
@@ -22,8 +22,8 @@ const FileSize: React.SFC<FileSizeProps> = ({ release, showLoader }) => {
           <ListItemText
             primary={
               <FormattedMessage
-                id="release.fileSize"
-                defaultMessage="File Size"
+                id='release.fileSize'
+                defaultMessage='File Size'
               />
             }
             secondary={release.size_human}

@@ -1,10 +1,10 @@
-import { Card, CardContent } from "@material-ui/core";
-import { apiGetDeviceByCode } from "apis";
-import { DeviceInfo, MetaTagsDynamic, Release } from "components";
-import { titleCase } from "core";
-import { EReleaseType, IDevice } from "models";
-import { NextPageContext } from "next";
-import { RedirectTo, SafePromise } from "utils";
+import { Card, CardContent } from '@material-ui/core';
+import { apiGetDeviceByCode } from 'apis';
+import { DeviceInfo, MetaTagsDynamic, Release } from 'components';
+import { titleCase } from 'core';
+import { EReleaseType, IDevice } from 'models';
+import { NextPageContext } from 'next';
+import { RedirectTo, SafePromise } from 'utils';
 
 type Props = {
   code?: string;
@@ -26,23 +26,23 @@ const Page = ({ code, type, version, info }: Props) => {
         title={title}
         desc={`Orangefox recovery for ${m.fullname} (${m.codename})`}
         jsonLd={{
-          "@type": "SoftwareApplication",
+          '@type': 'SoftwareApplication',
           url,
           name: title,
           downloadUrl: url,
           description: title,
-          accessMode: "visual",
+          accessMode: 'visual',
           identifier: version,
-          operatingSystem: "Android",
-          applicationCategory: "SoftwareApplication",
-          applicationSubCategory: "CustomRecovery",
-          maintainer: m.maintainer?.name || "None",
+          operatingSystem: 'Android',
+          applicationCategory: 'SoftwareApplication',
+          applicationSubCategory: 'CustomRecovery',
+          maintainer: m.maintainer?.name || 'None',
           offers: {
-            "@type": "Offer",
-            price: "0.00",
-            priceCurrency: "XXX",
+            '@type': 'Offer',
+            price: '0.00',
+            priceCurrency: 'XXX',
             availability: `https://schema.org/${
-              m.maintained === 3 ? "Discontinued" : "InStock"
+              m.maintained === 3 ? 'Discontinued' : 'InStock'
             }`,
           },
         }}
@@ -54,7 +54,7 @@ const Page = ({ code, type, version, info }: Props) => {
             code={code}
             showAllBuild
             defaultExpanded
-            version={version || "last"}
+            version={version || 'last'}
             type={type || EReleaseType.stable}
           />
         </CardContent>
@@ -70,7 +70,7 @@ Page.getInitialProps = async ({
   const code = query.code as string;
   const info = await SafePromise(() => apiGetDeviceByCode(code));
   if (!info) {
-    RedirectTo({ res, asPath: "/404" } as NextPageContext);
+    RedirectTo({ res, asPath: '/404' } as NextPageContext);
   }
 
   return {

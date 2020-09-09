@@ -3,7 +3,7 @@ import {
   CircularProgress,
   DialogContent,
   DialogTitle,
-} from "@material-ui/core";
+} from '@material-ui/core';
 import {
   Donations,
   GetAppIconOutlined,
@@ -11,11 +11,11 @@ import {
   Modal,
   OpenOutside,
   PoweredBy,
-} from "components";
-import { IRelease } from "models";
-import { useState } from "react";
-import { FormattedMessage } from "react-intl";
-import useStyles from "styles/mui/release";
+} from 'components';
+import { IRelease } from 'models';
+import { useState } from 'react';
+import { FormattedMessage } from 'react-intl';
+import useStyles from 'styles/mui/release';
 
 interface DownloadsProps {
   release: IRelease;
@@ -34,7 +34,7 @@ const Downloads: React.SFC<DownloadsProps> = ({ release, showLoader }) => {
   };
 
   const Title = () => (
-    <FormattedMessage id="release.download" defaultMessage="Downloads" />
+    <FormattedMessage id='release.download' defaultMessage='Downloads' />
   );
 
   if (showModal) {
@@ -44,12 +44,12 @@ const Downloads: React.SFC<DownloadsProps> = ({ release, showLoader }) => {
   return release ? (
     <>
       {showLoader ? (
-        <span className={"shimmer-button " + classes.outlinedButton} />
+        <span className={'shimmer-button ' + classes.outlinedButton} />
       ) : (
         <Button
-          variant="contained"
+          variant='contained'
           disableElevation
-          color="secondary"
+          color='secondary'
           onClick={handleModal}
           className={classes.outlinedButton}
           startIcon={<GetAppIconOutlined />}
@@ -65,33 +65,33 @@ const Downloads: React.SFC<DownloadsProps> = ({ release, showLoader }) => {
         <DialogContent dividers>
           {!tmoDirectLink && (
             <Button
-              variant="outlined"
-              color="secondary"
+              variant='outlined'
+              color='secondary'
               className={classes.downloadButton}
-              startIcon={<CircularProgress size="18px" color="secondary" />}
+              startIcon={<CircularProgress size='18px' color='secondary' />}
             >
               <FormattedMessage
-                id="modal.fetchLink"
-                defaultMessage="Fetching Links"
+                id='modal.fetchLink'
+                defaultMessage='Fetching Links'
               />
             </Button>
           )}
           {tmoDirectLink && (
             <>
               <Button
-                color="secondary"
-                variant="contained"
+                color='secondary'
+                variant='contained'
                 disableElevation
                 className={classes.downloadButton}
                 startIcon={<GetAppIconOutlined />}
               >
                 <OpenOutside
-                  className="link no-hover inheritColor"
+                  className='link no-hover inheritColor'
                   href={release.direct_url || release.url}
                 >
                   <FormattedMessage
-                    id="modal.directLink"
-                    defaultMessage="Direct Link"
+                    id='modal.directLink'
+                    defaultMessage='Direct Link'
                   />
                 </OpenOutside>
               </Button>
@@ -99,19 +99,19 @@ const Downloads: React.SFC<DownloadsProps> = ({ release, showLoader }) => {
               {release?.sf?.url && (
                 <>
                   <Button
-                    color="secondary"
-                    variant="outlined"
+                    color='secondary'
+                    variant='outlined'
                     disableElevation
                     className={classes.downloadButton}
                     startIcon={<LaunchIcon />}
                   >
                     <OpenOutside
                       href={release?.sf?.url}
-                      className="link no-hover inheritColor"
+                      className='link no-hover inheritColor'
                     >
                       <FormattedMessage
-                        id="modal.mirrorLink"
-                        defaultMessage="Mirror Link"
+                        id='modal.mirrorLink'
+                        defaultMessage='Mirror Link'
                       />
                     </OpenOutside>
                   </Button>
@@ -120,9 +120,9 @@ const Downloads: React.SFC<DownloadsProps> = ({ release, showLoader }) => {
             </>
           )}
           <br />
-          <div className="links-in-dwld">
+          <div className='links-in-dwld'>
             <PoweredBy />
-            <Donations className="link flexd v-center" />
+            <Donations className='link flexd v-center' />
           </div>
         </DialogContent>
       </Modal>

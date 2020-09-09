@@ -7,23 +7,23 @@ import {
   List,
   ListItem,
   Typography,
-} from "@material-ui/core";
-import { apiGetRelease } from "apis";
-import { ExpandMore, LabelImportantOutlinedIcon, LinkLocale } from "components";
-import { EReleaseType, IRelease } from "models";
-import Router from "next/router";
-import { useEffect, useState } from "react";
-import { FormattedMessage } from "react-intl";
-import useStyles from "styles/mui/release";
-import { GetCurrentLocale, StopEvent } from "utils";
-import { Bugs } from "./Bugs";
-import { BuildHyperLink } from "./Build-Hyperlink";
-import { BuildNotes } from "./Build-Notes";
-import { ChangeLogs } from "./Change-Logs";
-import { Downloads } from "./Downloads";
-import { FileName } from "./File-Name";
-import { FileSize } from "./File-Size";
-import { MD5 } from "./MD5";
+} from '@material-ui/core';
+import { apiGetRelease } from 'apis';
+import { ExpandMore, LabelImportantOutlinedIcon, LinkLocale } from 'components';
+import { EReleaseType, IRelease } from 'models';
+import Router from 'next/router';
+import { useEffect, useState } from 'react';
+import { FormattedMessage } from 'react-intl';
+import useStyles from 'styles/mui/release';
+import { GetCurrentLocale, StopEvent } from 'utils';
+import { Bugs } from './Bugs';
+import { BuildHyperLink } from './Build-Hyperlink';
+import { BuildNotes } from './Build-Notes';
+import { ChangeLogs } from './Change-Logs';
+import { Downloads } from './Downloads';
+import { FileName } from './File-Name';
+import { FileSize } from './File-Size';
+import { MD5 } from './MD5';
 
 type Props = {
   code?: string;
@@ -35,7 +35,7 @@ type Props = {
   defaultExpanded?: boolean;
 };
 
-const Release: React.SFC<Props> = (props) => {
+const Release: React.SFC<Props> = props => {
   const {
     code,
     version,
@@ -53,7 +53,7 @@ const Release: React.SFC<Props> = (props) => {
   useEffect(() => {
     if (code && isExpanded && !Object.keys(release || {}).length) {
       apiGetRelease(code, type, version)
-        .then((data) => setReleaseDetail(data))
+        .then(data => setReleaseDetail(data))
         .catch(() => {
           showAllBuild && Router.push(`/${locale}/404`);
         });
@@ -79,8 +79,8 @@ const Release: React.SFC<Props> = (props) => {
           <div className={classes.summary}>
             <Typography className={classes.version}>
               <LabelImportantOutlinedIcon
-                fontSize="small"
-                className={classes.icon + " " + classes.iconM5}
+                fontSize='small'
+                className={classes.icon + ' ' + classes.iconM5}
               />
               {_version}
             </Typography>
@@ -93,15 +93,15 @@ const Release: React.SFC<Props> = (props) => {
               {showAllBuild && (
                 <LinkLocale
                   as={`device/${code}`}
-                  href="device/[code]"
+                  href='device/[code]'
                   ATagProps={{
-                    className: "link",
+                    className: 'link',
                   }}
                 >
-                  <Button color="secondary">
+                  <Button color='secondary'>
                     <FormattedMessage
-                      id="release.allBuild"
-                      defaultMessage="Show All Builds"
+                      id='release.allBuild'
+                      defaultMessage='Show All Builds'
                     />
                   </Button>
                 </LinkLocale>
@@ -111,7 +111,7 @@ const Release: React.SFC<Props> = (props) => {
         </AccordionSummary>
 
         <AccordionDetails className={classes.details}>
-          <List component="nav" className={classes.list}>
+          <List component='nav' className={classes.list}>
             <ListItem>
               <FileName release={release} showLoader={showLoader} />
             </ListItem>
@@ -126,7 +126,7 @@ const Release: React.SFC<Props> = (props) => {
 
             <MD5 release={release} showLoader={showLoader} />
 
-            <List component="div" className={classes.nestedList}>
+            <List component='div' className={classes.nestedList}>
               <Downloads release={release} showLoader={showLoader} />
 
               {release?.changelog && (

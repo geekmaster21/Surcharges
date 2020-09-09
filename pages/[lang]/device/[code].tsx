@@ -1,8 +1,8 @@
-import { apiGetAllReleases, apiGetDeviceByCode } from "apis";
-import { DeviceInfo, DeviceReleases, MetaTagsDynamic } from "components";
-import { IAllReleases, IDevice } from "models";
-import { NextPageContext } from "next";
-import { RedirectTo, SafePromise } from "utils";
+import { apiGetAllReleases, apiGetDeviceByCode } from 'apis';
+import { DeviceInfo, DeviceReleases, MetaTagsDynamic } from 'components';
+import { IAllReleases, IDevice } from 'models';
+import { NextPageContext } from 'next';
+import { RedirectTo, SafePromise } from 'utils';
 
 type Props = {
   info: IDevice;
@@ -20,23 +20,23 @@ const Page = ({ info, releases }: Props) => {
         title={title}
         desc={`Orangefox recovery for ${m.fullname} (${m.codename})`}
         jsonLd={{
-          "@type": "SoftwareApplication",
+          '@type': 'SoftwareApplication',
           url,
           name: title,
           downloadUrl: url,
           description: title,
-          accessMode: "visual",
+          accessMode: 'visual',
           identifier: m._id,
-          operatingSystem: "Android",
-          applicationCategory: "SoftwareApplication",
-          applicationSubCategory: "CustomRecovery",
-          maintainer: m.maintainer?.name || "None",
+          operatingSystem: 'Android',
+          applicationCategory: 'SoftwareApplication',
+          applicationSubCategory: 'CustomRecovery',
+          maintainer: m.maintainer?.name || 'None',
           offers: {
-            "@type": "Offer",
-            price: "0.00",
-            priceCurrency: "XXX",
+            '@type': 'Offer',
+            price: '0.00',
+            priceCurrency: 'XXX',
             availability: `https://schema.org/${
-              m.maintained === 3 ? "Discontinued" : "InStock"
+              m.maintained === 3 ? 'Discontinued' : 'InStock'
             }`,
           },
         }}
@@ -51,7 +51,7 @@ Page.getInitialProps = async ({ query, res }: NextPageContext) => {
   const code = query.code as string;
   const info = await SafePromise(() => apiGetDeviceByCode(code));
   if (!info) {
-    RedirectTo({ res, asPath: "/404" } as NextPageContext);
+    RedirectTo({ res, asPath: '/404' } as NextPageContext);
   }
   const releases = await SafePromise(() => apiGetAllReleases(code));
 

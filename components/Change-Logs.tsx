@@ -1,10 +1,10 @@
-import { Button, DialogContent, DialogTitle } from "@material-ui/core";
-import { DescriptionOutlined, Modal } from "components";
-import { IRelease } from "models";
-import { useState } from "react";
-import { FormattedMessage } from "react-intl";
-import useStyles from "styles/mui/release";
-import { SplitMsg } from "./Split-Msg";
+import { Button, DialogContent, DialogTitle } from '@material-ui/core';
+import { DescriptionOutlined, Modal } from 'components';
+import { IRelease } from 'models';
+import { useState } from 'react';
+import { FormattedMessage } from 'react-intl';
+import useStyles from 'styles/mui/release';
+import { SplitMsg } from './Split-Msg';
 
 interface ChangeLogsProps {
   release: IRelease;
@@ -16,17 +16,17 @@ const ChangeLogs: React.SFC<ChangeLogsProps> = ({ release, showLoader }) => {
   const handleModal = () => toggleModal(!showModal);
   const classes = useStyles();
   const Title = () => (
-    <FormattedMessage id="release.changeLogs" defaultMessage="Change Logs" />
+    <FormattedMessage id='release.changeLogs' defaultMessage='Change Logs' />
   );
 
   return (
     <>
       {showLoader ? (
-        <span className={"shimmer-button " + classes.outlinedButton} />
+        <span className={'shimmer-button ' + classes.outlinedButton} />
       ) : (
         <Button
-          variant="outlined"
-          color="secondary"
+          variant='outlined'
+          color='secondary'
           onClick={handleModal}
           className={classes.outlinedButton}
           startIcon={<DescriptionOutlined />}
@@ -39,7 +39,7 @@ const ChangeLogs: React.SFC<ChangeLogsProps> = ({ release, showLoader }) => {
         <DialogTitle>
           <Title />
         </DialogTitle>
-        <DialogContent dividers className="selectable">
+        <DialogContent dividers className='selectable'>
           <SplitMsg msg={release.changelog} />
         </DialogContent>
       </Modal>

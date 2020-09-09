@@ -1,5 +1,5 @@
 variables:
-  DOCKER_IMAGE: "registry.gitlab.com/orangefox/infrastructure/dsite:$CI_COMMIT_BRANCH"
+  DOCKER_IMAGE: 'registry.gitlab.com/orangefox/infrastructure/dsite:$CI_COMMIT_BRANCH'
 
 docker:push:
   image: docker:latest

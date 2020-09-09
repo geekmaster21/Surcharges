@@ -1,12 +1,12 @@
-import CssBaseline from "@material-ui/core/CssBaseline";
-import { ThemeProvider } from "@material-ui/core/styles";
-import { apiGetAllDeviceList } from "apis";
-import { Layout, MetaTagsDynamic, MetaTagsStatic } from "components";
-import cookie from "cookie";
-import { IDevice } from "models";
-import { AppContextType, AppPropsType } from "next/dist/next-server/lib/utils";
-import React, { useEffect } from "react";
-import { IntlProvider } from "react-intl";
+import CssBaseline from '@material-ui/core/CssBaseline';
+import { ThemeProvider } from '@material-ui/core/styles';
+import { apiGetAllDeviceList } from 'apis';
+import { Layout, MetaTagsDynamic, MetaTagsStatic } from 'components';
+import cookie from 'cookie';
+import { IDevice } from 'models';
+import { AppContextType, AppPropsType } from 'next/dist/next-server/lib/utils';
+import React, { useEffect } from 'react';
+import { IntlProvider } from 'react-intl';
 import {
   Dotize,
   GetCurrentLocale,
@@ -14,16 +14,16 @@ import {
   RedirectOnMissingLocale,
   SetCurrentLocale,
   ValidatedLocale,
-} from "utils";
-import DisableErrorFromReactIntl from "utils/react-intl";
-import { DarkTheme } from "../themes";
+} from 'utils';
+import DisableErrorFromReactIntl from 'utils/react-intl';
+import { DarkTheme } from '../themes';
 
-import "styles/app.scss";
+import 'styles/app.scss';
 
 const MetaDesc = [
-  "OrangeFox Recovery is one of the most popular custom recoveries in android ecosystem,",
-  " with amazing additional features that are not present in other recoveries. We support a host of devices",
-].join("");
+  'OrangeFox Recovery is one of the most popular custom recoveries in android ecosystem,',
+  ' with amazing additional features that are not present in other recoveries. We support a host of devices',
+].join('');
 
 // TODO: remove this and handle translations properly
 DisableErrorFromReactIntl();
@@ -38,29 +38,29 @@ export default function OrangeFoxApp(props: AppPropsType) {
 
   useEffect(() => {
     // Remove the server-side injected CSS.
-    const jssStyles = document.querySelector("#jss-server-side");
+    const jssStyles = document.querySelector('#jss-server-side');
     if (jssStyles) {
       jssStyles.parentElement!.removeChild(jssStyles);
     }
   }, []);
 
   const itemListElement = list.map((m, i) => ({
-    "@type": "ListItem",
+    '@type': 'ListItem',
     position: i + 1,
     item: {
-      "@type": "SoftwareApplication",
+      '@type': 'SoftwareApplication',
       identifier: m.codename,
       name: `Orangefox recovery for ${m.fullname} (${m.codename})`,
-      operatingSystem: "Android",
-      applicationCategory: "SoftwareApplication",
-      applicationSubCategory: "CustomRecovery",
+      operatingSystem: 'Android',
+      applicationCategory: 'SoftwareApplication',
+      applicationSubCategory: 'CustomRecovery',
       url: `/device/${m.codename}`,
       downloadUrl: `/device/${m.codename}`,
-      accessMode: "visual",
+      accessMode: 'visual',
       offers: {
-        "@type": "Offer",
-        price: "0.00",
-        priceCurrency: "XXX",
+        '@type': 'Offer',
+        price: '0.00',
+        priceCurrency: 'XXX',
         availability: `https://schema.org/InStock`,
       },
     },
@@ -72,8 +72,8 @@ export default function OrangeFoxApp(props: AppPropsType) {
       <MetaTagsDynamic
         desc={MetaDesc}
         jsonLd={{
-          "@type": "ItemList",
-          name: "Supported Devices",
+          '@type': 'ItemList',
+          name: 'Supported Devices',
           itemListElement,
         }}
       />
@@ -96,7 +96,7 @@ const appCache: {
 
 OrangeFoxApp.getInitialProps = async ({ ctx, Component }: AppContextType) => {
   let pageProps: any = {};
-  const cookieData = cookie.parse(ctx.req?.headers.cookie || "");
+  const cookieData = cookie.parse(ctx.req?.headers.cookie || '');
   const locale = ValidatedLocale(cookieData[keyOfLang] || GetCurrentLocale());
   const isRedirected = RedirectOnMissingLocale(ctx, locale);
 
@@ -108,7 +108,7 @@ OrangeFoxApp.getInitialProps = async ({ ctx, Component }: AppContextType) => {
     }
 
     if (!appCache[locale]) {
-      await import(`public/translations/${locale}.json`).then((x) => {
+      await import(`public/translations/${locale}.json`).then(x => {
         appCache[locale] = Dotize.convert(x.default || x);
       });
     }

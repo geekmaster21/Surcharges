@@ -4,10 +4,10 @@ import {
   ListItem,
   makeStyles,
   Theme,
-} from "@material-ui/core";
-import { ExpandLess, ExpandMore } from "components";
-import { useState } from "react";
-import { DeviceList } from "./Device-List";
+} from '@material-ui/core';
+import { ExpandLess, ExpandMore } from 'components';
+import { useState } from 'react';
+import { DeviceList } from './Device-List';
 
 interface ListProps<T = any> {
   data: T;
@@ -45,7 +45,7 @@ export const DeviceListItem: React.SFC<ListProps> = ({
 }) => {
   const classes = useStyles();
   const [open, setOpen] = useState(expanded);
-  const children = (data[fieldChildren || "children"] as any[]) || [];
+  const children = (data[fieldChildren || 'children'] as any[]) || [];
 
   if (!children.length) {
     return (
@@ -66,18 +66,18 @@ export const DeviceListItem: React.SFC<ListProps> = ({
       >
         {ContentParent(data)}
         {open ? (
-          <ExpandLess fontSize="small" />
+          <ExpandLess fontSize='small' />
         ) : (
-          <ExpandMore fontSize="small" />
+          <ExpandMore fontSize='small' />
         )}
       </ListItem>
 
-      <Collapse in={open} timeout="auto" unmountOnExit>
-        {children.map((child) =>
-          child[fieldChildren || "children"] ? (
+      <Collapse in={open} timeout='auto' unmountOnExit>
+        {children.map(child =>
+          child[fieldChildren || 'children'] ? (
             <DeviceList
               data={child}
-              component="div"
+              component='div'
               expanded={expanded}
               ContentParent={data}
               ContentChild={child}
@@ -85,14 +85,14 @@ export const DeviceListItem: React.SFC<ListProps> = ({
               keyChildren={keyChildren}
               onClickChild={onClickChild}
               onClickParent={onClickParent}
-              key={child[keyChildren || "key"]}
+              key={child[keyChildren || 'key']}
             />
           ) : (
             <ListItem
               button
               className={classes.nested}
               onClick={() => onClickChild && onClickChild(child)}
-              key={child[keyChildren || "key"]}
+              key={child[keyChildren || 'key']}
             >
               {ContentChild(child)}
             </ListItem>

@@ -6,7 +6,7 @@ export interface LinkNewTabProps
 
 const OpenOutside: React.SFC<LinkNewTabProps> = ({ children, ...rest }) => {
   return (
-    <a target="_blank" rel="noopener noreferrer" {...rest}>
+    <a target='_blank' rel='noopener noreferrer' {...rest}>
       {children}
     </a>
   );

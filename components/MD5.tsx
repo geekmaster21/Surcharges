@@ -1,10 +1,10 @@
-import { ListItem, ListItemIcon, ListItemText } from "@material-ui/core";
-import { LoadShimmer, Toast, VerifiedUserOutlined } from "components";
-import { IRelease } from "models";
-import { useState } from "react";
-import { FormattedMessage } from "react-intl";
-import useStyles from "styles/mui/release";
-import { CopyToClipboard, StopEvent } from "utils";
+import { ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
+import { LoadShimmer, Toast, VerifiedUserOutlined } from 'components';
+import { IRelease } from 'models';
+import { useState } from 'react';
+import { FormattedMessage } from 'react-intl';
+import useStyles from 'styles/mui/release';
+import { CopyToClipboard, StopEvent } from 'utils';
 
 type Props = {
   release: IRelease;
@@ -39,7 +39,7 @@ const MD5: React.SFC<Props> = ({ release, showLoader }) => {
         ) : (
           <>
             <ListItemText
-              primary="MD5"
+              primary='MD5'
               className={classes.md5}
               onClick={onCopyClick}
               secondary={release.md5}
@@ -51,8 +51,8 @@ const MD5: React.SFC<Props> = ({ release, showLoader }) => {
       {release?.md5 && (
         <Toast show={modal} onClose={toggleModal}>
           <FormattedMessage
-            id="clipboardCopy"
-            defaultMessage="Copied to clipboard!"
+            id='clipboardCopy'
+            defaultMessage='Copied to clipboard!'
           />
         </Toast>
       )}
