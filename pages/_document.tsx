@@ -14,7 +14,7 @@ export default class OrangeFoxDocument extends Document {
   render() {
     const lang = GetCurrentLocale();
     return (
-      <Html lang={lang} {...{ version: config.version }}>
+      <Html lang={lang} data-version={config.version}>
         <Head />
         <body>
           <Main />
