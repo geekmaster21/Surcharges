@@ -4,12 +4,11 @@ import { drawerWidth } from './_constants';
 export default makeStyles((theme: Theme) => ({
   root: {
     display: 'flex',
-    margin: theme.spacing(2),
+    margin: theme.spacing(1.3),
   },
   drawerContainer: {
     // Stops device list from shifting when scrollbar is visible
     marginRight: `calc(-1 * (${drawerWidth - 8}px - 100%))`,
-    height: '100%',
     [theme.breakpoints.up('xs')]: {
       width: drawerWidth,
       flexShrink: 0,
@@ -20,6 +19,7 @@ export default makeStyles((theme: Theme) => ({
     top: 0,
     position: 'sticky',
     zIndex: 1,
+    padding: '1px 0',
   },
   clearSearch: {
     marginRight: '5px',

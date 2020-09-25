@@ -2,7 +2,7 @@ import { apiGetAllReleases, apiGetDeviceByCode } from 'apis';
 import { DeviceInfo, DeviceReleases, MetaTagsDynamic } from 'components';
 import { IAllReleases, IDevice } from 'models';
 import { NextPageContext } from 'next';
-import { RedirectTo, SafePromise } from 'utils';
+import { IsCSR, RedirectTo, SafePromise } from 'utils';
 
 type Props = {
   info: IDevice;
@@ -47,13 +47,44 @@ const Page = ({ info, releases }: Props) => {
   );
 };
 
+const deviceCache: {
+  code: string;
+  info?: IDevice;
+  releases?: IAllReleases;
+}[] = [];
+
 Page.getInitialProps = async ({ query, res }: NextPageContext) => {
   const code = query.code as string;
-  const info = await SafePromise(() => apiGetDeviceByCode(code));
+  let info: IDevice | undefined = undefined,
+    releases: IAllReleases | undefined = undefined;
+
+  const found = deviceCache.find(f => f.code === code);
+
+  if (IsCSR && found) {
+    info = found.info;
+  } else {
+    info = await SafePromise(() => apiGetDeviceByCode(code));
+  }
+
   if (!info) {
     RedirectTo({ res, asPath: '/404' } as NextPageContext);
   }
-  const releases = await SafePromise(() => apiGetAllReleases(code));
+
+  if (IsCSR && found) {
+    releases = found.releases;
+  } else {
+    if (info) {
+      releases = await SafePromise(() => apiGetAllReleases(code));
+    }
+  }
+
+  if (IsCSR && !found) {
+    deviceCache.push({
+      code,
+      info,
+      releases,
+    });
+  }
 
   return {
     info,
