@@ -14,6 +14,9 @@ export const MetaTagsStatic = () => (
     />
     <meta name='description' content='OrangeFox Recovery | Downloads' />
 
+    <meta name='robots' content='index,follow' />
+    <meta name='googlebot' content='index,follow' />
+
     <meta name='msapplication-TileColor' content='#000000' />
     <meta name='msapplication-TileImage' content='/ms-icon-144x144.png' />
 

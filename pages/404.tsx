@@ -1,6 +1,11 @@
-import { NotFound } from 'components';
+import { MetaTagsDynamic, NotFound } from 'components';
 
 function Page() {
-  return <NotFound />;
+  return (
+    <>
+      <MetaTagsDynamic title='Not Found' />
+      <NotFound />
+    </>
+  );
 }
 export default Page;

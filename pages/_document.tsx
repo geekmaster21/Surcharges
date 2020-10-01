@@ -15,7 +15,9 @@ export default class OrangeFoxDocument extends Document {
     const lang = GetCurrentLocale();
     return (
       <Html lang={lang} data-version={config.version}>
-        <Head />
+        <Head>
+          <link rel='sitemap' type='application/xml' href='/sitemap.xml' />
+        </Head>
         <body>
           <Main />
           <NextScript />
