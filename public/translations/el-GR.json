@@ -1,6 +1,6 @@
 {
     "languageInfo": {
-        "name": "Αγγλικά",
+        "name": "Greek",
         "emoji": "🇬🇷"
     },
     "mainPage": {
@@ -51,7 +51,7 @@
         "info": "Πληροφορίες"
     },
     "footer": {
-        "poweredBy": "Υποστηρίζεται από{hostWebsite}",
+        "poweredBy": "Υποστηρίζεται από {hostWebsite}",
         "openSource": "Πρότζεκτ Ανοιχτού Κώδικα"
     }
 }
