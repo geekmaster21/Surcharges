@@ -20,9 +20,11 @@ import SdCardOutlinedIcon from '@material-ui/icons/SdCardOutlined';
 import SearchIcon from '@material-ui/icons/Search';
 import SpeakerNotesOutlined from '@material-ui/icons/SpeakerNotesOutlined';
 import StarBorderOutlinedIcon from '@material-ui/icons/StarBorderOutlined';
+import TranslateIcon from '@material-ui/icons/Translate';
 import VerifiedUserOutlined from '@material-ui/icons/VerifiedUserOutlined';
 
 export {
+  TranslateIcon,
   ExpandLess,
   ExpandMore,
   HyperLink,

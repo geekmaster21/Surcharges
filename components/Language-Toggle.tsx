@@ -4,6 +4,7 @@ import config from 'config';
 import { useRouter } from 'next/router';
 import useStyles from 'styles/mui/language-toggle';
 import { GetCurrentLocale, SetCurrentLocale } from 'utils';
+import { TranslateIcon } from './Icons';
 
 const LanguageToggle = () => {
   const classes = useStyles();
@@ -12,6 +13,12 @@ const LanguageToggle = () => {
   const locale = GetCurrentLocale();
 
   const handleChange = ({ target: { value } }: any) => {
+    if (!value) {
+      return window.open(
+        'https://translate.orangefox.tech/downloads-website',
+        '_blank'
+      );
+    }
     const query = (router.query || {}) as any;
     query.lang = value;
     SetCurrentLocale(value);
@@ -43,6 +50,10 @@ const LanguageToggle = () => {
         classes={{ icon: classes.arrowIcon }}
         renderValue={() => getEmoji()}
       >
+        <MenuItem key='help-translate' className={classes.listItemHelp}>
+          <TranslateIcon fontSize='small' style={{ fontSize: '15px' }} />
+          <span>Help us Translate!</span>
+        </MenuItem>
         {langs.map(m => (
           <MenuItem
             key={m.code}
@@ -50,7 +61,8 @@ const LanguageToggle = () => {
             className={classes.listItem}
             classes={{ selected: classes.listItemSelected }}
           >
-            {m.emoji} &nbsp;&nbsp; {m.name}
+            <span>{m.emoji}</span>
+            <span>{m.name}</span>
           </MenuItem>
         ))}
       </Select>
