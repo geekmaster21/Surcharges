@@ -1,7 +1,7 @@
-import config from "config";
-import cookie from "js-cookie";
+import config from 'config';
+import cookie from 'js-cookie';
 
-export const keyOfLang = "of-lang";
+export const keyOfLang = 'of-lang';
 
 export function ValidatedLocale(locale: string) {
   const isValidLocale = config.locale.pattern.test(locale);
@@ -11,7 +11,7 @@ export function ValidatedLocale(locale: string) {
 export const SetCurrentLocale = (locale: string) => {
   locale = ValidatedLocale(locale);
   config.locale.current = locale;
-  cookie.set(keyOfLang, locale, { expires: 1000, sameSite: "Lax" });
+  cookie.set(keyOfLang, locale, { expires: 1000, sameSite: 'Lax' });
 };
 
 export const GetCurrentLocale = (): string => {

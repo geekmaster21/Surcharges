@@ -1,19 +1,19 @@
-import { Image, LinkLocale } from "components";
-import { FormattedMessage } from "react-intl";
+import { Image, LinkLocale } from 'components';
+import { FormattedMessage } from 'react-intl';
 
 function NotFound() {
   return (
-    <div className="hero big-image">
-      <Image src="/images/404.svg" alt="Not Found" className="nf-img" />
+    <div className='hero big-image'>
+      <Image src='/images/404.svg' alt='Not Found' className='nf-img' />
 
       <LinkLocale
         ATagProps={{
-          className: "link underline",
+          className: 'link underline',
         }}
       >
         <FormattedMessage
-          id="mainPage.notFound"
-          defaultMessage="This is the end. Take me back Home!"
+          id='mainPage.notFound'
+          defaultMessage='This is the end. Take me back Home!'
         />
       </LinkLocale>
     </div>

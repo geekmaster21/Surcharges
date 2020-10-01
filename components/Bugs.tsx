@@ -1,10 +1,10 @@
-import { Button, DialogContent, DialogTitle } from "@material-ui/core";
-import { BugReportIcon, Modal } from "components";
-import { IRelease } from "models";
-import { useState } from "react";
-import { FormattedMessage } from "react-intl";
-import useStyles from "styles/mui/release";
-import { SplitMsg } from "./Split-Msg";
+import { Button, DialogContent, DialogTitle } from '@material-ui/core';
+import { BugReportIcon, Modal } from 'components';
+import { IRelease } from 'models';
+import { useState } from 'react';
+import { FormattedMessage } from 'react-intl';
+import useStyles from 'styles/mui/release';
+import { SplitMsg } from './Split-Msg';
 
 interface BugsProps {
   release: IRelease;
@@ -16,19 +16,19 @@ const Bugs: React.SFC<BugsProps> = ({ release, showLoader }) => {
   const [showModal, toggleModal] = useState(false);
   const handleModal = () => toggleModal(!showModal);
   const Title = () => (
-    <FormattedMessage id="release.bugs" defaultMessage="Bugs" />
+    <FormattedMessage id='release.bugs' defaultMessage='Bugs' />
   );
 
   return release?.bugs ? (
     <>
       {showLoader ? (
-        <span className={"shimmer-button " + classes.outlinedButton} />
+        <span className={'shimmer-button ' + classes.outlinedButton} />
       ) : (
         <Button
-          variant="outlined"
-          color="secondary"
+          variant='outlined'
+          color='secondary'
           onClick={handleModal}
-          className={classes.outlinedButton + " " + classes.bug}
+          className={classes.outlinedButton + ' ' + classes.bug}
           startIcon={<BugReportIcon />}
         >
           <Title />
@@ -39,7 +39,7 @@ const Bugs: React.SFC<BugsProps> = ({ release, showLoader }) => {
         <DialogTitle>
           <Title />
         </DialogTitle>
-        <DialogContent dividers className="selectable">
+        <DialogContent dividers className='selectable'>
           <SplitMsg msg={release.bugs} />
         </DialogContent>
       </Modal>

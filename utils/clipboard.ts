@@ -1,27 +1,27 @@
 function fallbackCopyTextToClipboard(text: string) {
-    var textArea = document.createElement("textarea");
-    textArea.value = text;
+  var textArea = document.createElement('textarea');
+  textArea.value = text;
 
-    // Avoid scrolling to bottom
-    textArea.style.top = "0";
-    textArea.style.left = "0";
-    textArea.style.position = "fixed";
+  // Avoid scrolling to bottom
+  textArea.style.top = '0';
+  textArea.style.left = '0';
+  textArea.style.position = 'fixed';
 
-    document.body.appendChild(textArea);
-    textArea.focus();
-    textArea.select();
+  document.body.appendChild(textArea);
+  textArea.focus();
+  textArea.select();
 
-    try {
-        document.execCommand('copy');
-    } catch (err) { }
+  try {
+    document.execCommand('copy');
+  } catch (err) {}
 
-    document.body.removeChild(textArea);
+  document.body.removeChild(textArea);
 }
 
 export function CopyToClipboard(text: string) {
-    if (!navigator.clipboard) {
-        fallbackCopyTextToClipboard(text);
-        return;
-    }
-    navigator.clipboard.writeText(text).then();
+  if (!navigator.clipboard) {
+    fallbackCopyTextToClipboard(text);
+    return;
+  }
+  navigator.clipboard.writeText(text).then();
 }

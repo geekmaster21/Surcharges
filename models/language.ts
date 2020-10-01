@@ -1,5 +1,5 @@
 export interface ILanguage {
-    code: string,
-    name: string,
-    emoji: string
+  code: string;
+  name: string;
+  emoji: string;
 }

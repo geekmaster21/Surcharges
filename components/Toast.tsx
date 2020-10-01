@@ -3,15 +3,15 @@ import {
   SlideProps,
   Snackbar,
   SnackbarContent,
-} from "@material-ui/core";
-import { ReactNode, useEffect, useState } from "react";
-import useStyles from "styles/mui/toast";
-import { isMobile } from "utils";
+} from '@material-ui/core';
+import { ReactNode, useEffect, useState } from 'react';
+import useStyles from 'styles/mui/toast';
+import { isMobile } from 'utils';
 
-type TransitionProps = Omit<SlideProps, "direction">;
+type TransitionProps = Omit<SlideProps, 'direction'>;
 
 function TransitionUp(props: TransitionProps) {
-  return <Slide {...props} direction={isMobile ? "up" : "left"} />;
+  return <Slide {...props} direction={isMobile ? 'up' : 'left'} />;
 }
 
 export function Toast({
@@ -55,7 +55,7 @@ export function Toast({
       autoHideDuration={2000}
       TransitionComponent={transition}
       anchorOrigin={
-        isMobile ? undefined : { vertical: "top", horizontal: "right" }
+        isMobile ? undefined : { vertical: 'top', horizontal: 'right' }
       }
     >
       <SnackbarContent className={classes.toast} message={children} />

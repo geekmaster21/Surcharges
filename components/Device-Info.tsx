@@ -7,21 +7,21 @@ import {
   ListItemIcon,
   ListItemText,
   Typography,
-} from "@material-ui/core";
-import { IDevice } from "models";
-import { FormattedMessage } from "react-intl";
-import useStyles from "styles/mui/device-info";
+} from '@material-ui/core';
+import { IDevice } from 'models';
+import { FormattedMessage } from 'react-intl';
+import useStyles from 'styles/mui/device-info';
 import {
   ExpandMore,
   PermDeviceInformationOutlinedIcon,
   PermIdentityOutlinedIcon,
   ReportProblemOutlined,
-} from "./Icons";
-import { LoadShimmer } from "./Load-Shimmer";
+} from './Icons';
+import { LoadShimmer } from './Load-Shimmer';
 
 const DeviceInfo = (device: IDevice) => {
   const classes = useStyles();
-  const maintainer = device.maintainer?.name || "None";
+  const maintainer = device.maintainer?.name || 'None';
   let maintainPrimaryText: JSX.Element | null = null;
   let maintainSecondaryText: JSX.Element | null = null;
 
@@ -29,15 +29,15 @@ const DeviceInfo = (device: IDevice) => {
     case 1:
       maintainPrimaryText = (
         <FormattedMessage
-          id="maintain.status.maintained"
-          defaultMessage="Maintained"
+          id='maintain.status.maintained'
+          defaultMessage='Maintained'
         />
       );
 
       maintainSecondaryText = (
         <FormattedMessage
-          id="maintain.by.current"
-          defaultMessage="Maintainer: {maintainer}"
+          id='maintain.by.current'
+          defaultMessage='Maintainer: {maintainer}'
           values={{ maintainer }}
         />
       );
@@ -46,15 +46,15 @@ const DeviceInfo = (device: IDevice) => {
     case 2:
       maintainPrimaryText = (
         <FormattedMessage
-          id="maintain.status.maintainedWithoutDevice"
-          defaultMessage="Maintained without having device in hands"
+          id='maintain.status.maintainedWithoutDevice'
+          defaultMessage='Maintained without having device in hands'
         />
       );
 
       maintainSecondaryText = (
         <FormattedMessage
-          id="maintain.by.current"
-          defaultMessage="Maintainer: {maintainer}"
+          id='maintain.by.current'
+          defaultMessage='Maintainer: {maintainer}'
           values={{ maintainer }}
         />
       );
@@ -67,16 +67,16 @@ const DeviceInfo = (device: IDevice) => {
           <ReportProblemOutlined className={classes.notmaintainedIcon} />
           &nbsp;
           <FormattedMessage
-            id="maintain.status.notMaintained"
-            defaultMessage="Not Maintained!"
+            id='maintain.status.notMaintained'
+            defaultMessage='Not Maintained!'
           />
         </span>
       );
 
       maintainSecondaryText = (
         <FormattedMessage
-          id="maintain.by.previous"
-          defaultMessage="Previous Maintainer: {maintainer}"
+          id='maintain.by.previous'
+          defaultMessage='Previous Maintainer: {maintainer}'
           values={{ maintainer }}
         />
       );
@@ -91,17 +91,17 @@ const DeviceInfo = (device: IDevice) => {
   return (
     <Accordion defaultExpanded className={classes.root}>
       <AccordionSummary
-        id="device-info"
+        id='device-info'
         expandIcon={<ExpandMore className={classes.icon} />}
-        aria-controls="device-info-content"
+        aria-controls='device-info-content'
       >
-        <Typography component="div" className="shimmer-wrapper">
+        <Typography component='div' className='shimmer-wrapper'>
           {!showLoader && (
             <>
-              {device.fullname + " "}
+              {device.fullname + ' '}
               <FormattedMessage
-                id="device.info"
-                defaultMessage="(Device Info)"
+                id='device.info'
+                defaultMessage='(Device Info)'
               />
             </>
           )}
@@ -111,7 +111,7 @@ const DeviceInfo = (device: IDevice) => {
         </Typography>
       </AccordionSummary>
       <AccordionDetails className={classes.details}>
-        <List component="ul" className={classes.list}>
+        <List component='ul' className={classes.list}>
           <ListItem>
             <ListItemIcon>
               <PermDeviceInformationOutlinedIcon className={classes.icon} />

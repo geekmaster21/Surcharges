@@ -1,8 +1,8 @@
-import { IconButton } from "@material-ui/core";
-import { HyperLink, Toast } from "components";
-import { useState } from "react";
-import { FormattedMessage } from "react-intl";
-import { CopyToClipboard, GetCurrentLocale, IsCSR, StopEvent } from "utils";
+import { IconButton } from '@material-ui/core';
+import { HyperLink, Toast } from 'components';
+import { useState } from 'react';
+import { FormattedMessage } from 'react-intl';
+import { CopyToClipboard, GetCurrentLocale, IsCSR, StopEvent } from 'utils';
 
 type Props = {
   version?: string;
@@ -17,7 +17,7 @@ export const BuildHyperLink = ({ codename, version, buildType }: Props) => {
   const locale = GetCurrentLocale();
   const [modal, setModal] = useState(false);
   const toggleModal = () => setModal(!modal);
-  const origin = IsCSR ? window.location.origin : "";
+  const origin = IsCSR ? window.location.origin : '';
   const url = `${origin}/${locale}/build/${codename}/${buildType}/${version}`;
 
   function onCopyClick(e: any) {
@@ -30,15 +30,15 @@ export const BuildHyperLink = ({ codename, version, buildType }: Props) => {
     <>
       <IconButton
         onClick={onCopyClick}
-        color="primary"
-        style={{ color: "white", margin: "-12px 0" }}
+        color='primary'
+        style={{ color: 'white', margin: '-12px 0' }}
       >
-        <HyperLink fontSize="small" />
+        <HyperLink fontSize='small' />
       </IconButton>
       <Toast show={modal} onClose={toggleModal}>
         <FormattedMessage
-          id="clipboardCopy"
-          defaultMessage="Copied to clipboard!"
+          id='clipboardCopy'
+          defaultMessage='Copied to clipboard!'
         />
       </Toast>
     </>

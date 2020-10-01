@@ -1,20 +1,20 @@
-import { ServerStyleSheets } from "@material-ui/core/styles";
-import config from "config";
+import { ServerStyleSheets } from '@material-ui/core/styles';
+import config from 'config';
 import Document, {
   DocumentContext,
   Head,
   Html,
   Main,
-  NextScript
-} from "next/document";
-import React from "react";
-import { GetCurrentLocale } from "utils";
+  NextScript,
+} from 'next/document';
+import React from 'react';
+import { GetCurrentLocale } from 'utils';
 
 export default class OrangeFoxDocument extends Document {
   render() {
     const lang = GetCurrentLocale();
     return (
-      <Html lang={lang} {...{ version: config.version }}>
+      <Html lang={lang} data-version={config.version}>
         <Head />
         <body>
           <Main />
@@ -31,7 +31,7 @@ OrangeFoxDocument.getInitialProps = async (ctx: DocumentContext) => {
 
   ctx.renderPage = () =>
     originalRenderPage({
-      enhanceApp: (App) => (props) => sheets.collect(<App {...props} />),
+      enhanceApp: App => props => sheets.collect(<App {...props} />),
     });
 
   const initialProps = await Document.getInitialProps(ctx);

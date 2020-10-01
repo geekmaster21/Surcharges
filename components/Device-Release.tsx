@@ -1,8 +1,8 @@
-import { Card, CardContent } from "@material-ui/core";
-import { EReleaseType, IAllReleases, IRelease } from "models";
-import { Fragment } from "react";
-import { FormattedMessage } from "react-intl";
-import { ReleaseType } from "./Release-Type";
+import { Card, CardContent } from '@material-ui/core';
+import { EReleaseType, IAllReleases, IRelease } from 'models';
+import { Fragment } from 'react';
+import { FormattedMessage } from 'react-intl';
+import { ReleaseType } from './Release-Type';
 
 type Props = {
   code: string;
@@ -13,7 +13,7 @@ const DeviceReleases = ({ code, releases }: Props) => {
   const isStableRelease = !!releases?.stable?.length;
 
   function withActualDateInRelease(rel: IRelease[]) {
-    return rel ? rel.map((d) => ({ ...d, actualDate: new Date(d.date) })) : rel;
+    return rel ? rel.map(d => ({ ...d, actualDate: new Date(d.date) })) : rel;
   }
 
   return (
@@ -28,8 +28,8 @@ const DeviceReleases = ({ code, releases }: Props) => {
               data={withActualDateInRelease(releases?.stable)}
               releaseLabel={
                 <FormattedMessage
-                  id="release.type.stable"
-                  defaultMessage="Stable Releases"
+                  id='release.type.stable'
+                  defaultMessage='Stable Releases'
                 />
               }
             />
@@ -42,8 +42,8 @@ const DeviceReleases = ({ code, releases }: Props) => {
               data={withActualDateInRelease(releases?.beta)}
               releaseLabel={
                 <FormattedMessage
-                  id="release.type.beta"
-                  defaultMessage="Beta Releases"
+                  id='release.type.beta'
+                  defaultMessage='Beta Releases'
                 />
               }
             />
@@ -52,16 +52,16 @@ const DeviceReleases = ({ code, releases }: Props) => {
       )}
 
       {!releases && (
-        <Card elevation={3} style={{ marginTop: "10px" }}>
+        <Card elevation={3} style={{ marginTop: '10px' }}>
           <CardContent
             style={{
-              padding: "20px",
-              textAlign: "center",
+              padding: '20px',
+              textAlign: 'center',
             }}
           >
             <FormattedMessage
-              id="release.notFound"
-              defaultMessage="There are no releases for this device yet!"
+              id='release.notFound'
+              defaultMessage='There are no releases for this device yet!'
             />
           </CardContent>
         </Card>

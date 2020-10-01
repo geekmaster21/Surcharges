@@ -1,9 +1,9 @@
-import { FormControl, MenuItem, Select } from "@material-ui/core";
-import { KeyboardArrowDownRoundedIcon } from "components";
-import config from "config";
-import { useRouter } from "next/router";
-import useStyles from "styles/mui/language-toggle";
-import { GetCurrentLocale, SetCurrentLocale } from "utils";
+import { FormControl, MenuItem, Select } from '@material-ui/core';
+import { KeyboardArrowDownRoundedIcon } from 'components';
+import config from 'config';
+import { useRouter } from 'next/router';
+import useStyles from 'styles/mui/language-toggle';
+import { GetCurrentLocale, SetCurrentLocale } from 'utils';
 
 const LanguageToggle = () => {
   const classes = useStyles();
@@ -17,21 +17,21 @@ const LanguageToggle = () => {
     SetCurrentLocale(value);
     const url = router.pathname;
     let as = url;
-    Object.keys(query).forEach((key) => {
+    Object.keys(query).forEach(key => {
       as = as.replace(`[${key}]`, query[key]);
     });
     router.push(url, as);
   };
 
   function getEmoji() {
-    const lang = langs?.find((f) => f.code === locale);
+    const lang = langs?.find(f => f.code === locale);
     return lang ? lang.emoji : null;
   }
 
   return langs?.length ? (
     <FormControl
-      size="small"
-      variant="outlined"
+      size='small'
+      variant='outlined'
       className={classes.formControl}
     >
       <Select
@@ -43,7 +43,7 @@ const LanguageToggle = () => {
         classes={{ icon: classes.arrowIcon }}
         renderValue={() => getEmoji()}
       >
-        {langs.map((m) => (
+        {langs.map(m => (
           <MenuItem
             key={m.code}
             value={m.code}

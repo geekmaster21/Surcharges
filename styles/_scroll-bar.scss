@@ -1,19 +1,19 @@
 html {
-    overflow-y: overlay !important;
-    scrollbar-color: #fff4 #0000;
-    /* thumb and track color */
-    scrollbar-width: thin;
+  overflow-y: overlay !important;
+  scrollbar-color: #fff4 #0000;
+  /* thumb and track color */
+  scrollbar-width: thin;
 }
 
 ::-webkit-scrollbar {
-    width: 6px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #0000;
+  background: #0000;
 }
 
 ::-webkit-scrollbar-thumb {
-    // border-radius: 8px; // Don't add radius. This way scrollbar will look same for webkit and firefox browsers
-    background: #fff4;
+  // border-radius: 8px; // Don't add radius. This way scrollbar will look same for webkit and firefox browsers
+  background: #fff4;
 }
