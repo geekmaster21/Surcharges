@@ -31,6 +31,7 @@
             "beta": "Beta vydání",
             "stable": "Stabilní vydání"
         },
+        "copy": "Odkaz zkopírován do schránky!",
         "notFound": "Pro toto zařízení zatím nejsou k dispozici žádné vydání!",
         "fileSize": "Velikost souboru",
         "download": "Stáhnout",
@@ -46,7 +47,8 @@
         "fetchLink": "Načítání odkazů",
         "directLink": "Přímý odkaz",
         "mirrorLink": "Mirror odkaz",
-        "close": "Zavřít"
+        "close": "Zavřít",
+        "info": "Informace"
     },
     "footer": {
         "poweredBy": "Vytvořeno uživatelem {hostWebsite}",
