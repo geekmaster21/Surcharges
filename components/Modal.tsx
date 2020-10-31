@@ -8,7 +8,11 @@ interface ModalProps {
   toggleModal?: () => void;
 }
 
-const Modal: React.SFC<ModalProps> = ({ showModal, children, toggleModal }) => {
+const Modal: React.FunctionComponent<ModalProps> = ({
+  showModal,
+  children,
+  toggleModal,
+}) => {
   const [open, setOpen] = useState(showModal);
 
   function chromeColor(color: string) {

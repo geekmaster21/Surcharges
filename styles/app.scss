@@ -1,5 +1,5 @@
 @import './variables', './font-family', './animated-logo', './flex-display',
-  './scroll-bar', './shimmer', './cards', './hero';
+'./scroll-bar', './shimmer', './cards', './hero';
 
 html,
 body {
@@ -54,6 +54,10 @@ p {
   display: grid;
   grid-template-rows: $header-ht 1fr;
   gap: 2px;
+}
+
+.orange {
+  color: $orange-1 !important;
 }
 
 .link {
@@ -125,11 +129,7 @@ ul.no-list-style {
   font-size: 1.5rem !important;
 }
 
-.whiteColor {
-  color: white !important;
-}
-
 .wikiButton {
-  @extend .whiteColor;
+  @extend .orange;
   margin: 0 -12px 0 8px !important;
 }

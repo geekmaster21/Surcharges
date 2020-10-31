@@ -11,7 +11,7 @@ type Props = {
   showLoader?: boolean;
 };
 
-const MD5: React.SFC<Props> = ({ release, showLoader }) => {
+const MD5: React.FunctionComponent<Props> = ({ release, showLoader }) => {
   const classes = useStyles();
   const [modal, setModal] = useState(false);
   const toggleModal = () => setModal(!modal);

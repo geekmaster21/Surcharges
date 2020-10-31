@@ -11,7 +11,7 @@ interface BugsProps {
   showLoader?: boolean;
 }
 
-const Bugs: React.SFC<BugsProps> = ({ release, showLoader }) => {
+const Bugs: React.FunctionComponent<BugsProps> = ({ release, showLoader }) => {
   const classes = useStyles();
   const [showModal, toggleModal] = useState(false);
   const handleModal = () => toggleModal(!showModal);

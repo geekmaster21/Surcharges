@@ -11,7 +11,10 @@ interface ChangeLogsProps {
   showLoader?: boolean;
 }
 
-const ChangeLogs: React.SFC<ChangeLogsProps> = ({ release, showLoader }) => {
+const ChangeLogs: React.FunctionComponent<ChangeLogsProps> = ({
+  release,
+  showLoader,
+}) => {
   const [showModal, toggleModal] = useState(false);
   const handleModal = () => toggleModal(!showModal);
   const classes = useStyles();

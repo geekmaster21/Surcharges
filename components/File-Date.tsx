@@ -6,7 +6,7 @@ export interface FileDateProps {
   release: IRelease;
 }
 
-const FileDate: React.SFC<FileDateProps> = ({
+const FileDate: React.FunctionComponent<FileDateProps> = ({
   release: { date, unixtime },
 }) => {
   const localeLang = GetCurrentLocale().toLowerCase();

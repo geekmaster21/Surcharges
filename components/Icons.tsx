@@ -1,4 +1,4 @@
-import IconButton from '@material-ui/core/IconButton';
+import Icon from '@material-ui/core/Icon';
 import ArchiveOutlined from '@material-ui/icons/ArchiveOutlined';
 import BookOutlinedIcon from '@material-ui/icons/BookOutlined';
 import BugReportIcon from '@material-ui/icons/BugReportOutlined';
@@ -46,6 +46,6 @@ export {
   ReportProblemOutlined,
   ClearOutlinedIcon,
   MonetizationOnOutlinedIcon,
-  IconButton,
+  Icon,
   LaunchIcon,
 };

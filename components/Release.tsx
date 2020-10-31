@@ -35,7 +35,7 @@ type Props = {
   defaultExpanded?: boolean;
 };
 
-const Release: React.SFC<Props> = props => {
+const Release: React.FunctionComponent<Props> = props => {
   const {
     code,
     version,

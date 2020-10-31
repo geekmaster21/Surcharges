@@ -4,7 +4,10 @@ export interface LinkNewTabProps
     HTMLAnchorElement
   > {}
 
-const OpenOutside: React.SFC<LinkNewTabProps> = ({ children, ...rest }) => {
+const OpenOutside: React.FunctionComponent<LinkNewTabProps> = ({
+  children,
+  ...rest
+}) => {
   return (
     <a target='_blank' rel='noopener noreferrer' {...rest}>
       {children}

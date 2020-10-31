@@ -4,7 +4,12 @@ export interface ImageProps
     HTMLImageElement
   > {}
 
-const Image: React.SFC<ImageProps> = ({ draggable, alt, src, ...rest }) => {
+const Image: React.FunctionComponent<ImageProps> = ({
+  draggable,
+  alt,
+  src,
+  ...rest
+}) => {
   return <img alt={alt} src={src} draggable={Boolean(draggable)} {...rest} />;
 };
 

@@ -4,6 +4,7 @@ import {
   DialogContent,
   DialogTitle,
 } from '@material-ui/core';
+import Alert from '@material-ui/lab/Alert';
 import {
   Donations,
   GetAppIconOutlined,
@@ -22,7 +23,10 @@ interface DownloadsProps {
   showLoader?: boolean;
 }
 
-const Downloads: React.SFC<DownloadsProps> = ({ release, showLoader }) => {
+const Downloads: React.FunctionComponent<DownloadsProps> = ({
+  release,
+  showLoader,
+}) => {
   let tmoDownload: NodeJS.Timeout;
   const classes = useStyles();
   const [showModal, toggleModal] = useState(false);
@@ -63,6 +67,25 @@ const Downloads: React.SFC<DownloadsProps> = ({ release, showLoader }) => {
           <Title />
         </DialogTitle>
         <DialogContent dividers>
+          <OpenOutside
+            className='link'
+            style={{
+              width: '100%',
+              marginBottom: '10px',
+              display: 'inline-block',
+            }}
+            href='https://wiki.orangefox.tech/en/guides'
+          >
+            <Alert severity='warning' variant='outlined'>
+              <FormattedMessage
+                id='modal.guide'
+                defaultMessage='Installation Guide'
+              />
+            </Alert>
+          </OpenOutside>
+
+          <br />
+
           {!tmoDirectLink && (
             <Button
               variant='outlined'
@@ -76,6 +99,7 @@ const Downloads: React.SFC<DownloadsProps> = ({ release, showLoader }) => {
               />
             </Button>
           )}
+
           {tmoDirectLink && (
             <>
               <Button

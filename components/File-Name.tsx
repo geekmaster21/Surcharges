@@ -9,7 +9,10 @@ type FileNameProps = {
   showLoader?: boolean;
 };
 
-const FileName: React.SFC<FileNameProps> = ({ release, showLoader }) => {
+const FileName: React.FunctionComponent<FileNameProps> = ({
+  release,
+  showLoader,
+}) => {
   const classes = useStyles();
 
   return release ? (

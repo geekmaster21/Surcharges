@@ -11,7 +11,10 @@ interface BuildNotesProps {
   showLoader?: boolean;
 }
 
-const BuildNotes: React.SFC<BuildNotesProps> = ({ release, showLoader }) => {
+const BuildNotes: React.FunctionComponent<BuildNotesProps> = ({
+  release,
+  showLoader,
+}) => {
   const classes = useStyles();
   const [showModal, toggleModal] = useState(false);
   const handleModal = () => toggleModal(!showModal);
