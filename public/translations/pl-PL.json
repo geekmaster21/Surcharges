@@ -1,57 +1,57 @@
 {
-    "languageInfo": {
-        "name": "Polish",
-        "emoji": "🇵🇱"
+  "languageInfo": {
+    "name": "Polish",
+    "emoji": "🇵🇱"
+  },
+  "mainPage": {
+    "donation": "Dotacje",
+    "hintText": "Wybierz urządzenie z listy lub użyj wyszukiwarki",
+    "notFound": "To jest koniec. Weź mnie z powrotem do strony głównej!"
+  },
+  "deviceList": {
+    "searchDevice": "Szukaj urządzenia",
+    "notFound": "Nie znaleziono urządzenia!"
+  },
+  "device": {
+    "info": "(Informacje o urządzeniu)"
+  },
+  "maintain": {
+    "status": {
+      "maintained": "Wspierany",
+      "maintainedWithoutDevice": "Wspierany bez fizycznego urządzenia w rękach",
+      "notMaintained": "Niewspierany!"
     },
-    "mainPage": {
-        "donation": "Dotacje",
-        "hintText": "Wybierz urządzenie z listy lub użyj wyszukiwarki",
-        "notFound": "To jest koniec. Weź mnie z powrotem do strony głównej!"
-    },
-    "deviceList": {
-        "searchDevice": "Szukaj urządzenia",
-        "notFound": "Nie znaleziono urządzenia!"
-    },
-    "device": {
-        "info": "(Informacje o urządzeniu)"
-    },
-    "maintain": {
-        "status": {
-            "maintained": "Wspierany",
-            "maintainedWithoutDevice": "Wspierany bez fizycznego urządzenia w rękach",
-            "notMaintained": "Niewspierany!"
-        },
-        "by": {
-            "current": "Opiekun: {maintainer}",
-            "previous": "Poprzedni opiekun: {maintainer}"
-        }
-    },
-    "release": {
-        "type": {
-            "beta": "Wydania beta",
-            "stable": "Wydania stabilne"
-        },
-        "copy": "Link skopiowany do schowka!",
-        "notFound": "Nie ma jeszcze żadnych wydań dla tego urządzenia!",
-        "fileSize": "Rozmiar pliku",
-        "download": "Pliki do pobrania",
-        "changeLogs": "Dziennik zmian",
-        "buildNotes": "Uwagi",
-        "bugs": "Błędy",
-        "allBuild": "Pokaż wszystkie kompilacje"
-    },
-    "error": {
-        "server": "Nie można połączyć się z OrangeFox! Spróbuj ponownie później."
-    },
-    "modal": {
-        "fetchLink": "Pobieranie linków",
-        "directLink": "Bezpośredni link",
-        "mirrorLink": "Link lustrzany",
-        "close": "Zamknij",
-        "info": "Informacja"
-    },
-    "footer": {
-        "poweredBy": "Wspierane przez {hostWebsite}",
-        "openSource": "Projekt Open Source"
+    "by": {
+      "current": "Opiekun: {maintainer}",
+      "previous": "Poprzedni opiekun: {maintainer}"
     }
+  },
+  "release": {
+    "type": {
+      "beta": "Wydania beta",
+      "stable": "Wydania stabilne"
+    },
+    "copy": "Link skopiowany do schowka!",
+    "notFound": "Nie ma jeszcze żadnych wydań dla tego urządzenia!",
+    "fileSize": "Rozmiar pliku",
+    "download": "Pliki do pobrania",
+    "changeLogs": "Dziennik zmian",
+    "buildNotes": "Uwagi",
+    "bugs": "Błędy",
+    "allBuild": "Pokaż wszystkie kompilacje"
+  },
+  "error": {
+    "server": "Nie można połączyć się z OrangeFox! Spróbuj ponownie później."
+  },
+  "modal": {
+    "fetchLink": "Pobieranie linków",
+    "directLink": "Bezpośredni link",
+    "mirrorLink": "Link lustrzany",
+    "close": "Zamknij",
+    "info": "Informacja"
+  },
+  "footer": {
+    "poweredBy": "Wspierane przez {hostWebsite}",
+    "openSource": "Projekt Open Source"
+  }
 }
