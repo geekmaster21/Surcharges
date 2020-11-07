@@ -10,7 +10,8 @@ const LanguageToggle = () => {
   const classes = useStyles();
   const router = useRouter();
   const { availableLanguages: langs } = config;
-  const locale = GetCurrentLocale(false) || router.locale;
+  const locale =
+    GetCurrentLocale(false) || router.locale || config.locale.default;
 
   const handleChange = ({ target: { value: locale } }: any) => {
     if (!locale) {

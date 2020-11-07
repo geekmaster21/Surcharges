@@ -1,4 +1,4 @@
-import { AnchorLocale, Image } from 'components';
+import { AnchorLink, Image } from 'components';
 import { FormattedMessage } from 'react-intl';
 
 function NotFound() {
@@ -6,7 +6,7 @@ function NotFound() {
     <div className='hero big-image'>
       <Image src='/images/404.svg' alt='Not Found' className='nf-img' />
 
-      <AnchorLocale
+      <AnchorLink
         ATagProps={{
           className: 'link underline',
         }}
@@ -15,7 +15,7 @@ function NotFound() {
           id='mainPage.notFound'
           defaultMessage='This is the end. Take me back Home!'
         />
-      </AnchorLocale>
+      </AnchorLink>
     </div>
   );
 }

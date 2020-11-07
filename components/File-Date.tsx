@@ -1,4 +1,6 @@
+import config from 'config';
 import { IRelease } from 'models';
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { DayJs, GetCurrentLocale } from 'utils';
 
@@ -9,7 +11,12 @@ export interface FileDateProps {
 const FileDate: React.FunctionComponent<FileDateProps> = ({
   release: { date, unixtime },
 }) => {
-  const localeLang = GetCurrentLocale().toLowerCase();
+  const router = useRouter();
+  const localeLang = (
+    GetCurrentLocale(false) ||
+    router.locale ||
+    config.locale.default
+  ).toLowerCase();
   const locale = localeLang.split('-').shift() || '';
   const [unixDate, setUnixDate] = useState<string>(date);
   const pmsDayjsDate = async (locale2use: string) => {

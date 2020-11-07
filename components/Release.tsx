@@ -9,17 +9,13 @@ import {
   Typography,
 } from '@material-ui/core';
 import { apiGetRelease } from 'apis';
-import {
-  AnchorLocale,
-  ExpandMore,
-  LabelImportantOutlinedIcon,
-} from 'components';
+import { AnchorLink, ExpandMore, LabelImportantOutlinedIcon } from 'components';
 import { EReleaseType, IRelease } from 'models';
 import Router from 'next/router';
 import { useEffect, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import useStyles from 'styles/mui/release';
-import { GetCurrentLocale, StopEvent } from 'utils';
+import { StopEvent } from 'utils';
 import { Bugs } from './Bugs';
 import { BuildHyperLink } from './Build-Hyperlink';
 import { BuildNotes } from './Build-Notes';
@@ -50,7 +46,6 @@ const Release: React.FunctionComponent<Props> = props => {
     showAllBuild,
   } = props;
   const classes = useStyles();
-  const locale = GetCurrentLocale();
   const isExpanded = props.expanded || props.defaultExpanded;
   const [release, setReleaseDetail] = useState<IRelease>({} as IRelease);
 
@@ -59,7 +54,7 @@ const Release: React.FunctionComponent<Props> = props => {
       apiGetRelease(code, type, version)
         .then(data => setReleaseDetail(data))
         .catch(() => {
-          showAllBuild && Router.push(`/${locale}/404`);
+          showAllBuild && Router.push(`/404`);
         });
     }
   }, [code, type, version, release, showAllBuild, isExpanded]);
@@ -88,16 +83,19 @@ const Release: React.FunctionComponent<Props> = props => {
               />
               {_version}
             </Typography>
-            <span onClick={StopEvent}>
+            <span
+              onClick={StopEvent}
+              style={{ display: 'flex', gap: '10px', alignItems: 'center' }}
+            >
               <BuildHyperLink
                 codename={code}
                 buildType={type}
                 version={_version}
               />
               {showAllBuild && (
-                <AnchorLocale
-                  as={`device/${code}`}
-                  href='device/[code]'
+                <AnchorLink
+                  as={`/device/${code}`}
+                  href='/device/[code]'
                   ATagProps={{
                     className: 'link',
                   }}
@@ -108,7 +106,7 @@ const Release: React.FunctionComponent<Props> = props => {
                       defaultMessage='Show All Builds'
                     />
                   </Button>
-                </AnchorLocale>
+                </AnchorLink>
               )}
             </span>
           </div>

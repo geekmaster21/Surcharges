@@ -9,7 +9,7 @@ type AnchorLinkProps = Partial<LinkProps> & {
   >;
 };
 
-const AnchorLocale = ({
+const AnchorLink = ({
   as,
   href,
   children,
@@ -23,4 +23,4 @@ const AnchorLocale = ({
   );
 };
 
-export { AnchorLocale };
+export { AnchorLink };
