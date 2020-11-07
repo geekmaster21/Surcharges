@@ -8,13 +8,11 @@ import Document, {
   NextScript,
 } from 'next/document';
 import React from 'react';
-import { GetCurrentLocale } from 'utils';
 
 export default class OrangeFoxDocument extends Document {
   render() {
-    const lang = GetCurrentLocale();
     return (
-      <Html lang={lang} data-version={config.version}>
+      <Html data-version={config.version}>
         <Head>
           <link rel='sitemap' type='application/xml' href='/sitemap.xml' />
         </Head>

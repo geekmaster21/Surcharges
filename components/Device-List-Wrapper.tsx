@@ -7,7 +7,6 @@ import { useRouter } from 'next/router';
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import useStyles from 'styles/mui/device-list';
-import { LocalizedPaths } from 'utils';
 import { DeviceList } from './Device-List';
 
 interface DeviceListWrapperProps {
@@ -39,11 +38,7 @@ const DeviceListWrapper: React.FunctionComponent<DeviceListWrapperProps> = ({
   const [filter, setFilter] = React.useState<string>('');
 
   const onDeviceClick = (dev: IDevice) => {
-    const [url, href] = LocalizedPaths(
-      `device/${dev.codename}`,
-      'device/[code]'
-    );
-    router.push(href, url);
+    router.push('device/[code]', `device/${dev.codename}`);
     handleDeviceClick && handleDeviceClick(dev);
   };
 

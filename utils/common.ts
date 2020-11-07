@@ -1,5 +1,4 @@
 import { UrlObject } from 'url';
-import { GetCurrentLocale } from './locale';
 
 export function StopEvent(e: any) {
   e.preventDefault && e.preventDefault();
@@ -16,11 +15,10 @@ export function LocalizedPaths(
   as: string | UrlObject | undefined,
   href: string | UrlObject | undefined
 ) {
-  const locale = GetCurrentLocale();
   as = as || '';
   href = href || '';
-  as = `/${locale}/${as}`;
-  href = `/[lang]/${href}`;
+  as = `/${as}`;
+  href = `/${href}`;
   return [as, href];
 }
 

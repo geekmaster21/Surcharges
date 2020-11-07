@@ -14,6 +14,9 @@ export default makeStyles((theme: Theme) => ({
     },
     marginLeft: theme.spacing(3),
     outline: 'none',
+    '& .MuiSelect-selectMenu': {
+      paddingRight: 0,
+    },
   },
   listItem,
   listItemHelp: {

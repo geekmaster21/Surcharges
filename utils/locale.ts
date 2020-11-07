@@ -14,7 +14,10 @@ export const SetCurrentLocale = (locale: string) => {
   cookie.set(keyOfLang, locale, { expires: 1000, sameSite: 'Lax' });
 };
 
-export const GetCurrentLocale = (): string => {
+export const GetCurrentLocale = (firstOrDefault = true): string => {
+  if (!firstOrDefault) {
+    return cookie.get(keyOfLang) as string;
+  }
   const locale = cookie.get(keyOfLang) || config.locale.current;
   return ValidatedLocale(locale);
 };

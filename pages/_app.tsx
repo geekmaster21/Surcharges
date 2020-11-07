@@ -2,21 +2,14 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { ThemeProvider } from '@material-ui/core/styles';
 import { apiGetAllDeviceList } from 'apis';
 import { Layout, MetaTagsDynamic, MetaTagsStatic } from 'components';
+import config from 'config';
 import cookie from 'cookie';
 import { IDevice } from 'models';
 import { AppContextType, AppPropsType } from 'next/dist/next-server/lib/utils';
 import React, { useEffect } from 'react';
 import { IntlProvider } from 'react-intl';
 import 'styles/app.scss';
-import {
-  Dotize,
-  GetCurrentLocale,
-  IsCSR,
-  keyOfLang,
-  RedirectOnMissingLocale,
-  SetCurrentLocale,
-  ValidatedLocale,
-} from 'utils';
+import { Dotize, IsCSR, keyOfLang, SetCurrentLocale } from 'utils';
 import DisableErrorFromReactIntl from 'utils/react-intl';
 import { DarkTheme } from '../themes';
 
@@ -91,34 +84,41 @@ export default function OrangeFoxApp(props: AppPropsType) {
 
 let deviceListCache: IDevice[] = [];
 
-OrangeFoxApp.getInitialProps = async ({ ctx, Component }: AppContextType) => {
+OrangeFoxApp.getInitialProps = async ({
+  ctx,
+  router,
+  Component,
+}: AppContextType) => {
   let pageProps: any = {},
     translations: any = {},
     deviceList: IDevice[] = [];
   const cookieData = cookie.parse(ctx.req?.headers.cookie || '');
-  const locale = ValidatedLocale(cookieData[keyOfLang] || GetCurrentLocale());
-  const isRedirected = RedirectOnMissingLocale(ctx, locale);
+  const locale =
+    cookieData[keyOfLang] || router.locale || config.locale.default;
 
-  if (!isRedirected) {
-    SetCurrentLocale(locale);
+  if (ctx.res && ctx.req && locale !== router.locale) {
+    ctx.res.writeHead(307, { Location: `/${locale}${ctx.req.url}` });
+    return ctx.res.end();
+  }
 
-    if (IsCSR && deviceListCache.length) {
-      deviceList = deviceListCache;
-    } else {
-      deviceList = await apiGetAllDeviceList();
-    }
+  SetCurrentLocale(locale);
 
-    if (IsCSR && !deviceListCache.length) {
-      deviceListCache = deviceList;
-    }
+  if (IsCSR && deviceListCache.length) {
+    deviceList = deviceListCache;
+  } else {
+    deviceList = await apiGetAllDeviceList();
+  }
 
-    await import(`public/translations/${locale}.json`).then(x => {
-      translations = Dotize.convert(x.default || x);
-    });
+  if (IsCSR && !deviceListCache.length) {
+    deviceListCache = deviceList;
+  }
 
-    if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(ctx);
-    }
+  await import(`public/translations/${locale}.json`).then(x => {
+    translations = Dotize.convert(x.default || x);
+  });
+
+  if (Component.getInitialProps) {
+    pageProps = await Component.getInitialProps(ctx);
   }
 
   return {

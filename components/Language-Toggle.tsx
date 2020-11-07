@@ -10,24 +10,23 @@ const LanguageToggle = () => {
   const classes = useStyles();
   const router = useRouter();
   const { availableLanguages: langs } = config;
-  const locale = GetCurrentLocale();
+  const locale = GetCurrentLocale(false) || router.locale;
 
-  const handleChange = ({ target: { value } }: any) => {
-    if (!value) {
+  const handleChange = ({ target: { value: locale } }: any) => {
+    if (!locale) {
       return window.open(
         'https://translate.orangefox.tech/downloads-website',
         '_blank'
       );
     }
     const query = (router.query || {}) as any;
-    query.lang = value;
-    SetCurrentLocale(value);
+    SetCurrentLocale(locale);
     const url = router.pathname;
     let as = url;
     Object.keys(query).forEach(key => {
       as = as.replace(`[${key}]`, query[key]);
     });
-    router.push(url, as);
+    router.push(url, as, { locale });
   };
 
   function getEmoji() {
