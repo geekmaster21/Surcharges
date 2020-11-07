@@ -18,6 +18,7 @@ export default makeStyles((theme: Theme) => ({
   },
   menuButton: {
     marginRight: theme.spacing(0.5),
+    color: 'var(--orange-1)',
     [theme.breakpoints.up('sm')]: {
       display: 'none',
     },
