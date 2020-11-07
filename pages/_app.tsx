@@ -71,8 +71,8 @@ export default function OrangeFoxApp(props: AppPropsType) {
         }}
       />
       <ThemeProvider theme={DarkTheme}>
+        <CssBaseline />
         <IntlProvider locale={locale} messages={translations}>
-          <CssBaseline />
           <Layout list={list}>
             <Component {...{ deviceList, ...rest }} />
           </Layout>

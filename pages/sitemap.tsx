@@ -1,4 +1,4 @@
-import { Image, LinkLocale } from 'components';
+import { AnchorLocale, Image } from 'components';
 import { IDevice } from 'models';
 import useStyles from 'styles/mui/sitemap';
 
@@ -9,17 +9,17 @@ export default function Sitemap({ deviceList }: Props) {
   const classes = useStyles();
   return (
     <>
-      <LinkLocale
+      <AnchorLocale
         ATagProps={{
           className: 'link no-hover ' + classes.topLogo,
         }}
       >
         <Image alt='OrangeFox Logo' className='logo' src='/images/logo.svg' />
         OrangeFox Recovery
-      </LinkLocale>
+      </AnchorLocale>
       <div className={classes.root}>
         {deviceList.map(m => (
-          <LinkLocale
+          <AnchorLocale
             key={m._id}
             href='device/[code]'
             as={`device/${m.codename}`}
@@ -32,7 +32,7 @@ export default function Sitemap({ deviceList }: Props) {
               <b>{m.fullname}</b>
               <small className={classes.code}>{m.codename}</small>
             </div>
-          </LinkLocale>
+          </AnchorLocale>
         ))}
       </div>
     </>

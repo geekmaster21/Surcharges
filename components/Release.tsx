@@ -9,7 +9,11 @@ import {
   Typography,
 } from '@material-ui/core';
 import { apiGetRelease } from 'apis';
-import { ExpandMore, LabelImportantOutlinedIcon, LinkLocale } from 'components';
+import {
+  AnchorLocale,
+  ExpandMore,
+  LabelImportantOutlinedIcon,
+} from 'components';
 import { EReleaseType, IRelease } from 'models';
 import Router from 'next/router';
 import { useEffect, useState } from 'react';
@@ -91,7 +95,7 @@ const Release: React.FunctionComponent<Props> = props => {
                 version={_version}
               />
               {showAllBuild && (
-                <LinkLocale
+                <AnchorLocale
                   as={`device/${code}`}
                   href='device/[code]'
                   ATagProps={{
@@ -104,7 +108,7 @@ const Release: React.FunctionComponent<Props> = props => {
                       defaultMessage='Show All Builds'
                     />
                   </Button>
-                </LinkLocale>
+                </AnchorLocale>
               )}
             </span>
           </div>

@@ -38,7 +38,7 @@ const DeviceListWrapper: React.FunctionComponent<DeviceListWrapperProps> = ({
   const [filter, setFilter] = React.useState<string>('');
 
   const onDeviceClick = (dev: IDevice) => {
-    router.push('device/[code]', `device/${dev.codename}`);
+    router.push('/device/[code]', `/device/${dev.codename}`);
     handleDeviceClick && handleDeviceClick(dev);
   };
 
