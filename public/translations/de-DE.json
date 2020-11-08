@@ -10,7 +10,8 @@
   },
   "deviceList": {
     "searchDevice": "Gerät suchen",
-    "notFound": "Gerät nicht gefunden!"
+    "notFound": "Gerät nicht gefunden!",
+    "diy": "Sieht so aus, als hätten wir dieses Gerät noch nicht! Aber du bist eingeladen, eins für dich und die Community zu bauen. Klicke hier, um mehr zu erfahren."
   },
   "device": {
     "info": "(Geräte-Info)"
@@ -26,19 +27,19 @@
       "previous": "Vorheriger Betreuer: {maintainer}"
     }
   },
+  "clipboardCopy": "Link in Zwischenablage kopiert!",
   "release": {
     "type": {
       "beta": "Beta-Versionen",
       "stable": "Stabile-Versionen"
     },
-    "copy": "Link in die Zwischenablage kopiert!",
     "notFound": "Es wurden noch keine Versionen für dieses Gerät veröffentlicht!",
     "fileSize": "Gesamtgröße",
     "download": "Downloads",
     "changeLogs": "Änderungsprotokolle",
     "buildNotes": "Anmerkungen zu diesem Build",
     "bugs": "Bugs",
-    "allBuild": "Alle Builds anzeigen"
+    "allBuild": "Alle Versionen anzeigen"
   },
   "error": {
     "server": "Verbindung mit OrangeFox herstellen nicht möglich! Später erneut versuchen."
@@ -47,6 +48,7 @@
     "fetchLink": "Links werden abgerufen",
     "directLink": "Direkter Link",
     "mirrorLink": "Alternativer Link",
+    "guide": "Installationsanleitung",
     "close": "Schließen",
     "info": "Info"
   },
