@@ -1,17 +1,15 @@
-import React from 'react';
-import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import {
-  Stepper,
-  Step,
-  StepLabel,
-  StepContent,
   Button,
-  Paper,
-  Typography,
+  Paper, Step,
+  StepContent, StepLabel, Stepper,
+  Typography
 } from '@material-ui/core';
+import { createStyles, makeStyles } from '@material-ui/core/styles';
 import { CheckRoundedIcon } from 'components';
-import { IRelease } from 'models';
+import React from 'react';
 import { FormattedMessage } from 'react-intl';
+import { Adb } from 'webadb-node';
+
 
 const useStyles = makeStyles(theme =>
   createStyles({
@@ -26,10 +24,6 @@ const useStyles = makeStyles(theme =>
     },
   })
 );
-
-async function installOF() {
-  console.log('no');
-}
 
 function getSteps() {
   return ['Connect device to PC and select it', 'Wait'];
@@ -68,6 +62,15 @@ const InstallStepper = ({ release }) => {
   const handleReset = () => {
     setActiveStep(0);
   };
+
+  const installOF = async () => {
+    let webusb = await Adb.open("WebUSB");
+    let adb = await webusb.connectAdb("host::");
+    setActiveStep(1);
+    console.log(`su -c "echo su_ok" && curl --progress-bar -L ` + release.url + ` -o "/sdcard/.ofupdate.zip" && su -c 'echo "install /sdcard/.ofupdate.zip" > /cache/recovery/openrecoveryscript' && reboot recovery`);
+    let shell = await adb.shell(`su -c "echo su_ok" && curl --progress-bar -L ` + release.url + ` -o "/sdcard/.ofupdate.zip" && su -c 'echo "install /sdcard/.ofupdate.zip" > /cache/recovery/openrecoveryscript' && reboot recovery`);
+    console.log(await shell.receive());
+  }
 
   return (
     <div className={classes.root}>
