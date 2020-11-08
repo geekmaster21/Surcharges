@@ -17,7 +17,7 @@ export const BuildHyperLink = ({ codename, version, buildType }: Props) => {
   const [modal, setModal] = useState(false);
   const toggleModal = () => setModal(!modal);
   const origin = IsCSR ? window.location.origin : '';
-  const url = `${origin}/build/${codename}/${buildType}/${version}`;
+  const url = `${origin}/release/${codename}/${buildType}/${version}`;
 
   function onCopyClick(e: any) {
     StopEvent(e);

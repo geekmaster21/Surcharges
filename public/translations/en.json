@@ -39,7 +39,7 @@
     "changeLogs": "Change Logs",
     "buildNotes": "Build Notes",
     "bugs": "Bugs",
-    "allBuild": "Show All Builds"
+    "allBuild": "Show All Releases"
   },
   "error": {
     "server": "Couldn't connect with OrangeFox! Try again later."

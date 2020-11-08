@@ -31,7 +31,7 @@ type Props = {
   type: EReleaseType;
   expanded?: boolean;
   onClick?: () => void;
-  showAllBuild?: boolean;
+  showAllReleases?: boolean;
   defaultExpanded?: boolean;
 };
 
@@ -43,7 +43,7 @@ const Release: React.FunctionComponent<Props> = props => {
     onClick,
     expanded,
     defaultExpanded,
-    showAllBuild,
+    showAllReleases,
   } = props;
   const classes = useStyles();
   const isExpanded = props.expanded || props.defaultExpanded;
@@ -54,10 +54,10 @@ const Release: React.FunctionComponent<Props> = props => {
       apiGetRelease(code, type, version)
         .then(data => setReleaseDetail(data))
         .catch(() => {
-          showAllBuild && Router.push(`/404`);
+          showAllReleases && Router.push(`/404`);
         });
     }
-  }, [code, type, version, release, showAllBuild, isExpanded]);
+  }, [code, type, version, release, showAllReleases, isExpanded]);
 
   const _version = release?.version || version;
   const showLoader = Boolean(!release?.codename);
@@ -92,7 +92,7 @@ const Release: React.FunctionComponent<Props> = props => {
                 buildType={type}
                 version={_version}
               />
-              {showAllBuild && (
+              {showAllReleases && (
                 <AnchorLink
                   as={`/device/${code}`}
                   href='/device/[code]'
@@ -103,7 +103,7 @@ const Release: React.FunctionComponent<Props> = props => {
                   <Button color='secondary'>
                     <FormattedMessage
                       id='release.allBuild'
-                      defaultMessage='Show All Builds'
+                      defaultMessage='Show All Releases'
                     />
                   </Button>
                 </AnchorLink>

@@ -28,8 +28,8 @@ const BuildNotes: React.FunctionComponent<BuildNotesProps> = ({
         <span className={'shimmer-button ' + classes.outlinedButton} />
       ) : (
         <Button
-          variant='outlined'
           color='secondary'
+          variant='outlined'
           onClick={handleModal}
           className={classes.outlinedButton}
           startIcon={<SpeakerNotesOutlined />}

@@ -3,6 +3,15 @@ const locales = require('./public/translations/list.json').map(m =>
 );
 
 module.exports = {
+  async redirects() {
+    return [
+      {
+        source: '/build/:code/:type/:version',
+        destination: '/release/:code/:type/:version',
+        permanent: true,
+      },
+    ];
+  },
   i18n: {
     locales,
     defaultLocale: 'en',
