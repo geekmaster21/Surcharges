@@ -23,6 +23,7 @@ import { ChangeLogs } from './Change-Logs';
 import { Downloads } from './Downloads';
 import { FileName } from './File-Name';
 import { FileSize } from './File-Size';
+import { Install } from './Install';
 import { MD5 } from './MD5';
 
 type Props = {
@@ -129,6 +130,7 @@ const Release: React.FunctionComponent<Props> = props => {
             <MD5 release={release} showLoader={showLoader} />
 
             <List component='div' className={classes.nestedList}>
+              <Install release={release} showLoader={showLoader} />
               <Downloads release={release} showLoader={showLoader} />
 
               {release?.changelog && (

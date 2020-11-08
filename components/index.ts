@@ -16,3 +16,4 @@ export * from './Powered-By';
 export * from './Release';
 export * from './Toast';
 export * from './Wiki';
+export * from './InstallStepper';
