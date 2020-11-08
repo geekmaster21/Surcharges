@@ -9,7 +9,7 @@ export default makeStyles((theme: Theme) => ({
     },
   },
   appBar: {
-    backgroundColor: 'var(--grey-1)',
+    backgroundColor: '#1C1D21',
     [theme.breakpoints.up('sm')]: {
       width: `calc(100% - ${drawerWidth}px)`,
       marginLeft: drawerWidth,
