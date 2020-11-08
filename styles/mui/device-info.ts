@@ -13,7 +13,7 @@ export default makeStyles((theme: Theme) => ({
   },
   root: {
     width: '100%',
-    backgroundColor: '#2a2a2a',
+    backgroundColor: '#18191B',
     userSelect: 'text',
   },
   icon: {

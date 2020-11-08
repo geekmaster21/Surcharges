@@ -31,14 +31,14 @@ export default {
     },
     type: 'dark',
     primary: {
-      light: '#2b2b2b',
-      main: '#212121',
-      dark: '#171717',
+      light: '#1C1D21',
+      main: '#1E1F23',
+      dark: '#18191B',
       contrastText: '#fff',
     },
     secondary: {
       light: '#eb7813',
-      main: '#ed7002',
+      main: '#ED6F01',
       dark: '#d36301',
       contrastText: '#202124',
     },
@@ -76,7 +76,7 @@ export default {
       '600': '#757575',
       '700': '#616161',
       '800': '#424242',
-      '900': '#212121',
+      '900': '#1E1F23',
       A100: '#d5d5d5',
       A200: '#aaaaaa',
       A400: '#303030',
@@ -92,8 +92,8 @@ export default {
     },
     divider: 'rgba(127, 127, 127, 0.12)',
     background: {
-      paper: '#171717',
-      default: '#212121',
+      paper: '#18191B',
+      default: '#1E1F23',
     },
     action: {
       active: 'rgba(0, 0, 0, 0.54)',
