@@ -1,6 +1,6 @@
 {
   "languageInfo": {
-    "name": "Turkish",
+    "name": "İngilizce",
     "emoji": "🇹🇷"
   },
   "mainPage": {
@@ -10,7 +10,8 @@
   },
   "deviceList": {
     "searchDevice": "Cihaz Ara",
-    "notFound": "Cihaz bulunamadı!"
+    "notFound": "Cihaz bulunamadı!",
+    "diy": "Görünüşe göre senin cihazın için henüz sürüm yok! Ama topluluğumuza gelip bir tane yapabilirsin. Daha fazla bilgi için burayı tıkla."
   },
   "device": {
     "info": "(Cihaz Bilgisi)"
@@ -26,6 +27,7 @@
       "previous": "Önceki Sorumlusu: {maintainer}"
     }
   },
+  "clipboardCopy": "Panoya kopyalandı!",
   "release": {
     "type": {
       "beta": "Deneysel Sürümler",
@@ -34,10 +36,10 @@
     "notFound": "Henüz bu cihaz için sürüm yok!",
     "fileSize": "Dosya Boyutu",
     "download": "İndirmeler",
-    "changeLogs": "Yenilikler",
+    "changeLogs": "Değişiklikler",
     "buildNotes": "Derleme Notları",
     "bugs": "Hatalar",
-    "allBuild": "Bütün Derlemeleri Göster"
+    "allBuild": "Bütün Sürümleri Göster"
   },
   "error": {
     "server": "OrangeFox ile bağlantı kurulamadı! Daha sonra tekrar deneyin."
@@ -45,11 +47,13 @@
   "modal": {
     "fetchLink": "Bağlantılar Getiriliyor",
     "directLink": "Doğrudan Bağlantı",
-    "mirrorLink": "Yedek Bağlantı",
-    "close": "Kapat"
+    "mirrorLink": "Ayna Bağlantı",
+    "guide": "Yükleme Kılavuzu",
+    "close": "Kapat",
+    "info": "Bilgi"
   },
   "footer": {
-    "poweredBy": "{hostWebsite} ile Güçlendirilmiştir",
+    "poweredBy": "{hostWebsite} ile güçlendirildi",
     "openSource": "Açık-Kaynak Projesi"
   }
 }
