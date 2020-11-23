@@ -9,7 +9,10 @@ type FileSizeProps = {
   showLoader?: boolean;
 };
 
-const FileSize: React.SFC<FileSizeProps> = ({ release, showLoader }) => {
+const FileSize: React.FunctionComponent<FileSizeProps> = ({
+  release,
+  showLoader,
+}) => {
   const classes = useStyles();
 
   return release ? (

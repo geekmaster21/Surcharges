@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export const DeviceList: React.SFC<DeviceListProps> = ({
+export const DeviceList: React.FunctionComponent<DeviceListProps> = ({
   data,
   keyParent,
   keyChildren,

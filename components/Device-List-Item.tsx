@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export const DeviceListItem: React.SFC<ListProps> = ({
+export const DeviceListItem: React.FunctionComponent<ListProps> = ({
   data,
   className,
   ContentParent,

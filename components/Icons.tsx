@@ -1,4 +1,4 @@
-import IconButton from '@material-ui/core/IconButton';
+import Icon from '@material-ui/core/Icon';
 import ArchiveOutlined from '@material-ui/icons/ArchiveOutlined';
 import BookOutlinedIcon from '@material-ui/icons/BookOutlined';
 import BugReportIcon from '@material-ui/icons/BugReportOutlined';
@@ -20,9 +20,11 @@ import SdCardOutlinedIcon from '@material-ui/icons/SdCardOutlined';
 import SearchIcon from '@material-ui/icons/Search';
 import SpeakerNotesOutlined from '@material-ui/icons/SpeakerNotesOutlined';
 import StarBorderOutlinedIcon from '@material-ui/icons/StarBorderOutlined';
+import TranslateIcon from '@material-ui/icons/Translate';
 import VerifiedUserOutlined from '@material-ui/icons/VerifiedUserOutlined';
 
 export {
+  TranslateIcon,
   ExpandLess,
   ExpandMore,
   HyperLink,
@@ -44,6 +46,6 @@ export {
   ReportProblemOutlined,
   ClearOutlinedIcon,
   MonetizationOnOutlinedIcon,
-  IconButton,
+  Icon,
   LaunchIcon,
 };

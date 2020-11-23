@@ -1,7 +1,6 @@
 import Link, { LinkProps } from 'next/link';
-import { LocalizedPaths } from 'utils';
 
-type LinkLocaleProps = Partial<LinkProps> & {
+type AnchorLinkProps = Partial<LinkProps> & {
   activeClassName?: string;
   children?: React.ReactNode;
   ATagProps?: React.DetailedHTMLProps<
@@ -10,19 +9,18 @@ type LinkLocaleProps = Partial<LinkProps> & {
   >;
 };
 
-const LinkLocale = ({
+const AnchorLink = ({
   as,
   href,
   children,
   ATagProps,
   ...props
-}: LinkLocaleProps) => {
-  const [_as, _href] = LocalizedPaths(as, href);
+}: AnchorLinkProps) => {
   return (
-    <Link href={_href} as={_as} {...props}>
+    <Link href={href || '/'} as={as || '/'} {...props}>
       <a {...ATagProps}>{children}</a>
     </Link>
   );
 };
 
-export { LinkLocale };
+export { AnchorLink };

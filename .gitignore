@@ -106,7 +106,7 @@ dist
 # custom
 build/*
 dist*
-.vscode
+.vscode/launch.json
 *.lock
 *lock.json
 server.js

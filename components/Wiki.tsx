@@ -1,12 +1,12 @@
-import { Button, Hidden } from '@material-ui/core';
+import { Button, Hidden, IconButton } from '@material-ui/core';
 import { OpenOutside } from '.';
-import { BookOutlinedIcon, IconButton } from './Icons';
+import { BookOutlinedIcon } from './Icons';
 
 export interface WikiProps {
   className?: string;
 }
 
-const Wiki: React.SFC<WikiProps> = ({ className }) => {
+const Wiki: React.FunctionComponent<WikiProps> = ({ className }) => {
   return (
     <>
       <OpenOutside

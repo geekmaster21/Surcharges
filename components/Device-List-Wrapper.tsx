@@ -1,13 +1,12 @@
 import { ListItemIcon, ListItemText, TextField } from '@material-ui/core';
-import { ClearOutlinedIcon, Image, SearchIcon } from 'components';
-import matchSorter from 'match-sorter';
+import { ClearOutlinedIcon, Image, OpenOutside, SearchIcon } from 'components';
+import { groupBy } from 'core';
+import { matchSorter } from 'match-sorter';
+import { IDevice, IDeviceGroup } from 'models';
 import { useRouter } from 'next/router';
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import useStyles from 'styles/mui/device-list';
-import { LocalizedPaths } from 'utils';
-import { groupBy } from 'core';
-import { IDevice, IDeviceGroup } from 'models';
 import { DeviceList } from './Device-List';
 
 interface DeviceListWrapperProps {
@@ -29,7 +28,7 @@ const GroupList = (_data: IDevice[]) => {
   return arr;
 };
 
-const DeviceListWrapper: React.SFC<DeviceListWrapperProps> = ({
+const DeviceListWrapper: React.FunctionComponent<DeviceListWrapperProps> = ({
   data,
   handleDeviceClick,
 }) => {
@@ -39,11 +38,7 @@ const DeviceListWrapper: React.SFC<DeviceListWrapperProps> = ({
   const [filter, setFilter] = React.useState<string>('');
 
   const onDeviceClick = (dev: IDevice) => {
-    const [url, href] = LocalizedPaths(
-      `device/${dev.codename}`,
-      'device/[code]'
-    );
-    router.push(href, url);
+    router.push('/device/[code]', `/device/${dev.codename}`);
     handleDeviceClick && handleDeviceClick(dev);
   };
 
@@ -146,11 +141,21 @@ const DeviceListWrapper: React.SFC<DeviceListWrapperProps> = ({
       {
         // No results found
         !hasList && filter && (
-          <div style={{ textAlign: 'center' }}>
+          <div className={classes.notFound}>
             <FormattedMessage
               id='deviceList.notFound'
               defaultMessage='Device not found!'
             />
+
+            <OpenOutside
+              href='https://wiki.orangefox.tech/en/dev'
+              className='link'
+            >
+              <FormattedMessage
+                id='deviceList.diy'
+                defaultMessage={`Looks like we don't have that device yet! But you are welcome to build one for yourself and the community. Click here to know more.`}
+              />
+            </OpenOutside>
           </div>
         )
       }

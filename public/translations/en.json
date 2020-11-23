@@ -10,7 +10,8 @@
   },
   "deviceList": {
     "searchDevice": "Search Device",
-    "notFound": "Device not found!"
+    "notFound": "Device not found!",
+    "diy": "Looks like we don't have that device yet! But you are welcome to build one for yourself and the community. Click here to know more."
   },
   "device": {
     "info": "(Device Info)"
@@ -38,7 +39,7 @@
     "changeLogs": "Change Logs",
     "buildNotes": "Build Notes",
     "bugs": "Bugs",
-    "allBuild": "Show All Builds"
+    "allBuild": "Show All Releases"
   },
   "error": {
     "server": "Couldn't connect with OrangeFox! Try again later."
@@ -47,6 +48,7 @@
     "fetchLink": "Fetching Links",
     "directLink": "Direct Link",
     "mirrorLink": "Mirror Link",
+    "guide": "Installation Guide",
     "close": "Close",
     "info": "Info"
   },

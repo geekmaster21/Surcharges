@@ -1,3 +1,4 @@
+export * from './Anchor-Link';
 export * from './Device-Info';
 export * from './Device-Release';
 export * from './Donation';
@@ -5,7 +6,6 @@ export * from './Footer';
 export * from './Icons';
 export * from './Image';
 export * from './Layout';
-export * from './Link-Locale';
 export * from './Load-Shimmer';
 export * from './Meta-Tags-Dynamic';
 export * from './Meta-Tags-Static';

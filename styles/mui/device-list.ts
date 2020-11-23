@@ -19,7 +19,7 @@ export default makeStyles((theme: Theme) => ({
     top: 0,
     position: 'sticky',
     zIndex: 1,
-    padding: '1px 0',
+    padding: '2px 0 1px',
   },
   clearSearch: {
     marginRight: '5px',
@@ -37,5 +37,12 @@ export default makeStyles((theme: Theme) => ({
     bottom: 0,
     position: 'sticky',
     zIndex: 1,
+  },
+  notFound: {
+    textAlign: 'center',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '10px',
+    padding: '0 10px',
   },
 }));

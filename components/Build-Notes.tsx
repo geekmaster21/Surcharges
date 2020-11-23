@@ -11,7 +11,10 @@ interface BuildNotesProps {
   showLoader?: boolean;
 }
 
-const BuildNotes: React.SFC<BuildNotesProps> = ({ release, showLoader }) => {
+const BuildNotes: React.FunctionComponent<BuildNotesProps> = ({
+  release,
+  showLoader,
+}) => {
   const classes = useStyles();
   const [showModal, toggleModal] = useState(false);
   const handleModal = () => toggleModal(!showModal);
@@ -25,8 +28,8 @@ const BuildNotes: React.SFC<BuildNotesProps> = ({ release, showLoader }) => {
         <span className={'shimmer-button ' + classes.outlinedButton} />
       ) : (
         <Button
-          variant='outlined'
           color='secondary'
+          variant='outlined'
           onClick={handleModal}
           className={classes.outlinedButton}
           startIcon={<SpeakerNotesOutlined />}

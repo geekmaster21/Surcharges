@@ -9,7 +9,7 @@ export default makeStyles((theme: Theme) => ({
     },
   },
   appBar: {
-    backgroundColor: 'var(--orange-1)',
+    backgroundColor: 'var(--grey-1)',
     [theme.breakpoints.up('sm')]: {
       width: `calc(100% - ${drawerWidth}px)`,
       marginLeft: drawerWidth,
@@ -18,6 +18,7 @@ export default makeStyles((theme: Theme) => ({
   },
   menuButton: {
     marginRight: theme.spacing(0.5),
+    color: 'var(--orange-1)',
     [theme.breakpoints.up('sm')]: {
       display: 'none',
     },
@@ -31,6 +32,7 @@ export default makeStyles((theme: Theme) => ({
     width: '100%',
     display: 'flex',
     alignItems: 'center',
+    color: 'var(--orange-1)',
   },
   headerContentRight: {
     display: 'flex',

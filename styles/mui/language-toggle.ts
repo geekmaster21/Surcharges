@@ -1,5 +1,11 @@
 import { makeStyles, Theme } from '@material-ui/core';
 
+const listItem = {
+  gap: '10px',
+  display: 'flex',
+  borderLeft: '3px solid transparent',
+};
+
 export default makeStyles((theme: Theme) => ({
   formControl: {
     marginRight: '-8px',
@@ -8,9 +14,16 @@ export default makeStyles((theme: Theme) => ({
     },
     marginLeft: theme.spacing(3),
     outline: 'none',
+    '& .MuiSelect-selectMenu': {
+      paddingRight: 0,
+    },
   },
-  listItem: {
-    borderLeft: '3px solid transparent',
+  listItem,
+  listItemHelp: {
+    ...listItem,
+    fontSize: '15px',
+    margin: '0 10px',
+    borderBottom: '1px solid gray',
   },
   listItemSelected: {
     borderLeft: '3px solid var(--orange-1)',

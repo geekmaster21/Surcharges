@@ -1,5 +1,5 @@
-import { AppBar, Toolbar, Typography } from '@material-ui/core';
-import { Donations, IconButton, LinkLocale, MenuIcon, Wiki } from 'components';
+import { AppBar, IconButton, Toolbar, Typography } from '@material-ui/core';
+import { AnchorLink, Donations, MenuIcon, Wiki } from 'components';
 import { memo } from 'react';
 import useStyles from 'styles/mui/drawer';
 import { LanguageToggle } from './Language-Toggle';
@@ -21,19 +21,21 @@ function Header(props: { toggleClick: () => void }) {
           </IconButton>
 
           <Typography component='div' className={classes.headerContent}>
-            <LinkLocale
+            <AnchorLink
               ATagProps={{
-                className: 'link no-hover ' + classes.brand,
+                className: 'link orange no-hover ' + classes.brand,
               }}
             >
               OrangeFox <span className={classes.recoverySmall}>Recovery</span>
-            </LinkLocale>
+            </AnchorLink>
           </Typography>
 
           <Donations
-            className={'link no-hover ' + classes.headerContentRight}
+            className={'link orange no-hover ' + classes.headerContentRight}
           />
-          <Wiki className={'link no-hover ' + classes.headerContentRight} />
+          <Wiki
+            className={'link orange no-hover ' + classes.headerContentRight}
+          />
           <LanguageToggle />
         </Toolbar>
       </AppBar>

@@ -15,8 +15,8 @@ type Props = {
 
 const Page = ({ code, type, version, info }: Props) => {
   const m = info;
-  const url = `/build/${code}/${type}/${version}`;
-  const title = `${titleCase(type)} build v${version} for ${m.fullname} (${
+  const url = `/release/${code}/${type}/${version}`;
+  const title = `${titleCase(type)} release v${version} for ${m.fullname} (${
     m.codename
   })`;
   return (
@@ -52,7 +52,7 @@ const Page = ({ code, type, version, info }: Props) => {
           <DeviceInfo {...info} />
           <Release
             code={code}
-            showAllBuild
+            showAllReleases
             defaultExpanded
             version={version || 'last'}
             type={type || EReleaseType.stable}
