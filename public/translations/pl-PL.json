@@ -10,7 +10,8 @@
   },
   "deviceList": {
     "searchDevice": "Szukaj urządzenia",
-    "notFound": "Nie znaleziono urządzenia!"
+    "notFound": "Nie znaleziono urządzenia!",
+    "diy": "Wygląda na to, że jeszcze nie mamy tego urządzenia! Ale możesz zbudować OrangeFox dla siebie i społeczności. Kliknij tutaj, aby dowiedzieć się więcej."
   },
   "device": {
     "info": "(Informacje o urządzeniu)"
@@ -26,19 +27,19 @@
       "previous": "Poprzedni opiekun: {maintainer}"
     }
   },
+  "clipboardCopy": "Skopiowano do schowka!",
   "release": {
     "type": {
       "beta": "Wydania beta",
       "stable": "Wydania stabilne"
     },
-    "copy": "Link skopiowany do schowka!",
     "notFound": "Nie ma jeszcze żadnych wydań dla tego urządzenia!",
     "fileSize": "Rozmiar pliku",
     "download": "Pliki do pobrania",
     "changeLogs": "Dziennik zmian",
     "buildNotes": "Uwagi",
     "bugs": "Błędy",
-    "allBuild": "Pokaż wszystkie kompilacje"
+    "allBuild": "Pokaż wszystkie wydania"
   },
   "error": {
     "server": "Nie można połączyć się z OrangeFox! Spróbuj ponownie później."
@@ -47,6 +48,7 @@
     "fetchLink": "Pobieranie linków",
     "directLink": "Bezpośredni link",
     "mirrorLink": "Link lustrzany",
+    "guide": "Przewodnik instalacji",
     "close": "Zamknij",
     "info": "Informacja"
   },

@@ -10,7 +10,8 @@
   },
   "deviceList": {
     "searchDevice": "Vyhledat zařízení",
-    "notFound": "Zařízení nenalezeno!"
+    "notFound": "Zařízení nenalezeno!",
+    "diy": "Vypadá to, že toto zařízení ještě nemáme! Jste však vítáni, chcete-li tvořit pro sebe a komunitu. Kliknutím sem získáte další informace."
   },
   "device": {
     "info": "(Informace o zařízení)"
@@ -26,12 +27,12 @@
       "previous": "Předchozí správce: {maintainer}"
     }
   },
+  "clipboardCopy": "Zkopírováno do schránky!",
   "release": {
     "type": {
       "beta": "Beta vydání",
       "stable": "Stabilní vydání"
     },
-    "copy": "Odkaz zkopírován do schránky!",
     "notFound": "Pro toto zařízení zatím nejsou k dispozici žádné vydání!",
     "fileSize": "Velikost souboru",
     "download": "Stáhnout",
@@ -47,6 +48,7 @@
     "fetchLink": "Načítání odkazů",
     "directLink": "Přímý odkaz",
     "mirrorLink": "Mirror odkaz",
+    "guide": "Návod k instalaci",
     "close": "Zavřít",
     "info": "Informace"
   },
