@@ -4,12 +4,13 @@ import { apiGetAllDeviceList } from 'apis';
 import { Layout, MetaTagsDynamic, MetaTagsStatic } from 'components';
 import config from 'config';
 import cookie from 'cookie';
+import { useIsMounted } from 'hooks/mount';
 import { IDevice } from 'models';
 import { AppContextType, AppPropsType } from 'next/dist/next-server/lib/utils';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { IntlProvider } from 'react-intl';
 import 'styles/app.scss';
-import { Dotize, IsCSR, keyOfLang, SetCurrentLocale } from 'utils';
+import { Dotize, keyOfLang, SetCurrentLocale } from 'utils';
 import DisableErrorFromReactIntl from 'utils/react-intl';
 import { DarkTheme } from '../themes';
 
@@ -27,13 +28,21 @@ export default function OrangeFoxApp(props: AppPropsType) {
     pageProps: { translations, deviceList, locale, ...rest },
   } = props;
 
-  const list = (deviceList || []) as IDevice[];
+  const isMounted = useIsMounted();
+  const [list, setList] = useState((deviceList || []) as IDevice[]);
 
   useEffect(() => {
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector('#jss-server-side');
     if (jssStyles) {
       jssStyles.parentElement!.removeChild(jssStyles);
+    }
+    if (isMounted) {
+      apiGetAllDeviceList().then(x => {
+        if (isMounted) {
+          setList(x);
+        }
+      });
     }
   }, []);
 
@@ -82,17 +91,13 @@ export default function OrangeFoxApp(props: AppPropsType) {
   );
 }
 
-let listingApiCalled = false;
-let deviceListCache: IDevice[] = [];
-
 OrangeFoxApp.getInitialProps = async ({
   ctx,
   router,
   Component,
 }: AppContextType) => {
   let pageProps: any = {},
-    translations: any = {},
-    deviceList: IDevice[] = [];
+    translations: any = {};
   const cookieData = cookie.parse(ctx.req?.headers.cookie || '');
   const locale =
     cookieData[keyOfLang] || router.locale || config.locale.default;
@@ -103,19 +108,6 @@ OrangeFoxApp.getInitialProps = async ({
   }
 
   SetCurrentLocale(locale);
-
-  if (IsCSR && deviceListCache.length) {
-    deviceList = deviceListCache;
-  } else {
-    if (!listingApiCalled) {
-      listingApiCalled = true;
-      deviceList = await apiGetAllDeviceList();
-    }
-  }
-
-  if (IsCSR && !deviceListCache.length) {
-    deviceListCache = deviceList;
-  }
 
   await import(`public/translations/${locale}.json`).then(x => {
     translations = Dotize.convert(x.default || x);
@@ -129,7 +121,6 @@ OrangeFoxApp.getInitialProps = async ({
     pageProps: {
       ...pageProps,
       locale,
-      deviceList,
       translations,
     },
   };
