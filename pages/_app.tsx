@@ -82,6 +82,7 @@ export default function OrangeFoxApp(props: AppPropsType) {
   );
 }
 
+let listingApiCalled = false;
 let deviceListCache: IDevice[] = [];
 
 OrangeFoxApp.getInitialProps = async ({
@@ -106,7 +107,10 @@ OrangeFoxApp.getInitialProps = async ({
   if (IsCSR && deviceListCache.length) {
     deviceList = deviceListCache;
   } else {
-    deviceList = await apiGetAllDeviceList();
+    if (!listingApiCalled) {
+      listingApiCalled = true;
+      deviceList = await apiGetAllDeviceList();
+    }
   }
 
   if (IsCSR && !deviceListCache.length) {
