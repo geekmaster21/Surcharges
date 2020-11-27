@@ -80,7 +80,7 @@ const DeviceListWrapper: React.FunctionComponent<DeviceListWrapperProps> = ({
             />
           }
           onInput={e => onSearch((e?.target as any)['value'])}
-          style={{ width: 'calc(100% - 35px)' }}
+          style={{ width: 'calc(100% - 20px)' }}
           InputProps={{
             endAdornment: (
               <>

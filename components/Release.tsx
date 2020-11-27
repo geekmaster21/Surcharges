@@ -27,6 +27,7 @@ import { MD5 } from './MD5';
 
 type Props = {
   code?: string;
+  popup?: string;
   version: string;
   type: EReleaseType;
   expanded?: boolean;
@@ -38,9 +39,10 @@ type Props = {
 const Release: React.FunctionComponent<Props> = props => {
   const {
     code,
-    version,
     type,
+    popup,
     onClick,
+    version,
     expanded,
     defaultExpanded,
     showAllReleases,
@@ -129,18 +131,30 @@ const Release: React.FunctionComponent<Props> = props => {
             <MD5 release={release} showLoader={showLoader} />
 
             <List component='div' className={classes.nestedList}>
-              <Downloads release={release} showLoader={showLoader} />
+              <Downloads
+                popup={popup}
+                release={release}
+                showLoader={showLoader}
+              />
 
               {release?.changelog && (
-                <ChangeLogs release={release} showLoader={showLoader} />
+                <ChangeLogs
+                  popup={popup}
+                  release={release}
+                  showLoader={showLoader}
+                />
               )}
 
               {release?.notes && (
-                <BuildNotes release={release} showLoader={showLoader} />
+                <BuildNotes
+                  popup={popup}
+                  release={release}
+                  showLoader={showLoader}
+                />
               )}
 
               {release?.bugs && (
-                <Bugs release={release} showLoader={showLoader} />
+                <Bugs popup={popup} release={release} showLoader={showLoader} />
               )}
             </List>
           </List>

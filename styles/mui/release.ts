@@ -8,6 +8,17 @@ export default makeStyles((theme: Theme) => ({
   list: {
     width: '100%',
   },
+  alert: {
+    color: '#ddd',
+  },
+  titleWithCopyIcon: {
+    '&>h2': {
+      display: 'flex',
+      cursor: 'pointer',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+    },
+  },
   icon: {
     color: '#ddd',
   },

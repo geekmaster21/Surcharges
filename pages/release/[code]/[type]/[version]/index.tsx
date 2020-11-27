@@ -9,11 +9,12 @@ import { RedirectTo, SafePromise } from 'utils';
 type Props = {
   code?: string;
   info: IDevice;
+  popup: string;
   version?: string;
   type?: EReleaseType;
 };
 
-const Page = ({ code, type, version, info }: Props) => {
+const Page = ({ code, type, version, info, popup }: Props) => {
   const m = info;
   const url = `/release/${code}/${type}/${version}`;
   const title = `${titleCase(type)} release v${version} for ${m.fullname} (${
@@ -52,6 +53,7 @@ const Page = ({ code, type, version, info }: Props) => {
           <DeviceInfo {...info} />
           <Release
             code={code}
+            popup={popup}
             showAllReleases
             defaultExpanded
             version={version || 'last'}
@@ -67,7 +69,7 @@ Page.getInitialProps = async ({
   query: { type, version, ...query },
   res,
 }: NextPageContext) => {
-  const code = query.code as string;
+  const { code, popup } = query as any;
   const info = await SafePromise(() => apiGetDeviceByCode(code));
   if (!info) {
     RedirectTo({ res, asPath: '/404' } as NextPageContext);
@@ -77,6 +79,7 @@ Page.getInitialProps = async ({
     info,
     code,
     type,
+    popup,
     version,
   };
 };
