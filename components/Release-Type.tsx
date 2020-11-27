@@ -4,12 +4,16 @@ import {
   AccordionSummary,
   Typography,
 } from '@material-ui/core';
+import Alert from '@material-ui/lab/Alert';
 import { isEqual, sortBy } from 'core';
 import { usePreviousProps } from 'hooks';
 import { EReleaseType, IRelease } from 'models';
 import { useState } from 'react';
+import { FormattedMessage } from 'react-intl';
 import useStyles from 'styles/mui/release-type';
-import { ExpandMore, Release, StarBorderOutlinedIcon } from './';
+import { ExpandMore, Release } from './';
+import { BugReportOutlined, CheckBoxOutlined, ReportOutlined } from './Icons';
+import { OpenOutside } from './Open-Outside';
 
 type Props = {
   code: string;
@@ -53,14 +57,36 @@ const ReleaseType = (props: Props) => {
           aria-controls={`release-${type}-content`}
         >
           <Typography className='flexd v-center'>
-            <StarBorderOutlinedIcon
-              className={classes.iconM5}
-              fontSize='small'
-            />
+            {type === EReleaseType.beta ? (
+              <BugReportOutlined className={classes.iconM5} fontSize='small' />
+            ) : (
+              <CheckBoxOutlined className={classes.iconM5} fontSize='small' />
+            )}
             {releaseLabel}
           </Typography>
         </AccordionSummary>
         <AccordionDetails className={classes.details}>
+          {type === EReleaseType.beta && (
+            <>
+              <Alert
+                severity='warning'
+                variant='outlined'
+                className={classes.alert}
+                icon={<ReportOutlined fontSize='inherit' />}
+              >
+                <FormattedMessage
+                  id='release.type.betaInfo'
+                  defaultMessage='These releases are not guaranteed to work. Please consider reporting to our beta telegram channel'
+                />{' '}
+                <OpenOutside
+                  className='link orange'
+                  href='https://t.me/OrangeFoxBeta'
+                >
+                  https://t.me/OrangeFoxBeta
+                </OpenOutside>
+              </Alert>
+            </>
+          )}
           {sortedData.map((m, i) => (
             <Release
               key={m.version}

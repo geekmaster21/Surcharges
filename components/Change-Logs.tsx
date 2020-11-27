@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import useStyles from 'styles/mui/release';
 import { CopyToClipboard, IsCSR, StopEvent } from 'utils';
-import { SplitMsg } from './Split-Msg';
+import { LinkifyMessage } from './Linkify-Message';
 
 interface ChangeLogsProps {
   popup?: string;
@@ -67,7 +67,7 @@ const ChangeLogs: React.FunctionComponent<ChangeLogsProps> = ({
           </Icon>
         </DialogTitle>
         <DialogContent dividers className='selectable'>
-          <SplitMsg msg={release.changelog} />
+          <LinkifyMessage msg={release.changelog} />
         </DialogContent>
       </Modal>
 

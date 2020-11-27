@@ -5,10 +5,12 @@ import useStyles from 'styles/mui/modal';
 
 interface ModalProps {
   showModal: boolean;
+  noClose?: boolean;
   toggleModal?: () => void;
 }
 
 const Modal: React.FunctionComponent<ModalProps> = ({
+  noClose,
   showModal,
   children,
   toggleModal,
@@ -48,11 +50,13 @@ const Modal: React.FunctionComponent<ModalProps> = ({
       fullWidth
     >
       {children}
-      <DialogActions>
-        <Button onClick={handleClose} color='secondary'>
-          <FormattedMessage id='modal.close' defaultMessage='Close' />
-        </Button>
-      </DialogActions>
+      {!noClose && (
+        <DialogActions>
+          <Button onClick={handleClose} color='secondary'>
+            <FormattedMessage id='modal.close' defaultMessage='Close' />
+          </Button>
+        </DialogActions>
+      )}
     </Dialog>
   );
 };

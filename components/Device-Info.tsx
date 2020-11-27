@@ -1,18 +1,15 @@
 import {
   Accordion,
   AccordionDetails,
-  AccordionSummary,
   List,
   ListItem,
   ListItemIcon,
   ListItemText,
-  Typography,
 } from '@material-ui/core';
 import { IDevice } from 'models';
 import { FormattedMessage } from 'react-intl';
 import useStyles from 'styles/mui/device-info';
 import {
-  ExpandMore,
   PermDeviceInformationOutlinedIcon,
   PermIdentityOutlinedIcon,
   ReportProblemOutlined,
@@ -89,27 +86,7 @@ const DeviceInfo = (device: IDevice) => {
   const showLoader = !device?.fullname;
 
   return (
-    <Accordion defaultExpanded className={classes.root}>
-      <AccordionSummary
-        id='device-info'
-        expandIcon={<ExpandMore className={classes.icon} />}
-        aria-controls='device-info-content'
-      >
-        <Typography component='div' className='shimmer-wrapper'>
-          {!showLoader && (
-            <>
-              {device.fullname + ' '}
-              <FormattedMessage
-                id='device.info'
-                defaultMessage='(Device Info)'
-              />
-            </>
-          )}
-
-          {/* Loading Placeholder */}
-          {showLoader && <LoadShimmer />}
-        </Typography>
-      </AccordionSummary>
+    <Accordion defaultExpanded className={classes.root} expanded>
       <AccordionDetails className={classes.details}>
         <List component='ul' className={classes.list}>
           <ListItem>
@@ -120,7 +97,7 @@ const DeviceInfo = (device: IDevice) => {
             {!showLoader && (
               <>
                 <ListItemText
-                  primary={device.oem}
+                  primary={device.fullname}
                   secondary={device.codename}
                 />
               </>

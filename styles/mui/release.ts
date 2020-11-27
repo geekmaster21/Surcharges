@@ -1,4 +1,5 @@
 import { makeStyles, Theme } from '@material-ui/core';
+import { themedAlert } from './release-type';
 
 export default makeStyles((theme: Theme) => ({
   root: {
@@ -7,9 +8,6 @@ export default makeStyles((theme: Theme) => ({
   },
   list: {
     width: '100%',
-  },
-  alert: {
-    color: '#ddd',
   },
   titleWithCopyIcon: {
     '&>h2': {
@@ -54,11 +52,23 @@ export default makeStyles((theme: Theme) => ({
     margin: '8px 0 8px 16px',
   },
   downloadButton: {
-    margin: '8px 16px 8px 0',
+    margin: '20px 0',
+    display: 'flex',
+    alignItems: 'center',
+    gap: '30px',
+    '&>a': {
+      display: 'flex',
+      alignItems: 'center',
+      gap: '5px',
+      '&:hover': {
+        color: 'var(--orange-1) !important',
+      },
+    },
   },
   summary: {
     width: '100%',
     display: 'flex',
     placeContent: 'space-between',
   },
+  ...themedAlert,
 }));

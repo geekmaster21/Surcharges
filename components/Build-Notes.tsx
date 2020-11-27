@@ -6,7 +6,7 @@ import { FormattedMessage } from 'react-intl';
 import useStyles from 'styles/mui/release';
 import { CopyToClipboard, IsCSR, StopEvent } from 'utils';
 import { SpeakerNotesOutlined } from './Icons';
-import { SplitMsg } from './Split-Msg';
+import { LinkifyMessage } from './Linkify-Message';
 
 interface BuildNotesProps {
   popup?: string;
@@ -68,7 +68,7 @@ const BuildNotes: React.FunctionComponent<BuildNotesProps> = ({
           </Icon>
         </DialogTitle>
         <DialogContent dividers className='selectable'>
-          <SplitMsg msg={release.notes} />
+          <LinkifyMessage msg={release.notes} />
         </DialogContent>
       </Modal>
 

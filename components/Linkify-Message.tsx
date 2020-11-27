@@ -1,6 +1,6 @@
 import Linkify from 'linkifyjs/react';
 
-export function SplitMsg({ msg }: { msg?: string }) {
+export function LinkifyMessage({ msg }: { msg?: string }) {
   return (
     <>
       {msg?.split('\n').map((m, i) => (

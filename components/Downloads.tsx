@@ -1,19 +1,17 @@
 import {
   Button,
   CircularProgress,
+  DialogActions,
   DialogContent,
   DialogTitle,
   Icon,
 } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
 import {
-  Donations,
   GetAppIconOutlined,
   HyperLink,
-  LaunchIcon,
   Modal,
   OpenOutside,
-  PoweredBy,
   Toast,
 } from 'components';
 import { IRelease } from 'models';
@@ -21,6 +19,7 @@ import React, { useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import useStyles from 'styles/mui/release';
 import { CopyToClipboard, IsCSR, StopEvent } from 'utils';
+import { AddToHomeScreenOutlinedIcon } from './Icons';
 
 interface DownloadsProps {
   popup?: string;
@@ -37,15 +36,16 @@ const Downloads: React.FunctionComponent<DownloadsProps> = ({
 }) => {
   let tmoDownload: NodeJS.Timeout;
   const classes = useStyles();
-  const [showModal, toggleModal] = useState(popupNames.includes(popup!));
+  const [dwnldModal, setDwnldModal] = useState(popupNames.includes(popup!));
+  const [donateModal, setDonateModal] = useState(false);
   const [tmoDirectLink, toggleTmoDirectLink] = useState(false);
   const [toast, setToast] = useState(false);
   const toggleToast = () => setToast(!toast);
 
-  const handleModal = () => {
+  const handleDwnldModal = () => {
     clearTimeout(tmoDownload);
+    setDwnldModal(!dwnldModal);
     toggleTmoDirectLink(false);
-    toggleModal(!showModal);
   };
 
   function onCopyClick(e: any) {
@@ -61,7 +61,7 @@ const Downloads: React.FunctionComponent<DownloadsProps> = ({
     <FormattedMessage id='release.download' defaultMessage='Downloads' />
   );
 
-  if (showModal) {
+  if (dwnldModal) {
     tmoDownload = setTimeout(() => toggleTmoDirectLink(true), 2500);
   }
 
@@ -74,7 +74,7 @@ const Downloads: React.FunctionComponent<DownloadsProps> = ({
           variant='contained'
           disableElevation
           color='secondary'
-          onClick={handleModal}
+          onClick={handleDwnldModal}
           className={classes.outlinedButton}
           startIcon={<GetAppIconOutlined />}
         >
@@ -82,7 +82,7 @@ const Downloads: React.FunctionComponent<DownloadsProps> = ({
         </Button>
       )}
 
-      <Modal showModal={showModal} toggleModal={handleModal}>
+      <Modal showModal={dwnldModal} toggleModal={handleDwnldModal}>
         <DialogTitle className={classes.titleWithCopyIcon}>
           <Title />
 
@@ -108,79 +108,110 @@ const Downloads: React.FunctionComponent<DownloadsProps> = ({
             }}
             href='https://wiki.orangefox.tech/en/guides'
           >
-            <Alert severity='warning' variant='outlined'>
+            <Alert
+              severity='warning'
+              variant='outlined'
+              className={classes.alert}
+              icon={<AddToHomeScreenOutlinedIcon fontSize='inherit' />}
+            >
               <FormattedMessage
                 id='modal.guide'
-                defaultMessage='Installation Guide'
+                defaultMessage='Got stuck? Read our documentations on how to install OrangeFox Recovery on your device.'
               />
             </Alert>
           </OpenOutside>
 
           <br />
 
-          {!tmoDirectLink && (
-            <Button
-              variant='outlined'
-              color='secondary'
-              className={classes.downloadButton}
-              startIcon={<CircularProgress size='18px' color='secondary' />}
-            >
-              <FormattedMessage
-                id='modal.fetchLink'
-                defaultMessage='Fetching Links'
-              />
-            </Button>
-          )}
-
-          {tmoDirectLink && (
-            <>
-              <Button
-                color='secondary'
-                variant='contained'
-                disableElevation
-                className={classes.downloadButton}
-                startIcon={<GetAppIconOutlined />}
+          <div className={classes.downloadButton}>
+            {!tmoDirectLink && (
+              <span
+                style={{ display: 'flex', alignItems: 'center', gap: '10px' }}
               >
-                <OpenOutside
+                <CircularProgress size='18px' color='secondary' />
+                <FormattedMessage
+                  id='modal.fetchLink'
+                  defaultMessage='Fetching Links'
+                />
+              </span>
+            )}
+
+            {tmoDirectLink && (
+              <>
+                <a
+                  download
                   className='link no-hover inheritColor'
                   href={release.direct_url || release.url}
+                  onClick={() => {
+                    handleDwnldModal();
+                    setDonateModal(true);
+                  }}
                 >
+                  <GetAppIconOutlined fontSize='small' />
                   <FormattedMessage
                     id='modal.directLink'
                     defaultMessage='Direct Link'
                   />
-                </OpenOutside>
-              </Button>
+                </a>
 
-              {release?.sf?.url && (
-                <>
-                  <Button
-                    color='secondary'
-                    variant='outlined'
-                    disableElevation
-                    className={classes.downloadButton}
-                    startIcon={<LaunchIcon />}
+                {release.sf?.url && (
+                  <a
+                    download
+                    href={release.sf.url}
+                    onClick={() => {
+                      handleDwnldModal();
+                      setDonateModal(true);
+                    }}
+                    className='link no-hover inheritColor'
                   >
-                    <OpenOutside
-                      href={release?.sf?.url}
-                      className='link no-hover inheritColor'
-                    >
-                      <FormattedMessage
-                        id='modal.mirrorLink'
-                        defaultMessage='Mirror Link'
-                      />
-                    </OpenOutside>
-                  </Button>
-                </>
-              )}
-            </>
-          )}
-          <br />
-          <div className='links-in-dwld'>
-            <PoweredBy />
-            <Donations className='link flexd v-center' />
+                    <GetAppIconOutlined fontSize='small' />
+
+                    <FormattedMessage
+                      id='modal.mirrorLink'
+                      defaultMessage='Mirror Link'
+                    />
+                  </a>
+                )}
+              </>
+            )}
           </div>
         </DialogContent>
+      </Modal>
+
+      <Modal
+        noClose
+        showModal={donateModal}
+        toggleModal={() => setDonateModal(false)}
+      >
+        <DialogTitle>
+          <FormattedMessage id='mainPage.donation' defaultMessage='Donations' />
+        </DialogTitle>
+
+        <DialogContent dividers>
+          <FormattedMessage
+            id='release.donation.info'
+            defaultMessage='We hope you like the recovery. Donations keep the server running and help us build a better product for you. Would you like to donate?'
+          />
+        </DialogContent>
+
+        <DialogActions>
+          <OpenOutside
+            title='Donations'
+            className='link orange'
+            onClick={() => setDonateModal(false)}
+            href='https://opencollective.com/orangefox'
+          >
+            <Button color='primary' className='orange'>
+              <FormattedMessage
+                id='release.donation.yes'
+                defaultMessage={`Yes, I'd like to donate`}
+              />
+            </Button>
+          </OpenOutside>
+          <Button onClick={() => setDonateModal(false)}>
+            <FormattedMessage id='release.donation.no' defaultMessage='No' />
+          </Button>
+        </DialogActions>
       </Modal>
 
       <Toast show={toast} onClose={toggleToast}>

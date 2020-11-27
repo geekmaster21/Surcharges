@@ -9,7 +9,7 @@ import {
   Typography,
 } from '@material-ui/core';
 import { apiGetRelease } from 'apis';
-import { AnchorLink, ExpandMore, LabelImportantOutlinedIcon } from 'components';
+import { AnchorLink, ExpandMore } from 'components';
 import { EReleaseType, IRelease } from 'models';
 import Router from 'next/router';
 import { useEffect, useState } from 'react';
@@ -78,13 +78,7 @@ const Release: React.FunctionComponent<Props> = props => {
           aria-controls={`${_version} [ ${release.date} ]`}
         >
           <div className={classes.summary}>
-            <Typography className={classes.version}>
-              <LabelImportantOutlinedIcon
-                fontSize='small'
-                className={classes.icon + ' ' + classes.iconM5}
-              />
-              {_version}
-            </Typography>
+            <Typography className={classes.version}>{_version}</Typography>
             <span
               onClick={StopEvent}
               style={{ display: 'flex', gap: '10px', alignItems: 'center' }}

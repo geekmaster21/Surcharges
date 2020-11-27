@@ -148,8 +148,8 @@ const DeviceListWrapper: React.FunctionComponent<DeviceListWrapperProps> = ({
             />
 
             <OpenOutside
-              href='https://wiki.orangefox.tech/en/dev'
               className='link'
+              href='https://wiki.orangefox.tech/en/dev'
             >
               <FormattedMessage
                 id='deviceList.diy'

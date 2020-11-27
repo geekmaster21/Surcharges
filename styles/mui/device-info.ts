@@ -15,6 +15,9 @@ export default makeStyles((theme: Theme) => ({
     width: '100%',
     backgroundColor: '#2a2a2a',
     userSelect: 'text',
+    '& .MuiAccordionSummary-expandIcon.MuiIconButton-edgeEnd': {
+      display: 'none',
+    },
   },
   icon: {
     color: '#ddd',

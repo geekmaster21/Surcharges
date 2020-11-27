@@ -1,11 +1,11 @@
 import { Button, DialogContent, DialogTitle, Icon } from '@material-ui/core';
-import { BugReportIcon, HyperLink, Modal, Toast } from 'components';
+import { BugReportOutlined, HyperLink, Modal, Toast } from 'components';
 import { IRelease } from 'models';
 import { useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import useStyles from 'styles/mui/release';
 import { CopyToClipboard, IsCSR, StopEvent } from 'utils';
-import { SplitMsg } from './Split-Msg';
+import { LinkifyMessage } from './Linkify-Message';
 
 interface BugsProps {
   popup?: string;
@@ -46,8 +46,8 @@ const Bugs: React.FunctionComponent<BugsProps> = ({
           variant='outlined'
           color='secondary'
           onClick={handleModal}
+          startIcon={<BugReportOutlined />}
           className={classes.outlinedButton + ' ' + classes.bug}
-          startIcon={<BugReportIcon />}
         >
           <Title />
         </Button>
@@ -70,7 +70,7 @@ const Bugs: React.FunctionComponent<BugsProps> = ({
           </Icon>
         </DialogTitle>
         <DialogContent dividers className='selectable'>
-          <SplitMsg msg={release.bugs} />
+          <LinkifyMessage msg={release.bugs} />
         </DialogContent>
       </Modal>
 
