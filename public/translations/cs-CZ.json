@@ -31,7 +31,7 @@
   "release": {
     "type": {
       "beta": "Beta vydání",
-      "betaInfo": "U těchto vydání není zaručena funkčnost. Prosím zvažte hlášení případných chyb do našeho Beta kanálu na Telegram",
+      "betaInfo": "Beta vydání by měla fungovat co se týče základní funkčnosti. Můžete se však setkat s problémy a/nebo chybami, které můžete nahlásit na náš {telegramChannel} kanál",
       "stable": "Stabilní vydání"
     },
     "notFound": "Pro toto zařízení zatím nejsou k dispozici žádné vydání!",
