@@ -76,14 +76,18 @@ const ReleaseType = (props: Props) => {
               >
                 <FormattedMessage
                   id='release.type.betaInfo'
-                  defaultMessage='These releases are not guaranteed to work. Please consider reporting to our beta telegram channel'
-                />{' '}
-                <OpenOutside
-                  className='link orange'
-                  href='https://t.me/OrangeFoxBeta'
-                >
-                  https://t.me/OrangeFoxBeta
-                </OpenOutside>
+                  defaultMessage='Beta releases should work as far as basic functionality is concerned. However, you may encounter issues and/or bugs, which you can report to our {telegramChannel} channel'
+                  values={{
+                    telegramChannel: (
+                      <OpenOutside
+                        className='link orange'
+                        href='https://t.me/OrangeFoxBeta'
+                      >
+                        Telegram Beta
+                      </OpenOutside>
+                    ),
+                  }}
+                />
               </Alert>
             </>
           )}
