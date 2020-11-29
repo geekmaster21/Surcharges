@@ -4,7 +4,7 @@ import {
   DialogActions,
   DialogContent,
   DialogTitle,
-  Icon,
+  IconButton,
 } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
 import {
@@ -86,24 +86,25 @@ const Downloads: React.FunctionComponent<DownloadsProps> = ({
         <DialogTitle className={classes.titleWithCopyIcon}>
           <Title />
 
-          <Icon
+          <IconButton
             color='primary'
             onClick={onCopyClick}
             style={{
               color: 'white',
-              margin: '-12px 0',
+              margin: '-12px -18px',
               height: 'fit-content',
             }}
           >
             <HyperLink fontSize='small' />
-          </Icon>
+          </IconButton>
         </DialogTitle>
         <DialogContent dividers>
           <OpenOutside
             className='link'
             style={{
               width: '100%',
-              marginBottom: '10px',
+              marginTop: '8px',
+              marginBottom: '14px',
               display: 'inline-block',
             }}
             href='https://wiki.orangefox.tech/en/guides'
@@ -126,13 +127,21 @@ const Downloads: React.FunctionComponent<DownloadsProps> = ({
           <div className={classes.downloadButton}>
             {!tmoDirectLink && (
               <span
-                style={{ display: 'flex', alignItems: 'center', gap: '10px' }}
+                className='fetchSpinner'
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '16px',
+                  color: '#ed6f01',
+                }}
               >
                 <CircularProgress size='18px' color='secondary' />
-                <FormattedMessage
-                  id='modal.fetchLink'
-                  defaultMessage='Fetching Links'
-                />
+                <span>
+                  <FormattedMessage
+                    id='modal.fetchLink'
+                    defaultMessage='Fetching Links'
+                  />
+                </span>
               </span>
             )}
 
@@ -140,7 +149,7 @@ const Downloads: React.FunctionComponent<DownloadsProps> = ({
               <>
                 <a
                   download
-                  className='link no-hover inheritColor'
+                  className='link no-hover inheritColor downloadLink'
                   href={release.direct_url || release.url}
                   onClick={() => {
                     handleDwnldModal();

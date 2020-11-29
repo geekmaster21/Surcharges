@@ -3,6 +3,8 @@ export const themedAlert = {
   alert: {
     color: 'white !important',
     borderColor: 'var(--orange-1) !important',
+    borderWidth: '2px',
+    fontWeight: '500',
     alignItems: 'center',
     '& svg': {
       color: 'var(--orange-1) !important',

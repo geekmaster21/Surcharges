@@ -1,4 +1,9 @@
-import { Button, DialogContent, DialogTitle, Icon } from '@material-ui/core';
+import {
+  Button,
+  DialogContent,
+  DialogTitle,
+  IconButton,
+} from '@material-ui/core';
 import { DescriptionOutlined, HyperLink, Modal, Toast } from 'components';
 import { IRelease } from 'models';
 import React, { useState } from 'react';
@@ -58,13 +63,17 @@ const ChangeLogs: React.FunctionComponent<ChangeLogsProps> = ({
         <DialogTitle className={classes.titleWithCopyIcon}>
           <Title />
 
-          <Icon
+          <IconButton
             color='primary'
             onClick={onCopyClick}
-            style={{ color: 'white', margin: '-12px 0', height: 'fit-content' }}
+            style={{
+              color: 'white',
+              margin: '-12px -18px',
+              height: 'fit-content',
+            }}
           >
             <HyperLink fontSize='small' />
-          </Icon>
+          </IconButton>
         </DialogTitle>
         <DialogContent dividers className='selectable'>
           <LinkifyMessage msg={release.changelog} />
