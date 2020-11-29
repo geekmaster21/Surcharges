@@ -31,6 +31,7 @@
   "release": {
     "type": {
       "beta": "Beta vydání",
+      "betaInfo": "Beta vydání by měla fungovat co se týče základní funkčnosti. Můžete se však setkat s problémy a/nebo chybami, které můžete nahlásit na náš {telegramChannel} kanál",
       "stable": "Stabilní vydání"
     },
     "notFound": "Pro toto zařízení zatím nejsou k dispozici žádné vydání!",
@@ -39,6 +40,11 @@
     "changeLogs": "Seznam změn",
     "buildNotes": "Poznámky k sestavení",
     "bugs": "Chyby",
+    "donation": {
+      "info": "Doufáme, že se vám Recovery líbí. Příspěvky udržují server v chodu a pomáhají nám tvořit pro Vás lepší produkt. Chcete přispět?",
+      "yes": "Ano, rád přispěji",
+      "no": "Ne"
+    },
     "allBuild": "Zobrazit všechny vydání"
   },
   "error": {
@@ -48,7 +54,7 @@
     "fetchLink": "Načítání odkazů",
     "directLink": "Přímý odkaz",
     "mirrorLink": "Mirror odkaz",
-    "guide": "Návod k instalaci",
+    "guide": "Nevíte jak dál? Přečtěte si dokumentaci, jak nainstalovat OrangeFox Recovery na vaše zařízení.",
     "close": "Zavřít",
     "info": "Informace"
   },

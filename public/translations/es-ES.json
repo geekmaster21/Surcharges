@@ -10,7 +10,8 @@
   },
   "deviceList": {
     "searchDevice": "Buscar Dispositivo",
-    "notFound": "¡Dispositivo no encontrado!"
+    "notFound": "¡Dispositivo no encontrado!",
+    "diy": "¡Parece que todavía no tenemos ese dispositivo! Pero eres bienvenido a construir uno para ti y la comunidad. Haz clic aquí para saber más."
   },
   "device": {
     "info": "(Información del Dispositivo)"
@@ -26,19 +27,25 @@
       "previous": "Mantenedor Anterior: {maintainer}"
     }
   },
+  "clipboardCopy": "¡Copiado al portapapeles!",
   "release": {
     "type": {
       "beta": "Lanzamientos Beta",
+      "betaInfo": "Las versiones beta deben funcionar en lo que se refiere a la funcionalidad básica. Sin embargo, puede que encuentre problemas y/o errores, los cuales puede informar a nuestro canal {telegramChannel}",
       "stable": "Lanzamientos Estables"
     },
-    "copy": "¡Enlace copiado al portapapeles!",
     "notFound": "¡Todavía no hay lanzamientos para este dispositivo!",
     "fileSize": "Tamaño del Archivo",
     "download": "Descargas",
     "changeLogs": "Registro de Cambios",
     "buildNotes": "Notas de Compilación",
     "bugs": "Errores",
-    "allBuild": "Mostrar todas las compilaciones"
+    "donation": {
+      "info": "Esperamos que te guste el Recovery. Las donaciones mantienen el servidor funcionando y nos ayudan a construir un producto mejor para ti. ¿Quieres donar?",
+      "yes": "Sí, me gustaría donar",
+      "no": "No"
+    },
+    "allBuild": "Mostrar todas las versiones"
   },
   "error": {
     "server": "¡No se pudo conectar con OrangeFox! Inténtalo de nuevo más tarde."
@@ -47,6 +54,7 @@
     "fetchLink": "Obteniendo Enlaces",
     "directLink": "Enlace Directo",
     "mirrorLink": "Enlace Espejado",
+    "guide": "¿Te has quedado atascado? Lee nuestra documentación sobre cómo instalar OrangeFox Recovery en tu dispositivo.",
     "close": "Cerrar",
     "info": "Información"
   },
