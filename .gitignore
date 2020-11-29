@@ -107,7 +107,6 @@ dist
 build/*
 dist*
 .vscode/launch.json
-*.lock
 *lock.json
 server.js
 out

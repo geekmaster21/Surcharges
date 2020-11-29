@@ -31,7 +31,6 @@
   "release": {
     "type": {
       "beta": "Beta Releases",
-      "betaInfo": "Beta releases should work as far as basic functionality is concerned. However, you may encounter issues and/or bugs, which you can report to our {telegramChannel} channel",
       "stable": "Stable Releases"
     },
     "notFound": "There are no releases for this device yet!",
@@ -40,11 +39,6 @@
     "changeLogs": "Change Logs",
     "buildNotes": "Build Notes",
     "bugs": "Bugs",
-    "donation": {
-      "info": "We hope you like the recovery. Donations keep the server running and help us build a better product for you. Would you like to donate?",
-      "yes": "Yes, I'd like to donate",
-      "no": "No"
-    },
     "allBuild": "Show All Releases"
   },
   "error": {
@@ -54,7 +48,7 @@
     "fetchLink": "Fetching Links",
     "directLink": "Direct Link",
     "mirrorLink": "Mirror Link",
-    "guide": "Got stuck? Read our documentations on how to install OrangeFox Recovery on your device.",
+    "guide": "Installation Guide",
     "close": "Close",
     "info": "Info"
   },

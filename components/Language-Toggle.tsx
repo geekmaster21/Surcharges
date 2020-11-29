@@ -27,7 +27,7 @@ const LanguageToggle = () => {
     Object.keys(query).forEach(key => {
       as = as.replace(`[${key}]`, query[key]);
     });
-    router.push(url, as, { locale });
+    router.push(url, as, { locale, shallow: false });
   };
 
   function getEmoji() {

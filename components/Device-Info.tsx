@@ -61,7 +61,10 @@ const DeviceInfo = (device: IDevice) => {
     case 3:
       maintainPrimaryText = (
         <span className={classes.notmaintained}>
-          <ReportProblemOutlined className={classes.notmaintainedIcon} />
+          <ReportProblemOutlined
+            fontSize='small'
+            className={classes.notmaintainedIcon}
+          />
           &nbsp;
           <FormattedMessage
             id='maintain.status.notMaintained'

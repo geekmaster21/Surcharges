@@ -24,14 +24,14 @@ export const MetaTagsDynamic = ({
   return (
     <Head>
       <title>{brandedTitle}</title>
-      <>
-        <meta name='title' content={brandedTitle} />
-        <meta name='og:title' content={brandedTitle} />
-      </>
+
+      <meta name='title' content={brandedTitle} />
+      <meta name='og:title' content={brandedTitle} />
 
       {url && (
         <>
           <meta name='url' content={url} />
+          <meta property='url' content={url} />
           <meta name='og:url' content={url} />
         </>
       )}
@@ -41,6 +41,7 @@ export const MetaTagsDynamic = ({
           <meta name='content' content={desc} />
           <meta name='og:content' content={desc} />
           <meta name='description' content={desc} />
+          <meta property='description' content={desc} />
           <meta name='og:description' content={desc} />
         </>
       )}

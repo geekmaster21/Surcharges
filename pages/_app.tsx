@@ -1,5 +1,6 @@
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { ThemeProvider } from '@material-ui/core/styles';
+import alp from 'accept-language-parser';
 import { apiGetAllDeviceList } from 'apis';
 import { Layout, MetaTagsDynamic, MetaTagsStatic } from 'components';
 import config from 'config';
@@ -10,11 +11,11 @@ import { AppContextType, AppPropsType } from 'next/dist/next-server/lib/utils';
 import React, { useEffect, useState } from 'react';
 import { IntlProvider } from 'react-intl';
 import 'styles/app.scss';
-import { Dotize, keyOfLang, SetCurrentLocale } from 'utils';
+import { Dotize, keyOfLang } from 'utils';
 import DisableErrorFromReactIntl from 'utils/react-intl';
 import { DarkTheme } from '../themes';
 
-const MetaDesc = [
+const metaDesc = [
   'OrangeFox Recovery is one of the most popular custom recoveries in android ecosystem,',
   ' with amazing additional features that are not present in other recoveries. We support a host of devices',
 ].join('');
@@ -72,7 +73,7 @@ export default function OrangeFoxApp(props: AppPropsType) {
     <>
       <MetaTagsStatic />
       <MetaTagsDynamic
-        desc={MetaDesc}
+        desc={metaDesc}
         jsonLd={{
           '@type': 'ItemList',
           name: 'Supported Devices',
@@ -91,27 +92,37 @@ export default function OrangeFoxApp(props: AppPropsType) {
   );
 }
 
+const langCodes = config.availableLanguages.map(m => m.code);
+
 OrangeFoxApp.getInitialProps = async ({
   ctx,
   router,
   Component,
 }: AppContextType) => {
   let pageProps: any = {},
-    translations: any = {};
+    translations: any = {},
+    alpPicked = null;
+
   const cookieData = cookie.parse(ctx.req?.headers.cookie || '');
+
+  try {
+    alpPicked = alp.pick(langCodes, ctx.req?.headers?.['accept-language']!);
+  } catch (_) {}
+
   const locale =
-    cookieData[keyOfLang] || router.locale || config.locale.default;
+    cookieData[keyOfLang] ||
+    alpPicked ||
+    router.locale ||
+    config.locale.default;
 
   if (ctx.res && ctx.req && locale !== router.locale) {
     ctx.res.writeHead(307, { Location: `/${locale}${ctx.req.url}` });
     return ctx.res.end();
   }
 
-  SetCurrentLocale(locale);
-
-  await import(`public/translations/${locale}.json`).then(x => {
-    translations = Dotize.convert(x.default || x);
-  });
+  translations = await import(`public/translations/${locale}.json`).then(x =>
+    Dotize.convert(x.default || x)
+  );
 
   if (Component.getInitialProps) {
     pageProps = await Component.getInitialProps(ctx);
