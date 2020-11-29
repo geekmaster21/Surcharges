@@ -15,7 +15,7 @@ export const themedAlert = {
 export default makeStyles(() => ({
   root: {
     width: '100%',
-    backgroundColor: '#18191B',
+    backgroundColor: '#2a2a2a',
   },
   icon: {
     color: '#ddd',

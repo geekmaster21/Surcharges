@@ -26,11 +26,11 @@ const Modal: React.FunctionComponent<ModalProps> = ({
   const handleClose = () => {
     toggleModal && toggleModal();
     setOpen(false);
-    chromeColor('#1C1D21');
+    chromeColor('#E06902');
   };
 
   const handleEnter = () => {
-    chromeColor('#0D0E10');
+    chromeColor('#703401');
   };
 
   const classes = useStyles();
