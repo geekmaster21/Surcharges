@@ -2,6 +2,7 @@ import { FormControl, MenuItem, Select } from '@material-ui/core';
 import { KeyboardArrowDownRoundedIcon } from 'components';
 import config from 'config';
 import { useRouter } from 'next/router';
+import emoji from 'react-easy-emoji';
 import useStyles from 'styles/mui/language-toggle';
 import { GetCurrentLocale, SetCurrentLocale } from 'utils';
 import { TranslateIcon } from './Icons';
@@ -32,7 +33,7 @@ const LanguageToggle = () => {
 
   function getEmoji() {
     const lang = langs?.find(f => f.code === locale);
-    return lang ? lang.emoji : null;
+    return lang ? emoji(lang.emoji) : null;
   }
 
   return langs?.length ? (
@@ -51,7 +52,7 @@ const LanguageToggle = () => {
         renderValue={() => getEmoji()}
       >
         <MenuItem key='help-translate' className={classes.listItemHelp}>
-          <TranslateIcon fontSize='small' style={{ fontSize: '15px' }} />
+          <TranslateIcon fontSize='small' style={{ fontSize: '16px' }} />
           <span>Help us Translate!</span>
         </MenuItem>
         {langs.map(m => (
@@ -61,7 +62,7 @@ const LanguageToggle = () => {
             className={classes.listItem}
             classes={{ selected: classes.listItemSelected }}
           >
-            <span>{m.emoji}</span>
+            <span>{emoji(m.emoji)}</span>
             <span>{m.name}</span>
           </MenuItem>
         ))}

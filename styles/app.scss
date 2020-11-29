@@ -83,6 +83,21 @@ p {
   color: inherit;
 }
 
+.downloadLink {
+  font-weight: 500;
+  gap: 8px !important;
+  transition: color 0.1s linear;
+}
+
+.fetchSpinner {
+  font-weight: 500;
+  gap: 16px !important;
+}
+
+.fetchSpinner > span {
+  padding-top: 2px;
+}
+
 ul.no-list-style {
   list-style: none;
   padding: 0;

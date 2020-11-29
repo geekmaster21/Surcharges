@@ -1,4 +1,9 @@
-import { Button, DialogContent, DialogTitle, Icon } from '@material-ui/core';
+import {
+  Button,
+  DialogContent,
+  DialogTitle,
+  IconButton,
+} from '@material-ui/core';
 import { BugReportOutlined, HyperLink, Modal, Toast } from 'components';
 import { IRelease } from 'models';
 import { useState } from 'react';
@@ -57,17 +62,17 @@ const Bugs: React.FunctionComponent<BugsProps> = ({
         <DialogTitle className={classes.titleWithCopyIcon}>
           <Title />
 
-          <Icon
+          <IconButton
             color='primary'
             onClick={onCopyClick}
             style={{
               color: 'white',
-              margin: '-12px 0',
+              margin: '-12px -18px',
               height: 'fit-content',
             }}
           >
             <HyperLink fontSize='small' />
-          </Icon>
+          </IconButton>
         </DialogTitle>
         <DialogContent dividers className='selectable'>
           <LinkifyMessage msg={release.bugs} />

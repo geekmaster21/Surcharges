@@ -3,6 +3,8 @@ export const themedAlert = {
   alert: {
     color: 'white !important',
     borderColor: 'var(--orange-1) !important',
+    borderWidth: '2px',
+    fontWeight: '500',
     alignItems: 'center',
     '& svg': {
       color: 'var(--orange-1) !important',
@@ -13,7 +15,7 @@ export const themedAlert = {
 export default makeStyles(() => ({
   root: {
     width: '100%',
-    backgroundColor: '#2a2a2a',
+    backgroundColor: '#18191B',
   },
   icon: {
     color: '#ddd',

@@ -22,14 +22,14 @@ export default makeStyles((theme: Theme) => ({
   listItemHelp: {
     ...listItem,
     fontSize: '15px',
-    margin: '0 10px',
-    borderBottom: '1px solid gray',
+    margin: '0 2px',
+    borderBottom: '1px solid #333a',
   },
   listItemSelected: {
     borderLeft: '3px solid var(--orange-1)',
   },
   select: {
-    width: '55px',
+    width: '64px',
     marginRight: theme.spacing(7),
     [theme.breakpoints.up('sm')]: {
       marginRight: theme.spacing(3),

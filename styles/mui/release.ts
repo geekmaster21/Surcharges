@@ -52,7 +52,7 @@ export default makeStyles((theme: Theme) => ({
     margin: '8px 0 8px 16px',
   },
   downloadButton: {
-    margin: '20px 0',
+    margin: '14px 0',
     display: 'flex',
     alignItems: 'center',
     gap: '30px',

@@ -1,4 +1,4 @@
-import { Icon } from '@material-ui/core';
+import { IconButton } from '@material-ui/core';
 import { HyperLink, Toast } from 'components';
 import { useState } from 'react';
 import { FormattedMessage } from 'react-intl';
@@ -27,13 +27,13 @@ export const BuildHyperLink = ({ codename, version, buildType }: Props) => {
 
   return (
     <>
-      <Icon
+      <IconButton
         color='primary'
         onClick={onCopyClick}
-        style={{ color: 'white', margin: '-12px 0', height: 'fit-content' }}
+        style={{ color: 'white', margin: '-12px -4px', height: 'fit-content' }}
       >
         <HyperLink fontSize='small' />
-      </Icon>
+      </IconButton>
       <Toast show={modal} onClose={toggleModal}>
         <FormattedMessage
           id='clipboardCopy'
