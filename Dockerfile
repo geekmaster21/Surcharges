@@ -1,9 +1,10 @@
 # build environment
-FROM node:12.18.3-alpine as build
+FROM node:15-alpine as build
 COPY package.json .
 RUN yarn
 COPY . ./
 RUN yarn build
 ENV PATH ./node_modules/.bin:$PATH
-EXPOSE 3000
+# Keep PORT same as in package.json > scripts > start PORT
+EXPOSE 5001 
 CMD ["yarn", "start"]
