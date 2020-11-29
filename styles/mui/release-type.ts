@@ -4,7 +4,7 @@ export const themedAlert = {
     color: 'white !important',
     borderColor: 'var(--orange-1) !important',
     borderWidth: '2px',
-    fontWeight: '500',
+    fontWeight: 500,
     alignItems: 'center',
     '& svg': {
       color: 'var(--orange-1) !important',
