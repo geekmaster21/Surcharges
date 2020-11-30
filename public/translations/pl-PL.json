@@ -24,6 +24,7 @@
     },
     "by": {
       "current": "Opiekun: {maintainer}",
+      "betaInfo": "Wydania beta powinny działać w zakresie podstawowych funkcji. Możesz jednak napotkać problemy i/lub błędy, które możesz zgłosić na nasz kanał {telegramChannel}",
       "previous": "Poprzedni opiekun: {maintainer}"
     }
   },
@@ -31,7 +32,6 @@
   "release": {
     "type": {
       "beta": "Wydania beta",
-      "betaInfo": "Wydania beta powinny działać w zakresie podstawowych funkcji. Możesz jednak napotkać problemy i/lub błędy, które możesz zgłosić na nasz kanał {telegramChannel}",
       "stable": "Wydania stabilne"
     },
     "notFound": "Nie ma jeszcze żadnych wydań dla tego urządzenia!",
