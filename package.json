@@ -28,9 +28,7 @@
     "dev:server:open": "open-cli http://localhost:5000",
     "dev": "concurrently -n dev,dev:open -c blue.bold,green.bold \"yarn dev:server\" \"yarn dev:server:open\"",
     "build": "yarn clean && next build",
-    "start:server": "next start -p 5001",
-    "start:server:open": "open-cli http://localhost:5001",
-    "start": "concurrently -n start,start:open -c blue.bold,green.bold \"yarn start:server\" \"yarn start:server:open\""
+    "start": "next start -p 5001"
   },
   "pre-commit": {
     "silent": true,

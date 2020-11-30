@@ -99,11 +99,14 @@ OrangeFoxApp.getInitialProps = async ({
     translations: any = {},
     alpPicked = null;
 
-  const cookieData = cookie.parse(ctx.req?.headers.cookie || '');
+  const headerAcl = ctx.req?.headers?.['accept-language']!;
+  const cookieData = cookie.parse(ctx.req?.headers?.cookie || '');
 
   try {
-    alpPicked = alp.pick(langCodes, ctx.req?.headers?.['accept-language']!);
-  } catch (_) {}
+    alpPicked = alp.pick(langCodes, headerAcl);
+  } catch (err) {
+    console.error({ headerAcl }, err);
+  }
 
   const locale =
     cookieData[keyOfLang] ||
