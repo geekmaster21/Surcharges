@@ -4,7 +4,7 @@ import {
   DialogActions,
   DialogContent,
   DialogTitle,
-  IconButton
+  IconButton,
 } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
 import {
@@ -13,7 +13,7 @@ import {
   Image,
   Modal,
   OpenOutside,
-  Toast
+  Toast,
 } from 'components';
 import { IRelease } from 'models';
 import React, { useState } from 'react';
@@ -71,17 +71,17 @@ const Downloads: React.FunctionComponent<DownloadsProps> = ({
       {showLoader ? (
         <span className={'shimmer-button ' + classes.outlinedButton} />
       ) : (
-          <Button
-            variant='contained'
-            disableElevation
-            color='secondary'
-            onClick={handleDwnldModal}
-            className={classes.outlinedButton}
-            startIcon={<GetAppIconOutlined />}
-          >
-            <Title />
-          </Button>
-        )}
+        <Button
+          variant='contained'
+          disableElevation
+          color='secondary'
+          onClick={handleDwnldModal}
+          className={classes.outlinedButton}
+          startIcon={<GetAppIconOutlined />}
+        >
+          <Title />
+        </Button>
+      )}
 
       <Modal showModal={dwnldModal} toggleModal={handleDwnldModal}>
         <DialogTitle className={classes.titleWithCopyIcon}>

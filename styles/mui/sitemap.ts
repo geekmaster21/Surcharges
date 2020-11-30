@@ -5,7 +5,7 @@ export default makeStyles((theme: Theme) =>
     topLogo: {
       width: '100%',
       display: 'flex',
-      padding: '1vh 1vw',
+      padding: '2vh 0',
       alignItems: 'center',
       justifyContent: 'center',
       [theme.breakpoints.down('xs')]: {
@@ -16,7 +16,7 @@ export default makeStyles((theme: Theme) =>
       width: '100%',
       padding: '1vh 3vw',
       display: 'grid',
-      gap: '10px',
+      gap: '20px',
       gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr) )',
       [theme.breakpoints.down('xs')]: {
         textAlign: 'center',
@@ -26,6 +26,21 @@ export default makeStyles((theme: Theme) =>
     item: {
       display: 'flex',
       flexDirection: 'column',
+    },
+    itemPlaceholder: {
+      gap: '10px',
+      display: 'flex',
+      flexDirection: 'column',
+      '& b': {
+        height: '10px',
+        width: '200px',
+        display: 'inline-block',
+      },
+      '& small': {
+        height: '10px',
+        width: '100px',
+        display: 'inline-block',
+      },
     },
     code: {
       fontStyle: 'italic',

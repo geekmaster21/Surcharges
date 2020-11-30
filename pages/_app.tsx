@@ -39,11 +39,7 @@ export default function OrangeFoxApp(props: AppPropsType) {
       jssStyles.parentElement!.removeChild(jssStyles);
     }
     if (isMounted) {
-      apiGetAllDeviceList().then(x => {
-        if (isMounted) {
-          setList(x);
-        }
-      });
+      apiGetAllDeviceList().then(x => isMounted && setList(x));
     }
   }, []);
 

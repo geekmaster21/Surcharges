@@ -2,6 +2,7 @@ import { FormControl, MenuItem, Select } from '@material-ui/core';
 import { KeyboardArrowDownRoundedIcon } from 'components';
 import config from 'config';
 import { useRouter } from 'next/router';
+// @ts-ignore
 import emoji from 'react-easy-emoji';
 import useStyles from 'styles/mui/language-toggle';
 import { GetCurrentLocale, SetCurrentLocale } from 'utils';
