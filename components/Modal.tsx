@@ -17,20 +17,18 @@ const Modal: React.FunctionComponent<ModalProps> = ({
 }) => {
   const [open, setOpen] = useState(showModal);
 
+  /*
+  Don't remove; useful code
   function chromeColor(color: string) {
     (document.querySelector(
       'meta[name="theme-color"]'
     ) as HTMLInputElement).setAttribute('content', color);
   }
+  onEntered = { handleEnter }*/
 
   const handleClose = () => {
     toggleModal && toggleModal();
     setOpen(false);
-    chromeColor('#E06902');
-  };
-
-  const handleEnter = () => {
-    chromeColor('#703401');
   };
 
   const classes = useStyles();
@@ -45,7 +43,6 @@ const Modal: React.FunctionComponent<ModalProps> = ({
         timeout: 500,
       }}
       classes={{ paper: classes.dialog }}
-      onEntered={handleEnter}
       maxWidth='xs'
       fullWidth
     >

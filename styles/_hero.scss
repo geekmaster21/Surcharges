@@ -13,13 +13,33 @@
 }
 
 .nf-img {
-  width: 512px;
   margin: 24px 12px;
 }
 
 .select-dev-img {
-  width: 400px;
   margin: 0 12px;
+}
+
+/* Starting from Chrome 88, max-width creates strange layout on desktop, so just don't use it */
+@media all and (min-width: 600px) {
+  .nf-img {
+    width: 512px;
+  }
+
+  .select-dev-img {
+    width: 400px;
+  }
+}
+
+/* Original layout; used only on mobile */
+@media not all and (min-width: 600px) {
+  .nf-img {
+    max-width: 512px;
+  }
+
+  .select-dev-img {
+    max-width: 400px;
+  }
 }
 
 .select-dev {
