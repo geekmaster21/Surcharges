@@ -13,7 +13,10 @@ export default makeStyles((theme: Theme) => ({
     [theme.breakpoints.up('sm')]: {
       padding: theme.spacing(3),
     },
-    minHeight: 'calc(100vh - 112px)',
+    minHeight: 'calc(100vh - 116px)',
+    [theme.breakpoints.up('sm')]: {
+      minHeight: 'calc(100vh - 112px)',
+    },
   },
   drawer: {
     [theme.breakpoints.up('sm')]: {
