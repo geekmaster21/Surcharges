@@ -103,7 +103,10 @@ OrangeFoxApp.getInitialProps = async ({
   const cookieData = cookie.parse(ctx.req?.headers?.cookie || '');
 
   try {
-    alpPicked = alp.pick(langCodes, headerAcl);
+    console.log({ headerAcl });
+    if (headerAcl) {
+      alpPicked = alp.pick(langCodes, headerAcl);
+    }
   } catch (err) {
     console.error({ headerAcl }, err);
   }
