@@ -31,6 +31,7 @@
   "release": {
     "type": {
       "beta": "Beta-Versionen",
+      "betaInfo": "Beta-Versionen sollten in Bezug auf die Grundfunktionalität funktionieren. Sie können jedoch auf Probleme und/oder Fehler stoßen, die Sie unserem {telegramChannel}-Channel melden können",
       "stable": "Stabile-Versionen"
     },
     "notFound": "Es wurden noch keine Versionen für dieses Gerät veröffentlicht!",
@@ -39,6 +40,11 @@
     "changeLogs": "Änderungsprotokolle",
     "buildNotes": "Anmerkungen zu diesem Build",
     "bugs": "Bugs",
+    "donation": {
+      "info": "Wir hoffen du magst das Recovery. Um unsere Server am laufen zu halten und dir ein besseres Produkt liefern zu können benötigen wir Spenden. Möchtest du uns etwas Spenden?",
+      "yes": "Ja, ich möchte etwas spenden",
+      "no": "Nein"
+    },
     "allBuild": "Alle Versionen anzeigen"
   },
   "error": {
@@ -53,7 +59,7 @@
     "info": "Info"
   },
   "footer": {
-    "poweredBy": "Unterstützt von {hostWebsite}",
+    "poweredBy": "Unterstützt durch {hostWebsite}",
     "openSource": "Open-Source Projekt"
   }
 }
