@@ -1,0 +1,65 @@
+{
+  "languageInfo": {
+    "name": "crwdns4520:0crwdne4520:0",
+    "emoji": "crwdns4522:0crwdne4522:0"
+  },
+  "mainPage": {
+    "donation": "crwdns6422:0crwdne6422:0",
+    "hintText": "crwdns4524:0crwdne4524:0",
+    "notFound": "crwdns4526:0crwdne4526:0"
+  },
+  "deviceList": {
+    "searchDevice": "crwdns4420:0crwdne4420:0",
+    "notFound": "crwdns4422:0crwdne4422:0",
+    "diy": "crwdns9968:0crwdne9968:0"
+  },
+  "device": {
+    "info": "crwdns4424:0crwdne4424:0"
+  },
+  "maintain": {
+    "status": {
+      "maintained": "crwdns4426:0crwdne4426:0",
+      "maintainedWithoutDevice": "crwdns4428:0crwdne4428:0",
+      "notMaintained": "crwdns4430:0crwdne4430:0"
+    },
+    "by": {
+      "current": "crwdns4432:0{maintainer}crwdne4432:0",
+      "previous": "crwdns4434:0{maintainer}crwdne4434:0"
+    }
+  },
+  "clipboardCopy": "crwdns9970:0crwdne9970:0",
+  "release": {
+    "type": {
+      "beta": "crwdns4436:0crwdne4436:0",
+      "betaInfo": "crwdns9992:0{telegramChannel}crwdne9992:0",
+      "stable": "crwdns4438:0crwdne4438:0"
+    },
+    "notFound": "crwdns4464:0crwdne4464:0",
+    "fileSize": "crwdns4440:0crwdne4440:0",
+    "download": "crwdns6376:0crwdne6376:0",
+    "changeLogs": "crwdns4444:0crwdne4444:0",
+    "buildNotes": "crwdns4446:0crwdne4446:0",
+    "bugs": "crwdns4448:0crwdne4448:0",
+    "donation": {
+      "info": "crwdns9994:0crwdne9994:0",
+      "yes": "crwdns9996:0crwdne9996:0",
+      "no": "crwdns9998:0crwdne9998:0"
+    },
+    "allBuild": "crwdns9972:0crwdne9972:0"
+  },
+  "error": {
+    "server": "crwdns6378:0crwdne6378:0"
+  },
+  "modal": {
+    "fetchLink": "crwdns4454:0crwdne4454:0",
+    "directLink": "crwdns4456:0crwdne4456:0",
+    "mirrorLink": "crwdns4458:0crwdne4458:0",
+    "guide": "crwdns9990:0crwdne9990:0",
+    "close": "crwdns6330:0crwdne6330:0",
+    "info": "crwdns9788:0crwdne9788:0"
+  },
+  "footer": {
+    "poweredBy": "crwdns9792:0{hostWebsite}crwdne9792:0",
+    "openSource": "crwdns4462:0crwdne4462:0"
+  }
+}

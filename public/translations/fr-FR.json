@@ -31,6 +31,7 @@
   "release": {
     "type": {
       "beta": "Versions bêta",
+      "betaInfo": "Les versions bêta devraient fonctionner en ce qui concerne les fonctionnalités de base. Toutefois, vous pouvez rencontrer des problèmes et/ou des bugs, que vous pouvez signaler sur notre canal {telegramChannel}",
       "stable": "Versions stables"
     },
     "notFound": "Il n'y a pas encore de version pour cet appareil !",
@@ -39,6 +40,11 @@
     "changeLogs": "Journal des modifications",
     "buildNotes": "Notes de projets",
     "bugs": "Bugs",
+    "donation": {
+      "info": "Nous espérons que cette recovery vous plaira. Les dons permettent de maintenir le serveur en fonctionnement et nous aident à construire un meilleur produit pour vous. Vous souhaitez faire un don ?",
+      "yes": "Oui, je souhaite faire un don",
+      "no": "Non"
+    },
     "allBuild": "Afficher toutes les versions"
   },
   "error": {
@@ -48,7 +54,7 @@
     "fetchLink": "Récupération des liens",
     "directLink": "Lien direct",
     "mirrorLink": "Lien alternatif",
-    "guide": "Guide d'installation",
+    "guide": "Vous êtes resté coincé ? Lisez nos documentations sur la façon d'installer OrangeFox Recovery sur votre appareil.",
     "close": "Fermer",
     "info": "Informations"
   },
