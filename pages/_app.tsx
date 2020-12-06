@@ -1,6 +1,5 @@
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { ThemeProvider } from '@material-ui/core/styles';
-import alp from 'accept-language-parser';
 import { apiGetAllDeviceList } from 'apis';
 import { Layout, MetaTagsDynamic, MetaTagsStatic } from 'components';
 import config from 'config';
@@ -12,6 +11,7 @@ import React, { useEffect, useState } from 'react';
 import { IntlProvider } from 'react-intl';
 import 'styles/app.scss';
 import { Dotize, keyOfLang } from 'utils';
+import { pick } from 'utils/accept-language-parser';
 import DisableErrorFromReactIntl from 'utils/react-intl';
 import { DarkTheme } from '../themes';
 
@@ -99,13 +99,14 @@ OrangeFoxApp.getInitialProps = async ({
     translations: any = {},
     alpPicked = null;
 
-  const headerAcl = ctx.req?.headers?.['accept-language']!;
+  let headerAcl = '';
   const cookieData = cookie.parse(ctx.req?.headers?.cookie || '');
 
   try {
+    headerAcl = ctx.req?.headers?.['accept-language']!;
     console.log({ headerAcl });
     if (headerAcl) {
-      alpPicked = alp.pick(langCodes, headerAcl);
+      alpPicked = pick(langCodes, headerAcl);
     }
   } catch (err) {
     console.error({ headerAcl }, err);

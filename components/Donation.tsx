@@ -12,7 +12,7 @@ const Donations: React.FunctionComponent<DonationsProps> = ({ className }) => {
     <OpenOutside
       title='Donations'
       className={className}
-      href='https://opencollective.com/orangefox'
+      href='https://opencollective.com/orangefox/donate'
     >
       <Hidden smUp implementation='css'>
         <IconButton color='inherit' aria-label='Open Donations link'>
