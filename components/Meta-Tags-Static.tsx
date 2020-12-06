@@ -61,5 +61,16 @@ export const MetaTagsStatic = () => (
       href='/android-icon-192x192.png'
     />
     <link rel='manifest' href='/manifest.json' />
+    {/* <script
+      type='text/javascript'
+      dangerouslySetInnerHTML={{
+        __html: `
+        var _jipt = [];
+        _jipt.push(['project', '460e05451711eade718739973a0a58e6']);
+        _jipt.push(['domain', 'orangefox']);
+    `,
+      }}
+    />
+    <script type='text/javascript' src='//cdn.crowdin.com/jipt/jipt.js' /> */}
   </Head>
 );
