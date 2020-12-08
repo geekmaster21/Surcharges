@@ -95,47 +95,54 @@ OrangeFoxApp.getInitialProps = async ({
   router,
   Component,
 }: AppContextType) => {
+  let headerAcl = '';
   let pageProps: any = {},
     translations: any = {},
     alpPicked = null;
 
-  let headerAcl = '';
-  const cookieData = cookie.parse(ctx.req?.headers?.cookie || '');
-
   try {
+    const cookieData = cookie.parse(ctx.req?.headers?.cookie || '');
+
     headerAcl = ctx.req?.headers?.['accept-language']!;
     console.log({ headerAcl });
     if (headerAcl) {
       alpPicked = pick(langCodes, headerAcl);
     }
+
+    const locale =
+      cookieData[keyOfLang] ||
+      alpPicked ||
+      router.locale ||
+      config.locale.default;
+
+    if (ctx.res && ctx.req && locale !== router.locale) {
+      ctx.res.writeHead(307, { Location: `/${locale}${ctx.req.url}` });
+      return ctx.res.end();
+    }
+
+    translations = await import(`public/translations/${locale}.json`).then(x =>
+      Dotize.convert(x.default || x)
+    );
+
+    if (Component.getInitialProps) {
+      pageProps = await Component.getInitialProps(ctx);
+    }
+
+    return {
+      pageProps: {
+        ...pageProps,
+        locale,
+        translations,
+      },
+    };
   } catch (err) {
-    console.error({ headerAcl }, err);
+    console.error(
+      {
+        catchedError: 'some-error-occurred',
+        headerAcl,
+        errMsg: err.toString(),
+      },
+      err
+    );
   }
-
-  const locale =
-    cookieData[keyOfLang] ||
-    alpPicked ||
-    router.locale ||
-    config.locale.default;
-
-  if (ctx.res && ctx.req && locale !== router.locale) {
-    ctx.res.writeHead(307, { Location: `/${locale}${ctx.req.url}` });
-    return ctx.res.end();
-  }
-
-  translations = await import(`public/translations/${locale}.json`).then(x =>
-    Dotize.convert(x.default || x)
-  );
-
-  if (Component.getInitialProps) {
-    pageProps = await Component.getInitialProps(ctx);
-  }
-
-  return {
-    pageProps: {
-      ...pageProps,
-      locale,
-      translations,
-    },
-  };
 };

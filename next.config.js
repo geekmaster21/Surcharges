@@ -15,6 +15,7 @@ module.exports = {
   i18n: {
     locales,
     defaultLocale: 'en',
+    localeDetection: false,
   },
   webpack: (config, { isServer }) => {
     if (isServer) {

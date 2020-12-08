@@ -34,7 +34,7 @@ const LanguageToggle = () => {
 
   function getEmoji() {
     const lang = langs?.find(f => f.code === locale);
-    return lang ? emoji(lang.emoji) : null;
+    return lang ? emoji(lang.emoji, { protocol: 'https', ext: '.png' }) : null;
   }
 
   return langs?.length ? (
