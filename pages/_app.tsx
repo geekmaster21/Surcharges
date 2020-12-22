@@ -10,7 +10,7 @@ import { AppContextType, AppPropsType } from 'next/dist/next-server/lib/utils';
 import React, { useEffect, useState } from 'react';
 import { IntlProvider } from 'react-intl';
 import 'styles/app.scss';
-import { Dotize, keyOfLang } from 'utils';
+import { Dotize, IsCSR, keyOfLang } from 'utils';
 import { pick } from 'utils/accept-language-parser';
 import DisableErrorFromReactIntl from 'utils/react-intl';
 import { DarkTheme } from '../themes';
@@ -104,7 +104,9 @@ OrangeFoxApp.getInitialProps = async ({
     const cookieData = cookie.parse(ctx.req?.headers?.cookie || '');
 
     headerAcl = ctx.req?.headers?.['accept-language']!;
-    console.log({ headerAcl });
+    if (!IsCSR) {
+      console.log({ headerAcl });
+    }
     if (headerAcl) {
       alpPicked = pick(langCodes, headerAcl);
     }
