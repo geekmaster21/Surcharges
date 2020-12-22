@@ -39,5 +39,6 @@ _Recommendation: use **Yarn** instead of **NPM**_
 - [Wiki](https://wiki.orangefox.tech/)
 - [Website Downloads](https://orangefox.download/)
 - [Crowdin Translations](https://translate.orangefox.tech/downloads-website)
+- [OrangeFox Uptime Status](https://uptime.orangefox.tech/)
 - `Telegram` [Support](https://t.me/OrangeFoxChat)
 - `Telegram` [News](https://t.me/OrangeFoxNEWS)
