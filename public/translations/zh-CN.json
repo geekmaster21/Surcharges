@@ -31,6 +31,7 @@
   "release": {
     "type": {
       "beta": "测试版",
+      "betaInfo": "就基本功能而言，测试版本应该可以工作。 但是，您仍可能会遇到问题或者 bug，您可以向我们的 {telegramChannel} 频道反馈",
       "stable": "正式版"
     },
     "notFound": "未为此设备构建版本",
@@ -39,6 +40,11 @@
     "changeLogs": "更新日志",
     "buildNotes": "注意事项",
     "bugs": "Bugs",
+    "donation": {
+      "info": "我们希望您喜欢这个 recovery。捐款保持服务器运行并帮助我们为您编译一个更好的产品。您想捐赠吗？",
+      "yes": "是的，我想捐赠。",
+      "no": "不"
+    },
     "allBuild": "显示所有版本"
   },
   "error": {

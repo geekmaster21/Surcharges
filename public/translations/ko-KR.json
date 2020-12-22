@@ -1,0 +1,65 @@
+{
+  "languageInfo": {
+    "name": "Korean",
+    "emoji": "🇰🇷"
+  },
+  "mainPage": {
+    "donation": "후원하기",
+    "hintText": "목록에서 기기를 선택하거나 검색하기",
+    "notFound": "마지막입니다. 홈으로 돌아갑니다!"
+  },
+  "deviceList": {
+    "searchDevice": "기기 검색",
+    "notFound": "기기를 찾을 수 없음!",
+    "diy": "해당 기기는 아직 지원하지 않습니다! 괜찮으시다면 당신이 직접 펌웨어를 만드실 수도 있습니다. 이곳을 클릭하시면 자세히 보실 수 있습니다."
+  },
+  "device": {
+    "info": "(기기 정보)"
+  },
+  "maintain": {
+    "status": {
+      "maintained": "관리 중",
+      "maintainedWithoutDevice": "기기를 보유하지 않고 관리 중",
+      "notMaintained": "현재 관리자 없음!"
+    },
+    "by": {
+      "current": "관리자: {maintainer}",
+      "previous": "이전 관리자: {maintainer}"
+    }
+  },
+  "clipboardCopy": "클립보드에 복사했습니다!",
+  "release": {
+    "type": {
+      "beta": "베타 버전",
+      "betaInfo": "베타 버전은 기본 기능에 관해선 동작해야 합니다. 하지만, 문제나 버그가 있을 경우 이쪽의 {telegramChannel} 채널로 제보해주십시오.",
+      "stable": "안정 버전"
+    },
+    "notFound": "이 기기는 아직 지원하지 않습니다!",
+    "fileSize": "파일 크기",
+    "download": "다운로드",
+    "changeLogs": "변경 내역",
+    "buildNotes": "빌드 메모",
+    "bugs": "버그",
+    "donation": {
+      "info": "OrangeFox를 사랑해주시고 많은 성원 부탁드립니다. 후원은 서버 유지 및 저희가 더 나은 작품을 만드는데 큰 도움이 됩니다. 후원해주실 수 있으십니까?",
+      "yes": "네, 후원하겠습니다.",
+      "no": "아니오"
+    },
+    "allBuild": "모든 배포 버전 보기"
+  },
+  "error": {
+    "server": "OrangeFox에 연결할 수 없습니다! 잠시 후 재시도하십시오."
+  },
+  "modal": {
+    "fetchLink": "링크 가져 오는 중",
+    "directLink": "바로 받기",
+    "mirrorLink": "미러 주소로 받기",
+    "guide": "부팅 불능이 되었습니까? 저희 위키에서 Installing OrangeFox Recovery 문서를 읽어 주십시오.",
+    "close": "닫기",
+    "info": "정보"
+  },
+  "footer": {
+    "poweredBy": "Powered by {hostWebsite}",
+    "openSource": "오픈 소스 프로젝트"
+  }
+}
