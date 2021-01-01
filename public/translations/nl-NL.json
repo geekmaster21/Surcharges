@@ -1,0 +1,65 @@
+{
+  "languageInfo": {
+    "name": "Engels",
+    "emoji": "ons"
+  },
+  "mainPage": {
+    "donation": "Donaties",
+    "hintText": "Selecteer apparaat uit de lijst of gebruik zoekopdracht",
+    "notFound": "Dit is het einde. Breng me terug naar huis!"
+  },
+  "deviceList": {
+    "searchDevice": "Apparaat zoeken",
+    "notFound": "Apparaat niet gevonden!",
+    "diy": "Het lijkt erop dat we dat apparaat nog niet hebben! Maar je bent welkom om er een voor jezelf en de gemeenschap te bouwen. Klik hier om meer te weten."
+  },
+  "device": {
+    "info": "(Apparaat informatie)"
+  },
+  "maintain": {
+    "status": {
+      "maintained": "Onderhouden",
+      "maintainedWithoutDevice": "Onderhoud zonder apparaat in handen te hebben",
+      "notMaintained": "Niet onderhouden!"
+    },
+    "by": {
+      "current": "Onderhouder: {maintainer}",
+      "previous": "Vorige Onderhouder: {maintainer}"
+    }
+  },
+  "clipboardCopy": "Gekopieerd naar klembord!",
+  "release": {
+    "type": {
+      "beta": "Beta Releases",
+      "betaInfo": "Beta releases moeten werken voor wat betreft de basisfunctionaliteit. Je kan echter problemen en/of fouten tegenkomen, wat je op ons {telegramChannel} -kanaal kunt melden",
+      "stable": "Stabiele Releases"
+    },
+    "notFound": "Er zijn nog geen releases voor dit apparaat!",
+    "fileSize": "Bestandsgrootte",
+    "download": "Downloads",
+    "changeLogs": "Change Logs",
+    "buildNotes": "Build Notes",
+    "bugs": "Bugs",
+    "donation": {
+      "info": "We hopen dat de Recovery u aanspreekt. Donaties houden de server actief en helpen ons een beter product voor u te bouwen. Wilt u doneren?",
+      "yes": "Ja, ik zou graag willen doneren",
+      "no": "Nee"
+    },
+    "allBuild": "Alle releases weergeven"
+  },
+  "error": {
+    "server": "Kan geen verbinding maken met OrangeFox! Probeer het later opnieuw."
+  },
+  "modal": {
+    "fetchLink": "Links ophalen",
+    "directLink": "Directe link",
+    "mirrorLink": "Spiegel Link",
+    "guide": "Vastgelopen? Lees onze documentatie over hoe je OrangeFox Recovery op je apparaat kunt installeren.",
+    "close": "Sluiten",
+    "info": "Info"
+  },
+  "footer": {
+    "poweredBy": "Mogelijk gemaakt door {hostWebsite}",
+    "openSource": "Open-Source Project"
+  }
+}
