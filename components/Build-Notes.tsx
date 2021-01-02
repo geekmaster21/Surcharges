@@ -5,7 +5,7 @@ import {
   IconButton,
 } from '@material-ui/core';
 import { HyperLink, Modal, Toast } from 'components';
-import { IRelease } from 'models';
+import { IReleaseWithDetails } from 'models';
 import React, { useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import useStyles from 'styles/mui/release';
@@ -15,7 +15,7 @@ import { LinkifyMessage } from './Linkify-Message';
 
 interface BuildNotesProps {
   popup?: string;
-  release: IRelease;
+  release: IReleaseWithDetails;
   showLoader?: boolean;
 }
 
@@ -32,7 +32,7 @@ const BuildNotes: React.FunctionComponent<BuildNotesProps> = ({
   const [toast, setToast] = useState(false);
   const toggleToast = () => setToast(!toast);
   const origin = IsCSR ? window.location.origin : '';
-  const url = `${origin}/release/${release.codename}/${release.build_type}/${release.version}/${popupNames[1]}`;
+  const url = `${origin}/release/${release.code}/${release.type}/${release.version}/${popupNames[1]}`;
 
   function onCopyClick(e: any) {
     StopEvent(e);
@@ -77,7 +77,7 @@ const BuildNotes: React.FunctionComponent<BuildNotesProps> = ({
           </IconButton>
         </DialogTitle>
         <DialogContent dividers className='selectable'>
-          <LinkifyMessage msg={release.notes} />
+          <LinkifyMessage msg={release.notes!} />
         </DialogContent>
       </Modal>
 
@@ -91,4 +91,4 @@ const BuildNotes: React.FunctionComponent<BuildNotesProps> = ({
   );
 };
 
-export { BuildNotes };
+export default BuildNotes;

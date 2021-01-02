@@ -1,7 +1,7 @@
 import { makeStyles } from '@material-ui/core';
 export const themedAlert = {
   alert: {
-    color: 'white !important',
+    color: '#e4e4e4 !important',
     borderColor: 'var(--orange-1) !important',
     borderWidth: '2px',
     fontWeight: 500,
@@ -9,6 +9,7 @@ export const themedAlert = {
     '& svg': {
       color: 'var(--orange-1) !important',
     },
+    marginBottom: '5px',
   },
 };
 

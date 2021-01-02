@@ -1,4 +1,5 @@
 import { createStyles, makeStyles } from '@material-ui/core';
+import { CSSProperties } from 'react';
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -12,7 +13,7 @@ const useStyles = makeStyles(() =>
   })
 );
 
-export function LoadShimmer() {
+export function LoadShimmer(p?: { style?: CSSProperties }) {
   const classes = useStyles();
-  return <span className={'shimmer ' + classes.root}></span>;
+  return <span style={p?.style} className={'shimmer ' + classes.root}></span>;
 }

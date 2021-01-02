@@ -7,26 +7,31 @@ import {
 import Alert from '@material-ui/lab/Alert';
 import { isEqual, sortBy } from 'core';
 import { usePreviousProps } from 'hooks';
-import { EReleaseType, IRelease } from 'models';
+import { IRelease, TReleaseType } from 'models';
 import { useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import useStyles from 'styles/mui/release-type';
-import { ExpandMore, Release } from './';
-import { BugReportOutlined, CheckBoxOutlined, ReportOutlined } from './Icons';
+import {
+  BugReportOutlined,
+  CheckBoxOutlined,
+  ExpandMore,
+  ReportOutlined,
+} from './Icons';
 import { OpenOutside } from './Open-Outside';
+import Release from './Release';
 
 type Props = {
   code: string;
   version?: string;
   data: IRelease[];
-  type: EReleaseType;
+  type: TReleaseType;
   expanded?: boolean;
   releaseLabel: JSX.Element;
 };
 
 const ReleaseType = (props: Props) => {
-  const { code, expanded, data, type, version, releaseLabel } = props;
   const classes = useStyles();
+  const { expanded, data, type, version, releaseLabel } = props;
   const sortedData = sortBy(data, d => d.actualDate).reverse();
   const [expandPanel, setExpanded] = useState<number>(0);
 
@@ -38,7 +43,7 @@ const ReleaseType = (props: Props) => {
   if (
     prevProps &&
     prevProps?.code &&
-    code &&
+    props.code &&
     !isEqual(
       sortBy(prevProps?.data || [], p => p.actualDate),
       sortBy(data || [], p => p.actualDate)
@@ -57,7 +62,7 @@ const ReleaseType = (props: Props) => {
           aria-controls={`release-${type}-content`}
         >
           <Typography className='flexd v-center'>
-            {type === EReleaseType.beta ? (
+            {type === 'beta' ? (
               <BugReportOutlined className={classes.iconM5} fontSize='small' />
             ) : (
               <CheckBoxOutlined className={classes.iconM5} fontSize='small' />
@@ -66,7 +71,7 @@ const ReleaseType = (props: Props) => {
           </Typography>
         </AccordionSummary>
         <AccordionDetails className={classes.details}>
-          {type === EReleaseType.beta && (
+          {type === 'beta' && (
             <>
               <Alert
                 severity='warning'
@@ -93,10 +98,9 @@ const ReleaseType = (props: Props) => {
           )}
           {sortedData.map((m, i) => (
             <Release
+              data={m}
               key={m.version}
-              version={m.version}
-              code={code}
-              type={type}
+              code={props.code}
               onClick={() => handleChange(i)}
               expanded={version ? m.version === version : expandPanel === i}
             />

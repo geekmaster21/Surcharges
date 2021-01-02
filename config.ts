@@ -3,7 +3,7 @@ import { version } from './package.json';
 
 export default {
   version,
-  apiUrl: 'https://api.orangefox.download/v2',
+  apiUrl: 'https://api.orangefox.download/v3',
   isDevEnv: process.env.NODE_ENV === 'development',
   availableLanguages,
   locale: {

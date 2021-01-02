@@ -1,19 +1,23 @@
 import { Drawer, Hidden } from '@material-ui/core';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import { Footer } from 'components';
-import { IChildren, IDevice } from 'models';
+import { IChildren } from 'models';
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 import useStyles from 'styles/mui/layout';
 import AppLoader from './App-Loader';
-import { DeviceListWrapper } from './Device-List-Wrapper';
+import DeviceList, { DeviceListState } from './Device-List';
 import Header from './Header';
-import { useRouter } from 'next/router';
 
-type Props = IChildren & { list: IDevice[] };
-
-export function Layout({ children, list }: Props) {
-  const classes = useStyles();
+export function Layout({ children }: IChildren) {
   const router = useRouter();
+  const classes = useStyles();
+  const [listState, setListState] = useState<DeviceListState>({
+    search: '',
+    filterByAll: false,
+    allDevices: undefined,
+    supportedDevices: undefined,
+  });
   const [mobileDrawer, setMobileDrawer] = useState(false);
 
   function toggleDrawer() {
@@ -29,6 +33,7 @@ export function Layout({ children, list }: Props) {
       <Header toggleClick={toggleDrawer} />
       <div className={classes.root}>
         <nav className={classes.drawer}>
+          {/* Mobile */}
           <Hidden smUp implementation='css'>
             <SwipeableDrawer
               anchor='left'
@@ -37,16 +42,21 @@ export function Layout({ children, list }: Props) {
               onClose={toggleDrawer}
               classes={{ paper: classes.drawerPaper }}
             >
-              <DeviceListWrapper data={list} handleDeviceClick={toggleDrawer} />
+              <DeviceList
+                {...listState}
+                onUpdate={setListState}
+                onDeviceClick={toggleDrawer}
+              />
             </SwipeableDrawer>
           </Hidden>
+          {/* Desktop */}
           <Hidden xsDown implementation='css'>
             <Drawer
               open
               variant='permanent'
               classes={{ paper: classes.drawerPaper }}
             >
-              <DeviceListWrapper data={list} />
+              <DeviceList {...listState} onUpdate={setListState} />
             </Drawer>
           </Hidden>
         </nav>

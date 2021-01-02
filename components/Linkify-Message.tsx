@@ -1,9 +1,9 @@
 import Linkify from 'linkifyjs/react';
 
-export function LinkifyMessage({ msg }: { msg?: string }) {
+export function LinkifyMessage({ msg }: { msg: string | string[] }) {
   return (
     <>
-      {msg?.split('\n').map((m, i) => (
+      {(Array.isArray(msg) ? msg : msg?.split('\n')).map((m, i) => (
         <p key={i}>
           <Linkify
             options={{

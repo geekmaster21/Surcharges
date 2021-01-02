@@ -5,7 +5,7 @@ import {
   IconButton,
 } from '@material-ui/core';
 import { DescriptionOutlined, HyperLink, Modal, Toast } from 'components';
-import { IRelease } from 'models';
+import { IReleaseWithDetails } from 'models';
 import React, { useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import useStyles from 'styles/mui/release';
@@ -14,7 +14,7 @@ import { LinkifyMessage } from './Linkify-Message';
 
 interface ChangeLogsProps {
   popup?: string;
-  release: IRelease;
+  release: IReleaseWithDetails;
   showLoader?: boolean;
 }
 
@@ -35,7 +35,7 @@ const ChangeLogs: React.FunctionComponent<ChangeLogsProps> = ({
   );
 
   const origin = IsCSR ? window.location.origin : '';
-  const url = `${origin}/release/${release.codename}/${release.build_type}/${release.version}/${popupNames[1]}`;
+  const url = `${origin}/release/${release.code}/${release.type}/${release.version}/${popupNames[1]}`;
 
   function onCopyClick(e: any) {
     StopEvent(e);
@@ -76,7 +76,7 @@ const ChangeLogs: React.FunctionComponent<ChangeLogsProps> = ({
           </IconButton>
         </DialogTitle>
         <DialogContent dividers className='selectable'>
-          <LinkifyMessage msg={release.changelog} />
+          <LinkifyMessage msg={release.changelog!} />
         </DialogContent>
       </Modal>
 
@@ -90,4 +90,4 @@ const ChangeLogs: React.FunctionComponent<ChangeLogsProps> = ({
   );
 };
 
-export { ChangeLogs };
+export default ChangeLogs;

@@ -1,27 +1,27 @@
 import { HTTP } from 'core';
-import { EReleaseType, IAllReleases, IDevice, IRelease } from 'models';
-import config from 'config';
+import {
+  IDevice,
+  IDeviceWithMaintainer,
+  ISearchDevice,
+  ISearchDeviceAll,
+} from 'models';
 
-const URL = `${config.apiUrl}/device`;
+const URL = 'devices/';
 
-export async function apiGetAllDeviceList(): Promise<IDevice[]> {
-  return HTTP.get(URL);
+function get<T = ISearchDevice>(p?: T) {
+  return HTTP.get<T, IDeviceWithMaintainer>(`${URL}get`, p);
 }
 
-export async function apiGetDeviceByCode(code: string): Promise<IDevice> {
-  return HTTP.get(`${URL}/${code}`);
+function getAll<T = ISearchDeviceAll>(p?: T) {
+  return HTTP.get<T, { list: IDevice[]; count: number }>(URL, p);
 }
 
-export async function apiGetAllReleases(code: string): Promise<IAllReleases> {
-  return HTTP.get(`${URL}/${code}/releases`);
+function getById(_id?: string) {
+  return HTTP.get<string, IDeviceWithMaintainer>(`${URL}${_id}`);
 }
 
-export async function apiGetRelease(
-  code: string,
-  releaseType: EReleaseType,
-  version?: string
-): Promise<IRelease> {
-  let url = `${URL}/${code}/releases/${releaseType}`;
-  if (version) url = `${url}/${version === 'last' ? 'last' : version}`;
-  return HTTP.get(url);
-}
+export default {
+  get,
+  getAll,
+  getById,
+};

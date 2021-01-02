@@ -15,7 +15,7 @@ import {
   OpenOutside,
   Toast,
 } from 'components';
-import { IRelease } from 'models';
+import { IReleaseWithDetails } from 'models';
 import React, { useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import useStyles from 'styles/mui/release';
@@ -24,8 +24,8 @@ import { AddToHomeScreenOutlinedIcon } from './Icons';
 
 interface DownloadsProps {
   popup?: string;
-  release: IRelease;
   showLoader?: boolean;
+  release: IReleaseWithDetails;
 }
 
 const popupNames = ['download', 'downloads'];
@@ -56,7 +56,9 @@ const Downloads: React.FunctionComponent<DownloadsProps> = ({
   }
 
   const origin = IsCSR ? window.location.origin : '';
-  const url = `${origin}/release/${release.codename}/${release.build_type}/${release.version}/${popupNames[1]}`;
+  const url = `${origin}/release/${release.code!}/${release.type}/${
+    release.version
+  }/${popupNames[1]}`;
 
   const Title = () => (
     <FormattedMessage id='release.download' defaultMessage='Downloads' />
@@ -151,7 +153,7 @@ const Downloads: React.FunctionComponent<DownloadsProps> = ({
                 <a
                   download
                   className='link no-hover inheritColor downloadLink'
-                  href={release.direct_url || release.url}
+                  href={release.mirrors.DL}
                   onClick={() => {
                     handleDwnldModal();
                     setDonateModal(true);
@@ -164,7 +166,7 @@ const Downloads: React.FunctionComponent<DownloadsProps> = ({
                   />
                 </a>
 
-                {release.sf?.url && (
+                {/* {release.sf?.url && (
                   <a
                     download
                     href={release.sf.url}
@@ -181,7 +183,7 @@ const Downloads: React.FunctionComponent<DownloadsProps> = ({
                       defaultMessage='Mirror Link'
                     />
                   </a>
-                )}
+                )} */}
               </>
             )}
           </div>
@@ -241,4 +243,4 @@ const Downloads: React.FunctionComponent<DownloadsProps> = ({
   ) : null;
 };
 
-export { Downloads };
+export default Downloads;

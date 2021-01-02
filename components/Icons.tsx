@@ -1,6 +1,6 @@
 import Icon from '@material-ui/core/Icon';
+import AccessTimeOutlinedIcon from '@material-ui/icons/AccessTimeOutlined';
 import AddToHomeScreenOutlinedIcon from '@material-ui/icons/AddToHomeScreenOutlined';
-import ArchiveOutlined from '@material-ui/icons/ArchiveOutlined';
 import BookOutlinedIcon from '@material-ui/icons/BookOutlined';
 import BugReportOutlined from '@material-ui/icons/BugReportOutlined';
 import CheckBoxOutlined from '@material-ui/icons/CheckBoxOutlined';
@@ -36,7 +36,7 @@ export {
   SpeakerNotesOutlined,
   PermDeviceInformationOutlinedIcon,
   SearchIcon,
-  ArchiveOutlined,
+  AccessTimeOutlinedIcon,
   SdCardOutlinedIcon,
   VerifiedUserOutlined,
   BugReportOutlined,

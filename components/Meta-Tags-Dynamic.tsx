@@ -9,6 +9,7 @@ type Props = IChildren & {
   desc?: string;
   title?: string;
   jsonLd?: object;
+  canonical?: string;
 };
 const Brand = 'OrangeFox Recovery Downloads';
 const Branded = (item?: string) => (item ? `${item} | ${Brand}` : Brand);
@@ -18,6 +19,7 @@ export const MetaTagsDynamic = ({
   title,
   jsonLd,
   children,
+  canonical,
   url = IsCSR ? Router.asPath : '',
 }: Props) => {
   const brandedTitle = Branded(title);
@@ -33,6 +35,12 @@ export const MetaTagsDynamic = ({
           <meta name='url' content={url} />
           <meta property='url' content={url} />
           <meta name='og:url' content={url} />
+        </>
+      )}
+
+      {canonical && (
+        <>
+          <link rel='canonical' href={canonical} />
         </>
       )}
 

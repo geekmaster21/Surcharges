@@ -1,37 +1,33 @@
-interface IHttpRequest<T = any> {
-  data: T;
-  options: RequestInit;
+import config from 'config';
+import nodeFetch, { Response } from 'node-fetch';
+
+async function get<T = any, S = any>(url: string, params?: T) {
+  const _url = new URL(`${config.apiUrl}/${url}`);
+  if (params) {
+    _url.search = new URLSearchParams(params as any).toString();
+  }
+
+  let _resp: Response | null = null;
+  try {
+    _resp = await nodeFetch(_url.toString(), {
+      method: 'GET',
+    });
+    const _succ_res = await _resp.json();
+    const keys = Object.keys(_succ_res);
+    const isList =
+      keys.length === 2 && 'data' in _succ_res && 'count' in _succ_res;
+    return {
+      _resp,
+      isSuccess: _resp.status === 200,
+      data: (isList
+        ? { list: _succ_res.data, count: _succ_res.count }
+        : _succ_res) as S,
+    };
+  } catch (error) {
+    return { isSuccess: false, data: null, error, _resp };
+  }
 }
-
-const get = async <T = any>(url: string, options?: RequestInit) =>
-  fetch(url, {
-    method: 'GET',
-    ...options,
-  }).then(x => x.json() as Promise<T>);
-
-const post = async <T = any>(url: string, { data, options }: IHttpRequest<T>) =>
-  fetch(url, {
-    method: 'POST',
-    body: (data && JSON.stringify(data)) || null,
-    ...options,
-  }).then(x => x.json() as Promise<T>);
-
-const put = async <T = any>(url: string, { data, options }: IHttpRequest<T>) =>
-  fetch(url, {
-    method: 'PUT',
-    body: (data && JSON.stringify(data)) || null,
-    ...options,
-  }).then(x => x.json() as Promise<T>);
-
-const del = async <T = any>(url: string, options: RequestInit) =>
-  fetch(url, {
-    method: 'DELETE',
-    ...options,
-  }).then(x => x.json() as Promise<T>);
 
 export default {
   get,
-  post,
-  put,
-  delete: del,
 };
