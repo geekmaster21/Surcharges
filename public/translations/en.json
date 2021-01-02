@@ -11,10 +11,17 @@
   "deviceList": {
     "searchDevice": "Search Device",
     "notFound": "Device not found!",
-    "diy": "Looks like we don't have that device yet! But you are welcome to build one for yourself and the community. Click here to know more."
+    "diy": "Looks like we don't have that device yet! But you are welcome to build one for yourself and the community. Click here to know more.",
+    "filter": {
+      "all": "All Devices",
+      "supported": "Supported Devices"
+    }
   },
   "device": {
-    "info": "(Device Info)"
+    "unsupported": {
+      "primaryText": "This device is unsupported, so bug fixes or updates will not be released in the future. Kindly refrain from seeking help in the telegram channels as they won't be entertained. Use at your own risk!",
+      "secondaryText": "Support for this device may be added in the future, only if someone could actively maintain it. Read the {wiki} about it."
+    }
   },
   "maintain": {
     "status": {

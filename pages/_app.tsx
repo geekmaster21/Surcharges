@@ -1,13 +1,10 @@
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { ThemeProvider } from '@material-ui/core/styles';
-import { apiGetAllDeviceList } from 'apis';
 import { Layout, MetaTagsDynamic, MetaTagsStatic } from 'components';
 import config from 'config';
 import cookie from 'cookie';
-import { useIsMounted } from 'hooks/mount';
-import { IDevice } from 'models';
 import { AppContextType, AppPropsType } from 'next/dist/next-server/lib/utils';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { IntlProvider } from 'react-intl';
 import 'styles/app.scss';
 import { Dotize, IsCSR, keyOfLang } from 'utils';
@@ -15,22 +12,14 @@ import { pick } from 'utils/accept-language-parser';
 import DisableErrorFromReactIntl from 'utils/react-intl';
 import { DarkTheme } from '../themes';
 
-const metaDesc = [
-  'OrangeFox Recovery is one of the most popular custom recoveries in android ecosystem,',
-  ' with amazing additional features that are not present in other recoveries. We support a host of devices',
-].join('');
-
 // TODO: remove this and handle translations properly
 DisableErrorFromReactIntl();
 
 export default function OrangeFoxApp(props: AppPropsType) {
   const {
     Component,
-    pageProps: { translations, deviceList, locale, ...rest },
+    pageProps: { translations, locale, ...rest },
   } = props;
-
-  const isMounted = useIsMounted();
-  const [list, setList] = useState((deviceList || []) as IDevice[]);
 
   useEffect(() => {
     // Remove the server-side injected CSS.
@@ -38,49 +27,22 @@ export default function OrangeFoxApp(props: AppPropsType) {
     if (jssStyles) {
       jssStyles.parentElement!.removeChild(jssStyles);
     }
-    if (isMounted) {
-      apiGetAllDeviceList().then(x => isMounted && setList(x));
-    }
   }, []);
-
-  const itemListElement = list.map((m, i) => ({
-    '@type': 'ListItem',
-    position: i + 1,
-    item: {
-      '@type': 'SoftwareApplication',
-      identifier: m.codename,
-      name: `Orangefox recovery for ${m.fullname} (${m.codename})`,
-      operatingSystem: 'Android',
-      applicationCategory: 'SoftwareApplication',
-      applicationSubCategory: 'CustomRecovery',
-      url: `/device/${m.codename}`,
-      downloadUrl: `/device/${m.codename}`,
-      accessMode: 'visual',
-      offers: {
-        '@type': 'Offer',
-        price: '0.00',
-        priceCurrency: 'XXX',
-        availability: `https://schema.org/InStock`,
-      },
-    },
-  }));
 
   return (
     <>
       <MetaTagsStatic />
       <MetaTagsDynamic
-        desc={metaDesc}
-        jsonLd={{
-          '@type': 'ItemList',
-          name: 'Supported Devices',
-          itemListElement,
-        }}
+        desc={[
+          'OrangeFox Recovery is one of the most popular custom recoveries in android ecosystem',
+          ' with amazing additional features that are not present in other recoveries. We support a host of devices',
+        ].join()}
       />
       <ThemeProvider theme={DarkTheme}>
         <CssBaseline />
         <IntlProvider locale={locale} messages={translations}>
-          <Layout list={list}>
-            <Component {...{ deviceList, ...rest }} />
+          <Layout>
+            <Component {...rest} />
           </Layout>
         </IntlProvider>
       </ThemeProvider>
@@ -140,9 +102,9 @@ OrangeFoxApp.getInitialProps = async ({
   } catch (err) {
     console.error(
       {
-        catchedError: 'some-error-occurred',
         headerAcl,
         errMsg: err.toString(),
+        catchedError: 'some-error-occurred',
       },
       err
     );

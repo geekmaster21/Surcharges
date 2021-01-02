@@ -8,28 +8,28 @@ import {
   ListItem,
   Typography,
 } from '@material-ui/core';
-import { apiGetRelease } from 'apis';
+import { apiRelease } from 'apis';
 import { AnchorLink, ExpandMore } from 'components';
-import { EReleaseType, IRelease } from 'models';
+import { IRelease, IReleaseWithDetails } from 'models';
 import Router from 'next/router';
 import { useEffect, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import useStyles from 'styles/mui/release';
 import { StopEvent } from 'utils';
-import { Bugs } from './Bugs';
-import { BuildHyperLink } from './Build-Hyperlink';
-import { BuildNotes } from './Build-Notes';
-import { ChangeLogs } from './Change-Logs';
-import { Downloads } from './Downloads';
-import { FileName } from './File-Name';
-import { FileSize } from './File-Size';
-import { MD5 } from './MD5';
+import Bugs from './Bugs';
+import BuildHyperLink from './Build-Hyperlink';
+import BuildNotes from './Build-Notes';
+import ChangeLogs from './Change-Logs';
+import Downloads from './Downloads';
+import FileName from './File-Name';
+import FileSize from './File-Size';
+import { LoadShimmer } from './Load-Shimmer';
+import MD5 from './MD5';
 
 type Props = {
-  code?: string;
+  data: IRelease;
+  code: string;
   popup?: string;
-  version: string;
-  type: EReleaseType;
   expanded?: boolean;
   onClick?: () => void;
   showAllReleases?: boolean;
@@ -38,31 +38,36 @@ type Props = {
 
 const Release: React.FunctionComponent<Props> = props => {
   const {
+    data,
     code,
-    type,
     popup,
     onClick,
-    version,
     expanded,
     defaultExpanded,
     showAllReleases,
   } = props;
   const classes = useStyles();
   const isExpanded = props.expanded || props.defaultExpanded;
-  const [release, setReleaseDetail] = useState<IRelease>({} as IRelease);
+  const [release, setReleaseDetail] = useState({
+    code,
+    ...data,
+  } as IReleaseWithDetails);
+  const hasMirrors = Boolean(Object.keys(release?.mirrors || {}).length);
+  const [fetched, setFetched] = useState(hasMirrors);
 
   useEffect(() => {
-    if (code && isExpanded && !Object.keys(release || {}).length) {
-      apiGetRelease(code, type, version)
-        .then(data => setReleaseDetail(data))
+    if (code && isExpanded && !hasMirrors) {
+      apiRelease
+        .getById(data._id)
+        .then(r => setReleaseDetail(r.data!))
         .catch(() => {
           showAllReleases && Router.push(`/404`);
-        });
+        })
+        .finally(() => setFetched(true));
     }
-  }, [code, type, version, release, showAllReleases, isExpanded]);
+  }, [code, release, showAllReleases, isExpanded]);
 
-  const _version = release?.version || version;
-  const showLoader = Boolean(!release?.codename);
+  const { version } = release;
 
   return (
     <>
@@ -73,21 +78,19 @@ const Release: React.FunctionComponent<Props> = props => {
         onChange={() => onClick && onClick()}
       >
         <AccordionSummary
-          id={_version}
+          id={version}
           expandIcon={<ExpandMore className={classes.icon} />}
-          aria-controls={`${_version} [ ${release.date} ]`}
+          aria-controls={`${version} [ ${release.date} ]`}
         >
           <div className={classes.summary}>
-            <Typography className={classes.version}>{_version}</Typography>
+            <Typography className={classes.version}>
+              {version} {showAllReleases && <>( {release.type} )</>}
+            </Typography>
             <span
               onClick={StopEvent}
               style={{ display: 'flex', gap: '10px', alignItems: 'center' }}
             >
-              <BuildHyperLink
-                codename={code}
-                buildType={type}
-                version={_version}
-              />
+              <BuildHyperLink release={release} />
               {showAllReleases && (
                 <AnchorLink
                   as={`/device/${code}`}
@@ -111,44 +114,51 @@ const Release: React.FunctionComponent<Props> = props => {
         <AccordionDetails className={classes.details}>
           <List component='nav' className={classes.list}>
             <ListItem>
-              <FileName release={release} showLoader={showLoader} />
+              <FileName release={release} />
             </ListItem>
 
             <Divider />
 
             <ListItem>
-              <FileSize release={release} showLoader={showLoader} />
+              <FileSize release={release} />
             </ListItem>
 
             <Divider />
 
-            <MD5 release={release} showLoader={showLoader} />
+            <MD5 release={release} />
 
             <List component='div' className={classes.nestedList}>
-              <Downloads
-                popup={popup}
-                release={release}
-                showLoader={showLoader}
-              />
+              {fetched ? (
+                <>
+                  {release.mirrors?.DL && (
+                    <Downloads popup={popup} release={release} />
+                  )}
 
-              {release?.changelog && (
-                <ChangeLogs
-                  popup={popup}
-                  release={release}
-                  showLoader={showLoader}
-                />
-              )}
+                  {release.changelog?.length && (
+                    <ChangeLogs popup={popup} release={release} />
+                  )}
 
-              {release?.notes && (
-                <BuildNotes
-                  popup={popup}
-                  release={release}
-                  showLoader={showLoader}
-                />
-              )}
+                  {release.notes?.length && (
+                    <BuildNotes popup={popup} release={release} />
+                  )}
 
-              {release?.bugs && (
-                <Bugs popup={popup} release={release} showLoader={showLoader} />
+                  {release.bugs?.length && (
+                    <Bugs popup={popup} release={release} />
+                  )}
+                </>
+              ) : (
+                <>
+                  {[...Array(4).keys()].map(m => (
+                    <LoadShimmer
+                      style={{
+                        height: '35px',
+                        width: '100px',
+                        marginRight: '10px',
+                      }}
+                      key={m}
+                    />
+                  ))}
+                </>
               )}
             </List>
           </List>
@@ -158,4 +168,4 @@ const Release: React.FunctionComponent<Props> = props => {
   );
 };
 
-export { Release };
+export default Release;

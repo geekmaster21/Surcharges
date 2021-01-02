@@ -1,17 +1,16 @@
 import { ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
-import { LoadShimmer, Toast, VerifiedUserOutlined } from 'components';
-import { IRelease } from 'models';
+import { Toast, VerifiedUserOutlined } from 'components';
+import { IReleaseWithDetails } from 'models';
 import { useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import useStyles from 'styles/mui/release';
 import { CopyToClipboard, StopEvent } from 'utils';
 
 type Props = {
-  release: IRelease;
-  showLoader?: boolean;
+  release: IReleaseWithDetails;
 };
 
-const MD5: React.FunctionComponent<Props> = ({ release, showLoader }) => {
+const MD5: React.FunctionComponent<Props> = ({ release }) => {
   const classes = useStyles();
   const [modal, setModal] = useState(false);
   const toggleModal = () => setModal(!modal);
@@ -29,23 +28,14 @@ const MD5: React.FunctionComponent<Props> = ({ release, showLoader }) => {
           <VerifiedUserOutlined className={classes.icon} />
         </ListItemIcon>
 
-        {showLoader ? (
-          <>
-            <ListItemText
-              primary={<LoadShimmer />}
-              secondary={<LoadShimmer />}
-            />
-          </>
-        ) : (
-          <>
-            <ListItemText
-              primary='MD5'
-              className={classes.md5}
-              onClick={onCopyClick}
-              secondary={release.md5}
-            />
-          </>
-        )}
+        <>
+          <ListItemText
+            primary='MD5'
+            className={classes.md5}
+            onClick={onCopyClick}
+            secondary={release.md5}
+          />
+        </>
       </ListItem>
 
       {release?.md5 && (
@@ -60,4 +50,4 @@ const MD5: React.FunctionComponent<Props> = ({ release, showLoader }) => {
   ) : null;
 };
 
-export { MD5 };
+export default MD5;

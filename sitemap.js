@@ -2,13 +2,15 @@ const fs = require('fs');
 const nodeFetch = require('node-fetch');
 
 async function generateSiteMap() {
-  const deviceList = (
-    await (
-      await nodeFetch('https://api.orangefox.download/v2/device', {
+  const resp = await (
+    await nodeFetch(
+      'https://api.orangefox.download/v3/devices/?supported=true',
+      {
         method: 'GET',
-      })
-    ).json()
-  )
+      }
+    )
+  ).json();
+  const deviceList = resp.data
     .map(
       d => `
 <url>

@@ -1,24 +1,24 @@
-import { apiGetAllReleases, apiGetDeviceByCode } from 'apis';
+import { apiDevice, apiRelease } from 'apis';
 import { DeviceInfo, DeviceReleases, MetaTagsDynamic } from 'components';
-import { IAllReleases, IDevice } from 'models';
+import { IDeviceWithMaintainer, IRelease } from 'models';
 import { NextPageContext } from 'next';
 import { IsCSR, RedirectTo, SafePromise } from 'utils';
 
 type Props = {
-  info: IDevice;
-  releases: IAllReleases;
+  releases: IRelease[];
+  info: IDeviceWithMaintainer;
 };
 
 const Page = ({ info, releases }: Props) => {
-  const m = info;
-  const url = `/device/${m.codename}`;
-  const title = `${m.fullname} (${m.codename}) build releases`;
+  const url = `/device/${info.codename}`;
+  const title = `${info.full_name} (${info.codename}) build releases`;
+
   return (
     <>
       <MetaTagsDynamic
         url={url}
         title={title}
-        desc={`Orangefox recovery for ${m.fullname} (${m.codename})`}
+        desc={`Orangefox recovery for ${info.full_name} (${info.codename})`}
         jsonLd={{
           '@type': 'SoftwareApplication',
           url,
@@ -26,44 +26,51 @@ const Page = ({ info, releases }: Props) => {
           downloadUrl: url,
           description: title,
           accessMode: 'visual',
-          identifier: m._id,
+          identifier: info._id,
           operatingSystem: 'Android',
           applicationCategory: 'SoftwareApplication',
           applicationSubCategory: 'CustomRecovery',
-          maintainer: m.maintainer?.name || 'None',
+          maintainer: info.maintainer.name || 'None',
           offers: {
             '@type': 'Offer',
             price: '0.00',
             priceCurrency: 'XXX',
             availability: `https://schema.org/${
-              m.maintained === 3 ? 'Discontinued' : 'InStock'
+              info.supported ? 'InStock' : 'Discontinued'
             }`,
           },
         }}
       />
       <DeviceInfo {...info} />
-      <DeviceReleases code={info.codename} releases={releases} />
+      <DeviceReleases device={info} releases={releases} />
     </>
   );
 };
 
 const deviceCache: {
-  code: string;
-  info?: IDevice;
-  releases?: IAllReleases;
+  codename: string;
+  releases: IRelease[];
+  info: IDeviceWithMaintainer;
 }[] = [];
 
 Page.getInitialProps = async ({ query, res }: NextPageContext) => {
-  const code = query.code as string;
-  let info: IDevice | undefined = undefined,
-    releases: IAllReleases | undefined = undefined;
+  const codename = query.code as string;
+  let releases: IRelease[] = undefined as any;
+  let info: IDeviceWithMaintainer = undefined as any;
 
-  const found = deviceCache.find(f => f.code === code);
+  const found = deviceCache.find(f => f.codename === codename);
 
   if (IsCSR && found) {
     info = found.info;
   } else {
-    info = await SafePromise(() => apiGetDeviceByCode(code));
+    info = (await SafePromise(() =>
+      apiDevice.get({ codename }).then(r => {
+        if (!r.isSuccess) {
+          RedirectTo({ res, asPath: '/404' } as NextPageContext);
+        }
+        return r.data;
+      })
+    ))!;
   }
 
   if (!info) {
@@ -74,14 +81,16 @@ Page.getInitialProps = async ({ query, res }: NextPageContext) => {
     releases = found.releases;
   } else {
     if (info) {
-      releases = await SafePromise(() => apiGetAllReleases(code));
+      releases = (await SafePromise(() =>
+        apiRelease.getAll({ device_id: info?._id }).then(r => r.data?.list)
+      ))!;
     }
   }
 
   if (IsCSR && !found) {
     deviceCache.push({
-      code,
       info,
+      codename,
       releases,
     });
   }
