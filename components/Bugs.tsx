@@ -5,7 +5,7 @@ import {
   IconButton,
 } from '@material-ui/core';
 import { BugReportOutlined, HyperLink, Modal, Toast } from 'components';
-import { IRelease } from 'models';
+import { IReleaseWithDetails } from 'models';
 import { useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import useStyles from 'styles/mui/release';
@@ -14,7 +14,7 @@ import { LinkifyMessage } from './Linkify-Message';
 
 interface BugsProps {
   popup?: string;
-  release: IRelease;
+  release: IReleaseWithDetails;
   showLoader?: boolean;
 }
 
@@ -31,7 +31,7 @@ const Bugs: React.FunctionComponent<BugsProps> = ({
   const [toast, setToast] = useState(false);
   const toggleToast = () => setToast(!toast);
   const origin = IsCSR ? window.location.origin : '';
-  const url = `${origin}/release/${release.codename}/${release.build_type}/${release.version}/${popupNames[1]}`;
+  const url = `${origin}/release/${release.code}/${release.type}/${release.version}/${popupNames[1]}`;
   const Title = () => (
     <FormattedMessage id='release.bugs' defaultMessage='Bugs' />
   );
@@ -89,4 +89,4 @@ const Bugs: React.FunctionComponent<BugsProps> = ({
   ) : null;
 };
 
-export { Bugs };
+export default Bugs;

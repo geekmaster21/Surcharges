@@ -1,11 +1,18 @@
+import { IMaintainer } from './maintainer';
+
 export interface IDevice {
   _id: string;
   codename: string;
-  modelname: string;
-  fullname: string;
-  oem?: string;
-  maintained?: number;
-  maintainer?: { name: string };
+  model_name: string;
+  full_name: string;
+  oem_name: string;
+  notes?: string;
+  supported: boolean;
+}
+
+export interface IDeviceWithMaintainer extends IDevice {
+  ab_device: boolean;
+  maintainer: IMaintainer;
 }
 
 export interface IDeviceGroup {

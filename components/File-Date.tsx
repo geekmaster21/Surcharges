@@ -1,15 +1,29 @@
 import config from 'config';
-import { IRelease } from 'models';
+import { IReleaseWithDetails } from 'models';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { DayJs, GetCurrentLocale } from 'utils';
 
 export interface FileDateProps {
-  release: IRelease;
+  release: IReleaseWithDetails;
 }
 
+const pmsDayjsDate = async (
+  date: number | Date | string,
+  locale2use: string
+) => {
+  return await import(`dayjs/locale/${locale2use}.js`).then(x => {
+    const dateFormat = x?.formats?.LLLL || 'dddd, D MMMM YYYY HH:mm';
+    const dt = DayJs.unix(date as any)
+      .locale(locale2use)
+      .format(dateFormat);
+
+    return dt;
+  });
+};
+
 const FileDate: React.FunctionComponent<FileDateProps> = ({
-  release: { date, unixtime },
+  release: { date },
 }) => {
   const router = useRouter();
   const localeLang = (
@@ -18,22 +32,15 @@ const FileDate: React.FunctionComponent<FileDateProps> = ({
     config.locale.default
   ).toLowerCase();
   const locale = localeLang.split('-').shift() || '';
-  const [unixDate, setUnixDate] = useState<string>(date);
-  const pmsDayjsDate = async (locale2use: string) => {
-    return await import(`dayjs/locale/${locale2use}.js`).then(x => {
-      const dateFormat = x?.formats?.LLLL || 'dddd, D MMMM YYYY HH:mm';
-      const _date = DayJs.unix(unixtime).locale(locale2use).format(dateFormat);
-      setUnixDate(_date);
-    });
-  };
+  const [state, setState] = useState('');
 
-  if (unixtime && locale)
-    pmsDayjsDate(locale).catch(() =>
-      pmsDayjsDate(localeLang).catch(() => setUnixDate(date))
-    );
-  else if (unixDate !== date) setUnixDate(date);
+  useEffect(() => {
+    pmsDayjsDate(date, locale)
+      .then(x => setState(x))
+      .catch(() => pmsDayjsDate(date, localeLang).then(x => setState(x)));
+  }, [locale]);
 
-  return <>{unixDate}</>;
+  return <>{state}</>;
 };
 
-export { FileDate };
+export default FileDate;

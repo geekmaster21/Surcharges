@@ -1,7 +1,11 @@
 import { makeStyles, Theme } from '@material-ui/core';
 
 export default makeStyles((theme: Theme) => ({
+  alert: {
+    alignItems: 'center',
+  },
   details: {
+    flexDirection: 'column',
     padding: '5px 10px 10px',
   },
   list: {

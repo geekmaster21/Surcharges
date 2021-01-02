@@ -1,42 +1,24 @@
 import { ListItemIcon, ListItemText } from '@material-ui/core';
-import { ArchiveOutlined, LoadShimmer } from 'components';
-import { IRelease } from 'models';
+import { AccessTimeOutlinedIcon } from 'components';
+import { IReleaseWithDetails } from 'models';
 import useStyles from 'styles/mui/release';
-import { FileDate } from './File-Date';
+import FileDate from './File-Date';
 
 type FileNameProps = {
-  release: IRelease;
-  showLoader?: boolean;
+  release: IReleaseWithDetails;
 };
 
-const FileName: React.FunctionComponent<FileNameProps> = ({
-  release,
-  showLoader,
-}) => {
+const FileName: React.FunctionComponent<FileNameProps> = ({ release }) => {
   const classes = useStyles();
 
   return release ? (
     <>
       <ListItemIcon>
-        <ArchiveOutlined className={classes.icon} />
+        <AccessTimeOutlinedIcon className={classes.icon} />
       </ListItemIcon>
-      {!showLoader && (
-        <>
-          <ListItemText
-            primary={release.file_name}
-            secondary={<FileDate release={release} />}
-          />
-        </>
-      )}
-
-      {/* Loading Placeholder */}
-      {showLoader && (
-        <>
-          <ListItemText primary={<LoadShimmer />} secondary={<LoadShimmer />} />
-        </>
-      )}
+      <ListItemText primary={<FileDate release={release} />} />
     </>
   ) : null;
 };
 
-export { FileName };
+export default FileName;

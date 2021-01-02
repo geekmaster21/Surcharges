@@ -1,4 +1,4 @@
-import { apiGetAllDeviceList } from 'apis';
+import { apiDevice } from 'apis';
 import { AnchorLink, Image } from 'components';
 import { useIsMounted } from 'hooks/mount';
 import { IDevice } from 'models';
@@ -15,10 +15,10 @@ export default function Sitemap() {
 
   useEffect(() => {
     if (isMounted) {
-      apiGetAllDeviceList().then(x => {
+      apiDevice.getAll({ supported: true }).then(x => {
         if (isMounted) {
           setLoading(false);
-          setList(x);
+          if (x.isSuccess) setList(x.data!.list || []);
         }
       });
     }
@@ -52,11 +52,11 @@ export default function Sitemap() {
                 as={`device/${m.codename}`}
                 ATagProps={{
                   className: 'link',
-                  title: `Download Orangefox Recovery - ${m.modelname} ( ${m.codename} )`,
+                  title: `Download Orangefox Recovery - ${m.model_name} ( ${m.codename} )`,
                 }}
               >
                 <div className={classes.item}>
-                  <b>{m.fullname}</b>
+                  <b>{m.full_name}</b>
                   <small className={classes.code}>{m.codename}</small>
                 </div>
               </AnchorLink>
