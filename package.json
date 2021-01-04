@@ -20,7 +20,7 @@
   "displayName": "OrangeFox Recovery Downloads",
   "license": "AGPL-3.0-or-later",
   "homepage": "http://orangefox.download",
-  "version": "21.1.2-0",
+  "version": "21.1.4-0",
   "private": false,
   "funding": "https://opencollective.com/orangefox/donate",
   "scripts": {
@@ -46,7 +46,7 @@
     "@material-ui/lab": "^4.0.0-alpha.57",
     "cookie": "^0.4.1",
     "cross-env": "^7.0.3",
-    "dayjs": "^1.9.8",
+    "dayjs": "^1.10.1",
     "js-cookie": "^2.2.1",
     "linkifyjs": "^2.1.9",
     "lodash.groupby": "^4.6.0",

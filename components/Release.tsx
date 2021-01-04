@@ -114,7 +114,7 @@ const Release: React.FunctionComponent<Props> = props => {
         <AccordionDetails className={classes.details}>
           <List component='nav' className={classes.list}>
             <ListItem>
-              <FileName release={release} />
+              <FileName showLoader={!fetched} release={release} />
             </ListItem>
 
             <Divider />

@@ -31,20 +31,24 @@
   },
   "typescript.tsdk": "node_modules/typescript/lib",
   "workbench.colorCustomizations": {
-    "activityBar.activeBackground": "#a35d00",
-    "activityBar.activeBorder": "#00bf6d",
-    "activityBar.background": "#a35d00",
+    "activityBar.activeBackground": "#974700",
+    "activityBar.activeBorder": "#00200f",
+    "activityBar.background": "#974700",
     "activityBar.foreground": "#e7e7e7",
     "activityBar.inactiveForeground": "#e7e7e799",
-    "activityBarBadge.background": "#00bf6d",
+    "activityBarBadge.background": "#00200f",
     "activityBarBadge.foreground": "#e7e7e7",
-    "statusBar.background": "#704000",
+    "editorGroup.border": "#974700",
+    "panel.border": "#974700",
+    "sideBar.border": "#974700",
+    "statusBar.background": "#642f00",
     "statusBar.foreground": "#e7e7e7",
-    "statusBarItem.hoverBackground": "#a35d00",
-    "titleBar.activeBackground": "#704000",
+    "statusBarItem.hoverBackground": "#974700",
+    "tab.activeBorder": "#974700",
+    "titleBar.activeBackground": "#642f00",
     "titleBar.activeForeground": "#e7e7e7",
-    "titleBar.inactiveBackground": "#70400099",
+    "titleBar.inactiveBackground": "#642f0099",
     "titleBar.inactiveForeground": "#e7e7e799"
   },
-  "peacock.color": "#704000"
+  "peacock.color": "#642f00"
 }
