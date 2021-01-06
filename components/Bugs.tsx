@@ -31,7 +31,7 @@ const Bugs: React.FunctionComponent<BugsProps> = ({
   const [toast, setToast] = useState(false);
   const toggleToast = () => setToast(!toast);
   const origin = IsCSR ? window.location.origin : '';
-  const url = `${origin}/release/${release.code}/${release.type}/${release.version}/${popupNames[1]}`;
+  const url = `${origin}/release/${release._id!}/${popupNames[1]}`;
   const Title = () => (
     <FormattedMessage id='release.bugs' defaultMessage='Bugs' />
   );

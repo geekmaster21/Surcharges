@@ -56,9 +56,7 @@ const Downloads: React.FunctionComponent<DownloadsProps> = ({
   }
 
   const origin = IsCSR ? window.location.origin : '';
-  const url = `${origin}/release/${release.code!}/${release.type}/${
-    release.version
-  }/${popupNames[1]}`;
+  const url = `${origin}/release/${release._id!}/${popupNames[1]}`;
 
   const Title = () => (
     <FormattedMessage id='release.download' defaultMessage='Downloads' />
