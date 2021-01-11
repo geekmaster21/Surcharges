@@ -15,8 +15,11 @@ import {
   OpenOutside,
   Toast,
 } from 'components';
+import config from 'config';
 import { IReleaseWithDetails } from 'models';
 import React, { useState } from 'react';
+// @ts-ignore
+import emoji from 'react-easy-emoji';
 import { FormattedMessage } from 'react-intl';
 import useStyles from 'styles/mui/release';
 import { CopyToClipboard, IsCSR, StopEvent } from 'utils';
@@ -64,6 +67,25 @@ const Downloads: React.FunctionComponent<DownloadsProps> = ({
 
   if (dwnldModal) {
     tmoDownload = setTimeout(() => toggleTmoDirectLink(true), 2500);
+  }
+
+  function dlLinks() {
+    const { regions } = config;
+    const keys = Object.keys(release.mirrors);
+    const values = Object.values(release.mirrors);
+    return keys.map((m, i) => {
+      const region = regions.find(
+        f =>
+          f.isoCode ===
+          (m === 'DL' // temp hack to map unknown DL to NL
+            ? 'NL'
+            : m)
+      );
+      return {
+        ...region,
+        url: values[i],
+      };
+    });
   }
 
   return release ? (
@@ -148,40 +170,23 @@ const Downloads: React.FunctionComponent<DownloadsProps> = ({
 
             {tmoDirectLink && (
               <>
-                <a
-                  download
-                  className='link no-hover inheritColor downloadLink'
-                  href={release.mirrors.DL}
-                  onClick={() => {
-                    handleDwnldModal();
-                    setDonateModal(true);
-                  }}
-                >
-                  <GetAppIconOutlined fontSize='small' />
-                  <FormattedMessage
-                    id='modal.directLink'
-                    defaultMessage='Direct Link'
-                  />
-                </a>
-
-                {/* {release.sf?.url && (
+                {dlLinks().map(m => (
                   <a
                     download
-                    href={release.sf.url}
+                    key={m.region}
+                    href={m.url}
+                    className='link no-hover inheritColor downloadLink'
                     onClick={() => {
                       handleDwnldModal();
                       setDonateModal(true);
                     }}
-                    className='link no-hover inheritColor'
                   >
-                    <GetAppIconOutlined fontSize='small' />
-
-                    <FormattedMessage
-                      id='modal.mirrorLink'
-                      defaultMessage='Mirror Link'
-                    />
+                    <Button className={classes.downloadButton}>
+                      <span>{emoji(m.flag)}</span>
+                      <span>{m.region}</span>
+                    </Button>
                   </a>
-                )} */}
+                ))}
               </>
             )}
           </div>
