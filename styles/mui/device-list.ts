@@ -3,20 +3,22 @@ import { drawerWidth } from './_constants';
 
 export default makeStyles((theme: Theme) => ({
   root: {
-    display: 'flex',
-    margin: theme.spacing(1.3),
-  },
-  drawerContainer: {
     // Stops device list from shifting when scrollbar is visible
     marginRight: `calc(-1 * (${drawerWidth - 8}px - 100%))`,
     display: 'flex',
+    height: '100%',
+    position: 'relative',
     flexDirection: 'column',
     [theme.breakpoints.up('xs')]: {
       width: drawerWidth,
       flexShrink: 0,
     },
   },
-  drawerStickySearch: {
+  searchTxtField: {
+    display: 'flex',
+    margin: theme.spacing(1.3),
+  },
+  searchContainer: {
     background: 'var(--grey-1)',
     top: 0,
     position: 'sticky',
@@ -60,5 +62,13 @@ export default makeStyles((theme: Theme) => ({
     flexDirection: 'column',
     gap: '10px',
     padding: '10px 0 10px',
+  },
+  version: {
+    position: 'absolute',
+    width: '100%',
+    bottom: 0,
+    textAlign: 'center',
+    backgroundColor: 'var(--grey-1)',
+    padding: '2px 0',
   },
 }));

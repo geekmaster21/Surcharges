@@ -1,6 +1,5 @@
 import {
   Button,
-  CircularProgress,
   DialogActions,
   DialogContent,
   DialogTitle,
@@ -38,18 +37,14 @@ const Downloads: React.FunctionComponent<DownloadsProps> = ({
   release,
   showLoader,
 }) => {
-  let tmoDownload: NodeJS.Timeout;
   const classes = useStyles();
   const [dwnldModal, setDwnldModal] = useState(popupNames.includes(popup!));
   const [donateModal, setDonateModal] = useState(false);
-  const [tmoDirectLink, toggleTmoDirectLink] = useState(false);
   const [toast, setToast] = useState(false);
   const toggleToast = () => setToast(!toast);
 
   const handleDwnldModal = () => {
-    clearTimeout(tmoDownload);
     setDwnldModal(!dwnldModal);
-    toggleTmoDirectLink(false);
   };
 
   function onCopyClick(e: any) {
@@ -65,11 +60,7 @@ const Downloads: React.FunctionComponent<DownloadsProps> = ({
     <FormattedMessage id='release.download' defaultMessage='Downloads' />
   );
 
-  if (dwnldModal) {
-    tmoDownload = setTimeout(() => toggleTmoDirectLink(true), 2500);
-  }
-
-  function dlLinks() {
+  function allMirrors() {
     const { regions } = config;
     const keys = Object.keys(release.mirrors);
     const values = Object.values(release.mirrors);
@@ -148,47 +139,23 @@ const Downloads: React.FunctionComponent<DownloadsProps> = ({
           <br />
 
           <div className={classes.downloadButton}>
-            {!tmoDirectLink && (
-              <span
-                className='fetchSpinner'
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '16px',
-                  color: '#ed6f01',
+            {allMirrors().map(m => (
+              <a
+                download
+                key={m.region}
+                href={m.url}
+                className='link no-hover inheritColor downloadLink'
+                onClick={() => {
+                  handleDwnldModal();
+                  setDonateModal(true);
                 }}
               >
-                <CircularProgress size='18px' color='secondary' />
-                <span>
-                  <FormattedMessage
-                    id='modal.fetchLink'
-                    defaultMessage='Fetching Links'
-                  />
-                </span>
-              </span>
-            )}
-
-            {tmoDirectLink && (
-              <>
-                {dlLinks().map(m => (
-                  <a
-                    download
-                    key={m.region}
-                    href={m.url}
-                    className='link no-hover inheritColor downloadLink'
-                    onClick={() => {
-                      handleDwnldModal();
-                      setDonateModal(true);
-                    }}
-                  >
-                    <Button className={classes.downloadButton}>
-                      <span>{emoji(m.flag)}</span>
-                      <span>{m.region}</span>
-                    </Button>
-                  </a>
-                ))}
-              </>
-            )}
+                <Button className={classes.downloadButton}>
+                  <span>{emoji(m.flag)}</span>
+                  <span>{m.region}</span>
+                </Button>
+              </a>
+            ))}
           </div>
         </DialogContent>
       </Modal>
