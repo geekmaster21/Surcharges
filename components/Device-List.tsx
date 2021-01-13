@@ -17,6 +17,7 @@ import {
   OpenOutside,
   SearchIcon,
 } from 'components';
+import config from 'config';
 import { groupBy } from 'core';
 import { matchSorter } from 'match-sorter';
 import { IDevice, IDeviceGroup } from 'models';
@@ -142,11 +143,11 @@ export default function DeviceList({
 
   return (
     <>
-      <div className={classes.drawerContainer}>
+      <div className={classes.root}>
         {/* Search Field */}
-        <div className={classes.drawerStickySearch}>
+        <div className={classes.searchContainer}>
           <TextField
-            className={classes.root}
+            className={classes.searchTxtField}
             size='small'
             color='secondary'
             variant='outlined'
@@ -269,7 +270,7 @@ export default function DeviceList({
         {
           // Device list
           state.currentList && (
-            <List>
+            <List style={{ height: '100%', overflow: 'auto' }}>
               {grouped.map(m => (
                 <Fragment key={m.oem}>
                   {/* OEM Group */}
@@ -360,6 +361,7 @@ export default function DeviceList({
             </List>
           )
         }
+        <small className={classes.version}>v{config.version}</small>
       </div>
     </>
   );
