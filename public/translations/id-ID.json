@@ -1,57 +1,65 @@
 {
   "languageInfo": {
-    "name": "Indonesia",
+    "name": "Bahasa Indonesia",
     "emoji": "🇮🇩"
   },
   "mainPage": {
     "donation": "Donasi",
-    "hintText": "Pilih perangkat dari daftar atau gunakan pencarian",
-    "notFound": "Ini sudah di akhir. Kembali ke Menu Utama!"
+    "hintText": "Pilih perangkat dari daftar atau gunakan penelusuran",
+    "notFound": "Sudah sampai akhir. Bawa saya kembali ke beranda!"
   },
   "deviceList": {
-    "searchDevice": "Cari Perangkat",
-    "notFound": "Perangkat tidak ditemukan!"
+    "searchDevice": "Telusuri perangkat",
+    "notFound": "Perangkat tidak ditemukan!",
+    "diy": "Sepertinya kami belum mendukung perangkat tersebut! Tetapi Anda dipersilakan membuat untuk diri Anda sendiri dan komunitas. Klik di sini untuk mengetahuinya lebih lanjut."
   },
   "device": {
-    "info": "(Info Perangkat)"
+    "info": "(Info perangkat)"
   },
   "maintain": {
     "status": {
-      "maintained": "Dikerjakan",
-      "maintainedWithoutDevice": "Dikerjakan tanpa perangkat ditangan",
-      "notMaintained": "Tidak Terurus!"
+      "maintained": "Dipelihara",
+      "maintainedWithoutDevice": "Dipelihara dengan tanpa memiliki perangkat",
+      "notMaintained": "Tidak terpelihara!"
     },
     "by": {
-      "current": "Dikerjakan: {maintainer}",
-      "previous": "Dikerjakan Sebelumnya Oleh: {maintainer}"
+      "current": "Maintainer: {maintainer}",
+      "previous": "Maintainer sebelumnya: {maintainer}"
     }
   },
+  "clipboardCopy": "Disalin ke papan klip!",
   "release": {
     "type": {
-      "beta": "Rilis Beta",
-      "stable": "Rilis Stabil"
+      "beta": "Versi beta",
+      "betaInfo": "Versi beta semestinya dapat bekerja selama memperhatikan basis fungsionalitas. Namun, Anda mungkin menemui masalah dan/atau bug, yang dapat Anda laporkan ke kanal {telegramChannel} kami",
+      "stable": "Versi stabil"
     },
-    "copy": "Link tersalin ke clipboard!",
-    "notFound": "Belum ada rilis untuk perangkat ini!",
-    "fileSize": "Ukuran File",
-    "download": "Unduh",
-    "changeLogs": "Catatan Perubahan",
-    "buildNotes": "Catatan Rilis",
+    "notFound": "Belum ada versi yang dirilis untuk perangkat ini!",
+    "fileSize": "Ukuran file",
+    "download": "Download",
+    "changeLogs": "Log perubahan",
+    "buildNotes": "Catatan pembuatan",
     "bugs": "Bug",
-    "allBuild": "Tampilkan Semua Build"
+    "donation": {
+      "info": "Kami harap Anda menyukai recovery ini. Donasi menjaga server tetap berjalan dan membantu kami untuk membuat produk yang lebih baik untuk Anda. Maukah Anda membuat donasi?",
+      "yes": "Ya, saya ingin membuat donasi",
+      "no": "Tidak"
+    },
+    "allBuild": "Tampilkan semua versi rilis"
   },
   "error": {
-    "server": "Tidak dapat terhubung dengan OrangeFox! Coba beberapa saat lagi."
+    "server": "Tidak dapat terhubung dengan OrangeFox! Coba lagi nanti."
   },
   "modal": {
-    "fetchLink": "Mengambil Tautan",
-    "directLink": "Tautan Langsung",
-    "mirrorLink": "Tautan Lain",
+    "fetchLink": "Mendapatkan link",
+    "directLink": "Link direct",
+    "mirrorLink": "Link mirror",
+    "guide": "Masih bingung? Bacalah dokumentasi kami tentang cara menginstal OrangeFox Recovery di perangkat Anda.",
     "close": "Tutup",
     "info": "Info"
   },
   "footer": {
-    "poweredBy": "Didukung Oleh {hostWebsite}",
-    "openSource": "Proyek Sumber terbuka"
+    "poweredBy": "Diberdayakan oleh {hostWebsite}",
+    "openSource": "Proyek Open-Source"
   }
 }
