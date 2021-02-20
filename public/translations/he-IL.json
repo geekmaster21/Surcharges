@@ -1,0 +1,65 @@
+{
+  "languageInfo": {
+    "name": "עברית",
+    "emoji": "🇮🇱"
+  },
+  "mainPage": {
+    "donation": "תרומות",
+    "hintText": "בחר את המכשיר שלך מהרשימה, או השתמש בחיפוש",
+    "notFound": "הגעת לסוף. קח אותי הביתה!"
+  },
+  "deviceList": {
+    "searchDevice": "חפש את המכשיר שלך",
+    "notFound": "לא נמצא מכשיר כזה!",
+    "diy": "נראה שאנחנו ללא תומכים במכשיר זה כרגע! הינך מוזמן לייצר גרסה למכשיר שלך בשבילך ובשביל הקהילה. לחץ כאן לפרטים."
+  },
+  "device": {
+    "info": "(אודות המכשיר)"
+  },
+  "maintain": {
+    "status": {
+      "maintained": "נתמך",
+      "maintainedWithoutDevice": "נתמך למרות שאין מכשיר פיזי",
+      "notMaintained": "לא נתמך!"
+    },
+    "by": {
+      "current": "מפתח תומך: {maintainer}",
+      "previous": "מפתח תומך קודם: {maintainer}"
+    }
+  },
+  "clipboardCopy": "הועתק ללוח הגזירים!",
+  "release": {
+    "type": {
+      "beta": "שחרורי בטא",
+      "betaInfo": "הפעילות הבסיסית של שחרורי בטא אמורים לפעול בצורה תקינה. למרות זאת, הינך עלול להיתקל בבעיות ו/או באגים, שעליהם אתם מוזמנים בערוץ ה{telegramChannel} שלנו",
+      "stable": "שחרורים יציבים"
+    },
+    "notFound": "אין כעת שחרורים למכשיר הרצוי!",
+    "fileSize": "גודל הקובץ",
+    "download": "הורדות",
+    "changeLogs": "יומן השינויים",
+    "buildNotes": "הערות שחרור",
+    "bugs": "באגים",
+    "donation": {
+      "info": "אנו מקווים שאתם נהנים מהמוצר. תרומות מאפשרות לנו לאפשר לשרתים להמשיך לפעול ולייצר מוצר טוב יותר. תרצו לתרום?",
+      "yes": "כן, אני אשמח לתרום",
+      "no": "לא תודה"
+    },
+    "allBuild": "הצג את כל השחרורים"
+  },
+  "error": {
+    "server": "לא הצליח להתחבר ל-OrangeFox! נסה שוב מאוחר יותר."
+  },
+  "modal": {
+    "fetchLink": "משיג קישורים",
+    "directLink": "קישור ישיר",
+    "mirrorLink": "קישור חלופי",
+    "guide": "נתקעת? קרא את ההסבר בתיעוד על איך להתקין OrangeFox Recovery על המכשיר שלך.",
+    "close": "סגור",
+    "info": "מידע"
+  },
+  "footer": {
+    "poweredBy": "מופעל על ידי {hostWebsite}",
+    "openSource": "פרויקט קוד פתוח"
+  }
+}
