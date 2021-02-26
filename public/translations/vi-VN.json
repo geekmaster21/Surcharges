@@ -1,7 +1,7 @@
 {
   "languageInfo": {
-    "name": "Vietnamese",
-    "emoji": "🇻🇳"
+    "name": "Tiếng Anh",
+    "emoji": "vi"
   },
   "mainPage": {
     "donation": "Quyên góp",
@@ -10,7 +10,8 @@
   },
   "deviceList": {
     "searchDevice": "Tìm kiếm thiết bị",
-    "notFound": "Không tìm thấy thiết bị!"
+    "notFound": "Không tìm thấy thiết bị!",
+    "diy": "Có vẻ như chúng tôi hiện chưa có thiết bị đó! Nhưng bạn vẫn có thể tự làm một bản cho mình và cả cộng đồng. Nhấn vào đây để biết thêm."
   },
   "device": {
     "info": "(Thông tin thiết bị)"
@@ -26,9 +27,11 @@
       "previous": "Người bảo trì trước:{maintainer}"
     }
   },
+  "clipboardCopy": "Đã sao chép vào clipboard!",
   "release": {
     "type": {
       "beta": "Phiên bản thử nghiệm",
+      "betaInfo": "Bản phát hành Beta sẽ hoạt động ở mức độ liên quan đến chức năng cơ bản. Tuy nhiên, bạn có thể gặp phải vấn đề và/hoặc lỗi, bạn có thể báo cáo chúng trong kênh {telegramChannel} của chúng tôi",
       "stable": "Phiên bản chính thức"
     },
     "notFound": "Không có bản phát hành cho thiết bị này!",
@@ -37,7 +40,12 @@
     "changeLogs": "Nhật ký thay đổi",
     "buildNotes": "Ghi chú bản dựng",
     "bugs": "Lỗi",
-    "allBuild": "Hiển thị tất cả bản dựng"
+    "donation": {
+      "info": "Chúng tôi hi vọng bạn thích recovery. Việc quyên góp giúp duy trì máy chủ hoạt động và giúp chúng tôi tạo ra sản phẩm tốt hơn cho bạn. Bạn có muốn quyên góp không?",
+      "yes": "Có, tôi muốn quyên góp",
+      "no": "Không"
+    },
+    "allBuild": "Hiện Mọi Bản Phát Hành"
   },
   "error": {
     "server": "Không thể kết nối đến OrangeFox! Thử lại sau."
@@ -46,7 +54,9 @@
     "fetchLink": "Liên kết tìm kiếm",
     "directLink": "Đường dẫn trực tiếp",
     "mirrorLink": "Liên kết nhanh",
-    "close": "Đóng"
+    "guide": "Bị kẹt? Đọc tài liệu của chúng tôi về cách cài đặt OrangeFox Recovery lên thiết bị của bạn.",
+    "close": "Đóng",
+    "info": "Thông tin"
   },
   "footer": {
     "poweredBy": "Cung cấp bởi {hostWebsite}",
