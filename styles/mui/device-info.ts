@@ -3,6 +3,9 @@ import { makeStyles, Theme } from '@material-ui/core';
 export default makeStyles((theme: Theme) => ({
   alert: {
     alignItems: 'center',
+    "& > .MuiAlert-message": {
+      width: '100%'
+    }
   },
   details: {
     flexDirection: 'column',
