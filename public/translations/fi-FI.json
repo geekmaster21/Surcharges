@@ -1,0 +1,65 @@
+{
+  "languageInfo": {
+    "name": "Finnish",
+    "emoji": "🇫🇮"
+  },
+  "mainPage": {
+    "donation": "Lahjoitukset",
+    "hintText": "Valitse laite listalta tai käytä hakua",
+    "notFound": "Tämä on loppu. Vie minut takaisin kotiin!"
+  },
+  "deviceList": {
+    "searchDevice": "Hae Laitetta",
+    "notFound": "Laitetta ei löytynyt!",
+    "diy": "Näyttää siltä, että me emme tue vielä tuota laitetta! Mutta olet tervetullut rakentamaan sellaisen itsellesi ja yhteisölle. Klikkaa tästä nähdäksesi lisää."
+  },
+  "device": {
+    "info": "(Laitteen Tiedot)"
+  },
+  "maintain": {
+    "status": {
+      "maintained": "Ylläpidetty",
+      "maintainedWithoutDevice": "Ylläpidetään ilman laitetta",
+      "notMaintained": "Ei Ylläpidetty!"
+    },
+    "by": {
+      "current": "Ylläpitäjä: {maintainer}",
+      "previous": "Edellinen Ylläpitäjä: {maintainer}"
+    }
+  },
+  "clipboardCopy": "Kopioitu leikepöydälle!",
+  "release": {
+    "type": {
+      "beta": "Beeta- Julkaisut",
+      "betaInfo": "Beeta- julkaisujen tulisi toimia perustoiminnallisuuden osalta siltä osin kuin on kyse perustoiminnoista. Saatat kuitenkin kohdata ongelmia ja/tai vikoja, joista voit ilmoittaa kanavalle {telegramChannel}",
+      "stable": "Vakaat Julkaisut"
+    },
+    "notFound": "Tälle laitteelle ei ole vielä julkaisuja!",
+    "fileSize": "Tiedoston Koko",
+    "download": "Lataukset",
+    "changeLogs": "Muutoslogit",
+    "buildNotes": "Version tiedot",
+    "bugs": "Bugit",
+    "donation": {
+      "info": "Toivomme, että pidät recoverystä. Lahjoitukset pitävät palvelimen käynnissä ja auttavat meitä rakentamaan sinulle paremman tuotteen. Haluaisitko lahjoittaa?",
+      "yes": "Kyllä, haluaisin lahjoittaa",
+      "no": "Ei"
+    },
+    "allBuild": "Näytä Kaikki Julkaisut"
+  },
+  "error": {
+    "server": "OrangeFoxiin ei saatu yhteyttä! Yritä myöhemmin uudelleen."
+  },
+  "modal": {
+    "fetchLink": "Noudetaan Linkkejä",
+    "directLink": "Suora Linkki",
+    "mirrorLink": "Mirror- linkki",
+    "guide": "Oletko jumissa? Lue dokumentaatiomme siitä, miten asentaa OrangeFox Recovery laitteellesi.",
+    "close": "Sulje",
+    "info": "Tiedot"
+  },
+  "footer": {
+    "poweredBy": "Palvelun tarjoaa {hostWebsite}",
+    "openSource": "Avoimen Lähdekoodin Projekti"
+  }
+}
