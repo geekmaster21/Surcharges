@@ -19,7 +19,7 @@
   "maintain": {
     "status": {
       "maintained": "נתמך",
-      "maintainedWithoutDevice": "נתמך למרות שאין מכשיר פיזי",
+      "maintainedWithoutDevice": "נתמך למרות שהמכשיר לא נמצא בידינו",
       "notMaintained": "לא נתמך!"
     },
     "by": {
@@ -27,7 +27,7 @@
       "previous": "מפתח תומך קודם: {maintainer}"
     }
   },
-  "clipboardCopy": "הועתק ללוח הגזירים!",
+  "clipboardCopy": "הועתק ללוח!",
   "release": {
     "type": {
       "beta": "שחרורי בטא",
