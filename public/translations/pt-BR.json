@@ -31,6 +31,7 @@
   "release": {
     "type": {
       "beta": "Versões beta",
+      "betaInfo": "Os lançamentos beta devem funcionar no que diz respeito à funcionalidades básicas. No entanto, você pode encontrar problemas e/ou bugs, podendo reportar no nosso canal {telegramChannel}",
       "stable": "Versões estáveis"
     },
     "notFound": "Ainda não há lançamentos para este dispositivo!",
@@ -39,6 +40,11 @@
     "changeLogs": "Logs de alterações",
     "buildNotes": "Notas de compilação",
     "bugs": "Bugs",
+    "donation": {
+      "info": "Esperamos que você goste do Orange Fox. As doações mantêm o servidor funcionando e nos ajudam a construir um produto melhor para você. Gostaria de doar?",
+      "yes": "Sim, eu gostaria de doar",
+      "no": "Não, eu não gostaria de doar"
+    },
     "allBuild": "Mostrar todos os lançamentos"
   },
   "error": {
@@ -48,7 +54,7 @@
     "fetchLink": "Buscando links",
     "directLink": "Link direto",
     "mirrorLink": "Link espelhado",
-    "guide": "Guia de instalação",
+    "guide": "Está perdido? Leia a documentação sobre como instalar a Recovery OrangeFox em seu dispositivo.",
     "close": "Fechar",
     "info": "Informações"
   },
