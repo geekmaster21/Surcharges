@@ -32,7 +32,7 @@ const BuildNotes: React.FunctionComponent<BuildNotesProps> = ({
   const [toast, setToast] = useState(false);
   const toggleToast = () => setToast(!toast);
   const origin = IsCSR ? window.location.origin : '';
-  const url = `${origin}/release/${release.code}/${release.type}/${release.version}/${popupNames[1]}`;
+  const url = `${origin}/release/${release._id!}/${popupNames[1]}`;
 
   function onCopyClick(e: any) {
     StopEvent(e);
