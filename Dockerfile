@@ -1,6 +1,7 @@
 # build environment
-FROM node:16-alpine as build
+FROM node:15-alpine as build
 COPY package.json .
+RUN yarn add yarn --global
 RUN yarn
 COPY . ./
 RUN yarn build
