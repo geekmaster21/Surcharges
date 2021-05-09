@@ -1,0 +1,65 @@
+{
+  "languageInfo": {
+    "name": "Hungarian",
+    "emoji": "🇭🇺"
+  },
+  "mainPage": {
+    "donation": "Adományok",
+    "hintText": "Válasszon eszközt a listából vagy keresse meg",
+    "notFound": "Ez it a vége. Vigyél haza!"
+  },
+  "deviceList": {
+    "searchDevice": "Eszköz keresése",
+    "notFound": "Eszköz nem található!",
+    "diy": "Úgy látszik sajnos a készüléke nem támogatott! De! Készítsen egyet saját magának és a csoportnak. Kattintson ide még több információhoz."
+  },
+  "device": {
+    "info": "(Készülék Információ)"
+  },
+  "maintain": {
+    "status": {
+      "maintained": "Karbantartva",
+      "maintainedWithoutDevice": "Karbantartva készülék nélkül",
+      "notMaintained": "Nincs karbantartva!"
+    },
+    "by": {
+      "current": "Karbantartó: {karbantartó neve}",
+      "previous": "Előző Karbantartó: {karbantartó neve}"
+    }
+  },
+  "clipboardCopy": "Másolva a vágólapra!",
+  "release": {
+    "type": {
+      "beta": "Beta kiadás",
+      "betaInfo": "A beta kiadások megfelelően kell hogy működjenek az alap funkciókkal. De ha esetleg bármi hibát talál kérjük jelentse a {telegram csatorna} csatornának",
+      "stable": "Stabil kiadások"
+    },
+    "notFound": "Nincs újabb kiadás ehhez az eszközhöz per pillanat!",
+    "fileSize": "Fájl mérete",
+    "download": "Letöltések",
+    "changeLogs": "Változások",
+    "buildNotes": "Készítési jegyzetek",
+    "bugs": "Hibák",
+    "donation": {
+      "info": "Reméljük elnyerte tetszését a Recovery. Az adományok segíthetnek karban tartani a szervereinek és segíthetnek egy jobb kiadást készíteni. Szeretne támogatni?",
+      "yes": "Igen, szeretnék",
+      "no": "Nem"
+    },
+    "allBuild": "Minden kiadás megtekintése"
+  },
+  "error": {
+    "server": "Nem lehet kapcsolódni az OrangeFox-hoz! Kérjük próbálja meg később."
+  },
+  "modal": {
+    "fetchLink": "Linkek lekérése",
+    "directLink": "Közvetlen link",
+    "mirrorLink": "Másodlagos link",
+    "guide": "Elakadt valahol? Kérjük olvassa el dokumentációt hogy hogyan kell telepíteni az OrangeFox Recovery-t az ön készülékére.",
+    "close": "Bezárás",
+    "info": "Információ"
+  },
+  "footer": {
+    "poweredBy": "Támogatta a {hostWebsite}",
+    "openSource": "Open-Source Project"
+  }
+}
