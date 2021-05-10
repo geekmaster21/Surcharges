@@ -26,7 +26,7 @@
   "scripts": {
     "pretty": "prettier --write .",
     "clean": "rimraf .next dist",
-    "region": "node scripts/region.js",
+    "region": "node /scripts/region.js",
     "dev:server": "cross-env NODE_ENV=development next dev -p 5000",
     "dev:server:open": "open-cli http://localhost:5000",
     "dev": "npm run region && concurrently -n dev,dev:open -c blue.bold,green.bold \"yarn dev:server\" \"yarn dev:server:open\"",
@@ -88,8 +88,7 @@
     "rimraf": "^3.0.2",
     "ts-node": "^9.1.1",
     "typescript": "^4.2.4",
-    "webpack": "^5.36.2",
-    "yarn": "^1.22.10"
+    "webpack": "^5.36.2"
   },
   "browserslist": {
     "production": [

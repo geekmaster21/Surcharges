@@ -2,14 +2,16 @@ const fs = require('fs');
 const nodeFetch = require('node-fetch');
 
 async function generateSiteMap() {
-  const resp = await (
-    await nodeFetch(
-      'https://api.orangefox.download/v3/devices/?supported=true',
-      {
-        method: 'GET',
-      }
-    )
-  ).json();
+  console.log('SITEMAP: fetch');
+  const apiResp = await nodeFetch(
+    'https://api.orangefox.download/v3/devices/?supported=true',
+    {
+      method: 'GET',
+    }
+  );
+  console.log('SITEMAP: response');
+  console.log(apiResp);
+  const resp = await apiResp.json();
   const deviceList = resp.data
     .map(
       d => `
@@ -35,6 +37,7 @@ async function generateSiteMap() {
 }
 
 try {
+  console.log('SITEMAP: start');
   generateSiteMap();
 } catch (error) {
   console.error('Error occurred while creating sitemap', error);
