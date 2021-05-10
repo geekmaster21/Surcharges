@@ -1,7 +1,8 @@
 # build environment
 FROM node:15-alpine as build
+COPY package.json .
+RUN yarn
 COPY . ./
-RUN yarn --cwd "./" install
 RUN yarn build
 ENV PATH ./node_modules/.bin:$PATH
 # Keep PORT same as in package.json > scripts > start PORT

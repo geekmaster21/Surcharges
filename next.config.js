@@ -17,11 +17,11 @@ module.exports = {
     defaultLocale: 'en',
     localeDetection: false,
   },
-  webpack: (config, { isServer }) => {
-    if (isServer) {
-      require('./scripts/sitemap.js');
-    }
-    return config;
-  },
+  // webpack: (config, { isServer }) => {
+  //   if (isServer) {
+  //     require('./scripts/sitemap.js');
+  //   }
+  //   return config;
+  // },
   target: 'serverless',
 };
