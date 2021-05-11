@@ -87,7 +87,7 @@ OrangeFoxApp.getInitialProps = async ({
       return ctx.res.end();
     }
 
-    const cachedTranslation = traslationCache[locale];
+    let cachedTranslation = traslationCache[locale];
 
     if (cachedTranslation) {
       console.log('using cached translation for locale:', locale);
@@ -99,6 +99,7 @@ OrangeFoxApp.getInitialProps = async ({
         const translation = Dotize.convert(x.default || x);
         return translation;
       });
+      cachedTranslation = traslationCache[locale];
       console.log('added translation to cache for locale:', locale);
     }
 
