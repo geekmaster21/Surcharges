@@ -20,13 +20,13 @@
   "displayName": "OrangeFox Recovery Downloads",
   "license": "AGPL-3.0-or-later",
   "homepage": "http://orangefox.download",
-  "version": "21.5.9-0",
+  "version": "21.5.11-0",
   "private": false,
   "funding": "https://opencollective.com/orangefox/donate",
   "scripts": {
     "pretty": "prettier --write .",
     "clean": "rimraf .next dist",
-    "region": "node /scripts/region.js",
+    "region": "node ./scripts/region.js",
     "dev:server": "cross-env NODE_ENV=development next dev -p 5000",
     "dev:server:open": "open-cli http://localhost:5000",
     "dev": "npm run region && concurrently -n dev,dev:open -c blue.bold,green.bold \"yarn dev:server\" \"yarn dev:server:open\"",
@@ -61,7 +61,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-easy-emoji": "^1.4.0",
-    "react-intl": "^5.17.4"
+    "react-intl": "^5.17.5"
   },
   "devDependencies": {
     "@netlify/plugin-nextjs": "^3.2.2",
@@ -76,7 +76,7 @@
     "@types/node": "^15.0.2",
     "@types/node-fetch": "^2.5.10",
     "@types/react": "^17.0.5",
-    "@types/react-dom": "^17.0.3",
+    "@types/react-dom": "^17.0.4",
     "babel-plugin-inline-react-svg": "^2.0.1",
     "concurrently": "^6.1.0",
     "critters": "^0.0.10",
@@ -84,11 +84,11 @@
     "lint-staged": "^11.0.0",
     "open-cli": "^6.0.1",
     "pre-commit": "^1.2.2",
-    "prettier": "^2.2.1",
+    "prettier": "^2.3.0",
     "rimraf": "^3.0.2",
     "ts-node": "^9.1.1",
     "typescript": "^4.2.4",
-    "webpack": "^5.36.2"
+    "webpack": "^5.37.0"
   },
   "browserslist": {
     "production": [
