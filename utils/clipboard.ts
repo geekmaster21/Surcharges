@@ -1,3 +1,5 @@
+import * as Sentry from '@sentry/nextjs';
+
 function fallbackCopyTextToClipboard(text: string) {
   var textArea = document.createElement('textarea');
   textArea.value = text;
@@ -13,7 +15,13 @@ function fallbackCopyTextToClipboard(text: string) {
 
   try {
     document.execCommand('copy');
-  } catch (err) {}
+  } catch (err) {
+    Sentry.captureException({
+      __source__: 'util > clipboard',
+      ...err,
+    });
+    Sentry.flush(2000);
+  }
 
   document.body.removeChild(textArea);
 }

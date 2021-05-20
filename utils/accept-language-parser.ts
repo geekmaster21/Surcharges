@@ -1,3 +1,5 @@
+import * as Sentry from '@sentry/nextjs';
+
 // Taken from https://github.com/opentable/accept-language-parser/blob/master/index.js
 
 const regex = /((([a-zA-Z]+(-[a-zA-Z0-9]+){0,2})|\*)(;q=[0-1](\.[0-9]+)?)?)*/g;
@@ -88,6 +90,11 @@ export function pick(
       }
     }
   } catch (error) {
+    Sentry.captureException({
+      __source__: 'util > accept-lang-parser',
+      ...error,
+    });
+    Sentry.flush(2000);
     console.error(error);
     return null;
   }

@@ -1,5 +1,6 @@
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { ThemeProvider } from '@material-ui/core/styles';
+import * as Sentry from '@sentry/nextjs';
 import { Layout, MetaTagsDynamic, MetaTagsStatic } from 'components';
 import config from 'config';
 import cookie from 'cookie';
@@ -20,7 +21,8 @@ export default function OrangeFoxApp(props: AppPropsType) {
   const {
     Component,
     pageProps: { translations, locale, ...rest },
-  } = props;
+    err,
+  } = props as any;
 
   useEffect(() => {
     // Remove the server-side injected CSS.
@@ -43,7 +45,7 @@ export default function OrangeFoxApp(props: AppPropsType) {
         <CssBaseline />
         <IntlProvider locale={locale} messages={translations}>
           <Layout>
-            <Component {...rest} />
+            <Component {...rest} err={err} />
           </Layout>
         </IntlProvider>
       </ThemeProvider>
@@ -115,6 +117,13 @@ OrangeFoxApp.getInitialProps = async ({
       },
     };
   } catch (err) {
+    Sentry.captureException({
+      __source__: '_app',
+      headerLocale,
+      currentLocale: locale,
+      errMsg: err.toString(),
+    });
+    await Sentry.flush(2000);
     console.error(
       {
         headerLocale,

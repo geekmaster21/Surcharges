@@ -2,7 +2,9 @@ const locales = require('./public/translations/list.json').map(m =>
   m.code.trim()
 );
 
-module.exports = {
+const { withSentryConfig } = require('@sentry/nextjs');
+
+const moduleExports = {
   async redirects() {
     return [
       {
@@ -25,3 +27,9 @@ module.exports = {
   // },
   target: 'serverless',
 };
+
+const SentryWebpackPluginOptions = {
+  // https://github.com/getsentry/sentry-webpack-plugin#options.
+};
+
+module.exports = withSentryConfig(moduleExports, SentryWebpackPluginOptions);
