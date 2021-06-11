@@ -11,7 +11,7 @@
   "deviceList": {
     "searchDevice": "Eszköz keresése",
     "notFound": "Eszköz nem található!",
-    "diy": "Úgy látszik sajnos a készüléke nem támogatott! De! Készítsen egyet saját magának és a csoportnak. Kattintson ide még több információhoz."
+    "diy": "Úgy látszik, készüléke jelenleg nem támogatott! De örülnénk, ha készítene egyet magának és közösségnek. Kattintson ide a további információkhoz."
   },
   "device": {
     "info": "(Készülék Információ)"
