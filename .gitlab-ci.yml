@@ -16,4 +16,5 @@ docker:push:
     paths: [public/translations/list.json]
   only:
     - master
+    - sentry
     - ci-test
