@@ -17,6 +17,3 @@ docker:push:
   only:
     - master
     - ci-test
-  except:
-      variables:
-         - $CI_COMMIT_REF_NAME =~ /^l10n_master/
