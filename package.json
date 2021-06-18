@@ -30,7 +30,7 @@
     "dev:server": "cross-env NODE_ENV=development next dev -p 5000",
     "dev:server:open": "open-cli http://localhost:5000",
     "dev": "npm run region && concurrently -n dev,dev:open -c blue.bold,green.bold \"yarn dev:server\" \"yarn dev:server:open\"",
-    "build": "yarn clean && npm run region && next build",
+    "build": "cross-env log-level=debug yarn clean && npm run region && next build",
     "start": "next start -p 5001"
   },
   "lint-staged": {
@@ -65,7 +65,6 @@
     "react-intl": "^5.20.2"
   },
   "devDependencies": {
-    "@netlify/plugin-nextjs": "^3.4.2",
     "@types/cookie": "^0.4.0",
     "@types/js-cookie": "^2.2.6",
     "@types/linkifyjs": "^2.1.3",

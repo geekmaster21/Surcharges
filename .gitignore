@@ -113,3 +113,4 @@ out
 
 # Jetbrains editors
 .idea
+/.env.local
