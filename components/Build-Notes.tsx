@@ -66,6 +66,7 @@ const BuildNotes: React.FunctionComponent<BuildNotesProps> = ({
 
           <IconButton
             color='primary'
+            id='build-notes'
             onClick={onCopyClick}
             style={{
               color: 'white',

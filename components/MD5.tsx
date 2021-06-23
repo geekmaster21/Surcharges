@@ -24,13 +24,14 @@ const MD5: React.FunctionComponent<Props> = ({ release }) => {
   return release ? (
     <>
       <ListItem button>
-        <ListItemIcon onClick={onCopyClick}>
+        <ListItemIcon onClick={onCopyClick} id='list-item-icon'>
           <VerifiedUserOutlined className={classes.icon} />
         </ListItemIcon>
 
         <>
           <ListItemText
             primary='MD5'
+            id='list-item-text'
             className={classes.md5}
             onClick={onCopyClick}
             secondary={release.md5}

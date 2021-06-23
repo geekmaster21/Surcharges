@@ -1,5 +1,5 @@
-import * as Sentry from '@sentry/nextjs';
 import config from 'config';
+import sentry from 'utils/sentry';
 import { IsCSR } from './common';
 
 const consoleError = console.error;
@@ -18,11 +18,10 @@ export default function DisableErrorFromReactIntl() {
         : hasReactIntlError(r);
 
       if (isIntlErr) {
-        Sentry.captureException({
-          __source__: 'util > react-inlt',
+        sentry.error({
+          __source__: 'utils/react-inlt',
           ...r,
         });
-        Sentry.flush(2000);
       } else {
         consoleError(...r);
       }

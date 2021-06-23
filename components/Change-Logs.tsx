@@ -65,6 +65,7 @@ const ChangeLogs: React.FunctionComponent<ChangeLogsProps> = ({
 
           <IconButton
             color='primary'
+            id='change-logs'
             onClick={onCopyClick}
             style={{
               color: 'white',

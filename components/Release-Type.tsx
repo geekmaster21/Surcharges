@@ -101,6 +101,7 @@ const ReleaseType = (props: Props) => {
               data={m}
               key={m.version}
               code={props.code}
+              version={m.version}
               onClick={() => handleChange(i)}
               expanded={version ? m.version === version : expandPanel === i}
             />

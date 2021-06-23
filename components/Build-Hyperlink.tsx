@@ -24,6 +24,7 @@ const BuildHyperLink = (p?: { release: IRelease }) => {
     <>
       <IconButton
         color='primary'
+        id='build-hyperlink'
         onClick={onCopyClick}
         style={{ color: 'white', margin: '-12px -4px', height: 'fit-content' }}
       >

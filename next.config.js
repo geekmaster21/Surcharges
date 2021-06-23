@@ -3,8 +3,8 @@
 // https://nextjs.org/docs/api-reference/next.config.js/introduction
 // https://docs.sentry.io/platforms/javascript/guides/nextjs/
 
-const locales = require('./public/translations/list.json').map(m =>
-  m.code.trim()
+const locales = require('./public/translations/list.json').map(
+  m => m.code && m.code.trim()
 );
 
 const { withSentryConfig } = require('@sentry/nextjs');

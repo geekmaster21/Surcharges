@@ -102,6 +102,7 @@ const Downloads: React.FunctionComponent<DownloadsProps> = ({
 
           <IconButton
             color='primary'
+            id='downloads'
             onClick={onCopyClick}
             style={{
               color: 'white',

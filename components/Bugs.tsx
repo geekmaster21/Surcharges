@@ -63,6 +63,7 @@ const Bugs: React.FunctionComponent<BugsProps> = ({
           <Title />
 
           <IconButton
+            id='bugs'
             color='primary'
             onClick={onCopyClick}
             style={{

@@ -1,6 +1,6 @@
-import * as Sentry from '@sentry/nextjs';
 import config from 'config';
 import nodeFetch, { Response } from 'node-fetch';
+import sentry from 'utils/sentry';
 
 async function get<T = any, S = any>(url: string, params?: T) {
   const _url = new URL(`${config.apiUrl}/${url}`);
@@ -25,13 +25,11 @@ async function get<T = any, S = any>(url: string, params?: T) {
         : _succ_res) as S,
     };
   } catch (error) {
-    Sentry.captureException({
-      __source__: '_http',
+    sentry.error({
+      __source__: 'core/http',
       error,
       response: _resp,
     });
-    await Sentry.flush(2000);
-
     return { isSuccess: false, data: null, error, _resp };
   }
 }

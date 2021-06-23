@@ -1,4 +1,4 @@
-import * as Sentry from '@sentry/nextjs';
+import sentry from 'utils/sentry';
 
 // Taken from https://github.com/opentable/accept-language-parser/blob/master/index.js
 
@@ -90,12 +90,10 @@ export function pick(
       }
     }
   } catch (error) {
-    Sentry.captureException({
-      __source__: 'util > accept-lang-parser',
+    sentry.error({
+      __source__: 'utils/accept-lang-parser',
       ...error,
     });
-    Sentry.flush(2000);
-    console.error(error);
     return null;
   }
 }

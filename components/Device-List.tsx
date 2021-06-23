@@ -37,7 +37,7 @@ export type DeviceListState = {
 const placeholders = [...Array(10).keys()];
 
 function filteredDevices(devices: IDevice[], search = '') {
-  if (search.trim().length) {
+  if (search?.trim().length) {
     return matchSorter(devices, search, { keys: ['full_name', 'codename'] });
   }
   return devices;
@@ -299,7 +299,7 @@ export default function DeviceList({
                   <Collapse
                     timeout='auto'
                     unmountOnExit
-                    in={!!state.search.trim() || collapseOEM[m.oem]}
+                    in={!!state.search?.trim() || collapseOEM[m.oem]}
                   >
                     <List>
                       {m.devices!.map(d => {

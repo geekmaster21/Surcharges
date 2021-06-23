@@ -13,6 +13,7 @@ function Header(props: { toggleClick: () => void }) {
           <IconButton
             edge='start'
             color='inherit'
+            id='header-menu-button'
             aria-label='open drawer'
             onClick={props.toggleClick}
             className={classes.menuButton}
@@ -23,6 +24,7 @@ function Header(props: { toggleClick: () => void }) {
           <Typography component='div' className={classes.headerContent}>
             <AnchorLink
               ATagProps={{
+                id: 'header-brand-link',
                 className: 'link orange no-hover ' + classes.brand,
               }}
             >

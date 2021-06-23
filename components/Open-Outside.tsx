@@ -10,7 +10,7 @@ const OpenOutside: React.FunctionComponent<LinkNewTabProps> = ({
 }) => {
   return (
     <a target='_blank' rel='noopener noreferrer' {...rest}>
-      {children}
+      <>{children}</>
     </a>
   );
 };

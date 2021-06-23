@@ -1,4 +1,4 @@
-import * as Sentry from '@sentry/nextjs';
+import sentry from 'utils/sentry';
 
 function fallbackCopyTextToClipboard(text: string) {
   var textArea = document.createElement('textarea');
@@ -16,20 +16,27 @@ function fallbackCopyTextToClipboard(text: string) {
   try {
     document.execCommand('copy');
   } catch (err) {
-    Sentry.captureException({
-      __source__: 'util > clipboard',
+    sentry.error({
+      __source__: 'utils/clipboard/fallback',
       ...err,
     });
-    Sentry.flush(2000);
   }
-
-  document.body.removeChild(textArea);
+  if (document.body.contains(textArea)) {
+    document.body.removeChild(textArea);
+  }
 }
 
-export function CopyToClipboard(text: string) {
-  if (!navigator.clipboard) {
-    fallbackCopyTextToClipboard(text);
-    return;
+export async function CopyToClipboard(text: string) {
+  try {
+    if (navigator.clipboard) {
+      await navigator.clipboard.writeText(text).then();
+    } else {
+      fallbackCopyTextToClipboard(text);
+    }
+  } catch (err) {
+    sentry.error({
+      __source__: 'utils/clipboard/direct-copy',
+      ...err,
+    });
   }
-  navigator.clipboard.writeText(text).then();
 }

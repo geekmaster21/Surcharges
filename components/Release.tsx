@@ -30,6 +30,7 @@ type Props = {
   data: IRelease;
   code: string;
   popup?: string;
+  version?: string;
   expanded?: boolean;
   onClick?: () => void;
   showAllReleases?: boolean;
@@ -67,7 +68,7 @@ const Release: React.FunctionComponent<Props> = props => {
     }
   }, [code, release, showAllReleases, isExpanded]);
 
-  const { version } = release;
+  const version = release?.version || props.version || 'no-version';
 
   return (
     <>
