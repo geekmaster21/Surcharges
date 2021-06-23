@@ -20,7 +20,7 @@
   "displayName": "OrangeFox Recovery Downloads",
   "license": "AGPL-3.0-or-later",
   "homepage": "http://orangefox.download",
-  "version": "21.6.18-0",
+  "version": "21.6.23-0",
   "private": false,
   "funding": "https://opencollective.com/orangefox/donate",
   "scripts": {
@@ -45,7 +45,7 @@
     "@material-ui/core": "^4.11.4",
     "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.58",
-    "@sentry/nextjs": "^6.7.1",
+    "@sentry/nextjs": "^6.7.2",
     "cookie": "^0.4.1",
     "cross-env": "^7.0.3",
     "dayjs": "^1.10.5",
@@ -56,13 +56,13 @@
     "lodash.sortby": "^4.7.0",
     "lodash.startcase": "^4.4.0",
     "match-sorter": "^6.3.0",
-    "next": "^11.0.0",
+    "next": "^11.0.1",
     "node-fetch": "^2.6.1",
     "node-sass": "5.x.x",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-easy-emoji": "^1.5.0",
-    "react-intl": "^5.20.2"
+    "react-intl": "^5.20.3"
   },
   "devDependencies": {
     "@types/cookie": "^0.4.0",
@@ -73,7 +73,7 @@
     "@types/lodash.sortby": "^4.7.6",
     "@types/lodash.startcase": "^4.4.6",
     "@types/match-sorter": "^6.0.0",
-    "@types/node": "^15.12.3",
+    "@types/node": "^15.12.4",
     "@types/node-fetch": "^2.5.10",
     "@types/react": "^17.0.11",
     "@types/react-dom": "^17.0.8",
@@ -88,7 +88,7 @@
     "rimraf": "^3.0.2",
     "ts-node": "^10.0.0",
     "typescript": "^4.3.4",
-    "webpack": "^5.39.1"
+    "webpack": "^5.40.0"
   },
   "browserslist": {
     "production": [
