@@ -27,6 +27,8 @@ async function get<T = any, S = any>(url: string, params?: T) {
   } catch (error) {
     sentry.error({
       __source__: 'core/http',
+      url,
+      params,
       error,
       response: _resp,
     });
