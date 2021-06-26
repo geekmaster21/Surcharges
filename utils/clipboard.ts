@@ -29,11 +29,9 @@ function copyClipboardFallback(text: string) {
   }
 }
 
-function copyClipboard(text: string) {
+async function copyClipboard(text: string) {
   try {
-    navigator.permissions
-      .query({ name: 'clipboard-write' })
-      .then(async () => await navigator.clipboard.writeText(text).then());
+    await navigator.clipboard.writeText(text);
   } catch (err) {
     sentry.error({
       __source__: 'utils/clipboard/direct-copy',

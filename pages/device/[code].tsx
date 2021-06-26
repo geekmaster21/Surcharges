@@ -3,6 +3,7 @@ import { DeviceInfo, DeviceReleases, MetaTagsDynamic } from 'components';
 import { IDeviceWithMaintainer, IRelease } from 'models';
 import { NextPageContext } from 'next';
 import { IsCSR, RedirectTo, SafePromise } from 'utils';
+import sentry from 'utils/sentry';
 
 type Props = {
   releases: IRelease[];
@@ -66,6 +67,7 @@ Page.getInitialProps = async ({ query, res }: NextPageContext) => {
     info = (await SafePromise(() =>
       apiDevice.get({ codename }).then(r => {
         if (!r.isSuccess) {
+          sentry.error({ __source__: 'pages/device/[code]', codename, found });
           RedirectTo({ res, asPath: '/404' } as NextPageContext);
         }
         return r.data;

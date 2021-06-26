@@ -2,7 +2,8 @@ import { apiDevice, apiRelease } from 'apis';
 import Page from 'components/Release-Page';
 import { IDeviceWithMaintainer, IRelease } from 'models';
 import { NextPageContext } from 'next';
-import { RedirectTo } from 'utils';
+import { IsCSR, RedirectTo } from 'utils';
+import sentry from 'utils/sentry';
 
 (Page as any).getInitialProps = async ({
   res,
@@ -18,6 +19,15 @@ import { RedirectTo } from 'utils';
     .then(r => (r.isSuccess ? r.data! : undefined));
 
   if (!info) {
+    if (!IsCSR) {
+      sentry.error({
+        __source__: 'pages/release/[code_or_id]/[type_or_popup]/version',
+        popup,
+        version,
+        code_or_id,
+        type_or_popup,
+      });
+    }
     RedirectTo({ res, asPath: '/404' } as NextPageContext);
   }
 

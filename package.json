@@ -20,7 +20,7 @@
   "displayName": "OrangeFox Recovery Downloads",
   "license": "AGPL-3.0-or-later",
   "homepage": "http://orangefox.download",
-  "version": "21.6.25-0",
+  "version": "21.6.26-0",
   "private": false,
   "funding": "https://opencollective.com/orangefox/donate",
   "scripts": {
@@ -62,7 +62,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-easy-emoji": "^1.5.0",
-    "react-intl": "^5.20.3"
+    "react-intl": "^5.20.4"
   },
   "devDependencies": {
     "@types/cookie": "^0.4.0",
