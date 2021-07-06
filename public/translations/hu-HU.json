@@ -5,8 +5,8 @@
   },
   "mainPage": {
     "donation": "Adományok",
-    "hintText": "Válasszon eszközt a listából vagy keresse meg",
-    "notFound": "Ez it a vége. Vigyél haza!"
+    "hintText": "Válasszon eszközt a listából vagy használja a keresőt",
+    "notFound": "Ez a vége. Vigyen vissza a kezdőlapra!"
   },
   "deviceList": {
     "searchDevice": "Eszköz keresése",
@@ -30,7 +30,7 @@
   "clipboardCopy": "Másolva a vágólapra!",
   "release": {
     "type": {
-      "beta": "Béta kiadás",
+      "beta": "Béta kiadások",
       "betaInfo": "A béta kiadások megfelelően kell, hogy működjenek az alap funkciókkal. De ha bármi hibát talál, kérjük jelentse a {telegramChannel} csatornánkon",
       "stable": "Stabil kiadások"
     },
