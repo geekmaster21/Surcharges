@@ -18,9 +18,8 @@ import {
   SearchIcon,
 } from 'components';
 import config from 'config';
-import { groupBy } from 'core';
 import { matchSorter } from 'match-sorter';
-import { IDevice, IDeviceGroup } from 'models';
+import { IDevice } from 'models';
 import { useRouter } from 'next/router';
 import React, { Fragment, useEffect, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
@@ -38,22 +37,12 @@ const placeholders = [...Array(10).keys()];
 
 function filteredDevices(devices: IDevice[], search = '') {
   if (search.trim().length) {
-    return matchSorter(devices, search, { keys: ['full_name', 'codename'] });
+    return matchSorter(devices, search, {
+      keys: ['codenames', 'model_names'],
+    });
   }
   return devices;
 }
-
-const GroupedList = (_data: IDevice[]) => {
-  const arr: IDeviceGroup[] = [],
-    obj = groupBy(_data, d => d.oem_name || 'Others');
-  Object.keys(obj).forEach(key => {
-    arr.push({
-      oem: key,
-      devices: obj[key],
-    });
-  });
-  return arr;
-};
 
 export default function DeviceList({
   onUpdate,
@@ -69,40 +58,29 @@ export default function DeviceList({
   const [fetched, setFetched] = useState(false);
   const [collapseOEM, setCollapseOEM] = useState<{ [p: string]: boolean }>({});
 
+  function callApi(supported = false) {
+    setState(s => ({ ...s, currentList: undefined }));
+    apiDevice
+      .getAll(supported && { supported })
+      .then(r => {
+        const list = r.data?.list || [];
+        setState(s => ({
+          ...s,
+          [supported ? 'supportedDevices' : 'allDevices']: list,
+          currentList: filteredDevices(list, state.search),
+        }));
+      })
+      .finally(() => setFetched(true));
+  }
+
   useEffect(() => {
     if (state.filterByAll) {
       if (!state.allDevices) {
-        setState(s => ({ ...s, currentList: undefined }));
-        apiDevice
-          .getAll()
-          .then(r =>
-            setState(s => {
-              const allDevices = r.data?.list || [];
-              return {
-                ...s,
-                allDevices,
-                currentList: filteredDevices(allDevices, state.search),
-              };
-            })
-          )
-          .finally(() => setFetched(true));
+        callApi();
       }
     } else {
       if (!state.supportedDevices) {
-        setState(s => ({ ...s, currentList: undefined }));
-        apiDevice
-          .getAll({ supported: true })
-          .then(r =>
-            setState(s => {
-              const supportedDevices = r.data?.list || [];
-              return {
-                ...s,
-                supportedDevices,
-                currentList: filteredDevices(supportedDevices, state.search),
-              };
-            })
-          )
-          .finally(() => setFetched(true));
+        callApi(true);
       }
     }
   }, [state.filterByAll]);
@@ -131,15 +109,13 @@ export default function DeviceList({
   }
 
   function handleDeviceClick(dev: IDevice) {
-    router.push('/device/[code]', `/device/${dev.codename}`);
+    router.push('/device/[code]', `/device/${dev._id}`);
     onDeviceClick && onDeviceClick();
   }
 
   useEffect(() => {
     onUpdate(state);
   }, [state]);
-
-  const grouped = GroupedList(state.currentList || []);
 
   return (
     <>
@@ -271,24 +247,27 @@ export default function DeviceList({
           // Device list
           state.currentList && (
             <List style={{ height: '100%', overflow: 'auto' }}>
-              {grouped.map(m => (
-                <Fragment key={m.oem}>
+              {state.currentList.map(deviceGroup => (
+                <Fragment key={deviceGroup.oem_name}>
                   {/* OEM Group */}
                   <ListItem
                     button
                     onClick={() =>
-                      setCollapseOEM(s => ({ ...s, [m.oem]: !s[m.oem] }))
+                      setCollapseOEM(s => ({
+                        ...s,
+                        [deviceGroup.oem_name]: !s[deviceGroup.oem_name],
+                      }))
                     }
                   >
                     <ListItemText
-                      primary={m.oem}
+                      primary={deviceGroup.oem_name}
                       style={
-                        m.devices.every(e => !e.supported)
-                          ? { color: '#7b7b7b', fontStyle: 'italic' }
-                          : { color: '#ececec' }
+                        deviceGroup.supported
+                          ? { color: '#ececec' }
+                          : { color: '#7b7b7b', fontStyle: 'italic' }
                       }
                     />
-                    {collapseOEM[m.oem] ? (
+                    {collapseOEM[deviceGroup.oem_name] ? (
                       <ExpandLess fontSize='small' />
                     ) : (
                       <ExpandMore fontSize='small' />
@@ -299,10 +278,12 @@ export default function DeviceList({
                   <Collapse
                     timeout='auto'
                     unmountOnExit
-                    in={!!state.search.trim() || collapseOEM[m.oem]}
+                    in={
+                      !!state.search.trim() || collapseOEM[deviceGroup.oem_name]
+                    }
                   >
                     <List>
-                      {m.devices!.map(d => {
+                      {deviceGroup.model_names!.map(modelName => {
                         const Text = (lp: {
                           supported: boolean;
                           content: string;
@@ -325,9 +306,11 @@ export default function DeviceList({
                         return (
                           <ListItem
                             button
-                            key={d._id}
-                            onClick={() => handleDeviceClick(d)}
-                            title={d.supported ? undefined : 'Unsupported'}
+                            key={modelName}
+                            onClick={() => handleDeviceClick(deviceGroup)}
+                            title={
+                              deviceGroup.supported ? undefined : 'Unsupported'
+                            }
                           >
                             <ListItemIcon>
                               <Image
@@ -340,14 +323,8 @@ export default function DeviceList({
                             <ListItemText
                               primary={
                                 <Text
-                                  supported={d.supported}
-                                  content={d.model_name}
-                                />
-                              }
-                              secondary={
-                                <Text
-                                  supported={d.supported}
-                                  content={d.codename}
+                                  content={modelName}
+                                  supported={deviceGroup.supported}
                                 />
                               }
                             />

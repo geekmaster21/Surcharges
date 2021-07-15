@@ -6,7 +6,7 @@ export default {
   regions,
   availableLanguages,
   version: pkg.version,
-  apiUrl: 'https://api.orangefox.download/v3',
+  apiUrl: 'https://api.orangefox.download/v4',
   isDevEnv: process.env.NODE_ENV === 'development',
   locale: {
     default: 'en',

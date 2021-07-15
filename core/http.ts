@@ -15,7 +15,7 @@ async function get<T = any, S = any>(url: string, params?: T) {
     const _succ_res = await _resp.json();
     const keys = Object.keys(_succ_res);
     const isList =
-      keys.length === 2 && 'data' in _succ_res && 'count' in _succ_res;
+      keys.length === 3 && 'data' in _succ_res && 'count' in _succ_res;
     return {
       _resp,
       isSuccess: _resp.status === 200,

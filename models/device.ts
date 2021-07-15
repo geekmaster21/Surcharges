@@ -2,9 +2,8 @@ import { IMaintainer } from './maintainer';
 
 export interface IDevice {
   _id: string;
-  codename: string;
-  model_name: string;
-  full_name: string;
+  codenames: string[];
+  model_names: string[];
   oem_name: string;
   notes?: string;
   supported: boolean;
