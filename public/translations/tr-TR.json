@@ -11,7 +11,7 @@
   "deviceList": {
     "searchDevice": "Cihaz Ara",
     "notFound": "Cihaz bulunamadı!",
-    "diy": "Görünüşe göre senin cihazın için henüz sürüm yok! Ama topluluğumuza gelip bir tane yapabilirsin. Daha fazla bilgi için burayı tıkla."
+    "diy": "Görünüşe göre o cihaz henüz elimizde değil! Ama kendiniz ve toplum için bir tane oluşturmaya davetlisiniz. Daha fazlasını öğrenmek için burayı tıklayın."
   },
   "device": {
     "info": "(Cihaz Bilgisi)"
@@ -31,6 +31,7 @@
   "release": {
     "type": {
       "beta": "Deneysel Sürümler",
+      "betaInfo": "Beta sürümleri, temel işlevsellik söz konusu olduğu sürece çalışmalıdır. Ancak, {telegramChannel} kanalımıza bildirebileceğiniz sorunlar ve / veya hatalarla karşılaşabilirsiniz",
       "stable": "Kararlı Sürümler"
     },
     "notFound": "Henüz bu cihaz için sürüm yok!",
@@ -39,6 +40,11 @@
     "changeLogs": "Değişiklikler",
     "buildNotes": "Derleme Notları",
     "bugs": "Hatalar",
+    "donation": {
+      "info": "İyileşmeyi beğeneceğinizi umuyoruz. Bağışlar sunucunun çalışmasını sağlar ve sizin için daha iyi bir ürün geliştirmemize yardımcı olur. Bağış yapmak ister misiniz?",
+      "yes": "Evet bağış yapmak istiyorum",
+      "no": "Hayır"
+    },
     "allBuild": "Bütün Sürümleri Göster"
   },
   "error": {
@@ -48,7 +54,7 @@
     "fetchLink": "Bağlantılar Getiriliyor",
     "directLink": "Doğrudan Bağlantı",
     "mirrorLink": "Ayna Bağlantı",
-    "guide": "Yükleme Kılavuzu",
+    "guide": "Zorlanıyor musunuz? OrangeFox Recovery programını cihazınıza nasıl kuracağınızla ilgili makalelerimizi okuyun.",
     "close": "Kapat",
     "info": "Bilgi"
   },
