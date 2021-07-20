@@ -4,14 +4,16 @@ import {
   AccordionSummary,
   Button,
   Divider,
-  List,
+  Paper,
   ListItem,
   Typography,
 } from '@material-ui/core';
 import { apiRelease } from 'apis';
 import { AnchorLink, ExpandMore } from 'components';
-import { IRelease, IReleaseWithDetails } from 'models';
+import { titleCase } from 'core';
+import { IRelease, Variants } from 'models';
 import Router from 'next/router';
+import { useRef } from 'react';
 import { useEffect, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import useStyles from 'styles/mui/release';
@@ -28,7 +30,6 @@ import MD5 from './MD5';
 
 type Props = {
   data: IRelease;
-  code: string;
   popup?: string;
   expanded?: boolean;
   onClick?: () => void;
@@ -37,45 +38,36 @@ type Props = {
 };
 
 const Release: React.FunctionComponent<Props> = props => {
-  const {
-    data,
-    code,
-    popup,
-    onClick,
-    expanded,
-    defaultExpanded,
-    showAllReleases,
-  } = props;
+  const { data, popup, onClick, expanded, defaultExpanded, showAllReleases } =
+    props;
   const classes = useStyles();
+  const refApiCall = useRef(false);
   const isExpanded = props.expanded || props.defaultExpanded;
-  const [release, setReleaseDetail] = useState({
-    code,
-    ...data,
-  } as IReleaseWithDetails);
-  const hasMirrors = Boolean(Object.keys(release?.mirrors || {}).length);
-  const [fetched, setFetched] = useState(hasMirrors);
+  const [release, setReleaseDetail] = useState<IRelease>({} as IRelease);
 
   useEffect(() => {
-    if (code && isExpanded && !hasMirrors) {
+    if (isExpanded && !refApiCall.current) {
+      refApiCall.current = true;
       apiRelease
         .getById(data._id)
         .then(r => setReleaseDetail(r.data!))
         .catch(() => {
           showAllReleases && Router.push(`/404`);
-        })
-        .finally(() => setFetched(true));
+        });
     }
-  }, [code, release, showAllReleases, isExpanded]);
+  }, [data?.device_id, showAllReleases, isExpanded]);
 
   const { version } = release;
+
+  console.log(release);
 
   return (
     <>
       <Accordion
+        onChange={onClick}
         expanded={expanded}
         className={classes.root}
         defaultExpanded={defaultExpanded}
-        onChange={() => onClick && onClick()}
       >
         <AccordionSummary
           id={version}
@@ -93,8 +85,8 @@ const Release: React.FunctionComponent<Props> = props => {
               <BuildHyperLink release={release} />
               {showAllReleases && (
                 <AnchorLink
-                  as={`/device/${code}`}
-                  href='/device/[code]'
+                  href='/device/[code_or_id]'
+                  as={`/device/${data.device_id}`}
                   ATagProps={{
                     className: 'link',
                   }}
@@ -112,28 +104,42 @@ const Release: React.FunctionComponent<Props> = props => {
         </AccordionSummary>
 
         <AccordionDetails className={classes.details}>
-          <List component='nav' className={classes.list}>
-            <ListItem>
-              <FileName showLoader={!fetched} release={release} />
-            </ListItem>
+          <div className={classes.list}>
+            <div className={classes.variants}>
+              {release.variants &&
+                Object.keys(release.variants)
+                  .map(m => m as keyof Variants)
+                  .map(variant => (
+                    <Paper key={variant} className={classes.variant}>
+                      <b className='title'>{titleCase(variant)}</b>
+                      <Divider />
+                      <ListItem>
+                        <FileName
+                          variant={variant}
+                          release={release}
+                          showLoader={!refApiCall.current}
+                        />
+                      </ListItem>
+                      <Divider />
+                      <ListItem>
+                        <FileSize variant={variant} release={release} />
+                      </ListItem>
+                      <Divider />
+                      <MD5 variant={variant} release={release} />
+                      {release.variants.miui?.mirrors && (
+                        <Downloads
+                          popup={popup}
+                          variant={variant}
+                          release={release}
+                        />
+                      )}
+                    </Paper>
+                  ))}
+            </div>
 
-            <Divider />
-
-            <ListItem>
-              <FileSize release={release} />
-            </ListItem>
-
-            <Divider />
-
-            <MD5 release={release} />
-
-            <List component='div' className={classes.nestedList}>
-              {fetched ? (
+            <div className={classes.nestedList}>
+              {refApiCall.current ? (
                 <>
-                  {release.mirrors?.DL && (
-                    <Downloads popup={popup} release={release} />
-                  )}
-
                   {release.changelog?.length && (
                     <ChangeLogs popup={popup} release={release} />
                   )}
@@ -160,8 +166,8 @@ const Release: React.FunctionComponent<Props> = props => {
                   ))}
                 </>
               )}
-            </List>
-          </List>
+            </div>
+          </div>
         </AccordionDetails>
       </Accordion>
     </>

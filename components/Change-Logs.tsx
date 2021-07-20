@@ -5,7 +5,7 @@ import {
   IconButton,
 } from '@material-ui/core';
 import { DescriptionOutlined, HyperLink, Modal, Toast } from 'components';
-import { IReleaseWithDetails } from 'models';
+import { IRelease } from 'models';
 import React, { useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import useStyles from 'styles/mui/release';
@@ -14,7 +14,7 @@ import { LinkifyMessage } from './Linkify-Message';
 
 interface ChangeLogsProps {
   popup?: string;
-  release: IReleaseWithDetails;
+  release: IRelease;
   showLoader?: boolean;
 }
 

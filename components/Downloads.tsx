@@ -15,7 +15,7 @@ import {
   Toast,
 } from 'components';
 import config from 'config';
-import { IReleaseWithDetails } from 'models';
+import { IRelease, Variants } from 'models';
 import React, { useState } from 'react';
 // @ts-ignore
 import emoji from 'react-easy-emoji';
@@ -26,8 +26,9 @@ import { AddToHomeScreenOutlinedIcon } from './Icons';
 
 interface DownloadsProps {
   popup?: string;
+  release: IRelease;
   showLoader?: boolean;
-  release: IReleaseWithDetails;
+  variant: keyof Variants;
 }
 
 const popupNames = ['download', 'downloads'];
@@ -35,6 +36,7 @@ const popupNames = ['download', 'downloads'];
 const Downloads: React.FunctionComponent<DownloadsProps> = ({
   popup,
   release,
+  variant,
   showLoader,
 }) => {
   const classes = useStyles();
@@ -62,8 +64,8 @@ const Downloads: React.FunctionComponent<DownloadsProps> = ({
 
   function allMirrors() {
     const { regions } = config;
-    const keys = Object.keys(release.mirrors);
-    const values = Object.values(release.mirrors);
+    const keys = Object.keys(release.variants[variant].mirrors);
+    const values = Object.values(release.variants[variant].mirrors);
     return keys.map((m, i) => {
       const region = regions.find(
         f =>

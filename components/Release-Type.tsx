@@ -41,7 +41,6 @@ const ReleaseType = (props: Props) => {
 
   const prevProps = usePreviousProps(props);
   if (
-    prevProps &&
     prevProps?.code &&
     props.code &&
     !isEqual(
@@ -58,8 +57,8 @@ const ReleaseType = (props: Props) => {
       <Accordion className={classes.root} defaultExpanded={expanded}>
         <AccordionSummary
           id={`release-${type}-header`}
-          expandIcon={<ExpandMore className={classes.icon} />}
           aria-controls={`release-${type}-content`}
+          expandIcon={<ExpandMore className={classes.icon} />}
         >
           <Typography className='flexd v-center'>
             {type === 'beta' ? (
@@ -100,7 +99,6 @@ const ReleaseType = (props: Props) => {
             <Release
               data={m}
               key={m.version}
-              code={props.code}
               onClick={() => handleChange(i)}
               expanded={version ? m.version === version : expandPanel === i}
             />

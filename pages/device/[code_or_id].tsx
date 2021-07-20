@@ -11,7 +11,7 @@ type Props = {
 
 const Page = ({ info, releases }: Props) => {
   const url = `/device/${info._id}`;
-  const { title } = info;
+  const { title } = info;  
 
   return (
     <>

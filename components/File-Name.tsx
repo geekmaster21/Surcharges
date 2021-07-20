@@ -1,16 +1,18 @@
 import { ListItemIcon, ListItemText } from '@material-ui/core';
 import { AccessTimeOutlinedIcon, LoadShimmer } from 'components';
-import { IReleaseWithDetails } from 'models';
+import { IRelease, Variants } from 'models';
 import useStyles from 'styles/mui/release';
 import FileDate from './File-Date';
 
 type FileNameProps = {
+  release: IRelease;
   showLoader?: boolean;
-  release: IReleaseWithDetails;
+  variant: keyof Variants;
 };
 
 const FileName: React.FunctionComponent<FileNameProps> = ({
   release,
+  variant,
   showLoader,
 }) => {
   const classes = useStyles();
@@ -20,8 +22,11 @@ const FileName: React.FunctionComponent<FileNameProps> = ({
       <ListItemIcon>
         <AccessTimeOutlinedIcon className={classes.icon} />
       </ListItemIcon>
+
       <ListItemText
-        primary={showLoader ? <LoadShimmer /> : release.filename}
+        primary={
+          showLoader ? <LoadShimmer /> : release.variants[variant].filename
+        }
         secondary={<FileDate release={release} />}
       />
     </>

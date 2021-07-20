@@ -1,8 +1,5 @@
 export interface IRelease {
-  filename: string;
   actualDate?: Date;
-  size: number;
-  md5: string;
   _id: string;
   device_id: string;
   version: string;

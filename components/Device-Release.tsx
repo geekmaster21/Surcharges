@@ -21,6 +21,8 @@ const DeviceReleases = ({ device, releases }: Props) => {
     return rel ? rel.map(d => ({ ...d, actualDate: new Date(d.date) })) : rel;
   }
 
+  console.log(releases);
+
   const hasStableReleases = Boolean(grouped.stable?.length);
 
   return (
@@ -48,14 +50,14 @@ const DeviceReleases = ({ device, releases }: Props) => {
           />
         </Alert>
       )}
-      <Fragment key={device.codename}>
+      <Fragment key={device._id}>
         {releases && (
           <>
             {hasStableReleases && (
               <ReleaseType
                 expanded
                 type='stable'
-                code={device.codename}
+                code={device._id}
                 data={withActualDateInRelease(grouped.stable)}
                 releaseLabel={
                   <FormattedMessage
@@ -68,7 +70,7 @@ const DeviceReleases = ({ device, releases }: Props) => {
             {grouped.beta?.length && (
               <ReleaseType
                 type='beta'
-                code={device.codename}
+                code={device._id}
                 expanded={!hasStableReleases}
                 data={withActualDateInRelease(grouped.beta)}
                 releaseLabel={

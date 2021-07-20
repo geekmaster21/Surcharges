@@ -2,6 +2,23 @@ import { makeStyles, Theme } from '@material-ui/core';
 import { themedAlert } from './release-type';
 
 export default makeStyles((theme: Theme) => ({
+  variants: {
+    display: 'flex',
+    gap: 10,
+    [theme.breakpoints.down('sm')]: {
+      flexWrap: 'wrap',
+    },
+  },
+  variant: {
+    width: '100%',
+    background: '#282828',
+    '&>b.title': {
+      padding: 10,
+      display: 'inline-block',
+      color: 'var(--orange-1)',
+    },
+  },
+  ///
   root: {
     width: '100%',
     backgroundColor: theme.palette.primary.main,
@@ -33,6 +50,7 @@ export default makeStyles((theme: Theme) => ({
   },
   nestedList: {
     display: 'flex',
+    marginTop: 10,
     [theme.breakpoints.down('sm')]: {
       flexWrap: 'wrap',
     },

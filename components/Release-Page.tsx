@@ -2,27 +2,29 @@ import { Card, CardContent } from '@material-ui/core';
 import { DeviceInfo, MetaTagsDynamic } from 'components';
 import Release from 'components/Release';
 import { titleCase } from 'core';
-import { IDeviceWithMaintainer, IRelease } from 'models';
+import { IDevice, IRelease } from 'models';
 
 type Props = {
   popup: string;
+  info: IDevice;
   release: IRelease;
-  info: IDeviceWithMaintainer;
 };
 
 const ReleasePage = ({ info, popup, release }: Props) => {
-  const url = `https://orangefox.download/release/${info.codename}/${release.type}/${release.version}`;
+  const url = `https://orangefox.download/release/${info._id}/${release.type}/${release.version}`;
   const canonical = `https://orangefox.download/release/${release._id}`;
   const title = `${titleCase(release.type)} release v${release.version} for ${
-    info.full_name
-  } (${info.codename})`;
+    info.title
+  } (${info.codenames.join(', ')})`;
   return (
     <>
       <MetaTagsDynamic
         url={url}
         title={title}
         canonical={canonical}
-        desc={`Orangefox recovery for ${info.full_name} (${info.codename})`}
+        desc={`Orangefox recovery for ${info.title} (${info.codenames.join(
+          ', '
+        )})`}
         jsonLd={{
           '@type': 'SoftwareApplication',
           url,

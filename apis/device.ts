@@ -1,7 +1,7 @@
 import { HTTP } from 'core';
 import { IDevice, ISearchDevice, ISearchDeviceAll } from 'models';
 
-const URL = 'devices';
+const URL = 'devices/';
 
 function get<T = ISearchDevice>(p?: T) {
   return HTTP.get<T, IDevice[]>(`${URL}`, p);

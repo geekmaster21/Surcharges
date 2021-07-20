@@ -1,17 +1,22 @@
 import { ListItemIcon, ListItemText } from '@material-ui/core';
 import { SdCardOutlinedIcon } from 'components';
-import { IReleaseWithDetails } from 'models';
+import { IRelease, Variants } from 'models';
 import { FormattedMessage } from 'react-intl';
 import useStyles from 'styles/mui/release';
 
 type FileSizeProps = {
-  release: IReleaseWithDetails;
+  release: IRelease;
+  variant: keyof Variants;
 };
 
-const FileSize: React.FunctionComponent<FileSizeProps> = ({ release }) => {
+const FileSize: React.FunctionComponent<FileSizeProps> = ({
+  release,
+  variant,
+}) => {
   const classes = useStyles();
   const size_human =
-    Math.round((release.size / 1e6 + Number.EPSILON) * 100) / 100;
+    Math.round((release.variants[variant].size / 1e6 + Number.EPSILON) * 100) /
+    100;
 
   return release ? (
     <>

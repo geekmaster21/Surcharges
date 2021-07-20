@@ -2,12 +2,9 @@ import Paper from '@material-ui/core/Paper';
 import Alert from '@material-ui/lab/Alert';
 import { IDevice } from 'models';
 import { FormattedMessage } from 'react-intl';
+import { Button, Hidden, IconButton } from '@material-ui/core';
 import useStyles from 'styles/mui/device-info';
-import {
-  PermDeviceInformationOutlinedIcon,
-  PermIdentityOutlinedIcon,
-  ReportProblemOutlined,
-} from './Icons';
+import { PermIdentityOutlinedIcon, ReportProblemOutlined } from './Icons';
 import { LinkifyMessage } from './Linkify-Message';
 import Divider from '@material-ui/core/Divider';
 import { OpenOutside } from 'components';
@@ -74,8 +71,8 @@ const DeviceInfo = (device: IDevice) => {
       <Paper elevation={2} className={classes.root}>
         <h1 className={classes.deviceHeader}>{device?.title}</h1>
         <p>
-          Use release builds for models like {stylize(device?.model_names)}{' '}
-          having codenames {stylize(device?.codenames)} from here.
+          Get builds for {stylize(device?.model_names)} having codenames{' '}
+          {stylize(device?.codenames)} from here.
         </p>
 
         <Divider className={classes.divider} />
@@ -92,22 +89,28 @@ const DeviceInfo = (device: IDevice) => {
               className='link'
               href={device?.installation_instruction}
             >
-              <FormattedMessage
-                id='support.installation'
-                defaultMessage='Installation Guide'
-              />
+              <Button variant='outlined' color='secondary'>
+                <FormattedMessage
+                  id='support.installation'
+                  defaultMessage='Installation Guide'
+                />
+              </Button>
             </OpenOutside>
             <OpenOutside className='link' href={device?.support.telegram_chat}>
-              <FormattedMessage
-                id='support.chat'
-                defaultMessage='Support Chat'
-              />
+              <Button variant='outlined' color='secondary'>
+                <FormattedMessage
+                  id='support.chat'
+                  defaultMessage='Support Chat'
+                />
+              </Button>
             </OpenOutside>
             <OpenOutside className='link' href={device?.support.forum}>
-              <FormattedMessage
-                id='support.forum'
-                defaultMessage='Support Forum'
-              />
+              <Button variant='outlined' color='secondary'>
+                <FormattedMessage
+                  id='support.forum'
+                  defaultMessage='Support Forum'
+                />
+              </Button>
             </OpenOutside>
           </div>
         </div>
