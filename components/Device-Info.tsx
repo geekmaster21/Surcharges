@@ -1,13 +1,6 @@
-import {
-  Accordion,
-  AccordionDetails,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-} from '@material-ui/core';
+import Paper from '@material-ui/core/Paper';
 import Alert from '@material-ui/lab/Alert';
-import { IDeviceWithMaintainer } from 'models';
+import { IDevice } from 'models';
 import { FormattedMessage } from 'react-intl';
 import useStyles from 'styles/mui/device-info';
 import {
@@ -16,21 +9,32 @@ import {
   ReportProblemOutlined,
 } from './Icons';
 import { LinkifyMessage } from './Linkify-Message';
-import { LoadShimmer } from './Load-Shimmer';
+import Divider from '@material-ui/core/Divider';
+import { OpenOutside } from 'components';
 
-const DeviceInfo = (device: IDeviceWithMaintainer) => {
+const DeviceInfo = (device: IDevice) => {
   const classes = useStyles();
   const maintainer = device.maintainer?.name || 'None';
   let maintainPrimaryText: JSX.Element | null = null;
   let maintainSecondaryText: JSX.Element | null = null;
 
+  function stylize(text: string[]) {
+    return (text || []).map((m, i) => (
+      <span key={m}>
+        <span className={classes.themedUnderline}>{m}</span>
+        {i === text.length - 1 ? '' : ', '}
+      </span>
+    ));
+  }
+
   if (device.supported) {
-    maintainPrimaryText = (
-      <FormattedMessage
-        id='maintain.status.maintained'
-        defaultMessage='Maintained'
-      />
-    );
+    // maintainPrimaryText = (
+    //   <FormattedMessage
+    //     id='maintain.status.maintained'
+    //     defaultMessage='Maintained'
+    //   />
+    // );
+    maintainPrimaryText = null;
 
     maintainSecondaryText = (
       <FormattedMessage
@@ -63,71 +67,58 @@ const DeviceInfo = (device: IDeviceWithMaintainer) => {
     );
   }
 
-  const showLoader = !device?.full_name;
+  const showLoader = !device?._id;
 
   return (
-    <Accordion defaultExpanded className={classes.root} expanded>
-      <AccordionDetails className={classes.details}>
-        <List component='ul' className={classes.list}>
-          <ListItem>
-            <ListItemIcon>
-              <PermDeviceInformationOutlinedIcon className={classes.icon} />
-            </ListItemIcon>
+    <>
+      <Paper elevation={2} className={classes.root}>
+        <h1 className={classes.deviceHeader}>{device?.title}</h1>
+        <p>
+          Use release builds for models like {stylize(device?.model_names)}{' '}
+          having codenames {stylize(device?.codenames)} from here.
+        </p>
 
-            {!showLoader && (
-              <>
-                <ListItemText
-                  primary={
-                    device.full_name + (device.ab_device ? ' [A/B]' : '')
-                  }
-                  secondary={device.codename}
-                />
-              </>
-            )}
+        <Divider className={classes.divider} />
 
-            {/* Loading Placeholder */}
-            {showLoader && (
-              <>
-                <ListItemText
-                  primary={<LoadShimmer />}
-                  secondary={<LoadShimmer />}
-                />
-              </>
-            )}
-          </ListItem>
-          <ListItem>
-            <ListItemIcon>
-              <PermIdentityOutlinedIcon className={classes.icon} />
-            </ListItemIcon>
+        <div className={classes.group}>
+          <div>
+            <PermIdentityOutlinedIcon className={classes.icon} />
+            {maintainSecondaryText}
+            {maintainPrimaryText ? <>({maintainPrimaryText})</> : <></>}
+          </div>
 
-            {!showLoader && (
-              <>
-                <ListItemText
-                  primary={maintainPrimaryText}
-                  secondary={maintainSecondaryText}
-                />
-              </>
-            )}
-
-            {/* Loading Placeholder */}
-            {showLoader && (
-              <>
-                <ListItemText
-                  primary={<LoadShimmer />}
-                  secondary={<LoadShimmer />}
-                />
-              </>
-            )}
-          </ListItem>
-        </List>
+          <div className={classes.groupedItems}>
+            <OpenOutside
+              className='link'
+              href={device?.installation_instruction}
+            >
+              <FormattedMessage
+                id='support.installation'
+                defaultMessage='Installation Guide'
+              />
+            </OpenOutside>
+            <OpenOutside className='link' href={device?.support.telegram_chat}>
+              <FormattedMessage
+                id='support.chat'
+                defaultMessage='Support Chat'
+              />
+            </OpenOutside>
+            <OpenOutside className='link' href={device?.support.forum}>
+              <FormattedMessage
+                id='support.forum'
+                defaultMessage='Support Forum'
+              />
+            </OpenOutside>
+          </div>
+        </div>
 
         {device.notes && (
           <Alert severity='info' variant='outlined' className={classes.alert}>
             <LinkifyMessage msg={device.notes} />
           </Alert>
         )}
-      </AccordionDetails>
-    </Accordion>
+      </Paper>
+    </>
   );
 };
 

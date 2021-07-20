@@ -1,24 +1,26 @@
 import { apiDevice, apiRelease } from 'apis';
 import { DeviceInfo, DeviceReleases, MetaTagsDynamic } from 'components';
-import { IDeviceWithMaintainer, IRelease } from 'models';
+import { IDevice, IRelease } from 'models';
 import { NextPageContext } from 'next';
 import { IsCSR, RedirectTo, SafePromise } from 'utils';
 
 type Props = {
+  info: IDevice;
   releases: IRelease[];
-  info: IDeviceWithMaintainer;
 };
 
 const Page = ({ info, releases }: Props) => {
-  const url = `/device/${info.codename}`;
-  const title = `${info.full_name} (${info.codename}) build releases`;
+  const url = `/device/${info._id}`;
+  const { title } = info;
 
   return (
     <>
       <MetaTagsDynamic
         url={url}
         title={title}
-        desc={`Orangefox recovery for ${info.full_name} (${info.codename})`}
+        desc={`Orangefox recovery for ${info.title} (${info.codenames.join(
+          ', '
+        )})`}
         jsonLd={{
           '@type': 'SoftwareApplication',
           url,
@@ -48,29 +50,39 @@ const Page = ({ info, releases }: Props) => {
 };
 
 const deviceCache: {
-  codename: string;
+  id: string;
+  info: IDevice;
   releases: IRelease[];
-  info: IDeviceWithMaintainer;
 }[] = [];
 
-Page.getInitialProps = async ({ query, res }: NextPageContext) => {
-  const codename = query.code as string;
-  let releases: IRelease[] = undefined as any;
-  let info: IDeviceWithMaintainer = undefined as any;
+async function getDeviceInfo(id: string) {
+  return await SafePromise(() =>
+    apiDevice.getById(id).then(r => (r.data?._id ? r.data : undefined))
+  );
+}
 
-  const found = deviceCache.find(f => f.codename === codename);
+Page.getInitialProps = async ({ query, res }: NextPageContext) => {
+  const id = query.code_or_id as string;
+  let releases: IRelease[] = undefined as any;
+  let info: IDevice | undefined;
+
+  const found = deviceCache.find(f => f.id === id);
 
   if (IsCSR && found) {
     info = found.info;
   } else {
-    info = (await SafePromise(() =>
-      apiDevice.get({ codename }).then(r => {
-        if (!r.isSuccess) {
-          RedirectTo({ res, asPath: '/404' } as NextPageContext);
-        }
-        return r.data;
-      })
-    ))!;
+    // search by id
+    info = await getDeviceInfo(id);
+
+    // search by code if device info is still missing
+    if (!info) {
+      const _info = (
+        await SafePromise(() => apiDevice.get({ codenames: id }))
+      )?.data?.pop?.();
+      if (_info?._id) {
+        info = await getDeviceInfo(_info._id);
+      }
+    }
   }
 
   if (!info) {
@@ -82,17 +94,17 @@ Page.getInitialProps = async ({ query, res }: NextPageContext) => {
   } else {
     if (info) {
       releases = (await SafePromise(() =>
-        apiRelease.getAll({ device_id: info?._id }).then(r => r.data?.list)
+        apiRelease.getAll({ device_id: info!._id }).then(r => r.data?.list)
       ))!;
     }
   }
 
   if (IsCSR && !found) {
     deviceCache.push({
+      id,
       info,
-      codename,
       releases,
-    });
+    } as any);
   }
 
   return {

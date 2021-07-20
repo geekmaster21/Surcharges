@@ -1,5 +1,3 @@
-import { IMaintainer } from './maintainer';
-
 export interface IDevice {
   _id: string;
   codenames: string[];
@@ -7,14 +5,26 @@ export interface IDevice {
   oem_name: string;
   notes?: string;
   supported: boolean;
-}
-
-export interface IDeviceWithMaintainer extends IDevice {
-  ab_device: boolean;
-  maintainer: IMaintainer;
+  title: string;
+  url: string;
+  maintainer: Maintainer;
+  uses_boot_partition: boolean;
+  installation_instruction: string;
+  support: Support;
+  sources: string;
 }
 
 export interface IDeviceGroup {
   oem: string;
   devices: IDevice[];
+}
+
+export interface Maintainer {
+  _id: string;
+  name: string;
+}
+
+export interface Support {
+  telegram_chat: string;
+  forum: string;
 }

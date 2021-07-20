@@ -3,31 +3,19 @@
   "editor.formatOnPaste": true,
   "[typescript]": {
     "editor.formatOnSave": true,
-    "editor.formatOnPaste": true,
-    "editor.codeActionsOnSave": {
-      "source.organizeImports": true
-    }
+    "editor.formatOnPaste": true
   },
   "[javascript]": {
     "editor.formatOnSave": true,
-    "editor.formatOnPaste": true,
-    "editor.codeActionsOnSave": {
-      "source.organizeImports": true
-    }
+    "editor.formatOnPaste": true
   },
   "[typescriptreact]": {
     "editor.formatOnSave": true,
-    "editor.formatOnPaste": true,
-    "editor.codeActionsOnSave": {
-      "source.organizeImports": true
-    }
+    "editor.formatOnPaste": true
   },
   "[javascriptreact]": {
     "editor.formatOnSave": true,
-    "editor.formatOnPaste": true,
-    "editor.codeActionsOnSave": {
-      "source.organizeImports": true
-    }
+    "editor.formatOnPaste": true
   },
   "typescript.tsdk": "node_modules/typescript/lib",
   "workbench.colorCustomizations": {
@@ -38,13 +26,9 @@
     "activityBar.inactiveForeground": "#e7e7e799",
     "activityBarBadge.background": "#00200f",
     "activityBarBadge.foreground": "#e7e7e7",
-    "editorGroup.border": "#974700",
-    "panel.border": "#974700",
-    "sideBar.border": "#974700",
     "statusBar.background": "#642f00",
     "statusBar.foreground": "#e7e7e7",
     "statusBarItem.hoverBackground": "#974700",
-    "tab.activeBorder": "#974700",
     "titleBar.activeBackground": "#642f00",
     "titleBar.activeForeground": "#e7e7e7",
     "titleBar.inactiveBackground": "#642f0099",

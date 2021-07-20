@@ -1,6 +1,6 @@
 export interface ISearchDevice {
   _id?: string;
-  codename?: string;
+  codenames?: string;
 }
 
 export interface ISearchDeviceAll extends ISearchDevice {
@@ -34,5 +34,5 @@ export interface ISearchReleaseAll extends ISearchRelease {
 
 export interface ISearchRelease {
   _id?: string;
-  filename?: string;
+  device_id?: string;
 }

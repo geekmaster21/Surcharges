@@ -1,15 +1,10 @@
 import { HTTP } from 'core';
-import {
-  IDevice,
-  IDeviceWithMaintainer,
-  ISearchDevice,
-  ISearchDeviceAll,
-} from 'models';
+import { IDevice, ISearchDevice, ISearchDeviceAll } from 'models';
 
-const URL = 'devices/';
+const URL = 'devices';
 
 function get<T = ISearchDevice>(p?: T) {
-  return HTTP.get<T, IDeviceWithMaintainer>(`${URL}get`, p);
+  return HTTP.get<T, IDevice[]>(`${URL}`, p);
 }
 
 function getAll<T = ISearchDeviceAll>(p?: T) {
@@ -17,7 +12,7 @@ function getAll<T = ISearchDeviceAll>(p?: T) {
 }
 
 function getById(_id?: string) {
-  return HTTP.get<string, IDeviceWithMaintainer>(`${URL}${_id}`);
+  return HTTP.get<string, IDevice>(`${URL}/${_id}`);
 }
 
 export default {
