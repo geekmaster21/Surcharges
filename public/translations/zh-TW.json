@@ -5,36 +5,36 @@
   },
   "mainPage": {
     "donation": "捐款",
-    "hintText": "從列表或者搜尋中選擇您的裝置",
+    "hintText": "從列表中選擇您的裝置或者搜尋您的裝置",
     "notFound": "到底啦！回到首頁！"
   },
   "deviceList": {
     "searchDevice": "搜尋裝置",
     "notFound": "未找到裝置！",
-    "diy": "看起來我們還尚未有此裝置! 但是歡迎您為自己與社群建構一個版本. 點擊知道更多"
+    "diy": "看起來我們還不支援這款裝置！不過歡迎您為自己與社群建構一個版本。點此了解更多資訊。"
   },
   "device": {
-    "info": "(裝置資訊)"
+    "info": "（裝置資訊）"
   },
   "maintain": {
     "status": {
-      "maintained": "已維護",
-      "maintainedWithoutDevice": "已維護沒在手裝置",
+      "maintained": "維護中",
+      "maintainedWithoutDevice": "維護者未擁有此裝置",
       "notMaintained": "未維護！"
     },
     "by": {
-      "current": "維護者： {maintainer}",
-      "previous": "先前的維護者： {maintainer}"
+      "current": "維護者：{maintainer}",
+      "previous": "先前的維護者：{maintainer}"
     }
   },
-  "clipboardCopy": "複製到剪貼簿!",
+  "clipboardCopy": "複製到剪貼簿！",
   "release": {
     "type": {
-      "beta": "測試版",
+      "beta": "Beta 版",
       "betaInfo": "就基本功能而言，測試版本應該可以工作。但是，您仍可能會遇到問題或者 bug，您可以向我們的 {telegramChannel} 頻道反饋",
       "stable": "穩定版"
     },
-    "notFound": "尚未此裝置釋出版本",
+    "notFound": "未為此裝置構建版本",
     "fileSize": "檔案大小",
     "download": "下載",
     "changeLogs": "更新日誌",
