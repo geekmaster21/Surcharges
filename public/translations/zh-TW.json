@@ -34,25 +34,25 @@
       "betaInfo": "就基本功能而言，測試版本應該可以工作。但是，您仍可能會遇到問題或者 bug，您可以向我們的 {telegramChannel} 頻道反饋",
       "stable": "穩定版"
     },
-    "notFound": "未為此裝置構建版本",
+    "notFound": "目前還沒有為這款裝置設計的版本！",
     "fileSize": "檔案大小",
     "download": "下載",
     "changeLogs": "更新日誌",
-    "buildNotes": "建置標註",
-    "bugs": "Bugs",
+    "buildNotes": "注意事項",
+    "bugs": "Bug",
     "donation": {
-      "info": "我們希望您喜歡這個 recovery. 捐款維持伺服器運作與幫助我們為您建立一個更好的產品. 您願意捐款嗎?",
-      "yes": "是的, 我願意捐款",
-      "no": "不"
+      "info": "希望您喜歡這個 Recovery。捐款可以維持伺服器運作，並幫助我們為您打造更好的產品。您願意捐款嗎？",
+      "yes": "好的，我願意捐款",
+      "no": "不了"
     },
     "allBuild": "顯示所有發行版本"
   },
   "error": {
-    "server": "無法連接到 OrangeFox ！請稍候再嘗試。"
+    "server": "無法連線到 OrangeFox！請稍候再試。"
   },
   "modal": {
     "fetchLink": "正在取得連結",
-    "directLink": "直接連接",
+    "directLink": "直接連結",
     "mirrorLink": "鏡像連結",
     "guide": "卡住了? 讀取如何在您的裝置上安裝 OrangeFox Recovery 文件",
     "close": "關閉",
@@ -60,6 +60,6 @@
   },
   "footer": {
     "poweredBy": "由 {hostWebsite} 提供支援",
-    "openSource": "開放原始碼"
+    "openSource": "開放原始碼專案"
   }
 }
