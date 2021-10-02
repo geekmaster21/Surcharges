@@ -1353,5 +1353,10 @@
     "isoCode": "ZZ",
     "region": "Private use",
     "flag": "🇿🇿"
+  },
+  {
+    "isoCode": "DL",
+    "region": "Global",
+    "flag": "🌎"
   }
 ]

@@ -21,8 +21,6 @@ const DeviceReleases = ({ device, releases }: Props) => {
     return rel ? rel.map(d => ({ ...d, actualDate: new Date(d.date) })) : rel;
   }
 
-  console.log(releases);
-
   const hasStableReleases = Boolean(grouped.stable?.length);
 
   return (

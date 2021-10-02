@@ -59,8 +59,6 @@ const Release: React.FunctionComponent<Props> = props => {
 
   const { version } = release;
 
-  console.log(release);
-
   return (
     <>
       <Accordion

@@ -23,8 +23,13 @@ export interface Variant {
   filename: string;
 }
 
-export interface Mirrors {
-  [p: string]: string;
+export interface IReleaseWithDetails extends IRelease {
+  recovery_img: { size: number; md5: string };
+  changelog?: string[];
+  bugs?: string[];
+  notes?: string;
+  code?: string;
+  mirrors: { [p: string]: string };
 }
 
 export interface Variants {

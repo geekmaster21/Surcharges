@@ -1,4 +1,5 @@
 import config from 'config';
+// @ts-ignore
 import nodeFetch, { Response } from 'node-fetch';
 
 async function get<T = any, S = any>(url: string, params?: T) {

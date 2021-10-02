@@ -1,0 +1,4 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo '' && echo 'Running pre-commit code style fixes...' && echo '' && yarn lint-staged --allow-empty
