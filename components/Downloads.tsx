@@ -65,13 +65,7 @@ const Downloads: React.FunctionComponent<DownloadsProps> = ({
     const keys = Object.keys(release.mirrors);
     const values = Object.values(release.mirrors);
     return keys.map((m, i) => {
-      const region = regions.find(
-        f =>
-          f.isoCode ===
-          (m === 'DL' // temp hack to map unknown DL to NL
-            ? 'NL'
-            : m)
-      );
+      const region = regions.find(f => f.isoCode === m);
       return {
         ...region,
         url: values[i],

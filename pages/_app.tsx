@@ -4,7 +4,8 @@ import { Layout, MetaTagsDynamic, MetaTagsStatic } from 'components';
 import config from 'config';
 import cookie from 'cookie';
 import { locale } from 'dayjs';
-import { AppContextType, AppPropsType } from 'next/dist/next-server/lib/utils';
+import type { AppProps } from 'next/app';
+import { AppContextType } from 'next/dist/shared/lib/utils';
 import React, { useEffect } from 'react';
 import { IntlProvider } from 'react-intl';
 import 'styles/app.scss';
@@ -16,7 +17,7 @@ import { DarkTheme } from '../themes';
 // TODO: remove this and handle translations properly
 DisableErrorFromReactIntl();
 
-export default function OrangeFoxApp(props: AppPropsType) {
+export default function OrangeFoxApp(props: AppProps) {
   const {
     Component,
     pageProps: { translations, locale, ...rest },
@@ -114,7 +115,7 @@ OrangeFoxApp.getInitialProps = async ({
         translations: cachedTranslation,
       },
     };
-  } catch (err) {
+  } catch (err: any) {
     console.error(
       {
         headerLocale,

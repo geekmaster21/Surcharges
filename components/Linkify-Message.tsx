@@ -1,4 +1,4 @@
-import Linkify from 'linkifyjs/react';
+import Linkify from 'linkify-react';
 
 export function LinkifyMessage({ msg }: { msg: string | string[] }) {
   return (
