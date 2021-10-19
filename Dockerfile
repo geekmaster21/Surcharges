@@ -1,7 +1,7 @@
 # build environment
 FROM node:15-alpine as build
 COPY package.json .
-RUN yarn
+RUN yarn install --ignore-engines
 COPY . ./
 RUN yarn build
 ENV PATH ./node_modules/.bin:$PATH

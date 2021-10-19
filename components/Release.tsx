@@ -130,7 +130,7 @@ const Release: React.FunctionComponent<Props> = props => {
             <List component='div' className={classes.nestedList}>
               {fetched ? (
                 <>
-                  {release.mirrors?.DL && (
+                  {Boolean(Object.keys(release.mirrors || {}).length) && (
                     <Downloads popup={popup} release={release} />
                   )}
 

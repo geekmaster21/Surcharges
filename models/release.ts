@@ -16,7 +16,7 @@ export interface IReleaseWithDetails extends IRelease {
   bugs?: string[];
   notes?: string;
   code?: string;
-  mirrors: { DL: string };
+  mirrors: { [p: string]: string };
 }
 
 export type TReleaseType = 'beta' | 'stable';

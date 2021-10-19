@@ -3,7 +3,9 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import { Layout, MetaTagsDynamic, MetaTagsStatic } from 'components';
 import config from 'config';
 import cookie from 'cookie';
-import { AppContextType, AppPropsType } from 'next/dist/next-server/lib/utils';
+import { locale } from 'dayjs';
+import type { AppProps } from 'next/app';
+import { AppContextType } from 'next/dist/shared/lib/utils';
 import React, { useEffect } from 'react';
 import { IntlProvider } from 'react-intl';
 import 'styles/app.scss';
@@ -15,7 +17,7 @@ import { DarkTheme } from '../themes';
 // TODO: remove this and handle translations properly
 DisableErrorFromReactIntl();
 
-export default function OrangeFoxApp(props: AppPropsType) {
+export default function OrangeFoxApp(props: AppProps) {
   const {
     Component,
     pageProps: { translations, locale, ...rest },
@@ -52,6 +54,8 @@ export default function OrangeFoxApp(props: AppPropsType) {
 
 const langCodes = config.availableLanguages.map(m => m.code);
 
+const traslationCache: { [p: string]: any } = {};
+
 OrangeFoxApp.getInitialProps = async ({
   ctx,
   router,
@@ -59,7 +63,6 @@ OrangeFoxApp.getInitialProps = async ({
 }: AppContextType) => {
   let headerLocale = '';
   let pageProps: any = {},
-    translations: any = {},
     alpPicked = null;
 
   try {
@@ -85,12 +88,21 @@ OrangeFoxApp.getInitialProps = async ({
       return ctx.res.end();
     }
 
-    translations = await import(`public/translations/${locale}.json`).then(
-      x => {
+    let cachedTranslation = traslationCache[locale];
+
+    if (cachedTranslation) {
+      console.log('using cached translation for locale:', locale);
+    } else {
+      traslationCache[locale] = await import(
+        `public/translations/${locale}.json`
+      ).then(x => {
         console.log({ currentLocale: locale });
-        Dotize.convert(x.default || x);
-      }
-    );
+        const translation = Dotize.convert(x.default || x);
+        return translation;
+      });
+      cachedTranslation = traslationCache[locale];
+      console.log('added translation to cache for locale:', locale);
+    }
 
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx);
@@ -100,13 +112,14 @@ OrangeFoxApp.getInitialProps = async ({
       pageProps: {
         ...pageProps,
         locale,
-        translations,
+        translations: cachedTranslation,
       },
     };
-  } catch (err) {
+  } catch (err: any) {
     console.error(
       {
-        headerAcl: headerLocale,
+        headerLocale,
+        currentLocale: locale,
         errMsg: err.toString(),
         catchedError: 'some-error-occurred',
       },

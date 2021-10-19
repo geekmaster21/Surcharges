@@ -45,5 +45,10 @@ function countryCodeEmoji(cc) {
     ...m,
     flag: countryCodeEmoji(m.isoCode),
   }));
+  res.push({
+    isoCode: 'DL',
+    region: 'Global',
+    flag: '🌎',
+  });
   fs.writeFileSync('public/region.json', JSON.stringify(res, null, 2));
 })();
