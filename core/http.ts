@@ -8,24 +8,21 @@ async function get<T = any, S = any>(url: string, params?: T) {
     _url.search = new URLSearchParams(params as any).toString();
   }
 
-  let _resp: Response | null = null;
+  let apiResponse: Response | null = null;
   try {
-    _resp = await nodeFetch(_url.toString(), {
+    apiResponse = await nodeFetch(_url.toString(), {
       method: 'GET',
     });
-    const _succ_res = await _resp.json();
-    const keys = Object.keys(_succ_res);
+    const json = await apiResponse.json();
     const isList =
-      keys.length === 2 && 'data' in _succ_res && 'count' in _succ_res;
+      'count' in json && 'data' in json && Array.isArray(json.data);
     return {
-      _resp,
-      isSuccess: _resp.status === 200,
-      data: (isList
-        ? { list: _succ_res.data, count: _succ_res.count }
-        : _succ_res) as S,
+      _resp: apiResponse,
+      isSuccess: apiResponse.status === 200,
+      data: (isList ? { list: json.data, count: json.count } : json) as S,
     };
   } catch (error) {
-    return { isSuccess: false, data: null, error, _resp };
+    return { isSuccess: false, data: null, error, _resp: apiResponse };
   }
 }
 
