@@ -16,4 +16,4 @@ docker:push:
     paths: [public/translations/list.json]
   only:
     - master
-    - ci-test
+    - l10n_master
