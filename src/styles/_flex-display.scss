@@ -21,16 +21,16 @@
 
 .flexd-row {
   @extend .flexd;
-  @extend .flexd.row;
+  @extend .flexd, .row;
 }
 
 .flexd-center {
   @extend .flexd;
-  @extend .flexd.center;
+  @extend .flexd, .center;
 }
 
 .flexd-row-center {
   @extend .flexd;
-  @extend .flexd.row;
-  @extend .flexd.center;
+  @extend .flexd, .row;
+  @extend .flexd, .center;
 }

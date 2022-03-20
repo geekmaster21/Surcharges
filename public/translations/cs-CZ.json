@@ -11,10 +11,18 @@
   "deviceList": {
     "searchDevice": "Vyhledat zařízení",
     "notFound": "Zařízení nenalezeno!",
-    "diy": "Vypadá to, že toto zařízení ještě nemáme! Jste však vítáni, chcete-li tvořit pro sebe a komunitu. Kliknutím sem získáte další informace."
+    "diy": "Vypadá to, že toto zařízení ještě nemáme! Jste však vítáni, chcete-li tvořit pro sebe a komunitu. Kliknutím sem získáte další informace.",
+    "filter": {
+      "all": null,
+      "supported": null
+    }
   },
   "device": {
-    "info": "(Informace o zařízení)"
+    "info": "(Informace o zařízení)",
+    "unsupported": {
+      "primaryText": null,
+      "secondaryText": null
+    }
   },
   "maintain": {
     "status": {

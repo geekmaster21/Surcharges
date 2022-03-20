@@ -3,11 +3,7 @@
     "target": "esnext",
     "module": "esnext",
     "jsx": "preserve",
-    "lib": [
-      "dom",
-      "es2017"
-    ],
-    "baseUrl": ".",
+    "lib": ["dom", "es2017"],
     "alwaysStrict": true,
     "moduleResolution": "node",
     "strict": true,
@@ -25,19 +21,13 @@
     "sourceMap": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
-    "incremental": true
+    "incremental": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@public/*": ["../public/*"],
+      "@root/*": ["../*"]
+    }
   },
-  "exclude": [
-    "dist",
-    ".next",
-    "out",
-    "next.config.js",
-    "node_modules"
-  ],
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "pages/_app.tsx"
-  ]
+  "exclude": ["dist", ".next", "out", "next.config.js", "node_modules"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/_app.tsx"]
 }

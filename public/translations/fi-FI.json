@@ -11,10 +11,18 @@
   "deviceList": {
     "searchDevice": "Hae Laitetta",
     "notFound": "Laitetta ei löytynyt!",
-    "diy": "Näyttää siltä, että me emme tue vielä tuota laitetta! Mutta olet tervetullut rakentamaan sellaisen itsellesi ja yhteisölle. Klikkaa tästä nähdäksesi lisää."
+    "diy": "Näyttää siltä, että me emme tue vielä tuota laitetta! Mutta olet tervetullut rakentamaan sellaisen itsellesi ja yhteisölle. Klikkaa tästä nähdäksesi lisää.",
+    "filter": {
+      "all": null,
+      "supported": null
+    }
   },
   "device": {
-    "info": "(Laitteen Tiedot)"
+    "info": "(Laitteen Tiedot)",
+    "unsupported": {
+      "primaryText": null,
+      "secondaryText": null
+    }
   },
   "maintain": {
     "status": {

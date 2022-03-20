@@ -85,6 +85,7 @@ export default function DeviceList({
               };
             })
           )
+          .catch(console.error)
           .finally(() => setFetched(true));
       }
     } else {
@@ -102,6 +103,7 @@ export default function DeviceList({
               };
             })
           )
+          .catch(console.error)
           .finally(() => setFetched(true));
       }
     }

@@ -10,10 +10,19 @@
   },
   "deviceList": {
     "searchDevice": "Претражуј уређаје",
-    "notFound": "Уређај није пронађен!"
+    "notFound": "Уређај није пронађен!",
+    "diy": null,
+    "filter": {
+      "all": null,
+      "supported": null
+    }
   },
   "device": {
-    "info": "(Информације о уређају)"
+    "info": "(Информације о уређају)",
+    "unsupported": {
+      "primaryText": null,
+      "secondaryText": null
+    }
   },
   "maintain": {
     "status": {
@@ -29,7 +38,8 @@
   "release": {
     "type": {
       "beta": "Пробне верзије",
-      "stable": "Стабилне верзије"
+      "stable": "Стабилне верзије",
+      "betaInfo": null
     },
     "notFound": "Не постоје верзије за овај уређај!",
     "fileSize": "Величина датотеке",
@@ -37,7 +47,12 @@
     "changeLogs": "Листа промјена",
     "buildNotes": "Информације о верзији",
     "bugs": "Грешке",
-    "allBuild": "Прикажи све верзије"
+    "allBuild": "Прикажи све верзије",
+    "donation": {
+      "info": null,
+      "yes": null,
+      "no": null
+    }
   },
   "error": {
     "server": "Није могуће повезивање са OrangeFox! Покушајте поново касније."
@@ -46,10 +61,13 @@
     "fetchLink": "Скупљање веза",
     "directLink": "Директна веза",
     "mirrorLink": "Причувна веза",
-    "close": "Близу"
+    "close": "Близу",
+    "guide": null,
+    "info": null
   },
   "footer": {
     "poweredBy": "Покреће {hostWebsite}",
     "openSource": "Пројекат отвореног кода"
-  }
+  },
+  "clipboardCopy": null
 }

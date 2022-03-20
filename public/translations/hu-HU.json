@@ -11,10 +11,18 @@
   "deviceList": {
     "searchDevice": "Eszköz keresése",
     "notFound": "Eszköz nem található!",
-    "diy": "Úgy látszik, készüléke jelenleg nem támogatott! De örülnénk, ha készítene egyet magának és közösségnek. Kattintson ide a további információkhoz."
+    "diy": "Úgy látszik, készüléke jelenleg nem támogatott! De örülnénk, ha készítene egyet magának és közösségnek. Kattintson ide a további információkhoz.",
+    "filter": {
+      "all": null,
+      "supported": null
+    }
   },
   "device": {
-    "info": "(Készülék Információ)"
+    "info": "(Készülék Információ)",
+    "unsupported": {
+      "primaryText": null,
+      "secondaryText": null
+    }
   },
   "maintain": {
     "status": {

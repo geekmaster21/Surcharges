@@ -11,10 +11,18 @@
   "deviceList": {
     "searchDevice": "Apparaat zoeken",
     "notFound": "Apparaat niet gevonden!",
-    "diy": "Het lijkt erop dat we dat apparaat nog niet hebben! Maar je bent welkom om er een voor jezelf en de gemeenschap te bouwen. Klik hier om meer te weten."
+    "diy": "Het lijkt erop dat we dat apparaat nog niet hebben! Maar je bent welkom om er een voor jezelf en de gemeenschap te bouwen. Klik hier om meer te weten.",
+    "filter": {
+      "all": null,
+      "supported": null
+    }
   },
   "device": {
-    "info": "(Apparaat informatie)"
+    "info": "(Apparaat informatie)",
+    "unsupported": {
+      "primaryText": null,
+      "secondaryText": null
+    }
   },
   "maintain": {
     "status": {

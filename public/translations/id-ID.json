@@ -11,10 +11,18 @@
   "deviceList": {
     "searchDevice": "Telusuri perangkat",
     "notFound": "Perangkat tidak ditemukan!",
-    "diy": "Sepertinya kami belum mendukung perangkat tersebut! Tetapi Anda dipersilakan membuat untuk diri Anda sendiri dan komunitas. Klik di sini untuk mengetahuinya lebih lanjut."
+    "diy": "Sepertinya kami belum mendukung perangkat tersebut! Tetapi Anda dipersilakan membuat untuk diri Anda sendiri dan komunitas. Klik di sini untuk mengetahuinya lebih lanjut.",
+    "filter": {
+      "all": null,
+      "supported": null
+    }
   },
   "device": {
-    "info": "(Info perangkat)"
+    "info": "(Info perangkat)",
+    "unsupported": {
+      "primaryText": null,
+      "secondaryText": null
+    }
   },
   "maintain": {
     "status": {

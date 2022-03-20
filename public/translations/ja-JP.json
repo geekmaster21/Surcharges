@@ -10,10 +10,19 @@
   },
   "deviceList": {
     "searchDevice": "端末を探す",
-    "notFound": "端末が見つかりません！"
+    "notFound": "端末が見つかりません！",
+    "diy": null,
+    "filter": {
+      "all": null,
+      "supported": null
+    }
   },
   "device": {
-    "info": "(端末情報)"
+    "info": "(端末情報)",
+    "unsupported": {
+      "primaryText": null,
+      "secondaryText": null
+    }
   },
   "maintain": {
     "status": {
@@ -29,7 +38,8 @@
   "release": {
     "type": {
       "beta": "ベータ版",
-      "stable": "安定版"
+      "stable": "安定版",
+      "betaInfo": null
     },
     "notFound": "この端末にはまだリリースがありません",
     "fileSize": "ファイルサイズ",
@@ -37,7 +47,12 @@
     "changeLogs": "更新履歴",
     "buildNotes": "ビルドノート",
     "bugs": "バグ",
-    "allBuild": "全てのビルドを表示する"
+    "allBuild": "全てのビルドを表示する",
+    "donation": {
+      "info": null,
+      "yes": null,
+      "no": null
+    }
   },
   "error": {
     "server": "OrangeFoxに接続できませんでした。 あとでもう一度試してみてください。"
@@ -46,10 +61,13 @@
     "fetchLink": "データを要求する",
     "directLink": "ダイレクトリンク",
     "mirrorLink": "ミラーリンク",
-    "close": "閉じる"
+    "close": "閉じる",
+    "guide": null,
+    "info": null
   },
   "footer": {
     "poweredBy": "{hostWebsite} による運営",
     "openSource": "オープンソースプロジェクト"
-  }
+  },
+  "clipboardCopy": null
 }

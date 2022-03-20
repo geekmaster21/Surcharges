@@ -94,7 +94,7 @@ OrangeFoxApp.getInitialProps = async ({
       console.log('using cached translation for locale:', locale);
     } else {
       traslationCache[locale] = await import(
-        `public/translations/${locale}.json`
+        `@public/translations/${locale}.json`
       ).then(x => {
         console.log({ currentLocale: locale });
         const translation = Dotize.convert(x.default || x);

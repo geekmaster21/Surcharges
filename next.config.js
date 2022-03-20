@@ -2,7 +2,8 @@ const locales = require('./public/translations/list.json').map(m =>
   m.code.trim()
 );
 
-module.exports = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   async redirects() {
     return [
       {
@@ -25,3 +26,5 @@ module.exports = {
   // },
   target: 'serverless',
 };
+
+module.exports = nextConfig;

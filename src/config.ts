@@ -1,12 +1,12 @@
-import regions from 'public/region.json';
-import availableLanguages from 'public/translations/list.json';
-import pkg from './package.json';
+import availableLanguages from '@public/translations/list.json';
+import regions from '@public/translations/region.json';
+import pkg from '@root/package.json';
 
 export default {
   regions,
   availableLanguages,
   version: pkg.version,
-  apiUrl: 'https://api.orangefox.download/v3',
+  apiUrl: process.env.NEXT_PUBLIC_API_URL,
   isDevEnv: process.env.NODE_ENV === 'development',
   locale: {
     default: 'en',

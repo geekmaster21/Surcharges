@@ -10,10 +10,19 @@
   },
   "deviceList": {
     "searchDevice": "Cerca dispositivo",
-    "notFound": "Dispositivo non trovato!"
+    "notFound": "Dispositivo non trovato!",
+    "diy": null,
+    "filter": {
+      "all": null,
+      "supported": null
+    }
   },
   "device": {
-    "info": "(Informazioni dispositivo)"
+    "info": "(Informazioni dispositivo)",
+    "unsupported": {
+      "primaryText": null,
+      "secondaryText": null
+    }
   },
   "maintain": {
     "status": {
@@ -29,7 +38,8 @@
   "release": {
     "type": {
       "beta": "Versioni Beta",
-      "stable": "Versioni stabili"
+      "stable": "Versioni stabili",
+      "betaInfo": null
     },
     "copy": "Link copiato negli appunti!",
     "notFound": "Non ci sono ancora versioni per questo dispositivo!",
@@ -38,7 +48,12 @@
     "changeLogs": "Log delle modifiche",
     "buildNotes": "Note della build",
     "bugs": "Bug",
-    "allBuild": "Mostra tutte le build"
+    "allBuild": "Mostra tutte le build",
+    "donation": {
+      "info": null,
+      "yes": null,
+      "no": null
+    }
   },
   "error": {
     "server": "Impossibile connettersi con OrangeFox! Riprova più tardi."
@@ -48,10 +63,12 @@
     "directLink": "Link Diretto",
     "mirrorLink": "Link Mirror",
     "close": "Chiudi",
-    "info": "Informazioni"
+    "info": "Informazioni",
+    "guide": null
   },
   "footer": {
     "poweredBy": "Fornito da {hostWebsite}",
     "openSource": "Progetto Open-Source"
-  }
+  },
+  "clipboardCopy": null
 }

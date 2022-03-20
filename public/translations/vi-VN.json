@@ -11,10 +11,18 @@
   "deviceList": {
     "searchDevice": "Tìm kiếm thiết bị",
     "notFound": "Không tìm thấy thiết bị!",
-    "diy": "Có vẻ như chúng tôi hiện chưa có thiết bị đó! Nhưng bạn vẫn có thể tự làm một bản cho mình và cả cộng đồng. Nhấn vào đây để biết thêm."
+    "diy": "Có vẻ như chúng tôi hiện chưa có thiết bị đó! Nhưng bạn vẫn có thể tự làm một bản cho mình và cả cộng đồng. Nhấn vào đây để biết thêm.",
+    "filter": {
+      "all": null,
+      "supported": null
+    }
   },
   "device": {
-    "info": "(Thông tin thiết bị)"
+    "info": "(Thông tin thiết bị)",
+    "unsupported": {
+      "primaryText": null,
+      "secondaryText": null
+    }
   },
   "maintain": {
     "status": {
