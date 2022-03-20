@@ -10,10 +10,19 @@
   },
   "deviceList": {
     "searchDevice": "Căutare dispozitiv",
-    "notFound": "Dispozitivul nu a fost găsit!"
+    "notFound": "Dispozitivul nu a fost găsit!",
+    "diy": null,
+    "filter": {
+      "all": null,
+      "supported": null
+    }
   },
   "device": {
-    "info": "(Informații dispozitiv)"
+    "info": "(Informații dispozitiv)",
+    "unsupported": {
+      "primaryText": null,
+      "secondaryText": null
+    }
   },
   "maintain": {
     "status": {
@@ -29,7 +38,8 @@
   "release": {
     "type": {
       "beta": "Versiuni beta",
-      "stable": "Versiuni stabile"
+      "stable": "Versiuni stabile",
+      "betaInfo": null
     },
     "notFound": "Încă nu există versiuni pentru acest dispozitiv!",
     "fileSize": "Dimensiune fișier",
@@ -37,7 +47,12 @@
     "changeLogs": "Jurnale de modificări",
     "buildNotes": "Note compilare",
     "bugs": "Probleme",
-    "allBuild": "Arată toate versiunile"
+    "allBuild": "Arată toate versiunile",
+    "donation": {
+      "info": null,
+      "yes": null,
+      "no": null
+    }
   },
   "error": {
     "server": "Nu s-a putut conecta cu OrangeFox! Încercați din nou mai târziu."
@@ -46,10 +61,13 @@
     "fetchLink": "Se preiau link-urile",
     "directLink": "Link direct",
     "mirrorLink": "Link adițional",
-    "close": "Închideți"
+    "close": "Închideți",
+    "guide": null,
+    "info": null
   },
   "footer": {
     "poweredBy": "Realizat de {hostWebsite}",
     "openSource": "Proiect Open-Source"
-  }
+  },
+  "clipboardCopy": null
 }

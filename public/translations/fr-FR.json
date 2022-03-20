@@ -11,10 +11,18 @@
   "deviceList": {
     "searchDevice": "Rechercher un appareil",
     "notFound": "Appareil introuvable !",
-    "diy": "On dirait que nous n'avons pas encore cet appareil ! Mais vous êtes les bienvenus pour en construire un pour vous et la communauté. Cliquez ici pour en savoir plus."
+    "diy": "On dirait que nous n'avons pas encore cet appareil ! Mais vous êtes les bienvenus pour en construire un pour vous et la communauté. Cliquez ici pour en savoir plus.",
+    "filter": {
+      "all": null,
+      "supported": null
+    }
   },
   "device": {
-    "info": "(Informations sur l'appareil)"
+    "info": "(Informations sur l'appareil)",
+    "unsupported": {
+      "primaryText": null,
+      "secondaryText": null
+    }
   },
   "maintain": {
     "status": {

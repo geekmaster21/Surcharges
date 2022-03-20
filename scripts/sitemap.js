@@ -1,14 +1,14 @@
+require('dotenv').config();
 const fs = require('fs');
 const nodeFetch = require('node-fetch');
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
 async function generateSiteMap() {
   console.log('SITEMAP: call api fetch');
-  const apiResp = await nodeFetch(
-    'https://api.orangefox.download/v3/devices/?supported=true',
-    {
-      method: 'GET',
-    }
-  );
+  const apiResp = await nodeFetch(`${API_URL}/devices/?supported=true`, {
+    method: 'GET',
+  });
   const resp = await apiResp.json();
   console.log('SITEMAP: got response');
   const deviceList = resp.data

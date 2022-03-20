@@ -68,9 +68,8 @@ export const Dotize = {
         if (currentProp && typeof currentProp === 'object') {
           if (Array.isArray(currentProp)) {
             if (Dotize.isEmptyArray(currentProp)) {
-              newObj[
-                Dotize.getFieldName(f, _prefix, isRoot, false, true)
-              ] = currentProp;
+              newObj[Dotize.getFieldName(f, _prefix, isRoot, false, true)] =
+                currentProp;
             } else {
               newObj = recurseConvert(
                 currentProp,
@@ -90,9 +89,8 @@ export const Dotize = {
                 Dotize.getFieldName(f, _prefix, isRoot)
               ); // object
             } else if (Dotize.isEmptyObj(currentProp)) {
-              newObj[
-                Dotize.getFieldName(f, _prefix, isRoot, isArrayItem)
-              ] = currentProp;
+              newObj[Dotize.getFieldName(f, _prefix, isRoot, isArrayItem)] =
+                currentProp;
             }
           }
         } else {

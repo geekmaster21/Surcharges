@@ -11,10 +11,18 @@
   "deviceList": {
     "searchDevice": "Cihaz Ara",
     "notFound": "Cihaz bulunamadı!",
-    "diy": "Görünüşe göre o cihaz henüz elimizde değil! Ama kendiniz ve toplum için bir tane oluşturmaya davetlisiniz. Daha fazlasını öğrenmek için burayı tıklayın."
+    "diy": "Görünüşe göre o cihaz henüz elimizde değil! Ama kendiniz ve toplum için bir tane oluşturmaya davetlisiniz. Daha fazlasını öğrenmek için burayı tıklayın.",
+    "filter": {
+      "all": null,
+      "supported": null
+    }
   },
   "device": {
-    "info": "(Cihaz Bilgisi)"
+    "info": "(Cihaz Bilgisi)",
+    "unsupported": {
+      "primaryText": null,
+      "secondaryText": null
+    }
   },
   "maintain": {
     "status": {

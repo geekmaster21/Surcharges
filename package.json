@@ -20,18 +20,21 @@
   "displayName": "OrangeFox Recovery Downloads",
   "license": "AGPL-3.0-or-later",
   "homepage": "http://orangefox.download",
-  "version": "22.02.18-0",
+  "version": "22.02.18-2",
   "private": false,
   "funding": "https://opencollective.com/orangefox/donate",
   "scripts": {
     "pretty": "prettier --write .",
     "clean": "rimraf .next dist",
-    "region": "node ./scripts/region.js",
+    "start": "next start -p 5001",
+    "build": "yarn clean && npm run gen:region && npm run gen:sitemap && next build",
+    "gen:region": "node ./scripts/region.js",
+    "gen:langs": "python ./scripts/languages.py",
+    "gen:sitemap": "node ./scripts/sitemap.js",
     "dev:server": "cross-env NODE_ENV=development next dev -p 5000",
     "dev:server:open": "open-cli http://localhost:5000",
-    "dev": "npm run region && concurrently -n dev,dev:open -c blue.bold,green.bold \"yarn dev:server\" \"yarn dev:server:open\"",
-    "build": "yarn clean && npm run region && next build",
-    "start": "next start -p 5001"
+    "sync:translations": "node ./scripts/sync-translations",
+    "dev": "npm run gen:region && concurrently -n dev,dev:open -c blue.bold,green.bold \"yarn dev:server\" \"yarn dev:server:open\""
   },
   "lint-staged": {
     "*.{js,ts,jsx,tsx,json}": "prettier --write"
@@ -40,51 +43,52 @@
     "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.60",
-    "cookie": "^0.4.1",
+    "cookie": "^0.4.2",
     "cross-env": "^7.0.3",
     "dayjs": "^1.10.7",
+    "dotenv": "^16.0.0",
     "js-cookie": "^3.0.1",
-    "linkify-react": "^3.0.1",
-    "linkifyjs": "^3.0.1",
+    "linkify-react": "^3.0.4",
+    "linkifyjs": "^3.0.5",
     "lodash.groupby": "^4.6.0",
     "lodash.isequal": "^4.5.0",
     "lodash.sortby": "^4.7.0",
     "lodash.startcase": "^4.4.0",
     "match-sorter": "^6.3.1",
-    "next": "^11.1.2",
+    "next": "^12.1.0",
     "node-fetch": "^2.6.1",
-    "node-sass": "5.x.x",
+    "node-sass": "npm:sass",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-easy-emoji": "^1.6.1",
-    "react-intl": "^5.20.12"
+    "react-intl": "^5.24.6"
   },
   "devDependencies": {
-    "@netlify/plugin-nextjs": "^3.9.0",
+    "@netlify/plugin-nextjs": "^4.2.6",
     "@types/cookie": "^0.4.1",
-    "@types/js-cookie": "^3.0.0",
+    "@types/js-cookie": "^3.0.1",
     "@types/linkifyjs": "^2.1.4",
     "@types/lodash.groupby": "^4.6.6",
     "@types/lodash.isequal": "^4.5.5",
     "@types/lodash.sortby": "^4.7.6",
     "@types/lodash.startcase": "^4.4.6",
     "@types/match-sorter": "^6.0.0",
-    "@types/node": "^16.10.2",
-    "@types/node-fetch": "^3.0.3",
-    "@types/react": "^17.0.26",
-    "@types/react-dom": "^17.0.9",
+    "@types/node": "^17.0.18",
+    "@types/node-fetch": "^2.6.1",
+    "@types/react": "^17.0.39",
+    "@types/react-dom": "^17.0.11",
     "babel-plugin-inline-react-svg": "^2.0.1",
-    "concurrently": "^6.2.2",
-    "critters": "^0.0.10",
-    "husky": "^7.0.2",
-    "lint-staged": "^11.1.2",
+    "concurrently": "^7.0.0",
+    "critters": "^0.0.16",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.3.4",
     "open-cli": "^7.0.1",
     "pre-commit": "^1.2.2",
-    "prettier": "^2.4.1",
+    "prettier": "^2.5.1",
     "rimraf": "^3.0.2",
-    "ts-node": "^10.2.1",
-    "typescript": "^4.4.3",
-    "webpack": "^5.56.0"
+    "ts-node": "^10.5.0",
+    "typescript": "^4.5.5",
+    "webpack": "^5.69.1"
   },
   "browserslist": {
     "production": [
@@ -97,5 +101,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "volta": {
+    "node": "15.14.0"
   }
 }

@@ -11,10 +11,18 @@
   "deviceList": {
     "searchDevice": "기기 검색",
     "notFound": "기기를 찾을 수 없음!",
-    "diy": "해당 기기는 아직 지원하지 않습니다! 괜찮으시다면 당신이 직접 펌웨어를 만드실 수도 있습니다. 이곳을 클릭하시면 자세히 보실 수 있습니다."
+    "diy": "해당 기기는 아직 지원하지 않습니다! 괜찮으시다면 당신이 직접 펌웨어를 만드실 수도 있습니다. 이곳을 클릭하시면 자세히 보실 수 있습니다.",
+    "filter": {
+      "all": null,
+      "supported": null
+    }
   },
   "device": {
-    "info": "(기기 정보)"
+    "info": "(기기 정보)",
+    "unsupported": {
+      "primaryText": null,
+      "secondaryText": null
+    }
   },
   "maintain": {
     "status": {

@@ -50,5 +50,8 @@ function countryCodeEmoji(cc) {
     region: 'Global',
     flag: '🌎',
   });
-  fs.writeFileSync('public/region.json', JSON.stringify(res, null, 2));
+  fs.writeFileSync(
+    'public/translations/region.json',
+    JSON.stringify(res, null, 2)
+  );
 })();

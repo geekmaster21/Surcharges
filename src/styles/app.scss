@@ -111,7 +111,7 @@ ul.no-list-style {
 
 .device-list-loading {
   @extend .shimmer-wrapper;
-  @extend ul.no-list-style;
+  @extend ul, .no-list-style;
   display: inline-flex;
   flex-direction: column;
   align-items: center;

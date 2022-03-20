@@ -1,5 +1,14 @@
 [build]
-  command   = "npm run build"
+  command = "npm run build"
+
+[context.production]
+  environment = { NODE_ENV = "test" }
+
+[context.branch-deploy]
+  command = "echo branch"
+
+[context.branch-deploy.environment]
+  NODE_ENV = "test"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"

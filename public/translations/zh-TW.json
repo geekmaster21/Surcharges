@@ -11,10 +11,18 @@
   "deviceList": {
     "searchDevice": "搜尋裝置",
     "notFound": "未找到裝置！",
-    "diy": "看起來我們還不支援這款裝置！不過歡迎您為自己與社群建構一個版本。點此了解更多資訊。"
+    "diy": "看起來我們還不支援這款裝置！不過歡迎您為自己與社群建構一個版本。點此了解更多資訊。",
+    "filter": {
+      "all": null,
+      "supported": null
+    }
   },
   "device": {
-    "info": "（裝置資訊）"
+    "info": "（裝置資訊）",
+    "unsupported": {
+      "primaryText": null,
+      "secondaryText": null
+    }
   },
   "maintain": {
     "status": {

@@ -11,10 +11,18 @@
   "deviceList": {
     "searchDevice": "Szukaj urządzenia",
     "notFound": "Nie znaleziono urządzenia!",
-    "diy": "Wygląda na to, że jeszcze nie mamy tego urządzenia! Ale możesz zbudować OrangeFox dla siebie i społeczności. Kliknij tutaj, aby dowiedzieć się więcej."
+    "diy": "Wygląda na to, że jeszcze nie mamy tego urządzenia! Ale możesz zbudować OrangeFox dla siebie i społeczności. Kliknij tutaj, aby dowiedzieć się więcej.",
+    "filter": {
+      "all": null,
+      "supported": null
+    }
   },
   "device": {
-    "info": "(Informacje o urządzeniu)"
+    "info": "(Informacje o urządzeniu)",
+    "unsupported": {
+      "primaryText": null,
+      "secondaryText": null
+    }
   },
   "maintain": {
     "status": {

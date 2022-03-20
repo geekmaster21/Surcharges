@@ -29,12 +29,11 @@ export function Toast({
     React.ComponentType<TransitionProps> | undefined
   >(undefined);
 
-  const handleClick = (
-    Transition: React.ComponentType<TransitionProps>
-  ) => () => {
-    setTransition(() => Transition);
-    setOpen(true);
-  };
+  const handleClick =
+    (Transition: React.ComponentType<TransitionProps>) => () => {
+      setTransition(() => Transition);
+      setOpen(true);
+    };
 
   useEffect(() => {
     if (show) {
