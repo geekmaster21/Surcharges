@@ -25,6 +25,7 @@ const nextConfig = {
   //   return config;
   // },
   // target: 'serverless',
+  output: 'standalone',
 };
 
 module.exports = nextConfig;
