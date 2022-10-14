@@ -1,5 +1,4 @@
 import config from 'config';
-import nodeFetch, { Response } from 'node-fetch';
 
 async function get<T = any, S = any>(url: string, params?: T) {
   const _url = new URL(`${config.apiUrl}/${url}`);
@@ -9,7 +8,7 @@ async function get<T = any, S = any>(url: string, params?: T) {
 
   let apiResponse: Response | null = null;
   try {
-    apiResponse = await nodeFetch(_url.toString(), {
+    apiResponse = await fetch(_url.toString(), {
       method: 'GET',
     });
     const json = await apiResponse.json();

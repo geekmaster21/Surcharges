@@ -1,5 +1,5 @@
 import { Backdrop, Button, Dialog, DialogActions } from '@material-ui/core';
-import { useState } from 'react';
+import { PropsWithChildren, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import useStyles from 'styles/mui/modal';
 
@@ -9,12 +9,12 @@ interface ModalProps {
   toggleModal?: () => void;
 }
 
-const Modal: React.FunctionComponent<ModalProps> = ({
+const Modal = ({
   noClose,
   showModal,
   children,
   toggleModal,
-}) => {
+}: PropsWithChildren<ModalProps>) => {
   const [open, setOpen] = useState(showModal);
 
   /*

@@ -2,10 +2,9 @@
 // https://github.com/thekelvinliu/country-code-emoji/blob/main/src/index.js
 
 const fs = require('fs');
-const nodeFetch = require('node-fetch');
 
 const source_registry = () =>
-  nodeFetch(
+  fetch(
     'https://raw.githubusercontent.com/mattcg/language-subtag-registry/master/data/json/registry.json',
     {
       method: 'GET',

@@ -24,7 +24,7 @@ const nextConfig = {
   //   }
   //   return config;
   // },
-  target: 'serverless',
+  // target: 'serverless',
 };
 
 module.exports = nextConfig;

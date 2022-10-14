@@ -3,10 +3,9 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import { Layout, MetaTagsDynamic, MetaTagsStatic } from 'components';
 import config from 'config';
 import cookie from 'cookie';
-import { locale } from 'dayjs';
 import type { AppProps } from 'next/app';
 import { AppContextType } from 'next/dist/shared/lib/utils';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { IntlProvider } from 'react-intl';
 import 'styles/app.scss';
 import { Dotize, IsCSR, keyOfLang } from 'utils';
@@ -17,7 +16,12 @@ import { DarkTheme } from '../themes';
 // TODO: remove this and handle translations properly
 DisableErrorFromReactIntl();
 
-export default function OrangeFoxApp(props: AppProps) {
+type PageProps = {
+  locale: string;
+  translations: Record<string, string>;
+};
+
+export default function OrangeFoxApp(props: AppProps<PageProps>) {
   const {
     Component,
     pageProps: { translations, locale, ...rest },
@@ -61,57 +65,60 @@ OrangeFoxApp.getInitialProps = async ({
   router,
   Component,
 }: AppContextType) => {
+  let alpPicked = null;
+  let localeToUse = '';
   let headerLocale = '';
-  let pageProps: any = {},
-    alpPicked = null;
+  let pageProps = {} as PageProps;
 
   try {
-    const cookieData = cookie.parse(ctx.req?.headers?.cookie || '');
+    if (IsCSR) {
+      localeToUse = config.locale.current; // TODO: This should be router.locale, but it's not working properly
+    } else {
+      const cookieData = cookie.parse(ctx.req!.headers.cookie || '');
 
-    headerLocale = ctx.req?.headers?.['accept-language']!;
-    if (!IsCSR) {
-      console.log({ headerLocale });
+      headerLocale = ctx.req!.headers!['accept-language']!;
+
+      if (headerLocale) {
+        alpPicked = pick(langCodes, headerLocale);
+      }
+
+      localeToUse =
+        cookieData[keyOfLang] ||
+        alpPicked ||
+        router.locale ||
+        config.locale.default;
+
+      if (ctx.res && ctx.req && localeToUse !== router.locale) {
+        console.log({ redirectedLocale: localeToUse });
+        ctx.res.writeHead(307, { Location: `/${localeToUse}${ctx.req.url}` });
+        return ctx.res.end();
+      }
     }
-    if (headerLocale) {
-      alpPicked = pick(langCodes, headerLocale);
-    }
 
-    const locale =
-      cookieData[keyOfLang] ||
-      alpPicked ||
-      router.locale ||
-      config.locale.default;
-
-    if (ctx.res && ctx.req && locale !== router.locale) {
-      console.log({ redirectedLocale: locale });
-      ctx.res.writeHead(307, { Location: `/${locale}${ctx.req.url}` });
-      return ctx.res.end();
-    }
-
-    let cachedTranslation = traslationCache[locale];
+    let cachedTranslation = traslationCache[localeToUse];
 
     if (cachedTranslation) {
-      console.log('using cached translation for locale:', locale);
+      console.log('using cached translation for locale:', localeToUse);
     } else {
-      traslationCache[locale] = await import(
-        `@public/translations/${locale}.json`
+      traslationCache[localeToUse] = await import(
+        `@public/translations/${localeToUse}.json`
       ).then(x => {
-        console.log({ currentLocale: locale });
+        console.log({ currentLocale: localeToUse });
         const translation = Dotize.convert(x.default || x);
         return translation;
       });
-      cachedTranslation = traslationCache[locale];
-      console.log('added translation to cache for locale:', locale);
+      cachedTranslation = traslationCache[localeToUse];
+      console.log('added translation to cache for locale:', localeToUse);
     }
 
     if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(ctx);
+      pageProps = (await Component.getInitialProps(ctx)) as PageProps;
     }
 
     return {
       pageProps: {
         ...pageProps,
-        locale,
+        locale: localeToUse,
         translations: cachedTranslation,
       },
     };
@@ -119,7 +126,7 @@ OrangeFoxApp.getInitialProps = async ({
     console.error(
       {
         headerLocale,
-        currentLocale: locale,
+        currentLocale: localeToUse,
         errMsg: err.toString(),
         catchedError: 'some-error-occurred',
       },

@@ -15,21 +15,21 @@ const LanguageToggle = () => {
   const locale =
     GetCurrentLocale(false) || router.locale || config.locale.default;
 
-  const handleChange = ({ target: { value: locale } }: any) => {
-    if (!locale) {
+  const handleChange = (e: any) => {
+    const {
+      target: { value: nextLocale },
+    } = e;
+    if (!nextLocale) {
       return window.open(
         'https://translate.orangefox.tech/downloads-website',
         '_blank'
       );
     }
-    const query = (router.query || {}) as any;
-    SetCurrentLocale(locale);
-    const url = router.pathname;
-    let as = url;
-    Object.keys(query).forEach(key => {
-      as = as.replace(`[${key}]`, query[key]);
+    SetCurrentLocale(nextLocale);
+    const { pathname, asPath, query } = router;
+    router.push({ pathname, query }, asPath, {
+      locale: nextLocale,
     });
-    router.push(url, as, { locale, shallow: false });
   };
 
   function getEmoji() {
