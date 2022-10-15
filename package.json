@@ -20,7 +20,7 @@
   "displayName": "OrangeFox Recovery Downloads",
   "license": "AGPL-3.0-or-later",
   "homepage": "http://orangefox.download",
-  "version": "22.10.14-1",
+  "version": "22.10.15-1",
   "private": false,
   "funding": "https://opencollective.com/orangefox/donate",
   "scripts": {
@@ -101,7 +101,7 @@
     ]
   },
   "engines": {
-    "node": "18.11.0"
+    "node": ">=18.11.0"
   },
   "volta": {
     "node": "18.11.0"
