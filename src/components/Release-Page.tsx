@@ -3,6 +3,7 @@ import { DeviceInfo, MetaTagsDynamic } from 'components';
 import Release from 'components/Release';
 import { titleCase } from 'core';
 import { IDeviceWithMaintainer, IRelease } from 'models';
+import { NextPage } from 'next';
 
 type Props = {
   popup: string;
@@ -61,4 +62,4 @@ const ReleasePage = ({ info, popup, release }: Props) => {
   );
 };
 
-export default ReleasePage;
+export default ReleasePage as NextPage;

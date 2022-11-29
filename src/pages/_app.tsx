@@ -128,7 +128,6 @@ OrangeFoxApp.getInitialProps = async ({
         headerLocale,
         currentLocale: localeToUse,
         errMsg: err.toString(),
-        catchedError: 'some-error-occurred',
       },
       err
     );
