@@ -148,3 +148,8 @@ ul.no-list-style {
   @extend .orange;
   margin: 0 -12px 0 8px !important;
 }
+
+.flagEmoji {
+  display: flex;
+  width: 22px;
+}

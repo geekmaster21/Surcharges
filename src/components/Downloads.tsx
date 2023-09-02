@@ -7,6 +7,7 @@ import {
 } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
 import {
+  Flag,
   GetAppIconOutlined,
   HyperLink,
   Image,
@@ -17,8 +18,6 @@ import {
 import config from 'config';
 import { IReleaseWithDetails } from 'models';
 import React, { useState } from 'react';
-// @ts-ignore
-import emoji from 'react-easy-emoji';
 import { FormattedMessage } from 'react-intl';
 import useStyles from 'styles/mui/release';
 import { CopyToClipboard, IsCSR, StopEvent } from 'utils';
@@ -145,7 +144,7 @@ const Downloads: React.FunctionComponent<DownloadsProps> = ({
                 }}
               >
                 <Button className={classes.downloadButton}>
-                  <span>{emoji(m.flag)}</span>
+                  <span><Flag emoji={m.flag} /></span>
                   <span>{m.region}</span>
                 </Button>
               </a>

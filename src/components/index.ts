@@ -2,6 +2,7 @@ export * from './Anchor-Link';
 export * from './Device-Info';
 export * from './Device-Release';
 export * from './Donation';
+export * from './Flag';
 export * from './Footer';
 export * from './Icons';
 export * from './Image';
